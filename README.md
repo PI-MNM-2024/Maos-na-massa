@@ -1,6 +1,6 @@
 # Maos-na-massa
 Projeto integrador interdisciplinar do segundo semestre de Ciência da Computação, em parceria com o Projeto Mãos na Massa.
-Instituto Mauá de Tecnologia (IMT) - Turma 3
+Instituto Mauá de Tecnologia (IMT) - Turma 6 - 2º Semestre
 
 | Alunos            | R.A.       | Github             |
 | ----------------- | ---------- | ------------------ |
