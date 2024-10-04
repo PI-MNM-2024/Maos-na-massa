@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Projeto Mãos na Massa</title>
 </head>
-<body>
+<body class="conteudo__contato">
     <header class="cabecalho">
         <nav class="cabecalho__menu">
             <ul>
@@ -27,6 +28,21 @@
                 <p>(11) 97328-5665</p>
              </aside>
         </section>
+        <form action="/submit" method="POST">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" name="telefone" id="telefone" required>
+
+            <label for="mensagem">Digite aqui sua mensagem:</label>
+            <textarea name="mensagem" id="mensagem" rows="4" required></textarea>
+
+            <button class="" type="submit">Enviar</button>
+        </form>
     </main>
 </body>
 </html>
