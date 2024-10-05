@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.cabecalho {
+    width: 100%;
+    background-color: #242424;
+    padding: 20px;
+    
+}
+
+.cabecalho__menu ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cabecalho__menu li {
+    margin: 0 10px;
+}
+
+.cabecalho__menu a {
+    color: white; /* Muda a cor da escrita para branco */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+main {
+    flex: 1; /* Ocupa o espaço restante da tela abaixo do cabeçalho */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    background-color: #E4D5B6;
+}
+
+.fotos {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as imagens "quebrem" para a próxima linha */
+    justify-content: center;
+    gap: 20px; /* Espaçamento entre as imagens */
+    flex-direction: column;
+    padding: 10px;
+}
+.julita:hover {
+    transform: scale(1.05); /* Aumenta a imagem em 10% */
+    opacity: 0.5; /* Reduz a opacidade da imagem ao passar o mouse */
+}
+.vila_abrigo:hover {
+    transform: scale(1.05); /* Aumenta a imagem em 10% */
+    opacity: 0.5; /* Reduz a opacidade da imagem ao passar o mouse */
+}
+.carlos_alberto:hover {
+    transform: scale(1.05); /* Aumenta a imagem em 10% */
+    opacity: 0.5; /* Reduz a opacidade da imagem ao passar o mouse */
+}
+.abcd:hover {
+    transform: scale(1.05); /* Aumenta a imagem em 10% */
+    opacity: 0.5; /* Reduz a opacidade da imagem ao passar o mouse */
+}
+
+.julita, .vila_abrigo, .carlos_alberto, .abcd {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5%;
+}
