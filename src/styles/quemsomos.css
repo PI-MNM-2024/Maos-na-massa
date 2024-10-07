@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif; /* Adicionando a fonte Roboto */
+
+}
+
+.cabecalho__menu {
+    display: flex;
+    align-items: center;
+    background-color: #242424;
+    opacity: 0.7;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 40px); /* Ajusta a largura para cobrir toda a página menos a margem */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    border-radius: 15px;
+    z-index: 100;
+    padding-left: 400px;
+}
+
+.cabecalho__menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-grow: 1; /* Faz com que a lista de itens ocupe o espaço restante */
+}
+
+.cabecalho__menu li {
+    margin: 0 15px;
+}
+
+.cabecalho__menu a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.cabecalho__menu a:hover {
+    color: #AEAEAE; 
+}
+
+.ajude_agora {
+    margin-left: auto; /* Empurra o botão para o canto direito */
+    margin-right: 20px; /* Adiciona um espaço à direita do botão */
+    background-color: #FF7A00;
+    opacity: 0.7;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 15px;
+    text-decoration: none;
+}
+
+.ajude_agora:hover {
+    background-color: #FF8C00;
+}
+

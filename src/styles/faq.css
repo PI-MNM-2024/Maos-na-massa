@@ -12,6 +12,7 @@ body {
 
 }
 
+
 .cabecalho__menu {
     display: flex;
     align-items: center;
@@ -25,6 +26,7 @@ body {
     left: 20px;
     border-radius: 15px;
     z-index: 100;
+    padding-left: 400px;
 }
 
 .cabecalho__menu ul {
@@ -32,7 +34,6 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* Centraliza os itens no meio */
     flex-grow: 1; /* Faz com que a lista de itens ocupe o espaço restante */
 }
 
@@ -64,6 +65,8 @@ body {
 .ajude_agora:hover {
     background-color: #FF8C00;
 }
+
+
 main {
     flex: 1; 
     display: flex;

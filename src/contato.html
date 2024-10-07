@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,20 @@
     <link rel="shortcut icon" href="/assets/favicon.ico">
     <title>Projeto Mãos na Massa</title>
 </head>
+
 <body class="conteudo__contato">
     <header class="cabecalho">
         <nav class="cabecalho__menu">
-                <li><a href="index.html"><img src="/assets/favicon.ico" alt="Foto da logo do mãos na massa" width="30px"></a></li>
+            <a class="logo" href="index.html"><img src="/src/assets/favicon.ico"
+                    alt="Foto da logo do mãos na massa"></a>
+            <ul>
                 <li><a href="quemsomos.html">Quem Somos</a></li>
                 <li><a href="realizacoes.html">Realizações</a></li>
                 <li><a href="areadedoadores.html">Área de Doadores</a></li>
                 <li><a href="faq.html">FAQ</a></li>
                 <li><a href="contato.html">Contato</a></li>
-                <li><a href="ajudeagora.html">Ajude Agora</a></li>
             </ul>
+            <a class="ajude_agora" href="ajudeagora.html">Ajude Agora</a>
         </nav>
     </header>
     <main>
@@ -26,21 +30,21 @@
         <div vw class="enabled">
             <div vw-access-button class="active"></div>
             <div vw-plugin-wrapper>
-              <div class="vw-plugin-top-wrapper"></div>
+                <div class="vw-plugin-top-wrapper"></div>
             </div>
-          </div>
-          <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-          <script>
+        </div>
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+        <script>
             new window.VLibras.Widget('https://vlibras.gov.br/app');
-          </script>
+        </script>
 
         <section>
             <h1>Fale Conosco!</h1>
             <!-- essa linha é pro mapa de localização da ong maos na massa-->
 
-             <aside>
+            <aside>
                 <p>(11) 97328-5665</p>
-             </aside>
+            </aside>
         </section>
         <form action="/submit" method="POST">
             <label for="nome">Nome:</label>
@@ -59,4 +63,5 @@
         </form>
     </main>
 </body>
+
 </html>

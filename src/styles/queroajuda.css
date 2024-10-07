@@ -11,9 +11,8 @@ body {
     font-family: 'Roboto', sans-serif; /* Adicionando a fonte Roboto */
 
 }
-main {
-    padding-left: 100px;
-    padding-top: 200px; /* Ajuste este valor para a altura do seu cabeçalho */
+main{
+    padding-top: 100px;
 }
 
 .cabecalho__menu {
