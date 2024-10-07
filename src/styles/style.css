@@ -245,3 +245,57 @@ button:hover {
   .pergunta-container .resposta-container {
     margin: 0;
   }
+  
+  .card-body {
+    flex-grow: 1; /* Faz com que o corpo da carta ocupe o espaço disponível */
+    display: flex;
+    flex-direction: column; /* Alinha o conteúdo do corpo verticalmente */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+}
+
+.card-img-top {
+    height: 300px; 
+    object-fit: cover; 
+    width: 100%;
+    border: 2px solid red;
+}
+
+.news-article {
+    display: flex; 
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+.botao-canto {
+    position: absolute; /* Posiciona o botão dentro do card */
+    bottom: 10px; /* Distância do fundo do card */
+    left: 10px; /* Distância da esquerda do card */
+    width: 30%; /* O botão ocupa 30% da largura do card */
+}
+
+@media (max-width: 1200px) { /* Desktop */
+    .card-img-top {
+        height: 180px; /* Ajuste a altura se necessário */
+    }
+}
+
+@media (max-width: 992px) { /* Tablet */
+    .card-img-top {
+        height: 160px; /* Ajuste a altura para tablets */
+    }
+}
+
+@media (max-width: 768px) { /* Mobile */
+    .card-img-top {
+        height: 250px; /* Ajuste a altura para celulares */
+    }
+}
+
+@media (max-width: 576px) { /* Mobile Extra Pequeno */
+    .card-img-top {
+        height: 300px; /* Ajuste a altura para dispositivos muito pequenos */
+    }
+}
