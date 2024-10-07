@@ -65,7 +65,7 @@ body {
     background-color: #FF8C00;
 }
 
-main{
+.corpo__pagina-principal{
     padding-top: 200px;
 }
 
@@ -124,3 +124,124 @@ button {
 button:hover {
     background-color: #45a049;
 }
+
+.corpo__pagina-realizacoes {
+    flex: 1; /* Ocupa o espaço restante da tela abaixo do cabeçalho */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    background-color: #E4D5B6;
+}
+
+.fotos {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as imagens "quebrem" para a próxima linha */
+    justify-content: center;
+    gap: 20px; /* Espaçamento entre as imagens */
+    flex-direction: column;
+    padding: 10px;
+}
+.julita:hover {
+    transform: scale(1.05); /* Aumenta a imagem em 10% */
+    opacity: 0.5; /* Reduz a opacidade da imagem ao passar o mouse */
+}
+.vila_abrigo:hover {
+    transform: scale(1.05); /* Aumenta a imagem em 10% */
+    opacity: 0.5; /* Reduz a opacidade da imagem ao passar o mouse */
+}
+.carlos_alberto:hover {
+    transform: scale(1.05); /* Aumenta a imagem em 10% */
+    opacity: 0.5; /* Reduz a opacidade da imagem ao passar o mouse */
+}
+.abcd:hover {
+    transform: scale(1.05); /* Aumenta a imagem em 10% */
+    opacity: 0.5; /* Reduz a opacidade da imagem ao passar o mouse */
+}
+
+.foto-container {
+    position: relative; /* Para posicionar o título relativo à imagem */
+}
+
+.titulo {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s; /* Transição suave */
+    padding: 10px 0; /* Espaçamento */
+    border-radius: 5px; /* Arredondar as bordas */
+    font-family: 'Roboto', sans-serif; /* Definindo a fonte aqui */
+
+}
+
+.titulo_outro {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s; /* Transição suave */
+    padding: 10px 0; /* Espaçamento */
+    border-radius: 5px; /* Arredondar as bordas */
+    font-family: 'Roboto', sans-serif; /* Definindo a fonte aqui */
+
+}
+
+.foto-container:hover .titulo {
+    opacity: 1; /* Torna visível quando o mouse passa sobre a imagem */
+}
+
+.foto-container:hover .titulo_outro {
+    opacity: 1; /* Torna visível quando o mouse passa sobre a imagem */
+}
+
+.julita, .vila_abrigo, .carlos_alberto, .abcd {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5%;
+}
+
+.corpo__pagina-noticias{
+    padding-top: 200px;
+}
+.corpo__pagina-faq {
+    flex: 1; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    background-color: #E4D5B6;
+}
+.perguntas{
+    margin-top: 40px;
+}
+.pergunta-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    width: 80%; 
+    margin: 10px auto; 
+    background-color: #E5A000;
+    margin-top: 10px;
+  }
+  
+  .pergunta-container img {
+    margin-right: 20px; 
+    max-width: 200px; 
+  }
+  
+  .pergunta-container h2 {
+    margin: 0;
+  }
+  
+  .pergunta-container .resposta-container {
+    margin: 0;
+  }
