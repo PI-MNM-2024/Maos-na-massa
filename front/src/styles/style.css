@@ -12,7 +12,78 @@ body {
     padding-top: 54.5px; /* Ajuste o valor conforme a altura da navbar */
 }
 
+.mapa{
+    border-radius: 20px;
+    flex: 1;
+    max-width: 300px; /* Reduz o tamanho do mapa */
+    height: 200px; /
+}
+.contato_index{
+    padding-top: 10px;
+    text-align: center;
+    color: #ffff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+.rodape {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
 
+.final {
+    display: flex;
+    gap: 15px; /* Reduz o espaçamento entre o mapa e o formulário */
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 900px; /* Limita a largura total da seção */
+    margin: 0 auto; /* Centraliza a seção na página */
+}
+
+.mapa {
+    flex: 1;
+    max-width: 400px; /* Tamanho menor e mais compacto para o mapa */
+    height: 200px; /* Altura menor para o mapa */
+}
+
+form {
+    flex: 1;
+    width: 200px;
+    height: 400px; /* Limita o tamanho do formulário */
+}
+
+form label {
+    display: block;
+    font-size: 14px; /* Tamanho menor para um visual minimalista */
+    margin-bottom: 5px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 6px; /* Reduz o preenchimento dos campos */
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px; /* Tamanho menor para os campos */
+}
+
+form textarea {
+    resize: vertical; /* Permite redimensionar verticalmente apenas */
+}
+
+form button {
+    padding: 8px 16px; /* Botão menor e mais compacto */
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
 .cabecalho__menu {
     display: flex;
     align-items: center;
@@ -312,7 +383,7 @@ strong{
 }
 .rodape{
     background-color: #D7C5A2;
-    height: 200px;
+    height: 550px;
 }
 .titulo {
     position: absolute;

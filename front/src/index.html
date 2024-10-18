@@ -24,8 +24,10 @@
 <body class="bg-secondary">
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="assets/favicon/favicon.ico" alt="Foto da logo do mãos na massa"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNav" aria-controls="myNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#"><img src="assets/favicon/favicon.ico"
+                    alt="Foto da logo do mãos na massa"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNav"
+                aria-controls="myNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="myNav">
@@ -37,7 +39,8 @@
                     <a class="nav-link active me-2" aria-current="page" href="contato.html">Contato</a>
                     <a class="nav-link active me-2 ajude_agora" href="ajudeagora.html">Ajude Agora</a>
                     <a class="nav-link active me-2 login" aria-current="page" href="#">Login</a>
-                    <a class="nav-link active me-2" data-bs-toggle="modal" data-bs-target="#modalCadastro" href="#">Cadastro</a>
+                    <a class="nav-link active me-2" data-bs-toggle="modal" data-bs-target="#modalCadastro"
+                        href="#">Cadastro</a>
                 </div>
             </div>
         </div>
@@ -62,33 +65,59 @@
             <h2 id="slogan__titulo">"Construindo um Brasil mais inclusivo, tijolo por tijolo"</h2>
         </section>
         <section id="fundo">
-            
+
             <div class="apresentacao__conteudo">
-                <p>O Mãos na Massa tem como missão promovera dignidade e a inclusão social através da construção e adaptação
+                <p>O Mãos na Massa tem como missão promovera dignidade e a inclusão social através da construção e
+                    adaptação
                     de moradias e espaços comunitários para pessoas com deficiência ou em situação de vulnerabilidade. A
-                    organização mobiliza jovens voluntários para conscientizar e preparar futuras gerações sobre os desafios
+                    organização mobiliza jovens voluntários para conscientizar e preparar futuras gerações sobre os
+                    desafios
                     da acessibilidade no Brasil</p>
                 <img class="tijolo_icon" src="assets/favicon/tijolo.png" alt="tijolos">
             </div>
             <div class="mais__conteudo">
-                <p>A visão da ONG é ser uma <strong>referência nacional</strong> em acessibilidade, reconhecida por transformar a
+                <p>A visão da ONG é ser uma <strong>referência nacional</strong> em acessibilidade, reconhecida por
+                    transformar a
                     realidade de pessoas vulneráveis, criando um Brasil mais justo</p>
 
-                <p>Guiada por valores como <strong>inclusão</strong>, <strong>dignidade</strong>, <strong>empatia</strong>, <strong>solidariedade</strong>,
-                    <strong>sustentabilidade</strong> e <strong>resiliência</strong>, a Mãos na Massa busca impacto social positivo através de
+                <p>Guiada por valores como <strong>inclusão</strong>, <strong>dignidade</strong>,
+                    <strong>empatia</strong>, <strong>solidariedade</strong>,
+                    <strong>sustentabilidade</strong> e <strong>resiliência</strong>, a Mãos na Massa busca impacto
+                    social positivo através de
                     parcerias estratégicas
                 </p>
             </div>
             <button class="saiba__mais">Saiba Mais!</button>
         </section>
         <footer class="rodape">
+            <h1 class="contato_index">Fale Conosco!</h1>
+            <div class="final">
+                <form action="/submit" method="POST">
+                    <label for="nome">Nome:</label>
+                    <input type="text" name="nome" id="nome" required>
 
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required>
+
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" name="telefone" id="telefone" required>
+
+                    <label for="mensagem">Digite aqui sua mensagem:</label>
+                    <textarea name="mensagem" id="mensagem" rows="4" required></textarea>
+
+                    <button class="" type="submit">Enviar</button>
+                </form>
+                <iframe class="mapa"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.5087821612856!2d-46.67802762425299!3d-23.586079462501534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce575c01aa6997%3A0x36fdea6cc089117c!2sR.%20Bandeira%20Paulista%2C%20726%20-%20Itaim%20Bibi%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004532-002!5e0!3m2!1spt-BR!2sbr!4v1729534176723!5m2!1spt-BR!2sbr"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </footer>
 
 
 
     </main>
-   
+
 </body>
 
 </html>
