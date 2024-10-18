@@ -1,30 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <title>Projeto Mãos na Massa</title>
 </head>
-<body>
-    <header class="cabecalho">
-        <nav class="cabecalho__menu">
-            <a class="logo" href="index.html"><img src="assets/favicon/favicon.ico"
-                    alt="Foto da logo do mãos na massa"></a>
-            <ul>
-                <li><a href="quemsomos.html">Quem Somos</a></li>
-                <li><a href="realizacoes.html">Realizações</a></li>
-                <li><a href="areadedoadores.html">Área de Doadores</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
-            <a class="ajude_agora" href="ajudeagora.html">Ajude Agora</a>
-        </nav>
-    </header>
+
+<body class="bg-secondary">
+    <div class="container">
+        <header class="cabecalho">
+            <nav class="cabecalho__menu">
+                <a class="logo" href="index.html"><img src="assets/favicon/favicon.ico"
+                        alt="Foto da logo do mãos na massa"></a>
+                <ul>
+                    <li><a href="quemsomos.html">Quem Somos</a></li>
+                    <li><a href="realizacoes.html">Realizações</a></li>
+                    <li><a href="areadedoadores.html">Área de Doadores</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <a class="ajude_agora" href="ajudeagora.html">Ajude Agora</a>
+            </nav>
+        </header>
+    </div>
     <main class="corpo__pagina-principal">
-        
+
         <!-- Ícone de acessibilidade -->
         <div vw class="enabled">
             <div vw-access-button class="active"></div>
@@ -38,26 +53,38 @@
         </script>
 
         <section class="apresentacao">
-            <h1 class="apresentacao__titulo">Projeto Mãos na Massa</h1>
+            <img class="img-fluid" src="assets/images/fotoequipe.jpg" alt="foto da equipe">
+            <h1 class="apresentacao__titulo">PROJETO MÃOS NA MASSA</h1>
             <h2 id="slogan__titulo">"Construindo um Brasil mais inclusivo, tijolo por tijolo"</h2>
-            <div class="apresentacao__conteudo">
-                <p>O Mãos na Massa tem como missão promovera dignidade e a inclusão social através da construção e adaptação de moradias e espaços comunitários para pessoas com deficiência ou em situação de vulnerabilidade. A organização mobiliza jovens voluntários para conscientizar e preparar futuras gerações sobre os desafios da acessibilidade no Brasil</p>
-                
-                <p>A visão da ONG é ser uma <b>referência nacional</b> em acessibilidade, reconhecida por transformar a realidade de pessoas vulneráveis, criando um Brasil mais justo</p>
-
-                <p>Guiada por valores como <b>inclusão</b>, <b>dignidade</b>, <b>empatia</b>, <b>solidariedade</b>, <b>sustentabilidade</b> e <b>resiliência</b>, a Mãos na Massa busca impacto social positivo através de parcerias estratégicas</p>
-            </div>
         </section>
+        <section id="fundo">
+            
+            <div class="apresentacao__conteudo">
+                <p>O Mãos na Massa tem como missão promovera dignidade e a inclusão social através da construção e adaptação
+                    de moradias e espaços comunitários para pessoas com deficiência ou em situação de vulnerabilidade. A
+                    organização mobiliza jovens voluntários para conscientizar e preparar futuras gerações sobre os desafios
+                    da acessibilidade no Brasil</p>
+                <img class="tijolo_icon" src="assets/favicon/tijolo.png" alt="tijolos">
+            </div>
+            <div class="mais__conteudo">
+                <p>A visão da ONG é ser uma <strong>referência nacional</strong> em acessibilidade, reconhecida por transformar a
+                    realidade de pessoas vulneráveis, criando um Brasil mais justo</p>
+
+                <p>Guiada por valores como <strong>inclusão</strong>, <strong>dignidade</strong>, <strong>empatia</strong>, <strong>solidariedade</strong>,
+                    <strong>sustentabilidade</strong> e <strong>resiliência</strong>, a Mãos na Massa busca impacto social positivo através de
+                    parcerias estratégicas
+                </p>
+            </div>
+            <button class="saiba__mais">Saiba Mais!</button>
+        </section>
+        <footer class="rodape">
+
+        </footer>
+
+
 
     </main>
-    <footer class="rodape">
-        <ul>
-            <li><a href=""><img src="assets/images/natural-one.png" alt="Natural One"></a></li>
-            <li><a href=""><img src="assets/images/genial-investimentos.png" alt="Genial Investimentos"></a></li>
-            <li><a href=""><img src="assets/images/sephora.png" alt="Sephora"></a></li>
-            <li><a href=""><img src="" alt=""></a></li>
-            <li><a href=""><img src="" alt=""></a></li>
-        </ul>
-    </footer>
+   
 </body>
+
 </html>
