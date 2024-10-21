@@ -9,8 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
-    /* Adicionando a fonte Roboto */
-
+    padding-top: 54.5px; /* Ajuste o valor conforme a altura da navbar */
 }
 
 
@@ -491,3 +490,16 @@ strong{
         /* Ajuste a altura para dispositivos muito pequenos */
     }
 }
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.9); 
+}
+.navbar-nav .nav-link {
+    color: white !important; 
+}
+
+.login {
+    background-color: green;
+    border-radius: 15%;
+}
+
