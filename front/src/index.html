@@ -22,22 +22,26 @@
 </head>
 
 <body class="bg-secondary">
-    <div class="container">
-        <header class="cabecalho">
-            <nav class="cabecalho__menu">
-                <a class="logo" href="index.html"><img src="assets/favicon/favicon.ico"
-                        alt="Foto da logo do mãos na massa"></a>
-                <ul>
-                    <li><a href="quemsomos.html">Quem Somos</a></li>
-                    <li><a href="realizacoes.html">Realizações</a></li>
-                    <li><a href="areadedoadores.html">Área de Doadores</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                </ul>
-                <a class="ajude_agora" href="ajudeagora.html">Ajude Agora</a>
-            </nav>
-        </header>
-    </div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="assets/favicon/favicon.ico" alt="Foto da logo do mãos na massa"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNav" aria-controls="myNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="myNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active me-2 corTexto" aria-current="page" href="#">Quem Somos</a>
+                    <a class="nav-link active me-2" aria-current="page" href="#">Realizações</a>
+                    <a class="nav-link active me-2" aria-current="page" href="#">Área de Doadores</a>
+                    <a class="nav-link active me-2" aria-current="page" href="#">FAQ</a>
+                    <a class="nav-link active me-2" aria-current="page" href="#">Contato</a>
+                    <a class="nav-link active me-2 ajude_agora" href="ajudeagora.html">Ajude Agora</a>
+                    <a class="nav-link active me-2 login" aria-current="page" href="#">Login</a>
+                    <a class="nav-link active me-2" data-bs-toggle="modal" data-bs-target="#modalCadastro" href="#">Novo usuário</a>
+                </div>
+            </div>
+        </div>
+    </nav>
     <main class="corpo__pagina-principal">
 
         <!-- Ícone de acessibilidade -->
@@ -53,7 +57,7 @@
         </script>
 
         <section class="apresentacao">
-            <img class="img-fluid" src="assets/images/fotoequipe.jpg" alt="foto da equipe">
+            <img class="img-fluid m-8" src="assets/images/fotoequipe.jpg" alt="foto da equipe">
             <h1 class="apresentacao__titulo">PROJETO MÃOS NA MASSA</h1>
             <h2 id="slogan__titulo">"Construindo um Brasil mais inclusivo, tijolo por tijolo"</h2>
         </section>
