@@ -129,10 +129,9 @@ form button:hover {
     /* Empurra o botão para o canto direito */
     margin-right: 20px;
     /* Adiciona um espaço à direita do botão */
-    background-color: #FF7A00;
-    opacity: 0.7;
+    background-color: #D67400;
+    opacity: 1;
     color: white;
-    padding: 10px 20px;
     border-radius: 15px;
     text-decoration: none;
 }
@@ -385,6 +384,10 @@ strong{
     background-color: #D7C5A2;
     height: 550px;
 }
+.login_foto{
+    width: 40px;
+    height: 40px;
+}
 .titulo {
     position: absolute;
     top: 50px;
@@ -570,7 +573,7 @@ strong{
 }
 
 .login {
-    background-color: green;
+    background-color: #f9f9f9;
     border-radius: 15%;
 }
 
