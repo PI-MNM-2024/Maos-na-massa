@@ -34,8 +34,6 @@ body {
 .final {
     display: flex;
     gap: 15px; /* Reduz o espaçamento entre o mapa e o formulário */
-    justify-content: center;
-    align-items: flex-start;
     max-width: 900px; /* Limita a largura total da seção */
     margin: 0 auto; /* Centraliza a seção na página */
 }
@@ -330,13 +328,21 @@ strong{
     font-size: 20px;
     text-align: center; /* Centraliza o texto horizontalmente */
     margin: 0 auto; /* Centraliza o contêiner na página */
-    max-width: 800px; /* Ajuste a largura máxima para caber a imagem e o texto */
+    max-width: 100%; /* Ajuste a largura máxima para caber a imagem e o texto */
+}
+#texto_principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 70%;
+    margin: 0 auto;
+    padding-left: 30% ;
 }
 
 .tijolo_icon {
-    width: 350px; /* Ajuste o tamanho da imagem conforme necessário */
+    max-width: 30%; /* Ajuste o tamanho da imagem conforme necessário */
     height: auto; /* Mantém a proporção da imagem */
-    margin-left: 20px; /* Adiciona espaço entre o texto e a imagem */
+    padding-left: 100px;
 }
 
 .saiba__mais {
