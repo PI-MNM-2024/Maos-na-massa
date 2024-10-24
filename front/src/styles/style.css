@@ -21,7 +21,7 @@ body {
 .contato_index{
     padding-top: 10px;
     text-align: center;
-    color: #ffff;
+    color: black;
     font-family: "Roboto", sans-serif;
     font-weight: 900;
     font-style: normal;
@@ -388,7 +388,7 @@ strong{
 }
 .rodape{
     background-color: #D7C5A2;
-    height: 550px;
+    height: 600px;
 }
 .login_foto{
     width: 40px;
@@ -583,3 +583,29 @@ strong{
     border-radius: 15%;
 }
 
+.telefone_numero {
+    font-size: 1.8em; /* Aumenta ou diminui o tamanho da fonte. */
+    margin: 10px 0; /* Ajusta a margem superior e inferior. */
+    text-align: center; /* Centraliza o texto. */
+    color: black;
+}
+.contact_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icons {
+    display: flex; /* Permite que os ícones fiquem em linha */
+    justify-content: center; /* Centraliza os ícones horizontalmente */
+}
+
+.social-icons a {
+    margin: 0 10px; /* Espaço entre os ícones */
+}
+
+.social-icons img {
+    width: 60px; /* Ajusta o tamanho dos ícones */
+    height: 60px; /* Ajusta o tamanho dos ícones */
+}
