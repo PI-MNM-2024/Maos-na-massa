@@ -16,12 +16,13 @@ async function enviarFormulario(){
     let telefone = telefoneInput.value
     let mensagem = mensagemInput.value 
 
+    
     if (nome&&email&&telefone&&mensagem){
         
         nomeInput.value = ""
         emailInput.value = ""
         telefoneInput.value = ""
-        mensagem.value = ""
+        mensagemInput.value = ""
 
         const formulario = (await axios.post(URLcompleta,{nome, email, telefone, mensagem})).data
 
@@ -30,6 +31,6 @@ async function enviarFormulario(){
     else{
         console.log("vish não foi")
     }
-
+    
 
 }

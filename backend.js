@@ -13,13 +13,13 @@ async function conectarAoMongoDB(){
 
 const formularioSchema = mongoose.Schema({
     nome: {type:String, required: true, unique: false},
-    email: {type:String, required:true, unique: true},
-    telefone: {type:String, required: true, unique:true},
+    email: {type:String, required:true, unique: false},
+    telefone: {type:String, required: true, unique:false},
     mensagem: {type:String, required: true, unique:false}
 
 })
 
-const formulario = mongoose.model("Formulario", formularioSchema)
+const Formulario = mongoose.model("Formulario", formularioSchema)
 
 app.listen(3000, () => {
     try{
@@ -39,9 +39,9 @@ app.post('/formulario', async (req,res) => {
     const telefone = req.body.telefone
     const mensagem = req.body.mensagem
 
-    const novoformulario = new formulario({nome:nome, email:email, telefone:telefone, mensagem:mensagem})
+    const novoformulario = new Formulario({nome:nome, email:email, telefone:telefone, mensagem:mensagem})
 
-    respMongo = await formulario.save()
+    respMongo = await novoformulario.save()
 
     console.log(respMongo)
     res.status(201).json({ message: "Formulário enviado com sucesso!", data: respMongo });
