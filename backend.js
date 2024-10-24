@@ -24,7 +24,7 @@ const formulario = mongoose.model("Formulario", formularioSchema)
 app.listen(3000, () => {
     try{
         conectarAoMongoDB()
-        console.log("Server has started!")
+        console.log("Server has started and Connection is ok!")
     }
     catch(error){
         console.log('Erro',error)
