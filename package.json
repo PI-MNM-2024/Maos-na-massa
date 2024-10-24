@@ -5,7 +5,7 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./front/script/script.js"
+    "start": "nodemon backend.js"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +13,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "expres": "^0.0.5",
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "mongoose": "^8.7.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"

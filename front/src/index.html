@@ -94,7 +94,7 @@
         <footer class="rodape">
             <h1 class="contato_index">Fale Conosco!</h1>
             <div class="final">
-                <form action="/submit" method="POST">
+                <form>
                     <label for="nome">Nome:</label>
                     <input type="text" name="nome" id="nome" required>
 
@@ -106,9 +106,11 @@
 
                     <label for="mensagem">Digite aqui sua mensagem:</label>
                     <textarea name="mensagem" id="mensagem" rows="4" required></textarea>
-
-                    <button class="" type="submit">Enviar</button>
+                    
+                    <button onclick="enviarFormulario()" type="submit">Enviar</button>
                 </form>
+                
+                
                 <div class="contact_info">
                     <iframe class="mapa m-5"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.5087821612856!2d-46.67802762425299!3d-23.586079462501534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce575c01aa6997%3A0x36fdea6cc089117c!2sR.%20Bandeira%20Paulista%2C%20726%20-%20Itaim%20Bibi%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004532-002!5e0!3m2!1spt-BR!2sbr!4v1729534176723!5m2!1spt-BR!2sbr"
@@ -131,7 +133,7 @@
 
 
     </main>
-
+    <script src="front/script/frontend.js"></script>
 </body>
 
 </html>
