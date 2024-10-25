@@ -1,6 +1,17 @@
 const protocolo = 'http://'
 const baseURL = 'localhost:3000'
 
+function exibirAlerta(seletor, innerHTML, classesToAdd, classesToRemove, timeout) {
+    let alert = document.querySelector(seletor)
+    alert.innerHTML = innerHTML
+    alert.classList.add(...classesToAdd)
+    alert.classList.remove(...classesToRemove)
+    setTimeout(() => {
+        alert.classList.remove('show')
+        alert.classList.add('d-none')
+    }, timeout)
+}
+
 async function enviarFormulario(){
     const formularioEndPoint = '/formulario'
 

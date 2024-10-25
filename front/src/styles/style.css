@@ -610,7 +610,6 @@ strong{
     height: 60px; /* Ajusta o tamanho dos ícones */
 }
 
-<<<<<<< HEAD
 .navbar {
     padding: 10px;
     overflow: visible; /* Garante que o conteúdo do dropdown seja visível */
@@ -624,7 +623,8 @@ strong{
 
 .dropdown-toggle::after {
     display: none !important; /* Remove a setinha */
-=======
+}
+
 .form_div{
     max-width: 30%;
     max-height: 400px;
@@ -644,5 +644,16 @@ strong{
 }
 .conteudo_todo{
     background-color: #E4D5B6;
->>>>>>> c4d63e274a66bcb3388ca1456c86865e18af2e89
+
+}
+
+#form-modal{
+    margin-bottom: 0;
+}
+
+/* Regras específicas para o formulário dentro do modal */
+.form-modal {
+    flex: initial; /* Sobrescreve flex */
+    width: auto;   /* Define a largura como automática */
+    height: auto;  /* Define a altura como automática */
 }
