@@ -629,12 +629,11 @@ strong{
 .dropdown-toggle::after {
     display: none !important; /* Remove a setinha */
 }
-<<<<<<< HEAD
+
+
 
 .form_div{
-=======
-    .form_div{
->>>>>>> d0ed52cb2ec872e7f6a69a044415973d7a1e3919
+
     max-width: 30%;
     max-height: 400px;
 }
@@ -653,12 +652,8 @@ strong{
 }
 .conteudo_todo{
     background-color: #E4D5B6;
-<<<<<<< HEAD
 
-}
 
-#form-modal{
-    margin-bottom: 0;
 }
 
 /* Regras específicas para o formulário dentro do modal */
@@ -666,10 +661,10 @@ strong{
     flex: initial; /* Sobrescreve flex */
     width: auto;   /* Define a largura como automática */
     height: auto;  /* Define a altura como automática */
-=======
+
 }
 
 iframe {
 
->>>>>>> d0ed52cb2ec872e7f6a69a044415973d7a1e3919
+
 }
