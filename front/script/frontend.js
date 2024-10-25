@@ -34,3 +34,28 @@ async function enviarFormulario(){
     
 
 }
+
+async function cadastrarUsuario(){
+    let usuarioCadastroInput = document.querySelector('#usuarioCadastroInput')
+    let passwordCadastroInput = document.querySelector('#passwordCadastroInput')
+    let usuarioCadastro = usuarioCadastroInput.value
+    let passwordCadastro = passwordCadastroInput.value
+    if (usuarioCadastro && passwordCadastro) {
+      try{
+      const cadastroEndpoint = '/signup'
+      const URLCompleta = `${protocolo}${baseURL}${cadastroEndpoint}`
+        await axios.post(URLCompleta, { login: usuarioCadastro, password: passwordCadastro })
+        usuarioCadastroInput.value = ""
+        passwordCadastroInput.value = ""
+        exibirAlerta('.alert-modal-cadastro', "Usuário cadastrado com sucesso!", ['show', 'alert-success'], ['d-none', 'alert-danger'], 2000)
+        ocultarModal('#modalLogin', 2000)
+      }
+      catch(error){
+        exibirAlerta('.alert-modal-cadastro', "Erro ao cadastrar usuário", ['show', 'alert-danger'], ['d-none', 'alert-success'], 2000)
+        ocultarModal('#modalLogin', 2000)
+      }
+    }
+    else{
+      exibirAlerta('.alert-modal-cadastro', 'Preencha todos os campos', ['show', 'alert-danger'], ['d-none', 'alert-success'], 2000)
+    }
+  }

@@ -609,3 +609,18 @@ strong{
     width: 60px; /* Ajusta o tamanho dos ícones */
     height: 60px; /* Ajusta o tamanho dos ícones */
 }
+
+.navbar {
+    padding: 10px;
+    overflow: visible; /* Garante que o conteúdo do dropdown seja visível */
+}
+.dropdown-menu {
+    left: auto !important; /* Remove o alinhamento padrão */
+    right: 0; /* Alinha o menu à direita do botão */
+    margin: 5px 0; /* Adiciona um pequeno espaço */
+    min-width: 200px; /* Ajuste a largura mínima conforme necessário */
+}
+
+.dropdown-toggle::after {
+    display: none !important; /* Remove a setinha */
+}
