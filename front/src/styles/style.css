@@ -73,11 +73,16 @@ form button {
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 form button:hover {
     background-color: #0056b3;
 }
+
+
 .cabecalho__menu {
     display: flex;
     align-items: center;
@@ -610,7 +615,6 @@ strong{
     height: 60px; /* Ajusta o tamanho dos ícones */
 }
 
-<<<<<<< HEAD
 .navbar {
     padding: 10px;
     overflow: visible; /* Garante que o conteúdo do dropdown seja visível */
@@ -624,8 +628,8 @@ strong{
 
 .dropdown-toggle::after {
     display: none !important; /* Remove a setinha */
-=======
-.form_div{
+}
+    .form_div{
     max-width: 30%;
     max-height: 400px;
 }
@@ -644,5 +648,8 @@ strong{
 }
 .conteudo_todo{
     background-color: #E4D5B6;
->>>>>>> c4d63e274a66bcb3388ca1456c86865e18af2e89
+}
+
+iframe {
+
 }
