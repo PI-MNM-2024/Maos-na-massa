@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="assets/favicon/favicon.ico"
+            <a class="navbar-brand" href="index.html"><img src="assets/favicon/favicon.ico"
                     alt="Foto da logo do mãos na massa"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNav"
                 aria-controls="myNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
         </div>
     </nav>
     <main class="corpo__pagina-quem-somos">
-        
+
         <!-- Ícone de acessibilidade -->
         <div vw class="enabled">
             <div vw-access-button class="active"></div>
@@ -48,10 +48,86 @@
         <script>
             new window.VLibras.Widget('https://vlibras.gov.br/app');
         </script>
+        <section class="conteudo_todo">
+            <div class="oque_projeto">
+                <h1>O que é o Projeto Mãos na Massa?</h1>
+                <p>ONG fundada em 2017.</p>
+                <p>Objetivo: Construir e/ou adaptar instituições e residências para pessoas com deficiência física e/ou
+                    em
+                    vulnerabilidade social.
+                </p>
+            </div>
+            <div class="como_surgiu">
+                <h2>Como surgiu?</h2>
+                <p>Em junho de 2017, os fundadores participaram do programa World Challenge na Tanzânia.</p>
+                <p>⁠Reformaram uma escola primária com o dinheiro arrecadado ao longo de um ano.</p>
+                <p>⁠A emoção ao ver a alegria das crianças inspirou a criação de um projeto em São Paulo.</p>
+                <p>O objetivo: Ajudar pessoas com deficiência a ter melhores condições de moradia.</p>
+            </div>
+            <div class="quem_atua">
+                <h2>Quem está por trás?</h2>
+                <p>Fundadores com apenas 15 anos, sem experiência prévia, mas com muita dedicação.</p>
+                <p>Aprenderam e se esforçaram para fazer a diferença, mostrando que a ação voluntária pode mudar vidas
+                </p>
+            </div>
+            <div class="valores">
+                <h1>Valores do projeto</h4>
+                    <p>Não só constrói casas, mas também ajuda a formar o caráter.</p>
+                    <p>Desperta empatia e valoriza as condições de vida de outras pessoas.</p>
+            </div>
+            <div class="objetivos">
+                <h2>Objetivos</h2>
+                <p>⁠Transformar jovens em protagonistas sociais e empreendedores.</p>
+                <p>Incentivar o voluntariado e ações que promovam mudanças no mundo.</p>
+            </div>
+            <div class="certificacoes">
+                <h2>Certificações</h2>
+                <p>OSCIP (Organização da Sociedade Civil de Interesse Público) no Ministério da Justiça.</p>
+                <p>CRCE (Certificação de Regularidade Cadastral de Entidades).</p>
+                <p>International IB Global Youth Action Fund.</p>
+            </div>
+        </section>
 
     </main>
 
-    <footer>
+    <footer class="rodape">
+        <h1 class="contato_index">Fale Conosco!</h1>
+        <div class="final">
+            <form>
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" required>
+
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+
+                <label for="telefone">Telefone:</label>
+                <input type="tel" name="telefone" id="telefone" required>
+
+                <label for="mensagem">Digite aqui sua mensagem:</label>
+                <textarea name="mensagem" id="mensagem" rows="4" required></textarea>
+
+                <button onclick="enviarFormulario()" type="submit">Enviar</button>
+            </form>
+
+
+            <div class="contact_info">
+                <iframe class="mapa m-5"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.5087821612856!2d-46.67802762425299!3d-23.586079462501534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce575c01aa6997%3A0x36fdea6cc089117c!2sR.%20Bandeira%20Paulista%2C%20726%20-%20Itaim%20Bibi%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004532-002!5e0!3m2!1spt-BR!2sbr!4v1729534176723!5m2!1spt-BR!2sbr"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/@projetomaosnamassa8265"><img src="assets/favicon/youtube.svg"
+                            alt=""></a>
+                    <a href="https://www.instagram.com/projeto_maosnamassa/"><img src="assets/favicon/instagram-alt.svg"
+                            alt=""></a>
+                    <a href="mailto:maosnamassaong@gmail.com"><img src="assets/favicon/gmail.svg" alt=""></a>
+                </div>
+            </div>
+
+        </div>
+
+        <h1 class="telefone_numero pt-5"> (11) 97328-5665</h1>
 
     </footer>
 </body>
