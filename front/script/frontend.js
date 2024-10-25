@@ -12,6 +12,13 @@ function exibirAlerta(seletor, innerHTML, classesToAdd, classesToRemove, timeout
     }, timeout)
 }
 
+function ocultarModal(seletor, timeout) {
+    setTimeout(() => {
+        let modal = bootstrap.Modal.getInstance(document.querySelector(seletor))
+        modal.hide()
+    }, timeout)
+}
+
 async function enviarFormulario(){
     const formularioEndPoint = '/formulario'
 
