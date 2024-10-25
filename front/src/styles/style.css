@@ -9,26 +9,29 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
-    padding-top: 54.5px; /* Ajuste o valor conforme a altura da navbar */
+    padding-top: 54.5px;
+    /* Ajuste o valor conforme a altura da navbar */
 }
 
 
-.mapa{
+.mapa {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
     flex: 1;
-    max-width: 100%; 
+    max-width: 100%;
     height: 100%;
 }
-.contato_index{
+
+.contato_index {
     text-align: center;
     color: black;
     font-family: "Roboto", sans-serif;
     font-weight: 900;
     font-style: normal;
 }
+
 .rodape {
     padding: 20px;
     background-color: #f9f9f9;
@@ -36,37 +39,46 @@ body {
 
 .final {
     display: flex;
-    gap: 10px; /* Reduz o espaçamento entre o mapa e o formulário */
-    max-width: 900px; /* Limita a largura total da seção */
+    gap: 10px;
+    /* Reduz o espaçamento entre o mapa e o formulário */
+    max-width: 900px;
+    /* Limita a largura total da seção */
 }
 
 form {
     flex: 1;
     width: 200px;
-    height: 400px; /* Limita o tamanho do formulário */
+    height: 400px;
+    /* Limita o tamanho do formulário */
 }
 
 form label {
     display: block;
-    font-size: 14px; /* Tamanho menor para um visual minimalista */
+    font-size: 14px;
+    /* Tamanho menor para um visual minimalista */
     margin-bottom: 5px;
 }
 
-form input, form textarea {
+form input,
+form textarea {
     width: 100%;
-    padding: 6px; /* Reduz o preenchimento dos campos */
+    padding: 6px;
+    /* Reduz o preenchimento dos campos */
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 14px; /* Tamanho menor para os campos */
+    font-size: 14px;
+    /* Tamanho menor para os campos */
 }
 
 form textarea {
-    resize: vertical; /* Permite redimensionar verticalmente apenas */
+    resize: vertical;
+    /* Permite redimensionar verticalmente apenas */
 }
 
 form button {
-    padding: 8px 16px; /* Botão menor e mais compacto */
+    padding: 8px 16px;
+    /* Botão menor e mais compacto */
     background-color: #007BFF;
     color: white;
     border: none;
@@ -75,7 +87,7 @@ form button {
     font-size: 14px;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 form button:hover {
@@ -139,9 +151,7 @@ form button:hover {
     background-color: #FF8C00;
 }
 
-.corpo__pagina-principal {
-    
-}
+.corpo__pagina-principal {}
 
 
 .conteudo__contato {
@@ -314,87 +324,115 @@ button:hover {
     font-style: normal;
 }
 
-strong{
-    color:#FF8C00;
+strong {
+    color: #FF8C00;
 }
 
 .apresentacao__conteudo {
-    display: flex; /* Habilita o layout flexível */
-    justify-content: space-between; /* Espaça o texto e a imagem para ficarem nas extremidades */
-    align-items: center; /* Alinha a imagem e o texto verticalmente */
+    display: flex;
+    /* Habilita o layout flexível */
+    justify-content: space-between;
+    /* Espaça o texto e a imagem para ficarem nas extremidades */
+    align-items: center;
+    /* Alinha a imagem e o texto verticalmente */
     padding-top: 30px;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-style: normal;
     font-size: 20px;
-    text-align: center; /* Centraliza o texto horizontalmente */
-    margin: 0 auto; /* Centraliza o contêiner na página */
-    max-width: 100%; /* Ajuste a largura máxima para caber a imagem e o texto */
+    text-align: center;
+    /* Centraliza o texto horizontalmente */
+    margin: 0 auto;
+    /* Centraliza o contêiner na página */
+    max-width: 100%;
+    /* Ajuste a largura máxima para caber a imagem e o texto */
 }
-#texto_principal{
+
+#texto_principal {
     display: flex;
     justify-content: center;
     align-items: center;
     max-width: 70%;
     margin: 0 auto;
-    padding-left: 30% ;
+    padding-left: 30%;
 }
 
 .tijolo_icon {
-    max-width: 30%; /* Ajuste o tamanho da imagem conforme necessário */
-    height: auto; /* Mantém a proporção da imagem */
+    max-width: 30%;
+    /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto;
+    /* Mantém a proporção da imagem */
     padding-left: 100px;
 }
 
 .saiba__mais {
-    background-color: #23A7B8; /* Cor padrão do botão */
-    border-radius: 20px; /* Bordas arredondadas */
-    display: flex; /* Permite flexbox */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-    padding: 15px; /* Adiciona espaçamento interno */
-    width: 400px; /* Largura total do botão */
-    max-width: 600px; /* Largura máxima opcional */
-    margin: 0 auto; /* Centraliza o contêiner na página */
-    transition: transform 0.3s; /* Adiciona uma transição suave ao aumento de tamanho */
+    background-color: #23A7B8;
+    /* Cor padrão do botão */
+    border-radius: 20px;
+    /* Bordas arredondadas */
+    display: flex;
+    /* Permite flexbox */
+    justify-content: center;
+    /* Centraliza o conteúdo horizontalmente */
+    align-items: center;
+    /* Centraliza o conteúdo verticalmente */
+    padding: 15px;
+    /* Adiciona espaçamento interno */
+    width: 400px;
+    /* Largura total do botão */
+    max-width: 600px;
+    /* Largura máxima opcional */
+    margin: 0 auto;
+    /* Centraliza o contêiner na página */
+    transition: transform 0.3s;
+    /* Adiciona uma transição suave ao aumento de tamanho */
     margin-top: 30px;
 }
 
 .saiba__mais:hover {
-    transform: scale(1.1); /* Aumenta o tamanho do botão quando o mouse está sobre ele */
-    background-color: #23A7B8; /* Mantém a mesma cor ao passar o mouse */
+    transform: scale(1.1);
+    /* Aumenta o tamanho do botão quando o mouse está sobre ele */
+    background-color: #23A7B8;
+    /* Mantém a mesma cor ao passar o mouse */
 
 }
 
-.mais__conteudo{
+.mais__conteudo {
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-style: normal;
     display: flex;
-    flex-wrap: wrap; /* Faz o texto quebrar se necessário */
-    gap: 20px; /
+    flex-wrap: wrap;
+    /* Faz o texto quebrar se necessário */
+    gap: 20px;/
 }
 
 .mais__conteudo p {
-    flex: 1; /* Faz os parágrafos ocuparem o mesmo espaço */
+    flex: 1;
+    /* Faz os parágrafos ocuparem o mesmo espaço */
     margin-right: 20px;
     margin-left: 20px;
-    min-width: 300px; /* Define um tamanho mínimo para os parágrafos */
+    min-width: 300px;
+    /* Define um tamanho mínimo para os parágrafos */
     padding-top: 50px;
     font-size: 20px;
 }
+
 #fundo {
     background-color: #E4D5B6;
     height: 700px;
 }
-.rodape{
+
+.rodape {
     background-color: #D7C5A2;
     height: 350px;
 }
-.login_foto{
+
+.login_foto {
     width: 40px;
     height: 40px;
 }
+
 .titulo {
     position: absolute;
     top: 50px;
@@ -573,10 +611,11 @@ strong{
 }
 
 .navbar {
-    background-color: rgba(0, 0, 0, 0.9); 
+    background-color: rgba(0, 0, 0, 0.9);
 }
+
 .navbar-nav .nav-link {
-    color: white !important; 
+    color: white !important;
 }
 
 .login {
@@ -585,12 +624,15 @@ strong{
 }
 
 .telefone_numero {
-    font-size: 1.8em; /* Aumenta ou diminui o tamanho da fonte. */ 
-    text-align: center; /* Centraliza o texto. */
+    font-size: 1.8em;
+    /* Aumenta ou diminui o tamanho da fonte. */
+    text-align: center;
+    /* Centraliza o texto. */
     padding-top: 10px;
     color: black;
 }
-.contact_info{
+
+.contact_info {
     max-width: 100%;
     max-height: 100%;
     display: flex;
@@ -600,39 +642,51 @@ strong{
 }
 
 .social-icons {
-    display: flex; /* Permite que os ícones fiquem em linha */
-    justify-content: center; /* Centraliza os ícones horizontalmente */
+    display: flex;
+    /* Permite que os ícones fiquem em linha */
+    justify-content: center;
+    /* Centraliza os ícones horizontalmente */
     margin: 0 auto;
-    
+
 }
 
 .social-icons a {
-    margin: 0 10px; /* Espaço entre os ícones */
+    margin: 0 10px;
+    /* Espaço entre os ícones */
 }
 
 .social-icons img {
-    width: 60px; /* Ajusta o tamanho dos ícones */
-    height: 60px; /* Ajusta o tamanho dos ícones */
+    width: 60px;
+    /* Ajusta o tamanho dos ícones */
+    height: 60px;
+    /* Ajusta o tamanho dos ícones */
 }
 
 .navbar {
     padding: 10px;
-    overflow: visible; /* Garante que o conteúdo do dropdown seja visível */
+    overflow: visible;
+    /* Garante que o conteúdo do dropdown seja visível */
 }
+
 .dropdown-menu {
-    left: auto !important; /* Remove o alinhamento padrão */
-    right: 0; /* Alinha o menu à direita do botão */
-    margin: 5px 0; /* Adiciona um pequeno espaço */
-    min-width: 200px; /* Ajuste a largura mínima conforme necessário */
+    left: auto !important;
+    /* Remove o alinhamento padrão */
+    right: 0;
+    /* Alinha o menu à direita do botão */
+    margin: 5px 0;
+    /* Adiciona um pequeno espaço */
+    min-width: 200px;
+    /* Ajuste a largura mínima conforme necessário */
 }
 
 .dropdown-toggle::after {
-    display: none !important; /* Remove a setinha */
+    display: none !important;
+    /* Remove a setinha */
 }
 
 
 
-.form_div{
+.form_div {
 
     max-width: 30%;
     max-height: 400px;
@@ -650,7 +704,8 @@ strong{
     flex-direction: column;
     padding-top: 3%;
 }
-.conteudo_todo{
+
+.conteudo_todo {
     background-color: #E4D5B6;
 
 
@@ -658,13 +713,142 @@ strong{
 
 /* Regras específicas para o formulário dentro do modal */
 .form-modal {
-    flex: initial; /* Sobrescreve flex */
-    width: auto;   /* Define a largura como automática */
-    height: auto;  /* Define a altura como automática */
+    flex: initial;
+    /* Sobrescreve flex */
+    width: auto;
+    /* Define a largura como automática */
+    height: auto;
+    /* Define a altura como automática */
 
 }
 
-iframe {
+iframe {}
+
+/* Estilo adicional para telas entre 768px e 995px */
+@media (min-width: 769px) and (max-width: 995px) {
+    .ajude_agora {
+        padding: 6px 10px;
+        font-size: 12px;
+        right: 10px;
+        /* Ajusta a distância no mobile */
+        bottom: 15px;
+        /* Ajusta no mobile */
+        margin-left: 0;
+        display: inline-block;
+        max-width: 115px;
+        margin-bottom: 10px
+    }
+
+    .login {
+        padding: 8px;
+        /* Ajusta o padding para telas menores */
+        border-radius: 10%;
+        /* Ajusta o arredondamento das bordas */
+        display: inline-block;
+        /* Mantém o formato adequado */
+        max-width: 45px;
+        /* Define uma largura máxima opcional para a área de login */
+        margin-top: 10px
+    }
+}
+
+/* Para telas menores que 768px (tablets e celulares) */
+@media (max-width: 768px) {
+
+    /* Ajuste o tamanho do logotipo */
+    .navbar-brand img {
+        width: 50px;
+        /* Reduz o tamanho do logo */
+        height: auto;
+    }
+
+    /* Ajustar padding e margens dos links */
+    .navbar-nav .nav-link {
+        padding: 10px 5px;
+        /* Reduz o padding */
+        font-size: 14px;
+        /* Reduz o tamanho da fonte */
+        margin-right: 0;
+        /* Remove margem direita */
+    }
+
+    /* Ajustar o padding do botão 'Ajude Agora' */
+    .ajude_agora {
+        padding: 6px 10px;
+        font-size: 12px;
+        right: 10px;
+        /* Ajusta a distância no mobile */
+        bottom: 15px;
+        /* Ajusta no mobile */
+        margin-left: 0;
+        display: inline-block;
+        max-width: 115px;
+        margin-bottom: 10px
+    }
+
+    /* Ajustar o ícone de login */
+    .login_foto {
+        width: 30px;
+        /* Reduz o tamanho da imagem de login */
+        height: auto;
+        display: inline-block;
 
 
+    }
+
+    .login {
+        padding: 8px;
+        /* Ajusta o padding para telas menores */
+        border-radius: 10%;
+        /* Ajusta o arredondamento das bordas */
+        display: inline-block;
+        /* Mantém o formato adequado */
+        max-width: 45px;
+        /* Define uma largura máxima opcional para a área de login */
+        margin-top: 10px
+    }
+}
+
+/* Para telas ainda menores (celulares pequenos) */
+@media (max-width: 576px) {
+    .navbar-nav .nav-link {
+        padding: 8px 4px;
+        /* Reduz ainda mais o padding */
+        font-size: 12px;
+        /* Diminuir ainda mais a fonte */
+    }
+
+    .ajude_agora {
+        padding: 6px 10px;
+        font-size: 12px;
+        right: 10px;
+        /* Ajusta a distância no mobile */
+        bottom: 15px;
+        /* Ajusta no mobile */
+        margin-left: 0;
+        display: inline-block;
+        max-width: 115px;
+        margin-bottom: 10px
+    }
+
+    /* Reduzir ainda mais o tamanho do login e do logotipo */
+    .login_foto,
+    .navbar-brand img {
+        width: 25px;
+        /* Reduz o tamanho das imagens para caber melhor */
+        height: auto;
+        display: inline-block;
+    }
+
+    .login {
+        padding: 8px;
+        /* Ajusta o padding para telas menores */
+        border-radius: 10%;
+        /* Ajusta o arredondamento das bordas */
+        display: inline-block;
+        /* Mantém o formato adequado */
+        max-width: 45px;
+        /* Define uma largura máxima opcional para a área de login */
+        margin-top: 10px
+    }
 }
