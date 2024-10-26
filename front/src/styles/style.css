@@ -160,7 +160,7 @@ form button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     margin: 0;
     background-color: #E4D5B6;
     padding: 100px 20px 20px;
@@ -387,6 +387,8 @@ strong {
     transition: transform 0.3s;
     /* Adiciona uma transição suave ao aumento de tamanho */
     margin-top: 30px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
 }
 
 .saiba__mais:hover {
@@ -871,4 +873,94 @@ iframe {}
 }
 .valores, .quem_atua {
     background-color: #D7C5A2;
+}
+
+.social-icons a img {
+    transition: transform 0.3s ease; /* Suaviza o efeito */
+}
+
+.social-icons a:hover img {
+    transform: scale(1.2); /* Aumenta o tamanho para 120% */
+}
+
+.contato_todo{
+    background-color: #E4D5B6;
+    height: 950px;
+}
+.fale_conosco{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+}
+.div_mapa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.div_mapa iframe{
+    max-width: 28%;}
+
+.telefone{
+    padding-top: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+.social-icons a:last-child img {
+    padding-top: 5px;
+    width: 55px; /* ajuste o valor conforme necessário */
+    height: 55px; /* ajuste o valor conforme necessário */
+}
+
+.botao_enviar {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px; /* Ajuste o preenchimento conforme necessário */
+    margin-top: 10px; /* Espaço entre o botão e o campo acima */
+    cursor: pointer; /* Mostra que o botão é clicável */
+}
+.main_ajuda{
+    height: 800px;
+    background-color: #E4D5B6;
+}
+.container {
+    display: flex;
+    height: 100vh; /* Ocupa toda a altura da tela */
+}
+
+/* Define o contêiner principal */
+.container {
+    display: flex;
+    height: 100vh; /* Altura total da tela */
+    position: relative; /* Necessário para a linha divisória */
+}
+
+/* Define cada lado */
+.lado-esquerdo,
+.lado-direito {
+    padding-top: 5%;
+    flex: 1; /* Cada lado ocupa 50% da largura */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    text-align: center;
+}
+
+/* Linha divisória */
+.linha-divisoria {
+    width: 1px; /* Largura da linha */
+    background-color: #333; /* Cor da linha */
+    height: 96%; /* Altura total da tela */
+}
+
+/* Estilo do texto */
+.container h1 {
+    font-size: 30px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
 }
