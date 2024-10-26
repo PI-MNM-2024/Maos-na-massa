@@ -425,7 +425,7 @@ strong {
 
 .rodape {
     background-color: #D7C5A2;
-    height: 350px;
+    height: 150px;
 }
 
 .login_foto {
@@ -699,17 +699,14 @@ strong {
 .objetivos,
 .certificacoes {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     padding-top: 3%;
 }
 
-.conteudo_todo {
-    background-color: #E4D5B6;
 
 
-}
 
 /* Regras específicas para o formulário dentro do modal */
 .form-modal {
@@ -851,4 +848,27 @@ iframe {}
         /* Define uma largura máxima opcional para a área de login */
         margin-top: 10px
     }
+}
+
+.conteudo_todo img{
+    width: 30%;
+    height: 30%;
+    border-radius: 3%;
+}
+.conteudo_todo p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+.conteudo_todo h1{
+    font-family: 'Roboto', sans-serif;
+}
+.conteudo_todo h2{
+    font-family: 'Roboto', sans-serif;
+}
+.conteudo_todo {
+    background-color: #E4D5B6;
+
+}
+.valores, .quem_atua {
+    background-color: #D7C5A2;
 }
