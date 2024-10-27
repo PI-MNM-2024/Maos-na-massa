@@ -11,6 +11,7 @@ const { type } = require("os");
 const app = express()
 app.use(express.json())
 app.use(cors())
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
 async function conectarAoMongoDB(){
@@ -164,35 +165,55 @@ app.post('/pages', upload.array('images'), async (req,res) => {
 
 })
 
-app.get('/pages/:slug', (req,res) => {
-    const page = pages.find(p => p.slug === req.params.slug)
-    if (!page) return res.status(404).send('Págino não encontrada')
+app.get('/pages', async (req, res) => {
+    try {
+        const allPages = await pagina.find(); 
+        res.status(200).json(allPages); 
+    } catch (error) {
+        console.error('Erro ao buscar as páginas:', error);
+        res.status(500).json({ message: "Erro ao buscar as páginas", error });
+    }
+});
 
-    const imagesHtml = page.imagesUrls.map(url => `<img src"${url}" alt="Imagem"`).join('')
+app.get('/pages/:slug', async (req, res) => {
+    try {
+        // Busca a página pelo slug no banco de dados
+        const page = await pagina.findOne({ slug: req.params.slug });
+        
+        // Verifica se a página foi encontrada
+        if (!page) return res.status(404).send('Página não encontrada');
 
-    res.send(`
-    <!DOCTYPE html>
-    <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>${page.title}</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <header>
-            <h1>${page.title}</h1>
-        </header>
-        <main>
-            <div class="content">
-                <p>${page.content}</p>
-                ${imagesHtml}
-            </div>
-        </main>
-        <footer>
-            <p>© 2024 Meu Site</p>
-        </footer>
-    </body>
-    </html>
-`);
-})
+        // Gera o HTML para as imagens
+        const imagesHtml = page.imagesUrls.map(url => `<img src="/${url}" alt="Imagem">`).join('');
+
+        // Responde com o HTML da página
+        res.send(`
+        <!DOCTYPE html>
+        <html lang="pt-BR">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>${page.title}</title>
+            <link rel="stylesheet" href="styles.css">
+        </head>
+        <body>
+            <header>
+                <h1>${page.title}</h1>
+            </header>
+            <main>
+                <div class="content">
+                    <p>${page.content}</p>
+                    ${imagesHtml}
+                </div>
+            </main>
+            <footer>
+                <p>© 2024 Meu Site</p>
+            </footer>
+        </body>
+        </html>
+        `);
+    } catch (error) {
+        console.error('Erro ao buscar a página:', error);
+        res.status(500).send('Erro ao buscar a página');
+    }
+});
