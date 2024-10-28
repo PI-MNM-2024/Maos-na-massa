@@ -695,9 +695,6 @@ strong {
 }
 
 .oque_projeto,
-.como_surgiu,
-.quem_atua,
-.valores,
 .objetivos,
 .certificacoes {
     display: flex;
@@ -707,6 +704,43 @@ strong {
     padding-top: 3%;
 }
 
+.como_surgiu,
+.valores{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    text-align: center; 
+    padding-left: 1%;
+}
+
+.quem_atua {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center; 
+    padding: 1%;
+}
+
+.como_surgiu, .quem_atua, .valores img{
+    max-width: 100%;
+    height: auto;
+}
+
+.como_surgiu, .quem_atua, .valores p {
+    margin: 10px 0; 
+}
+
+.como_surgiu b{
+    font-size: 35px;
+}
+
+.quem_atua b{
+    font-size: 35px;
+}
+
+.valores b{
+    font-size: 35px;
+}
 
 
 
