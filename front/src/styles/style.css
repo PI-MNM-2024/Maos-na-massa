@@ -1000,6 +1000,7 @@ iframe {}
 }
 
 .corpo__pagina-area-de-doadores {
+    height: 1000px;
     background-color: #E4D5B6;
 }
 
@@ -1028,4 +1029,64 @@ iframe {}
     background-color: #E5A000;
     margin-top: 10px;
     color: black;
+}
+
+.ajuda_pix{
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+}
+
+.container-qrcode img {
+    max-width: 100%; /* Limita a largura da imagem ao contêiner */
+    height: auto; /* Ajusta a altura proporcionalmente */
+    display: block; /* Remove espaços adicionais ao redor da imagem */
+}
+
+.ajuda_pix .container-chave-pix,
+.ajuda_pix .container-qrcode,
+.ajuda_pix .container-informacoes-conta {
+    border-radius: 5%;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+.ajuda_pix h2 {
+    text-align: center; /* Centraliza o texto */
+}
+.titulo__area-de-doadores{
+    font-family: 'Roboto', sans-serif;
+}
+.subtitulo__area-de-doadores{
+    font-family: 'Roboto', sans-serif;
+}
+.frase__area-de-doadores{
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.botao_ajuda {
+    display: inline-block; /* Faz o link se comportar como um bloco */
+    padding: 10px 20px; /* Adiciona espaço interno ao botão */
+    background-color: #E5A000; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    text-decoration: none; /* Remove o sublinhado */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte */
+    transition: 0.3s; /* Transição suave para a cor de fundo */
+    justify-content: center;
+    align-items: center;
+    margin-left: 240px;
+}
+
+.botao_ajuda:hover {
+    transform: scale(1.05);
+    color: white;
 }
