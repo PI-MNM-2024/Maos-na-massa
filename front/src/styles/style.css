@@ -224,22 +224,17 @@ button:hover {
 
 .corpo__pagina-realizacoes {
     flex: 1;
-    /* Ocupa o espaço restante da tela abaixo do cabeçalho */
     display: flex;
     justify-content: center;
-    /* Centraliza horizontalmente */
     align-items: center;
-    /* Centraliza verticalmente */
     background-color: #E4D5B6;
 }
 
 .fotos {
     display: flex;
     flex-wrap: wrap;
-    /* Permite que as imagens "quebrem" para a próxima linha */
     justify-content: center;
     gap: 20px;
-    /* Espaçamento entre as imagens */
     flex-direction: column;
     padding: 10px;
 }
@@ -709,25 +704,35 @@ strong {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    text-align: center; 
-    padding-left: 1%;
+    text-align: right; 
+    padding-left: 10px;
 }
 
 .quem_atua {
     display: flex;
     flex-direction: row;
     align-items: center;
-    text-align: center; 
+    text-align: left; 
     padding: 1%;
 }
 
-.como_surgiu, .quem_atua, .valores img{
+.como_surgiu img{
     max-width: 100%;
     height: auto;
 }
 
+.quem_atua img{
+    margin-left: auto;
+}
+
+.valores img{
+    margin-right: auto;
+    padding-bottom: 10px;
+}
+
 .como_surgiu, .quem_atua, .valores p {
-    margin: 10px 0; 
+    margin-right: 10px; 
+    font-size: 17px;
 }
 
 .como_surgiu b{
