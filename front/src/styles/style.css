@@ -10,7 +10,6 @@ body {
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
     padding-top: 54.5px;
-    /* Ajuste o valor conforme a altura da navbar */
 }
 
 
@@ -40,22 +39,18 @@ body {
 .final {
     display: flex;
     gap: 10px;
-    /* Reduz o espaçamento entre o mapa e o formulário */
     max-width: 900px;
-    /* Limita a largura total da seção */
 }
 
 form {
     flex: 1;
     width: 200px;
     height: 400px;
-    /* Limita o tamanho do formulário */
 }
 
 form label {
     display: block;
     font-size: 14px;
-    /* Tamanho menor para um visual minimalista */
     margin-bottom: 5px;
 }
 
@@ -63,22 +58,18 @@ form input,
 form textarea {
     width: 100%;
     padding: 6px;
-    /* Reduz o preenchimento dos campos */
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
-    /* Tamanho menor para os campos */
 }
 
 form textarea {
     resize: vertical;
-    /* Permite redimensionar verticalmente apenas */
 }
 
 form button {
     padding: 8px 16px;
-    /* Botão menor e mais compacto */
     background-color: #007BFF;
     color: white;
     border: none;
@@ -103,8 +94,6 @@ form button:hover {
     padding: 15px 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: calc(100% - 40px);
-    /* Ajusta a largura para cobrir toda a página menos a margem */
-    /*position: fixed;*/
     top: 20px;
     left: 20px;
     border-radius: 15px;
@@ -118,7 +107,6 @@ form button:hover {
     padding: 0;
     display: flex;
     flex-grow: 1;
-    /* Faz com que a lista de itens ocupe o espaço restante */
 }
 
 .cabecalho__menu li {
@@ -137,9 +125,7 @@ form button:hover {
 
 .ajude_agora {
     margin-left: auto;
-    /* Empurra o botão para o canto direito */
     margin-right: 20px;
-    /* Adiciona um espaço à direita do botão */
     background-color: #D67400;
     opacity: 1;
     color: white;
@@ -241,64 +227,47 @@ button:hover {
 
 .julita:hover {
     transform: scale(1.05);
-    /* Aumenta a imagem em 10% */
     opacity: 0.5;
-    /* Reduz a opacidade da imagem ao passar o mouse */
 }
 
 .vila_abrigo:hover {
     transform: scale(1.05);
-    /* Aumenta a imagem em 10% */
     opacity: 0.5;
-    /* Reduz a opacidade da imagem ao passar o mouse */
 }
 
 .carlos_alberto:hover {
     transform: scale(1.05);
-    /* Aumenta a imagem em 10% */
     opacity: 0.5;
-    /* Reduz a opacidade da imagem ao passar o mouse */
 }
 
 .abcd:hover {
     transform: scale(1.05);
-    /* Aumenta a imagem em 10% */
     opacity: 0.5;
-    /* Reduz a opacidade da imagem ao passar o mouse */
 }
 
 .foto-container {
     position: relative;
-    /* Para posicionar o título relativo à imagem */
 }
 
 .apresentacao {
     position: relative;
-    /* Define a imagem como referência para os elementos dentro dela */
     margin-top: 20px
 }
 
 .apresentacao img {
     width: 100%;
     height: auto;
-    /* Certifica-se que a imagem mantenha sua proporção */
 }
 
 .apresentacao__titulo {
     position: absolute;
     color: #D67400;
     top: 60px;
-    /* Centraliza verticalmente */
     left: 50%;
-    /* Centraliza horizontalmente */
     transform: translate(-50%, -50%);
-    /* Ajuste fino para manter o texto no centro exato */
     font-size: 3rem;
-    /* Tamanho da fonte */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    /* Adiciona sombra ao texto para melhorar a legibilidade */
     z-index: 1;
-    /* Garante que o texto fique sobre a imagem */
     font-family: "Roboto", sans-serif;
     font-weight: 900;
     font-style: normal;
@@ -307,10 +276,8 @@ button:hover {
 #slogan__titulo {
     position: absolute;
     top: 100px;
-    /* Posiciona o slogan na parte inferior da imagem */
     left: 50%;
     transform: translateX(-50%);
-    /* Centraliza horizontalmente */
     color: white;
     font-size: 1.0rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -325,22 +292,16 @@ strong {
 
 .apresentacao__conteudo {
     display: flex;
-    /* Habilita o layout flexível */
     justify-content: space-between;
-    /* Espaça o texto e a imagem para ficarem nas extremidades */
     align-items: center;
-    /* Alinha a imagem e o texto verticalmente */
     padding-top: 30px;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-style: normal;
     font-size: 20px;
     text-align: center;
-    /* Centraliza o texto horizontalmente */
     margin: 0 auto;
-    /* Centraliza o contêiner na página */
     max-width: 100%;
-    /* Ajuste a largura máxima para caber a imagem e o texto */
 }
 
 #texto_principal {
@@ -354,33 +315,21 @@ strong {
 
 .tijolo_icon {
     max-width: 30%;
-    /* Ajuste o tamanho da imagem conforme necessário */
     height: auto;
-    /* Mantém a proporção da imagem */
     padding-left: 100px;
 }
 
 .saiba__mais {
     background-color: #23A7B8;
-    /* Cor padrão do botão */
     border-radius: 20px;
-    /* Bordas arredondadas */
     display: flex;
-    /* Permite flexbox */
     justify-content: center;
-    /* Centraliza o conteúdo horizontalmente */
     align-items: center;
-    /* Centraliza o conteúdo verticalmente */
     padding: 15px;
-    /* Adiciona espaçamento interno */
     width: 400px;
-    /* Largura total do botão */
     max-width: 600px;
-    /* Largura máxima opcional */
     margin: 0 auto;
-    /* Centraliza o contêiner na página */
     transition: transform 0.3s;
-    /* Adiciona uma transição suave ao aumento de tamanho */
     margin-top: 30px;
     font-family: "Roboto", sans-serif;
     font-weight: 600;
@@ -388,9 +337,7 @@ strong {
 
 .saiba__mais:hover {
     transform: scale(1.1);
-    /* Aumenta o tamanho do botão quando o mouse está sobre ele */
     background-color: #23A7B8;
-    /* Mantém a mesma cor ao passar o mouse */
 
 }
 
@@ -400,17 +347,14 @@ strong {
     font-style: normal;
     display: flex;
     flex-wrap: wrap;
-    /* Faz o texto quebrar se necessário */
     gap: 20px;/
 }
 
 .mais__conteudo p {
     flex: 1;
-    /* Faz os parágrafos ocuparem o mesmo espaço */
     margin-right: 20px;
     margin-left: 20px;
     min-width: 300px;
-    /* Define um tamanho mínimo para os parágrafos */
     padding-top: 50px;
     font-size: 20px;
 }
@@ -438,17 +382,11 @@ strong {
     text-align: center;
     color: #FFFFFF;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Fundo semi-transparente */
     opacity: 0;
-    /* Inicialmente invisível */
     transition: opacity 0.3s;
-    /* Transição suave */
     padding: 10px 0;
-    /* Espaçamento */
     border-radius: 5px;
-    /* Arredondar as bordas */
     font-family: 'Roboto', sans-serif;
-    /* Definindo a fonte aqui */
 
 }
 
@@ -460,28 +398,20 @@ strong {
     text-align: center;
     color: #FFFFFF;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Fundo semi-transparente */
     opacity: 0;
-    /* Inicialmente invisível */
     transition: opacity 0.3s;
-    /* Transição suave */
     padding: 10px 0;
-    /* Espaçamento */
     border-radius: 5px;
-    /* Arredondar as bordas */
     font-family: 'Roboto', sans-serif;
-    /* Definindo a fonte aqui */
 
 }
 
 .foto-container:hover .titulo {
     opacity: 1;
-    /* Torna visível quando o mouse passa sobre a imagem */
 }
 
 .foto-container:hover .titulo_outro {
     opacity: 1;
-    /* Torna visível quando o mouse passa sobre a imagem */
 }
 
 .julita,
@@ -536,12 +466,9 @@ strong {
 
 .card-body {
     flex-grow: 1;
-    /* Faz com que o corpo da carta ocupe o espaço disponível */
     display: flex;
     flex-direction: column;
-    /* Alinha o conteúdo do corpo verticalmente */
     justify-content: center;
-    /* Centraliza o conteúdo verticalmente */
 }
 
 .card-img-top {
@@ -562,21 +489,14 @@ strong {
 
 .botao-canto {
     position: absolute;
-    /* Posiciona o botão dentro do card */
     bottom: 10px;
-    /* Distância do fundo do card */
     left: 10px;
-    /* Distância da esquerda do card */
     width: 30%;
-    /* O botão ocupa 30% da largura do card */
 }
 
 @media (max-width: 1200px) {
-
-    /* Desktop */
     .card-img-top {
         height: 180px;
-        /* Ajuste a altura se necessário */
     }
 }
 
@@ -585,25 +505,18 @@ strong {
     /* Tablet */
     .card-img-top {
         height: 160px;
-        /* Ajuste a altura para tablets */
     }
 }
 
 @media (max-width: 768px) {
-
-    /* Mobile */
     .card-img-top {
         height: 250px;
-        /* Ajuste a altura para celulares */
     }
 }
 
 @media (max-width: 576px) {
-
-    /* Mobile Extra Pequeno */
     .card-img-top {
         height: 300px;
-        /* Ajuste a altura para dispositivos muito pequenos */
     }
 }
 
@@ -622,9 +535,7 @@ strong {
 
 .telefone_numero {
     font-size: 1.8em;
-    /* Aumenta ou diminui o tamanho da fonte. */
     text-align: center;
-    /* Centraliza o texto. */
     padding-top: 10px;
     color: black;
 }
@@ -640,40 +551,30 @@ strong {
 
 .social-icons {
     display: flex;
-    /* Permite que os ícones fiquem em linha */
     justify-content: center;
-    /* Centraliza os ícones horizontalmente */
     margin: 0 auto;
 
 }
 
 .social-icons a {
     margin: 0 10px;
-    /* Espaço entre os ícones */
 }
 
 .social-icons img {
     width: 60px;
-    /* Ajusta o tamanho dos ícones */
     height: 60px;
-    /* Ajusta o tamanho dos ícones */
 }
 
 .navbar {
     padding: 10px;
     overflow: visible;
-    /* Garante que o conteúdo do dropdown seja visível */
 }
 
 .dropdown-menu {
     left: auto !important;
-    /* Remove o alinhamento padrão */
     right: 0;
-    /* Alinha o menu à direita do botão */
     margin: 5px 0;
-    /* Adiciona um pequeno espaço */
     min-width: 200px;
-    /* Ajuste a largura mínima conforme necessário */
 }
 
 .dropdown-toggle::after {
@@ -747,30 +648,21 @@ strong {
     font-size: 35px;
 }
 
-
-
-/* Regras específicas para o formulário dentro do modal */
 .form-modal {
     flex: initial;
-    /* Sobrescreve flex */
     width: auto;
-    /* Define a largura como automática */
     height: auto;
-    /* Define a altura como automática */
 
 }
 
 iframe {}
 
-/* Estilo adicional para telas entre 768px e 995px */
 @media (min-width: 769px) and (max-width: 995px) {
     .ajude_agora {
         padding: 6px 10px;
         font-size: 12px;
         right: 10px;
-        /* Ajusta a distância no mobile */
         bottom: 15px;
-        /* Ajusta no mobile */
         margin-left: 0;
         display: inline-block;
         max-width: 115px;
@@ -779,114 +671,80 @@ iframe {}
 
     .login {
         padding: 8px;
-        /* Ajusta o padding para telas menores */
         border-radius: 10%;
-        /* Ajusta o arredondamento das bordas */
         display: inline-block;
-        /* Mantém o formato adequado */
         max-width: 45px;
-        /* Define uma largura máxima opcional para a área de login */
         margin-top: 10px
     }
 }
 
-/* Para telas menores que 768px (tablets e celulares) */
 @media (max-width: 768px) {
-
-    /* Ajuste o tamanho do logotipo */
     .navbar-brand img {
         width: 50px;
-        /* Reduz o tamanho do logo */
         height: auto;
     }
 
-    /* Ajustar padding e margens dos links */
     .navbar-nav .nav-link {
         padding: 10px 5px;
-        /* Reduz o padding */
         font-size: 14px;
-        /* Reduz o tamanho da fonte */
         margin-right: 0;
-        /* Remove margem direita */
     }
 
-    /* Ajustar o padding do botão 'Ajude Agora' */
     .ajude_agora {
         padding: 6px 10px;
         font-size: 12px;
         right: 10px;
-        /* Ajusta a distância no mobile */
         bottom: 15px;
-        /* Ajusta no mobile */
         margin-left: 0;
         display: inline-block;
         max-width: 115px;
         margin-bottom: 10px
     }
 
-    /* Ajustar o ícone de login */
     .login_foto {
         width: 30px;
-        /* Reduz o tamanho da imagem de login */
         height: auto;
         display: inline-block;
-
-
     }
 
     .login {
         padding: 8px;
-        /* Ajusta o padding para telas menores */
         border-radius: 10%;
-        /* Ajusta o arredondamento das bordas */
         display: inline-block;
-        /* Mantém o formato adequado */
         max-width: 45px;
-        /* Define uma largura máxima opcional para a área de login */
         margin-top: 10px
     }
 }
 
-/* Para telas ainda menores (celulares pequenos) */
 @media (max-width: 576px) {
     .navbar-nav .nav-link {
         padding: 8px 4px;
-        /* Reduz ainda mais o padding */
         font-size: 12px;
-        /* Diminuir ainda mais a fonte */
     }
 
     .ajude_agora {
         padding: 6px 10px;
         font-size: 12px;
         right: 10px;
-        /* Ajusta a distância no mobile */
         bottom: 15px;
-        /* Ajusta no mobile */
         margin-left: 0;
         display: inline-block;
         max-width: 115px;
         margin-bottom: 10px
     }
 
-    /* Reduzir ainda mais o tamanho do login e do logotipo */
     .login_foto,
     .navbar-brand img {
         width: 25px;
-        /* Reduz o tamanho das imagens para caber melhor */
         height: auto;
         display: inline-block;
     }
 
     .login {
         padding: 8px;
-        /* Ajusta o padding para telas menores */
         border-radius: 10%;
-        /* Ajusta o arredondamento das bordas */
         display: inline-block;
-        /* Mantém o formato adequado */
         max-width: 45px;
-        /* Define uma largura máxima opcional para a área de login */
         margin-top: 10px
     }
 }
@@ -915,11 +773,11 @@ iframe {}
 }
 
 .social-icons a img {
-    transition: transform 0.3s ease; /* Suaviza o efeito */
+    transition: transform 0.3s ease; 
 }
 
 .social-icons a:hover img {
-    transform: scale(1.2); /* Aumenta o tamanho para 120% */
+    transform: scale(1.2); 
 }
 
 .contato_todo{
@@ -952,17 +810,17 @@ iframe {}
 }
 .social-icons a:last-child img {
     padding-top: 5px;
-    width: 55px; /* ajuste o valor conforme necessário */
-    height: 55px; /* ajuste o valor conforme necessário */
+    width: 55px; 
+    height: 55px; 
 }
 
 .botao_enviar {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 20px; /* Ajuste o preenchimento conforme necessário */
-    margin-top: 10px; /* Espaço entre o botão e o campo acima */
-    cursor: pointer; /* Mostra que o botão é clicável */
+    padding: 10px 20px; 
+    margin-top: 10px; 
+    cursor: pointer; 
 }
 .main_ajuda{
     height: 800px;
@@ -970,31 +828,29 @@ iframe {}
 }
 .container {
     display: flex;
-    height: 100vh; /* Ocupa toda a altura da tela */
+    height: 100vh; 
 }
 
-/* Define o contêiner principal */
 .container {
     display: flex;
-    height: 100vh; /* Altura total da tela */
-    position: relative; /* Necessário para a linha divisória */
+    height: 100vh; 
+    position: relative; 
 }
 
-/* Define cada lado */
 .lado-esquerdo,
 .lado-direito {
     padding-top: 5%;
-    flex: 1; /* Cada lado ocupa 50% da largura */
+    flex: 1; 
     display: flex;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: center; 
     text-align: center;
 }
 
 /* Linha divisória */
 .linha-divisoria {
-    width: 1px; /* Largura da linha */
-    background-color: #333; /* Cor da linha */
-    height: 96%; /* Altura total da tela */
+    width: 1px; 
+    background-color: #333; 
+    height: 96%; 
 }
 
 /* Estilo do texto */
@@ -1043,9 +899,9 @@ iframe {}
 }
 
 .container-qrcode img {
-    max-width: 100%; /* Limita a largura da imagem ao contêiner */
-    height: auto; /* Ajusta a altura proporcionalmente */
-    display: block; /* Remove espaços adicionais ao redor da imagem */
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
 }
 
 .ajuda_pix .container-chave-pix,
@@ -1064,7 +920,7 @@ iframe {}
 }
 
 .ajuda_pix h2 {
-    text-align: center; /* Centraliza o texto */
+    text-align: center; 
 }
 .titulo__area-de-doadores{
     font-family: 'Roboto', sans-serif;
@@ -1078,14 +934,14 @@ iframe {}
 }
 
 .botao_ajuda {
-    display: inline-block; /* Faz o link se comportar como um bloco */
-    padding: 10px 20px; /* Adiciona espaço interno ao botão */
-    background-color: #E5A000; /* Cor de fundo do botão */
-    color: white; /* Cor do texto */
-    text-decoration: none; /* Remove o sublinhado */
-    border-radius: 5px; /* Bordas arredondadas */
-    font-size: 16px; /* Tamanho da fonte */
-    transition: 0.3s; /* Transição suave para a cor de fundo */
+    display: inline-block; 
+    padding: 10px 20px; 
+    background-color: #E5A000; 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    transition: 0.3s; 
     justify-content: center;
     align-items: center;
     margin-left: 240px;
