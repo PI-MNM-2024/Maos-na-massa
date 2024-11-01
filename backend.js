@@ -22,7 +22,7 @@ async function conectarAoMongoDB(){
 const pages = mongoose.Schema({
     title: {type:String, required: true},
     content: {type:String, required: true},
-    imagesUrls: {type:String, required: true},
+    imagesUrls: { type: [String], required: true },
     slug: {type:String, required: true}
 })
 
@@ -144,12 +144,12 @@ app.post('/pages', upload.array('images'), async (req,res) => {
     const {title, content} = req.body 
     const imagesUrls = req.files.map(file =>`uploads/${file.filename}`)
 
-    const newPage = {
+    const newPage = new pagina({
         title,
         content,
         imagesUrls,
         slug: title.toLowerCase().replace(/\s+/g, '-')
-    }
+    })
 
     try{
     respMongo = await newPage.save()
@@ -158,13 +158,9 @@ app.post('/pages', upload.array('images'), async (req,res) => {
     res.status(201).json({ message: "Formulário enviado com sucesso!", data: respMongo });
     
     } catch (error) {
-        console.error(error);
+        console.error('Erro ao salvar a página:', error); // Adicione este log
         res.status(500).json({ message: "Erro ao enviar o formulário", error });
     }
-
-    pages.push(newPage) 
-
-    res.status(201).json(newPage)
 
 })
 
