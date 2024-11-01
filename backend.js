@@ -5,6 +5,9 @@ const uniqueValidator = require("mongoose-unique-validator")
 const bcrypt = require("bcrypt")
 const jws = require("jsonwebtoken")
 const res = require("express/lib/response");
+const multer = require('multer')
+const path = require('path');
+const { type } = require("os");
 const app = express()
 app.use(express.json())
 app.use(cors())
@@ -13,6 +16,17 @@ app.use(cors())
 async function conectarAoMongoDB(){
     await mongoose.connect('mongodb+srv://GabrielFernandes:gabriel@pimaosnamassa.jfekz.mongodb.net/?retryWrites=true&w=majority&appName=PImaosnamassa')
 }
+
+
+
+const pages = mongoose.Schema({
+    title: {type:String, required: true},
+    content: {type:String, required: true},
+    imagesUrls: {type:String, required: true},
+    slug: {type:String, required: true}
+})
+
+const pagina = mongoose.model("Paginas", pages)
 
 const formularioSchema = mongoose.Schema({
     nome: {type:String, required: true, unique: false},
@@ -113,3 +127,76 @@ app.post('/signup', async (req, res) =>{
 
 })
 
+const storage = multer.diskStorage({
+    destination: (req,file,cb) => {
+        cb(null, 'uploads/')
+    },
+    filename: (req,file,cb) => {
+        const ext = path.extname(file.originalname)
+        const newName = `${Date.now()}-${file.originalname}`
+        cb(null,newName)
+    }
+})
+
+const upload = multer({storage})
+
+app.post('/pages', upload.array('images'), async (req,res) => {
+    const {title, content} = req.body 
+    const imagesUrls = req.files.map(file =>`uploads/${file.filename}`)
+
+    const newPage = {
+        title,
+        content,
+        imagesUrls,
+        slug: title.toLowerCase().replace(/\s+/g, '-')
+    }
+
+    try{
+    respMongo = await newPage.save()
+
+    console.log(newPage)
+    res.status(201).json({ message: "Formulário enviado com sucesso!", data: respMongo });
+    
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Erro ao enviar o formulário", error });
+    }
+
+    pages.push(newPage) 
+
+    res.status(201).json(newPage)
+
+})
+
+app.get('/pages/:slug', (req,res) => {
+    const page = pages.find(p => p.slug === req.params.slug)
+    if (!page) return res.status(404).send('Págino não encontrada')
+
+    const imagesHtml = page.imagesUrls.map(url => `<img src"${url}" alt="Imagem"`).join('')
+
+    res.send(`
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>${page.title}</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>${page.title}</h1>
+        </header>
+        <main>
+            <div class="content">
+                <p>${page.content}</p>
+                ${imagesHtml}
+            </div>
+        </main>
+        <footer>
+            <p>© 2024 Meu Site</p>
+        </footer>
+    </body>
+    </html>
+`);
+})

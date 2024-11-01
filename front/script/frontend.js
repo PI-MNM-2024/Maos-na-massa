@@ -77,3 +77,36 @@ async function cadastrarUsuario(){
       exibirAlerta('.alert-modal-cadastro', 'Preencha todos os campos', ['show', 'alert-danger'], ['d-none', 'alert-success'], 2000)
     }
   }
+
+
+  document.getElementById('pageForm').addEventListener('submit', async (event) => {
+
+    event.preventDefault()
+
+    const title = document.getElementById(title).value
+    const content = document.getElementById('content').value
+    const images = document.getElementById('images').files 
+
+    const formData = new FormData()
+    formData.append('title',title)
+    formData.append('content',content)
+
+    for (let i = 0; i < images.length; i++){
+      formData.append('images', images[i])
+    }
+
+    const response = await fetch('/pages', {
+      method: 'POST',
+      body: formData
+    })
+
+    if(response.ok){
+      const result = await response.json()
+      document.getElementById('pageList').innerHTML += `<li><a href="/pages/${result.slug}.html">${result.title}<a><li>`
+      document.getElementById('pageForm').reset()
+    }
+    else{
+      console.log("não foi")
+    }
+
+  })
