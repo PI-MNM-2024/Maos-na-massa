@@ -1085,3 +1085,33 @@ iframe {}
     opacity: 1;
     filter: grayscale(0);
 }
+.politica{
+    background-color: #E4D5B6;
+    max-height: 1000px;
+}
+.titulo_politica{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#introduction{
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    padding-left: 3%;
+}
+.rodape_politica {
+    background-color: #D7C5A2;
+    text-align: center; /* Centraliza o texto no rodapé */
+    padding: 10px; /* Adiciona espaço ao redor do texto */
+}
+.politica_corpo{
+    flex: 1; /* Isso faz com que o main ocupe o espaço restante */
+}
+section#introduction p {
+    line-height: 1.3; /* Ajuste esse valor para aumentar ou diminuir o espaçamento */
+    margin-bottom: 10px; /* Espaçamento entre os parágrafos */
+}
+.cabecalho_politica{
+    padding-bottom: 3%;
+}
