@@ -897,14 +897,12 @@ iframe {}
     text-align: center;
 }
 
-/* Linha divisória */
 .linha-divisoria {
     width: 1px; 
     background-color: #333; 
     height: 96%; 
 }
 
-/* Estilo do texto */
 .container h1 {
     font-size: 30px;
     font-family: "Roboto", sans-serif;
@@ -1004,18 +1002,18 @@ iframe {}
 }
 
 .carrossel {
-    max-width: 90%;
+    max-width: 100%;
     margin-inline: auto;
     position: relative;
     height: 6.25rem;
-    overflow: hidden;
     mask-image: linear-gradient(
         to right,
-        rgba(0,0,0,0),
-        rgba(0,0,0,1) 20%,
-        rgba(0,0,0,1) 80%,
-        rgba(0,0,0,0)
+        rgb(#E4D5B6),
+        rgb(#E4D6B7) 20%,
+        rgb(#E4D6B8) 80%,
+        rgb(#E4D6B9)
     );
+    background-color: #E4D5B6;
 }
 
 .item {
@@ -1067,24 +1065,16 @@ iframe {}
 .item29 { animation-delay: calc(100s / 33 * (33 - 29) * -1); background-image: url(/front/src/assets/images/natural-one.png); mix-blend-mode: multiply;}
 .item30 { animation-delay: calc(100s / 33 * (33 - 30) * -1); background-image: url(/front/src/assets/images/natural-one.png); mix-blend-mode: multiply;}
 .item31 { animation-delay: calc(100s / 33 * (33 - 31) * -1); background-image: url(/front/src/assets/images/natural-one.png); mix-blend-mode: multiply;}
-.item33 { animation-delay: calc(100s / 33 * (33 - 33) * -1); background-image: url(/front/src/assets/images/natural-one.png); mix-blend-mode: multiply;}
 .item32 { animation-delay: calc(100s / 33 * (33 - 32) * -1); background-image: url(/front/src/assets/images/natural-one.png); mix-blend-mode: multiply;}
+.item33 { animation-delay: calc(100s / 33 * (33 - 33) * -1); background-image: url(/front/src/assets/images/natural-one.png); mix-blend-mode: multiply;}
 
-
-/* Estilos adicionais aplicados a todos os itens */
 .item {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    filter: grayscale(10);
-    opacity: 0.5;
     transition: 1s ease;
 }
 
-.item:hover {
-    opacity: 1;
-    filter: grayscale(0);
-}
 .politica{
     background-color: #E4D5B6;
     max-height: 1000px;
