@@ -621,7 +621,9 @@ strong {
     flex-direction: row-reverse;
     align-items: center;
     text-align: right; 
+    padding-right: 3%;
     padding-left: 10px;
+    padding-bottom: 3%;
 }
 
 .quem_atua {
@@ -629,12 +631,13 @@ strong {
     flex-direction: row;
     align-items: center;
     text-align: left; 
-    padding: 1%;
+    padding-left: 3%;
 }
 
 .como_surgiu img{
     max-width: 100%;
-    height: auto;
+    height: 200px;
+    width: 200px;
 }
 
 .quem_atua img{
@@ -642,8 +645,9 @@ strong {
 }
 
 .valores img{
-    margin-right: auto;
-    padding-bottom: 10px;
+    max-width: 100%;
+    height: 200px;
+    width: 200px;
 }
 
 .como_surgiu, .quem_atua, .valores p {
@@ -652,14 +656,23 @@ strong {
 }
 
 .como_surgiu b{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 35px;
 }
 
 .quem_atua b{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 35px;
 }
 
 .valores b{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 35px;
 }
 
@@ -781,9 +794,7 @@ strong {
     background-color: #E4D5B6;
 
 }
-.valores, .quem_atua {
-    background-color: #D7C5A2;
-}
+
 
 .social-icons a img {
     transition: transform 0.3s ease; 
@@ -839,10 +850,7 @@ strong {
     height: 800px;
     background-color: #E4D5B6;
 }
-.container {
-    display: flex;
-    height: 100vh; 
-}
+
 
 .container {
     display: flex;
@@ -1056,11 +1064,18 @@ strong {
     justify-content: center;
     align-items: center;
 }
-#introduction{
+h1.titulo_politica {
+    padding-top: 3%;
+}
+h2.titulo_politica {
+    font-size: 20px;
+}
+.introduction{
     display: flex;
     flex-direction: column;
     align-items: self-start;
     padding-left: 3%;
+    gap: 10px;
 }
 .rodape_politica {
     background-color: #D7C5A2;
@@ -1076,4 +1091,25 @@ section#introduction p {
 }
 .cabecalho_politica{
     padding-bottom: 3%;
+}
+
+.politica p {
+    font-size: 20px;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+}
+.container-obj{
+    display: flex;
+}
+.objetivos, .certificacoes {
+    flex: 1; /* Assegura que ambas as divs ocupem o mesmo espaço */
+    padding: 10px;
+    border: 1px solid; /* Opcional, apenas para visualização */
+}
+.oque_projeto{
+    padding-bottom: 3%;
+}
+.oque_projeto p {
+    font-size: 18px; /* Ajuste o valor conforme desejado */
 }
