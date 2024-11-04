@@ -1014,6 +1014,7 @@ iframe {}
         rgb(#E4D6B9)
     );
     background-color: #E4D5B6;
+    overflow: hidden;
 }
 
 .item {
