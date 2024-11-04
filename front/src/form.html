@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <form>
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" required>
+
+        <label for="idade">Idade:</label>
+        <input type="number" name="idade" id="idade" required>
+
+        <label for="endereco">Endereco:</label>
+        <input type="text" name="endereco" id="endereco" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" name="telefone" id="telefone" required>        
+        
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+
+        <!-- Pergunta 6 -->
+        
+        <p>Qual é a sua condição atual da moradia:</p>
+        <input type="radio" id="casapropia" name="tipodemoradia" value="Casa própia">
+        <label for="casapropia">Casa própria</label><br>
+        
+        <input type="radio" id="alugada" name="tipodemoradia" value="Alugada">
+        <label for="alugada">Alugada</label><br>
+
+        <input type="radio" id="moradiacedida" name="tipodemoradia" value="Moradia cedida">
+        <label for="moradiacedida">Moradia cedida</label><br>
+
+        <input type="radio" id="OutroMoradia" name="tipodemoradia" value="Outro">
+        <label for="OutroMoradia">Outro: </label><input type="text" name="tipodemoradia" /><br>
+
+        <!-- Pergunta 7 -->
+
+        <label for="pessoasResidencia">Quantas pessoas moram na sua residência:</label>
+        <input type="number" name="pessoasResidencia" id="pessoasResidencia" required>
+
+        <!-- Pergunta 8 -->
+
+        <p>Você ou alguém na sua residência possui alguma deficiência?</p>
+
+        <input type="radio" id="simDeficiencia" name="simOUnaoDeficiencia" value="Sim">
+        <label for="simDeficiencia">Sim</label><br>
+
+        <input type="radio" id="naoDeficiencia" name="simOUnaoDeficiencia" value="Não">
+        <label for="simDeficiencia">Não</label><br>
+
+        <!-- Pergunta 9 -->
+
+        <p>Se sim, qual é o tipo de deficiência?</p>
+
+        <input type="radio" id="deficienciaFisica" name="tipodeficiencia" value="Sim">
+        <label for="deficienciaFisica">deficiência física(cadeirante, mobilidade reduzida)</label><br>
+
+
+    </form>
+    
+</body>
+</html>

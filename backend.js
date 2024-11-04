@@ -8,6 +8,7 @@ const res = require("express/lib/response");
 const multer = require('multer')
 const path = require('path');
 const { type } = require("os");
+const { stringify } = require("querystring");
 const app = express()
 app.use(express.json())
 app.use(cors())
@@ -42,6 +43,30 @@ const Formulario = mongoose.model("Formulario", formularioSchema)
 const usuarioSchema = mongoose.Schema({
     login: {type:String, required: true, unique: true},
     password: {type:String, required:true}
+})
+
+const formularioBeneficiario = mongoose.Schema({
+    nome: {type:String, required: true, unique: false},
+    idade: {type:String, requrided: true, unique: false},
+    endereco: {type:String, requrided:true, unique: true},
+    telefone: {type:String, required:true, unique: false},
+    email: {type:String, required: true, unique:true},
+    moradiaCondicao: {type:String, required: true},
+    pessoasporResidencia: {type:String, required: true},
+    pessoacomDeficiencianaResidencia: {type:String, requrided: true},
+    tipodeDeficiencia: {type:String, requrided:false},
+    necessidadeAcessibilidade: {Type:String, required: true},
+    jaTentouAdaptaçoes: {Type:String, required:true},
+    dificuldadesEnfrentadas: {Type:String, required:false},
+    segurancaeAcessibilidadeCasaAtual: {Type:String, requrided:true},
+    impactoReforma: {Type:String, requrided: true},
+    Pa1: {Type:String, requrided: true},
+    Pa2: {Type:String, required: true},
+    atualizaçaoProjetos: {Type:String, required: true},
+    conheceuaONGComo: {Type:String, required: true}
+
+
+
 })
 
 usuarioSchema.plugin(uniqueValidator)
