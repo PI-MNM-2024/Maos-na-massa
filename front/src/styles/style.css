@@ -584,38 +584,6 @@ strong {
     align-items: center;
 }
 
-.social-icons {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-}
-
-.social-icons p {
-    margin: 0;
-    font-weight: bold;
-}
-
-.social-icons a {
-    display: flex;
-    flex-direction: row;
-    margin: 0 10px;
-}
-
-.social-icons img {
-    display: flex;
-    flex-direction: row;
-    width: 60px;
-    height: 60px;
-}
-
-.social-icons a img {
-    display: flex;
-    flex-direction: row;
-    width: 16px;
-    height: 16px;
-}
-
 .navbar {
     padding: 10px;
     overflow: visible;
@@ -630,13 +598,9 @@ strong {
 
 .dropdown-toggle::after {
     display: none !important;
-    /* Remove a setinha */
 }
 
-
-
 .form_div {
-
     max-width: 30%;
     max-height: 400px;
 }
@@ -705,8 +669,6 @@ strong {
     height: auto;
 
 }
-
-iframe {}
 
 @media (min-width: 769px) and (max-width: 995px) {
     .ajude_agora {
