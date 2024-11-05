@@ -53,6 +53,198 @@ async function enviarFormulario() {
 
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+  // Lista de perguntas que contêm a opção "Outro"
+  const perguntasOutro = [
+    { name: 'tipodemoradia', inputId: 'OutroMoradia' },
+    { name: 'tipodeficiencia', inputId: 'OutroDeficiencia' },
+    { name: 'necessidadeAcessibilidade', inputId: 'OutroNecessidade' },
+    { name: 'dificuldadesEnfrentadas', inputId: 'OutroDificuldade' }
+  ];
+
+  // Função para alternar a visibilidade do campo "Outro"
+  function toggleOutroInput(name, inputId) {
+    const outroRadio = document.querySelector(`input[name="${name}"][value="Outro"]`);
+    const outroInput = outroRadio.nextElementSibling.nextElementSibling; // Seleciona o campo de texto após o rótulo "Outro: "
+
+    if (!outroInput) {
+      console.error(`Campo de texto associado a "Outro" para ${name} não foi encontrado.`);
+      return;
+    }
+
+    outroInput.disabled = !outroRadio.checked;
+    if (!outroRadio.checked) {
+      outroInput.value = ''; // Limpa o campo de texto "Outro" se ele for desabilitado
+    }
+  }
+
+  // Adiciona o event listener para cada pergunta que tem opção "Outro"
+  perguntasOutro.forEach(pergunta => {
+    const radios = document.querySelectorAll(`input[name="${pergunta.name}"]`);
+
+    radios.forEach(radio => {
+      radio.addEventListener('change', function () {
+        toggleOutroInput(pergunta.name, pergunta.inputId);
+      });
+    });
+
+    // Inicializa o estado correto para cada grupo de botões
+    toggleOutroInput(pergunta.name, pergunta.inputId);
+  });
+});
+
+async function enviarFormularioBeneficiario() {
+  //  Inputs
+  let nomeInput = document.querySelector('#nome')
+  let idadeInput = document.querySelector('#idade')
+  let enderecoInput = document.querySelector('#endereco')
+  let telefoneInput = document.querySelector('#telefone')
+  let emailInput = document.querySelector('#email')
+
+  let tipodemoradiaInput = document.getElementsByName('tipodemoradia')
+  let pessoasResidenciaInput = document.querySelector('#pessoasResidencia')
+  let simOUnaoDeficienciaInput = document.getElementsByName('simOUnaoDeficiencia')
+  let tipodeficienciaInput = document.getElementsByName('tipodeficiencia')
+  let necessidadeAcessibilidadeInput = document.getElementsByName('necessidadeAcessibilidade')
+  let tentouAdaptacoesInput = document.getElementsByName('tentouAdaptacoes')
+  let dificuldadesEnfrentadasInput = document.getElementsByName('dificuldadesEnfrentadas')
+  let segurançaCasaInput = document.getElementsByName('segurançaCasa')
+  let impactoReformaInput = document.getElementsByName('impactoReforma')
+
+  let mensagemP15Input = document.querySelector('#mensagemP15')
+  let mensagemP16Input = document.querySelector('#mensagemP16')
+
+  let maisInformacoesInput = document.getElementsByName('maisInformacoes')
+  let ondeConheceuONGInput = document.getElementsByName('ondeConheceuONG')
+
+  // Valores
+
+  const nome = nomeInput.value;
+  const idade = idadeInput.value;
+  const endereco = enderecoInput.value;
+  const telefone = telefoneInput.value;
+  const email = emailInput.value;
+
+  let tipodemoradia = Array.from(tipodemoradiaInput).find(radio => radio.checked)?.value;
+  let pessoasResidencia = pessoasResidenciaInput.value;
+  let simOUnaoDeficiencia = Array.from(simOUnaoDeficienciaInput).find(radio => radio.checked)?.value;
+  let tipodeDeficiencia = Array.from(tipodeficienciaInput).find(radio => radio.checked)?.value;
+  let necessidadeAcessibilidade = Array.from(necessidadeAcessibilidadeInput).find(radio => radio.checked)?.value;
+  let tentouAdaptacoes = Array.from(tentouAdaptacoesInput).find(radio => radio.checked)?.value;
+  let dificuldadesEnfrentadas = Array.from(dificuldadesEnfrentadasInput).find(radio => radio.checked)?.value;
+  let segurançaCasa = Array.from(segurançaCasaInput).find(radio => radio.checked)?.value;
+  let impactoReforma = Array.from(impactoReformaInput).find(radio => radio.checked)?.value;
+
+  let mensagemP15 = mensagemP15Input.value;
+  let mensagemP16 = mensagemP16Input.value;
+
+  let maisInformacoes = Array.from(maisInformacoesInput).find(radio => radio.checked)?.value;
+  let ondeConheceuONG = Array.from(ondeConheceuONGInput).find(radio => radio.checked)?.value;
+
+  const perguntasOutro = [
+    { name: 'tipodemoradia', inputId: 'OutroMoradiaInput' },
+    { name: 'tipodeficiencia', inputId: 'OutroDeficienciaInput' },
+    { name: 'necessidadeAcessibilidade', inputId: 'OutroNecessidadeInput' },
+    { name: 'dificuldadesEnfrentadas', inputId: 'inputOutroDificuldade' }
+  ];
+
+  // Função para capturar valores e formatar "Outro"
+  function obterValorComOutro(pergunta) {
+    const radioGroup = document.getElementsByName(pergunta.name);
+    let valor = Array.from(radioGroup).find(radio => radio.checked)?.value;
+
+    // Se a opção "Outro" for escolhida, captura o valor do input correspondente
+    if (valor === "Outro") {
+        const outroInput = document.querySelector(`#${pergunta.inputId}`).value;
+        // Verifica se o input não está vazio antes de formatar
+        valor = outroInput ? `outro: ${outroInput}` : `outro: [sem informação]`; // Se não houver valor, define um valor padrão
+    }
+    
+    return valor; // Retorna o valor (ou formatado se for "Outro")
+}
+
+  const requiredFields = [
+    nome, idade, endereco, telefone, email,
+    tipodemoradia, pessoasResidencia, simOUnaoDeficiencia,
+    necessidadeAcessibilidade, tentouAdaptacoes, segurançaCasa, impactoReforma,
+    mensagemP15, mensagemP16, ondeConheceuONG
+  ];
+
+  const allRequiredFilled = requiredFields.every(field => field);
+
+  if (!allRequiredFilled) {
+    console.error('Por favor, preencha todos os campos obrigatórios.');
+    return;
+  }
+
+  // Monta o objeto com os dados do formulário
+  const formularioData = {
+    nome,
+    idade,
+    endereco,
+    telefone,
+    email,
+    moradiaCondicao: obterValorComOutro({ name: 'tipodemoradia', inputId: 'OutroMoradiaInput' }),
+    pessoasPorResidencia: pessoasResidencia,
+    pessoaComDeficienciaNaResidencia: simOUnaoDeficiencia,
+    tipoDeDeficiencia: obterValorComOutro({ name: 'tipodeficiencia', inputId: 'OutroDeficienciaInput' }),
+    necessidadeAcessibilidade: obterValorComOutro({ name: 'necessidadeAcessibilidade', inputId: 'OutroNecessidadeInput' }),
+    jaTentouAdaptacoes: tentouAdaptacoes,
+    dificuldadesEnfrentadas: obterValorComOutro({ name: 'dificuldadesEnfrentadas', inputId: 'inputOutroDificuldade' }),
+    segurancaEAcessibilidadeCasaAtual: segurançaCasa,
+    impactoReforma,
+    pa1: mensagemP15,
+    pa2: mensagemP16,
+    atualizacaoProjetos: maisInformacoes,
+    conheceAONGComo: ondeConheceuONG
+  };
+
+  // Envia os dados para o servidor usando Axios
+  try {
+    const formularioEndPoint = '/formularioBeneficiario'
+
+    const URLcompleta = `${protocolo}${baseURL}${formularioEndPoint}`
+
+
+    const response = await axios.post(URLcompleta, formularioData);
+
+    if (response.status === 200) {
+      console.log('Formulário enviado com sucesso:', response.data);
+
+
+      nomeInput.value = '';
+      idadeInput.value = '';
+      enderecoInput.value = '';
+      telefoneInput.value = '';
+      emailInput.value = '';
+      pessoasResidenciaInput.value = '';
+      mensagemP15Input.value = '';
+      mensagemP16Input.value = '';
+
+
+      tipodemoradiaInput.forEach(radio => radio.checked = false);
+      simOUnaoDeficienciaInput.forEach(radio => radio.checked = false);
+      tipodeficienciaInput.forEach(radio => radio.checked = false);
+      necessidadeAcessibilidadeInput.forEach(radio => radio.checked = false);
+      tentouAdaptacoesInput.forEach(radio => radio.checked = false);
+      dificuldadesEnfrentadasInput.forEach(radio => radio.checked = false);
+      segurançaCasaInput.forEach(radio => radio.checked = false);
+      impactoReformaInput.forEach(radio => radio.checked = false);
+
+
+      maisInformacoesInput.forEach(radio => radio.checked = false);
+      ondeConheceuONGInput.forEach(radio => radio.checked = false);
+
+    } else {
+      throw new Error(`Erro ao enviar o formulário: ${response.statusText}`);
+    }
+
+  } catch (error) {
+    console.error('Erro ao enviar o formulário:', error);
+  }
+}
+
+
 async function cadastrarUsuario() {
   let usuarioCadastroInput = document.querySelector('#usuarioCadastroInput')
   let passwordCadastroInput = document.querySelector('#passwordCadastroInput')
@@ -79,23 +271,23 @@ async function cadastrarUsuario() {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-    await loadPages(); // Carrega as páginas do servidor ao iniciar
+  await loadPages(); // Carrega as páginas do servidor ao iniciar
 });
 
 async function loadPages() {
   try {
-      const response = await fetch('http://localhost:3000/pages'); // Requisição para obter páginas
-      if (response.ok) {
-          const pages = await response.json(); // Converte a resposta para JSON
-          const pageList = document.getElementById("pageList");
-          pages.forEach(page => {
-              pageList.innerHTML += `<li><a href="${protocolo}${baseURL}/pages/${page.slug}">${page.title}</a></li>`; // protocolo e base url momentanios(talvez) mas por enquanto funcionado
-          });
-      } else {
-          console.log('Erro ao carregar as páginas');
-      }
+    const response = await fetch('http://localhost:3000/pages'); // Requisição para obter páginas
+    if (response.ok) {
+      const pages = await response.json(); // Converte a resposta para JSON
+      const pageList = document.getElementById("pageList");
+      pages.forEach(page => {
+        pageList.innerHTML += `<li><a href="${protocolo}${baseURL}/pages/${page.slug}">${page.title}</a></li>`; // protocolo e base url momentanios(talvez) mas por enquanto funcionado
+      });
+    } else {
+      console.log('Erro ao carregar as páginas');
+    }
   } catch (error) {
-      console.error('Erro ao buscar páginas:', error);
+    console.error('Erro ao buscar páginas:', error);
   }
 }
 

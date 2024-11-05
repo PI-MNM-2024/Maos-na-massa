@@ -64,6 +64,83 @@ form textarea {
     font-size: 14px;
 }
 
+#formulario {
+    max-width: 600px; /* Define uma largura máxima para centralizar o formulário */
+    margin: 0 auto; /* Centraliza o formulário horizontalmente */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+#formulario label, 
+#formulario p {
+    display: block;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+#formulario input[type="text"],
+#formulario input[type="number"],
+#formulario input[type="tel"],
+#formulario input[type="email"],
+#formulario input[type="radio"] + label,
+#formulario textarea {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 0px;
+    /* border: 1px solid #ccc; */
+    box-sizing: border-box;
+}
+
+#formulario input[type="radio"] {
+    display: inline-block;
+    width: auto;
+    margin-right: 8px; /* Espaço entre o rádio e o label */
+    vertical-align: middle;
+    margin-top: 8px;
+}
+
+#formulario input[type="radio"] + label {
+    display: inline; /* Mantém o label na mesma linha que o rádio */
+    font-weight: normal; /* Para tornar o texto menos pesado ao lado do rádio */
+    margin-right: 15px; /* Espaçamento entre as opções */
+}
+
+#formulario textarea {
+    resize: vertical; /* Permite apenas redimensionamento vertical */
+}
+
+@media (max-width: 600px) {
+    #formulario {
+        padding: 10px;
+    }
+    
+    #formulario label, 
+    #formulario p {
+        font-size: 14px;
+    }
+    
+    #formulario input[type="text"],
+    #formulario input[type="number"],
+    #formulario input[type="tel"],
+    #formulario input[type="email"],
+    #formulario textarea {
+        padding: 8px;
+    }
+}
+
+.corpo__pagina-formulario{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E4D5B6;
+}
+
 form textarea {
     resize: vertical;
 }

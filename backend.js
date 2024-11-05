@@ -45,29 +45,28 @@ const usuarioSchema = mongoose.Schema({
     password: {type:String, required:true}
 })
 
-const formularioBeneficiario = mongoose.Schema({
-    nome: {type:String, required: true, unique: false},
-    idade: {type:String, requrided: true, unique: false},
-    endereco: {type:String, requrided:true, unique: true},
-    telefone: {type:String, required:true, unique: false},
-    email: {type:String, required: true, unique:true},
-    moradiaCondicao: {type:String, required: true},
-    pessoasporResidencia: {type:String, required: true},
-    pessoacomDeficiencianaResidencia: {type:String, requrided: true},
-    tipodeDeficiencia: {type:String, requrided:false},
-    necessidadeAcessibilidade: {Type:String, required: true},
-    jaTentouAdaptaçoes: {Type:String, required:true},
-    dificuldadesEnfrentadas: {Type:String, required:false},
-    segurancaeAcessibilidadeCasaAtual: {Type:String, requrided:true},
-    impactoReforma: {Type:String, requrided: true},
-    Pa1: {Type:String, requrided: true},
-    Pa2: {Type:String, required: true},
-    atualizaçaoProjetos: {Type:String, required: true},
-    conheceuaONGComo: {Type:String, required: true}
+const formularioBeneficiarioSchema = mongoose.Schema({
+    nome: { type: String, required: true },
+    idade: { type: String, required: true },
+    endereco: { type: String, required: true},
+    telefone: { type: String, required: true },
+    email: { type: String, required: true},
+    moradiaCondicao: { type: String, required: true },
+    pessoasPorResidencia: { type: String, required: true }, 
+    pessoaComDeficienciaNaResidencia: { type: String, required: true },
+    tipoDeDeficiencia: { type: String, required: false },
+    necessidadeAcessibilidade: { type: String, required: true },
+    jaTentouAdaptacoes: { type: String, required: true },
+    dificuldadesEnfrentadas: { type: String, required: false },
+    segurancaEAcessibilidadeCasaAtual: { type: String, required: true },
+    impactoReforma: { type: String, required: true },
+    pa1: { type: String, required: true }, 
+    pa2: { type: String, required: true }, 
+    atualizacaoProjetos: { type: String, required: true },
+    conheceAONGComo: { type: String, required: true }
+});
 
-
-
-})
+const formularioBeneficiario = mongoose.model("Formulario-beneficiario", formularioBeneficiarioSchema)
 
 usuarioSchema.plugin(uniqueValidator)
 const Usuario = mongoose.model("Usuario", usuarioSchema)
@@ -83,6 +82,63 @@ app.listen(3000, () => {
     
 })
 
+app.post('/formularioBeneficiario', async (req, res) => {
+    try {
+        // Capturando os dados do corpo da requisição
+        const {
+            nome,
+            idade,
+            endereco,
+            telefone,
+            email,
+            moradiaCondicao,
+            pessoasPorResidencia,
+            pessoaComDeficienciaNaResidencia,
+            tipoDeDeficiencia,
+            necessidadeAcessibilidade,
+            jaTentouAdaptacoes,
+            dificuldadesEnfrentadas,
+            segurancaEAcessibilidadeCasaAtual,
+            impactoReforma,
+            pa1,
+            pa2,
+            atualizacaoProjetos,
+            conheceAONGComo
+        } = req.body;
+
+        // Criando uma nova instância do modelo com os dados recebidos
+        const novoFormulario = new formularioBeneficiario({
+            nome,
+            idade,
+            endereco,
+            telefone,
+            email,
+            moradiaCondicao,
+            pessoasPorResidencia,
+            pessoaComDeficienciaNaResidencia,
+            tipoDeDeficiencia,
+            necessidadeAcessibilidade,
+            jaTentouAdaptacoes,
+            dificuldadesEnfrentadas,
+            segurancaEAcessibilidadeCasaAtual,
+            impactoReforma,
+            pa1: pa1,
+            pa2: pa2,
+            atualizacaoProjetos,
+            conheceAONGComo: conheceAONGComo
+        });
+
+        // Salvando o novo formulário no banco de dados
+        const respMongo = await novoFormulario.save();
+
+        console.log(respMongo);
+        res.status(201).json({ message: "Formulário enviado com sucesso!", data: respMongo });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Erro ao enviar o formulário", error });
+    }
+});
 
 
 app.post('/formulario', async (req,res) => {
