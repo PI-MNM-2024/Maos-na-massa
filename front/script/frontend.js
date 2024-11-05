@@ -91,7 +91,81 @@ document.addEventListener('DOMContentLoaded', function () {
     // Inicializa o estado correto para cada grupo de botões
     toggleOutroInput(pergunta.name, pergunta.inputId);
   });
-});
+
+  // Define as respostas da pergunta 9
+  const perguntas9respostas = [
+    { name: 'tipodeficiencia', inputId: 'deficienciaFisica' },
+    { name: 'tipodeficiencia', inputId: 'deficienciaVisual' },
+    { name: 'tipodeficiencia', inputId: 'deficienciaAuditiva' },
+    { name: 'tipodeficiencia', inputId: 'deficienciaIM' },
+    { name: 'tipodeficiencia', inputId: 'OutroDeficiencia' },
+    { name: 'tipodeficiencia', inputId: 'prefiroNResponder' }
+  ];
+
+  const perguntas12respostas = [
+    { name: 'dificuldadesEnfrentadas', inputId: 'faltaRecurso' },
+    { name: 'dificuldadesEnfrentadas', inputId: 'faltaConhecimento' },
+    { name: 'dificuldadesEnfrentadas', inputId: 'faltaProfissionais' },
+    { name: 'dificuldadesEnfrentadas', inputId: 'OutroDificuldade' }
+  ];
+
+  // Seleciona os botões de rádio da pergunta 8
+  const p8Sim = document.querySelector('input[name="simOUnaoDeficiencia"][value="Sim"]');
+  const p8Nao = document.querySelector('input[name="simOUnaoDeficiencia"][value="Não"]');
+
+  const p11Sim = document.querySelector('input[name="tentouAdaptacoes"][value="Sim, com sucesso"]');
+  const p11Sim2 = document.querySelector('input[name="tentouAdaptacoes"][value="Sim, mas enfrentei dificuldades"]');
+
+  const p11Nao = document.querySelector('input[name="tentouAdaptacoes"][value="Não, nunca tentei"]');
+
+  // Seleciona todos os botões de rádio da pergunta 9 com base nos IDs
+  const radios9 = perguntas9respostas.map(item => document.getElementById(item.inputId));
+  const radios12 = perguntas12respostas.map(item => document.getElementById(item.inputId));
+
+
+  function desabilitarProxPergunta(radio, condicional) {
+    radio.forEach(radio => {
+      radio.disabled = condicional
+    })
+  }
+
+  function limparCampos(radio,idOutro){
+    radio.forEach(radio => radio.checked = false);
+    const textOutro = document.querySelector(`input[id="${idOutro}"]`);
+  
+  if (textOutro) { // Verifica se o elemento foi encontrado
+    textOutro.value = "";
+  } else {
+    console.warn(`Elemento com id "${idOutro}" não foi encontrado.`);
+  }
+}
+
+  //verrifica a pergunta 8
+  p8Sim.addEventListener('change', function () {
+    desabilitarProxPergunta(radios9, false);
+    
+  });
+
+  p8Nao.addEventListener('change', function () {
+    desabilitarProxPergunta(radios9, true);
+    limparCampos(radios9,'OutroDeficienciaInput');
+  });
+
+  // verifica a pergunta 11
+  p11Sim.addEventListener('change', function () {
+    desabilitarProxPergunta(radios12, false);
+  });
+
+  p11Sim2.addEventListener('change', function () {
+    desabilitarProxPergunta(radios12, false);
+  });
+
+  p11Nao.addEventListener('change', function () {
+    desabilitarProxPergunta(radios12, true);
+    limparCampos(radios12,'inputOutroDificuldade');
+  });
+
+})
 
 async function enviarFormularioBeneficiario() {
   //  Inputs
@@ -155,13 +229,13 @@ async function enviarFormularioBeneficiario() {
 
     // Se a opção "Outro" for escolhida, captura o valor do input correspondente
     if (valor === "Outro") {
-        const outroInput = document.querySelector(`#${pergunta.inputId}`).value;
-        // Verifica se o input não está vazio antes de formatar
-        valor = outroInput ? `outro: ${outroInput}` : `outro: [sem informação]`; // Se não houver valor, define um valor padrão
+      const outroInput = document.querySelector(`#${pergunta.inputId}`).value;
+      // Verifica se o input não está vazio antes de formatar
+      valor = outroInput ? `outro: ${outroInput}` : `outro: [sem informação]`; // Se não houver valor, define um valor padrão
     }
-    
+
     return valor; // Retorna o valor (ou formatado se for "Outro")
-}
+  }
 
   const requiredFields = [
     nome, idade, endereco, telefone, email,
