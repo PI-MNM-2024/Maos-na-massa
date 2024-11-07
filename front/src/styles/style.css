@@ -409,7 +409,9 @@ strong {
     transition: transform 0.3s;
     margin-top: 30px;
     font-family: "Roboto", sans-serif;
-    font-weight: 600;
+    font-weight: normal;
+    text-decoration: none; 
+    color: #FFFFFF;
 }
 
 .saiba__mais:hover {
@@ -1190,3 +1192,41 @@ p, h1, h2, h3, h4, h5, h6 {
 .oque_projeto p {
     font-size: 18px; /* Ajuste o valor conforme desejado */
 }
+
+.corpo_evento {
+    height: 600px;
+    background-color: #E4D5B6;
+}
+.titulo_evento{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3%;
+}
+.foto_evento{
+    display: flex;
+    align-items: center;
+    height: 250px;
+    width: 500px;
+    border-radius: 3%;
+    margin-top: 1.5%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.quadrado_evento {
+    display: flex;
+    flex-direction: row;
+    border-radius: 3%;
+    background-color: #E5A000;
+    height: 300px;
+    max-width: 80%; /* Define a largura máxima da div */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 20px; /* Opcional: adiciona um pouco de espaço interno */
+}
+.quadrado_evento p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Garante que o texto fique centralizado */
+}
+
