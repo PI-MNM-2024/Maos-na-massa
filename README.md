@@ -53,7 +53,7 @@ Sejam bem-vindo ao repositório do projeto Mãos na Massa! Este projeto é desen
 
 ## 🤝 Contribuição com Mãos Na Massa
 
-### Para contribuir com <strong> O Semeador </strong>, siga estas etapas:
+### Para contribuir com <strong> O Mãos Na Massa </strong>, siga estas etapas:
 
 #### 1. Bifurque este repositório.
 #### 2. Crie um branch: `git checkout -b <nome_branch>`.
