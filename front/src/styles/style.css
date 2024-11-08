@@ -4,12 +4,28 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
     padding-top: 54.5px;
+}
+
+
+main.corpo__pagina-realizacoes {
+    flex-grow: 1;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    box-sizing: border-box; 
+    overflow-wrap: break-word;
+    
 }
 
 
@@ -31,10 +47,10 @@ body {
     font-style: normal;
 }
 
-.rodape {
+/* .rodape {
     padding: 20px;
     background-color: #f9f9f9;
-}
+} */
 
 .final {
     display: flex;
@@ -286,19 +302,25 @@ button:hover {
 }
 
 .corpo__pagina-realizacoes {
+    padding-top: 15px;
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #E4D5B6;
+    
 }
+
+
+
+
 
 .fotos {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    flex-direction: column;
+    flex-direction: column; 
     padding: 10px;
 }
 
@@ -323,8 +345,19 @@ button:hover {
 }
 
 .foto-container {
-    position: relative;
+    position: relative; 
+    text-align: center;
+    padding: 10px;
+    display: block;
+    overflow: hidden;
 }
+
+.foto-container img {
+    width: 100%; 
+    height: 300px; 
+    object-fit: cover; 
+}
+
 
 .apresentacao {
     position: relative;
@@ -443,7 +476,7 @@ strong {
     height: 700px;
 }
 
-.rodape {
+footer.rodape {
     display: flex;
     justify-content: center;
     gap: 50px;
@@ -452,6 +485,11 @@ strong {
     height: 200px;
     text-align: left;
     color: #333;
+    padding: 40px 0;
+    text-align: center;
+    width: 100%;
+    position: relative; 
+   margin-top: auto;
 }
 
 .rodape div{
@@ -532,9 +570,9 @@ strong {
 .vila_abrigo,
 .carlos_alberto,
 .abcd {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
+    width: 100%; 
+    height: auto; 
+    object-fit: cover; 
     border-radius: 5%;
 }
 
@@ -597,8 +635,9 @@ strong {
 }
 
 .row {
-    display: flex;
+    /* display: flex; */
     flex-wrap: wrap;
+    margin-bottom: 30px;
 }
 
 .botao-canto {
@@ -932,9 +971,13 @@ strong {
 
 
 .container {
-    display: flex;
+    /* display: flex; */
     height: 100vh; 
     position: relative; 
+}
+
+#queroAjuda{
+    display: flex;
 }
 
 .lado-esquerdo,
