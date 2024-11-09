@@ -361,7 +361,41 @@ button:hover {
 
 .apresentacao {
     position: relative;
-    margin-top: 20px
+    /* margin-top: 20px */
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.apresentacao #bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("/front/src/assets/images/fotoequipe.jpg");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: scale-down;
+    z-index: 0;
+}
+
+@media (max-width: 768px) {
+    .apresentacao #bg {
+        background-size: cover; /* Prioriza o preenchimento da tela */
+        background-position: top center; /* Garante o foco no grupo */
+    }
+}
+
+/* Abrir ainda mais em telas muito pequenas */
+@media (max-width: 576px) {
+    .apresentacao #bg {
+        background-size: 185%; /* Continua preenchendo sem bordas */
+        background-position: top;
+    }
+    .apresentacao{
+        min-height: 57vh;
+    }
 }
 
 .apresentacao img {
@@ -369,31 +403,27 @@ button:hover {
     height: auto;
 }
 
-.apresentacao__titulo {
-    position: absolute;
+.apresentacao__titulo,
+#slogan__titulo {
+    position: relative;
     color: #D67400;
-    top: 60px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    z-index: 1;
     font-family: "Roboto", sans-serif;
     font-weight: 900;
-    font-style: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 1; /* Textos ficam na frente da imagem */
+}
+
+.apresentacao__titulo {
+    font-size: 3rem;
+    margin-top: 60px; /* Valor inicial */
+    transition: margin-top 0.1s ease-out; /* Suaviza o movimento */
 }
 
 #slogan__titulo {
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
+    font-size: 1.2rem;
     color: white;
-    font-size: 1.0rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: normal;
+    margin-top: 10px; /* Pequeno espaçamento entre o título e o slogan */
+    transition: margin-top 0.1s ease-out;
 }
 
 strong {
