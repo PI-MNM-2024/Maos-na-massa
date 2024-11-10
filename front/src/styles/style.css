@@ -16,6 +16,7 @@ body {
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
     padding-top: 54.5px;
+    background-color: #E4D5B6 !important;
 }
 
 
@@ -425,6 +426,22 @@ button:hover {
     margin-top: 10px; /* Pequeno espaçamento entre o título e o slogan */
     transition: margin-top 0.1s ease-out;
 }
+
+
+
+#impacto{
+    background-color: #f1d8a6;
+    height: 100vh;
+    padding: 0 clamp(4rem, 12vw, 20rem);
+    display: grid;
+    place-content: center;
+}
+
+section#impacto p{
+    font-size: 48px;
+    white-space: nowrap;
+}
+
 
 strong {
     color: #FF8C00;
