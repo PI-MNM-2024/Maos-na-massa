@@ -77,7 +77,123 @@
             </div>
         </section>
         <section id="impacto">
-            <p class="text-center revel-type">Nosso impacto</p>
+            <div class="linhaTitulo">
+                <p class="text-center revel-type-horizontal tituloImpacto">Nosso impacto</p>
+            </div>
+
+            <!-- Divisória 1 -->
+            <hr class="divisoria" />
+
+            <div class="linha1">
+                <p class="text-center" id="numeroA">0</p>
+            </div>
+
+            <div class="linha2">
+                <p class="text-center revel-type-horizontal" id="projetos-realizadosI">Projetos Realizados</p>
+            </div>
+
+            <!-- Divisória 2 -->
+            <hr class="divisoria" />
+
+            <div class="linha3">
+                <div class="numero-bloco">
+                    <p class="revel-type" id="numero">13.000 PESSOAS</p>
+                    <p class="revel-type">Acolhidas</p>
+                </div>
+                <div class="numero-bloco">
+                    <p class="revel-type" id="numero">4030m²</p>
+                    <p class="revel-type">Metros Quadrados Impactados</p>
+                </div>
+            </div>
+
+            <!-- Divisória 3 -->
+            <hr class="divisoria" />
+
+            <div class="linha4">
+                <p class="revel-type">Cidades de São Paulo: 8 Cidades São Paulo e Grande São Paulo</p>
+                <img class="fluid-image"
+                    src="https://img.freepik.com/vetores-premium/3d-mapa-isometrico-de-sao-paulo-e-uma-cidade-do-brasil_97886-9942.jpg"
+                    alt="imagem sp">
+            </div>
+
+            <!-- Divisória 4 -->
+            <hr class="divisoria" />
+
+            <div class="linha5">
+                <p class="revel-type-horizontal">Valores Arrecadados:</p>
+            </div>
+            <div class="container" id="boxContainer">
+                <div class="box">
+                    <div class="box-circle">
+                        <svg>
+                            <circle cx="75" cy="75" r="70"></circle>
+                            <circle id="circleProgress" cx="75" cy="75" r="70"></circle>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" id="boxContainerV">
+                <div class="valorGrafico">
+                    <p class="revel-type">1,2 Milhões</p>
+                </div>
+            </div>
+
+            <!-- Divisória 5 -->
+            <hr class="divisoria" />
+
+            <div class="linha6">
+                <div class="container" id="boxContainer1">
+                    <div class="texto">
+                        <p class="revel-type-horizontal">Voluntários</p>
+                    </div>
+                    <div class="box">
+                        <div class="box-circle">
+                            <svg>
+                                <circle cx="75" cy="75" r="70"></circle>
+                                <circle id="circleProgress1" cx="75" cy="75" r="70"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="valorGrafico" id="boxContainerV1">
+                        <p class="revel-type">315</p>
+                    </div>
+                </div>
+
+                <div class="container" id="boxContainer2">
+                    <div class="texto">
+                        <p class="revel-type-horizontal">Parceiros nas Obras</p>
+                    </div>
+                    <div class="box">
+                        <div class="box-circle">
+                            <svg>
+                                <circle cx="75" cy="75" r="70"></circle>
+                                <circle id="circleProgress2" cx="75" cy="75" r="70"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="valorGrafico" id="boxContainerV2">
+                        <p class="revel-type">218</p>
+                    </div>
+                </div>
+
+                <div class="container" id="boxContainer3">
+                    <div class="texto">
+                        <p class="revel-type-horizontal">Eventos</p>
+                    </div>
+                    <div class="box">
+                        <div class="box-circle">
+                            <svg>
+                                <circle cx="75" cy="75" r="70"></circle>
+                                <circle id="circleProgress3" cx="75" cy="75" r="70"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="valorGrafico" id="boxContainerV3">
+                        <p class="revel-type">32</p>
+                    </div>
+                </div>
+            </div>
         </section>
         <section id="fundo">
 
@@ -252,6 +368,7 @@
         gsap.registerPlugin(ScrollTrigger)
 
         const splitTypes = document.querySelectorAll('.revel-type')
+        const splitTypesHorizontal = document.querySelectorAll('.revel-type-horizontal')
 
         splitTypes.forEach((char, i) => {
 
@@ -260,7 +377,7 @@
             gsap.from(text.chars, {
                 scrollTrigger: {
                     trigger: char,
-                    start: 'top 95%',
+                    start: 'top 98%',
                     end: 'top 10%',
                     scrub: true,
                     markers: false
@@ -271,7 +388,90 @@
                 stagger: 0.1
             })
 
+
+
         })
+
+        splitTypesHorizontal.forEach((char, i) => {
+
+            const text = new SplitType(char, { types: 'chars' })
+
+            gsap.from(text.chars, {
+                scrollTrigger: {
+                    trigger: char,
+                    start: 'top 90%',
+                    end: 'top 25%',
+                    scrub: true,
+                    markers: false
+                },
+                scaleX: 0,
+                x: -20,
+                transformOrigin: 'left',
+                stagger: 0.1
+            });
+
+
+
+        })
+
+        // Inicializa a animação para cada círculo
+        const animateCircle = (circleId) => {
+            const circle = document.querySelector(circleId);
+
+            const dashOffsetStart = 440;
+            const dashOffsetEnd = 0;
+
+            gsap.to(circle, {
+                strokeDashoffset: dashOffsetEnd,
+                scrollTrigger: {
+                    trigger: circle.closest('.box'), // Usa o elemento pai para ativar a animação
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        };
+
+        // Chama a função para cada círculo de progresso
+        animateCircle("#circleProgress")
+        animateCircle("#circleProgress1");
+        animateCircle("#circleProgress2");
+        animateCircle("#circleProgress3");
+
+        const animateNumber = (selector, endValue) => {
+            const element = document.querySelector(selector);
+
+            // Valor inicial da animação
+            const animationValue = { value: 0 };
+
+            const animation = gsap.to(animationValue, {
+                value: endValue,
+                duration: 2, // Duração da animação em segundos
+                ease: "power2.out", // Suavização
+                paused: true, // Pausa inicialmente
+                onUpdate: () => {
+                    // Atualiza o número no elemento
+                    element.textContent = Math.floor(animationValue.value);
+                },
+            });
+
+            // Configura o ScrollTrigger
+            ScrollTrigger.create({
+                trigger: element,
+                start: "top 90%", // Quando o elemento está 80% visível
+                onEnter: () => {
+                    animation.restart(); // Reinicia a animação ao entrar no viewport
+                },
+                onLeaveBack: () => {
+                    animation.pause(); // Pausa a animação ao sair para cima
+                    animationValue.value = 0; // Reseta o valor inicial
+                    element.textContent = "0"; // Reseta o texto no elemento
+                },
+            });
+        };
+
+        // Chama a função para animar o número
+        animateNumber("#numeroA", 18);
     </script>
 
 
