@@ -1,267 +1,350 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+      rel="shortcut icon"
+      href="assets/favicon/favicon.ico"
+      type="image/x-icon"
+    />
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
     <title>Projeto Mãos na Massa</title>
-</head>
+  </head>
 
-<body class="bg-secondary">
+  <body class="bg-secondary">
     <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img src="assets/favicon/favicon.ico"
-                    alt="Foto da logo do mãos na massa"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNav"
-                aria-controls="myNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="myNav">
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-link active me-2 corTexto p-3" aria-current="page" href="quemsomos.html">Quem
-                        Somos</a>
-                    <a class="nav-link active me-2 p-3" aria-current="page" href="realizacoes.html">Realizações</a>
-                    <a class="nav-link active me-2 p-3" aria-current="page" href="queroajuda.html">Quero Ajuda</a>
-                    <a class="nav-link active me-2 p-3" aria-current="page" href="noticias.html">Notícias</a>
-                    <a class="nav-link active me-2 p-3" aria-current="page" href="faq.html">FAQ</a>
-                    <a class="nav-link active me-2 p-3" aria-current="page" href="contato.html">Contato</a>
-                    <a class="nav-link active me-2 ajude_agora p-3" href="areadedoadores.html">Ajude Agora</a>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle login" href="#" id="navbarDropdownMenuLink"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="login_foto" src="assets/favicon/perfil-removebg-preview.png" alt="login">
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Login</a>
-                            <a class="dropdown-item data" data-bs-toggle="modal" data-bs-target="#modalCadastro"
-                                href="#">Cadastrar</a>
-                        </div>
-                    </li>
-                </div>
-            </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"
+          ><img
+            src="assets/favicon/favicon.ico"
+            alt="Foto da logo do mãos na massa"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#myNav"
+          aria-controls="myNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="myNav">
+          <div class="navbar-nav ms-auto">
+            <a
+              class="nav-link active me-2 corTexto p-3"
+              aria-current="page"
+              href="quemsomos.html"
+              >Quem Somos</a
+            >
+            <a
+              class="nav-link active me-2 p-3"
+              aria-current="page"
+              href="realizacoes.html"
+              >Realizações</a
+            >
+            <a
+              class="nav-link active me-2 p-3"
+              aria-current="page"
+              href="queroajuda.html"
+              >Quero Ajuda</a
+            >
+            <a
+              class="nav-link active me-2 p-3"
+              aria-current="page"
+              href="noticias.html"
+              >Notícias</a
+            >
+            <a
+              class="nav-link active me-2 p-3"
+              aria-current="page"
+              href="faq.html"
+              >FAQ</a
+            >
+            <a
+              class="nav-link active me-2 p-3"
+              aria-current="page"
+              href="contato.html"
+              >Contato</a
+            >
+            <a
+              class="nav-link active me-2 ajude_agora p-3"
+              href="areadedoadores.html"
+              >Ajude Agora</a
+            >
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle login"
+                href="#"
+                id="navbarDropdownMenuLink"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <img
+                  class="login_foto"
+                  src="assets/favicon/perfil-removebg-preview.png"
+                  alt="login"
+                />
+              </a>
+              <div
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <a class="dropdown-item" href="../src/login.html">Login</a>
+                <a class="dropdown-item data" href="../src/signup.html"
+                  >Cadastrar</a
+                >
+              </div>
+            </li>
+          </div>
         </div>
+      </div>
     </nav>
     <main class="corpo__pagina-principal">
-
-        <!-- Ícone de acessibilidade -->
-        <div vw class="enabled">
-            <div vw-access-button class="active"></div>
-            <div vw-plugin-wrapper>
-                <div class="vw-plugin-top-wrapper"></div>
-            </div>
+      <!-- Ícone de acessibilidade -->
+      <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+          <div class="vw-plugin-top-wrapper"></div>
         </div>
-        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-        <script>
-            new window.VLibras.Widget('https://vlibras.gov.br/app');
-        </script>
+      </div>
+      <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+      <script>
+        new window.VLibras.Widget("https://vlibras.gov.br/app");
+      </script>
 
-        <section class="apresentacao">
-            <div id="bg"></div>
-            <div class="text-center">
-                <h1 class="apresentacao__titulo">PROJETO MÃOS NA MASSA</h1>
-                <h2 id="slogan__titulo">"Construindo um Brasil mais inclusivo, tijolo por tijolo"</h2>
-            </div>
-        </section>
-        <section id="impacto">
-            <p class="text-center revel-type">Nosso impacto</p>
-        </section>
-        <section id="fundo">
-
-            <div class="apresentacao__conteudo">
-                <p id="texto_principal">O Mãos na Massa tem como missão promovera dignidade e a inclusão social através
-                    da construção e
-                    adaptação
-                    de moradias e espaços comunitários para pessoas com deficiência ou em situação de vulnerabilidade. A
-                    organização mobiliza jovens voluntários para conscientizar e preparar futuras gerações sobre os
-                    desafios
-                    da acessibilidade no Brasil</p>
-                <img class="tijolo_icon" src="assets/favicon/tijolo.png" alt="tijolos">
-            </div>
-            <div class="mais__conteudo">
-                <p>A visão da ONG é ser uma <strong>referência nacional</strong> em acessibilidade, reconhecida por
-                    transformar a
-                    realidade de pessoas vulneráveis, criando um Brasil mais justo</p>
-
-                <p>Guiada por valores como <strong>inclusão</strong>, <strong>dignidade</strong>,
-                    <strong>empatia</strong>, <strong>solidariedade</strong>,
-                    <strong>sustentabilidade</strong> e <strong>resiliência</strong>, a Mãos na Massa busca impacto
-                    social positivo através de
-                    parcerias estratégicas
-                </p>
-            </div>
-            <button class="saiba__mais" onclick="location.href='/front/src/quemsomos.html'">Saiba Mais!</button>
-        </section>
-        <div class="carrossel">
-            <div class="item item1"><a href=""></a></div>
-            <div class="item item2"><a href=""></a></div>
-            <div class="item item3"><a href=""></a></div>
-            <div class="item item4"><a href=""></a></div>
-            <div class="item item5"><a href=""></a></div>
-            <div class="item item6"><a href=""></a></div>
-            <div class="item item7"><a href=""></a></div>
-            <div class="item item8"><a href=""></a></div>
-            <div class="item item9"><a href=""></a></div>
-            <div class="item item10"><a href=""></a></div>
-            <div class="item item11"><a href=""></a></div>
-            <div class="item item12"><a href=""></a></div>
-            <div class="item item13"><a href=""></a></div>
-            <div class="item item14"><a href=""></a></div>
-            <div class="item item15"><a href=""></a></div>
-            <div class="item item16"><a href=""></a></div>
-            <div class="item item17"><a href=""></a></div>
-            <div class="item item18"><a href=""></a></div>
+      <section class="apresentacao">
+        <div id="bg"></div>
+        <div class="text-center">
+          <h1 class="apresentacao__titulo">PROJETO MÃOS NA MASSA</h1>
+          <h2 id="slogan__titulo">
+            "Construindo um Brasil mais inclusivo, tijolo por tijolo"
+          </h2>
         </div>
+      </section>
+      <section id="impacto">
+        <p class="text-center revel-type">Nosso impacto</p>
+      </section>
+      <section id="fundo">
+        <div class="apresentacao__conteudo">
+          <p id="texto_principal">
+            O Mãos na Massa tem como missão promovera dignidade e a inclusão
+            social através da construção e adaptação de moradias e espaços
+            comunitários para pessoas com deficiência ou em situação de
+            vulnerabilidade. A organização mobiliza jovens voluntários para
+            conscientizar e preparar futuras gerações sobre os desafios da
+            acessibilidade no Brasil
+          </p>
+          <img
+            class="tijolo_icon"
+            src="assets/favicon/tijolo.png"
+            alt="tijolos"
+          />
+        </div>
+        <div class="mais__conteudo">
+          <p>
+            A visão da ONG é ser uma <strong>referência nacional</strong> em
+            acessibilidade, reconhecida por transformar a realidade de pessoas
+            vulneráveis, criando um Brasil mais justo
+          </p>
+
+          <p>
+            Guiada por valores como <strong>inclusão</strong>,
+            <strong>dignidade</strong>, <strong>empatia</strong>,
+            <strong>solidariedade</strong>, <strong>sustentabilidade</strong> e
+            <strong>resiliência</strong>, a Mãos na Massa busca impacto social
+            positivo através de parcerias estratégicas
+          </p>
+        </div>
+        <button
+          class="saiba__mais"
+          onclick="location.href='/front/src/quemsomos.html'"
+        >
+          Saiba Mais!
+        </button>
+      </section>
+      <div class="carrossel">
+        <div class="item item1"><a href=""></a></div>
+        <div class="item item2"><a href=""></a></div>
+        <div class="item item3"><a href=""></a></div>
+        <div class="item item4"><a href=""></a></div>
+        <div class="item item5"><a href=""></a></div>
+        <div class="item item6"><a href=""></a></div>
+        <div class="item item7"><a href=""></a></div>
+        <div class="item item8"><a href=""></a></div>
+        <div class="item item9"><a href=""></a></div>
+        <div class="item item10"><a href=""></a></div>
+        <div class="item item11"><a href=""></a></div>
+        <div class="item item12"><a href=""></a></div>
+        <div class="item item13"><a href=""></a></div>
+        <div class="item item14"><a href=""></a></div>
+        <div class="item item15"><a href=""></a></div>
+        <div class="item item16"><a href=""></a></div>
+        <div class="item item17"><a href=""></a></div>
+        <div class="item item18"><a href=""></a></div>
+      </div>
     </main>
     <footer class="rodape py-4">
-        <div class="container pt-5">
-            <div class="row">
-                <div class="col-md-3 mb-3 footer-section">
-                    <p><b>Informações</b></p>
-                    <a href="quemsomos.html">Quem Somos</a>
-                    <a href="">Segurança</a>
-                    <a href="politica.html">Política de Privacidade</a>
-                </div>
+      <div class="container pt-5">
+        <div class="row">
+          <div class="col-md-3 mb-3 footer-section">
+            <p><b>Informações</b></p>
+            <a href="quemsomos.html">Quem Somos</a>
+            <a href="">Segurança</a>
+            <a href="politica.html">Política de Privacidade</a>
+          </div>
 
-                <div class="col-md-3 mb-3 footer-section">
-                    <p><b>Serviços ao Cliente</b></p>
-                    <a href="contato.html">Fale Conosco</a>
-                    <a href="eventos.html">Eventos</a>
-                    <a href="areadedoadores.html">Trabalhe conosco</a>
-                    <a href="noticias.html">Notícias</a>
-                </div>
+          <div class="col-md-3 mb-3 footer-section">
+            <p><b>Serviços ao Cliente</b></p>
+            <a href="contato.html">Fale Conosco</a>
+            <a href="eventos.html">Eventos</a>
+            <a href="areadedoadores.html">Trabalhe conosco</a>
+            <a href="noticias.html">Notícias</a>
+          </div>
 
-                <div class="col-md-3 mb-3 footer-section">
-                    <p><b>Fale Conosco</b></p>
-                    <p>📱 +55 (11) 973285665</p>
-                    <p class="email-info">
-                        ✉️ <span>maosnamassaong@gmail.com</span>
-                    </p>
-                    <p>De segunda a sexta, das 07:00 às 22:00</p>
-                </div>
+          <div class="col-md-3 mb-3 footer-section">
+            <p><b>Fale Conosco</b></p>
+            <p>📱 +55 (11) 973285665</p>
+            <p class="email-info">✉️ <span>maosnamassaong@gmail.com</span></p>
+            <p>De segunda a sexta, das 07:00 às 22:00</p>
+          </div>
 
-                <div class="col-md-3 mb-3 social-iconsAlinha">
-                    <p><b>Siga-nos em nossas redes sociais!</b></p>
-                    <div class="icons-container">
-                        <a href="https://www.youtube.com/@projetomaosnamassa8265">
-                            <img src="assets/favicon/youtube.svg" alt="YouTube" width="30">
-                        </a>
-                        <a href="https://www.instagram.com/projeto_maosnamassa/">
-                            <img src="assets/favicon/instagram-alt.svg" alt="Instagram" width="30">
-                        </a>
-                        <a href="mailto:maosnamassaong@gmail.com">
-                            <img src="assets/favicon/gmail.svg" alt="Gmail" width="30">
-                        </a>
-                    </div>
-                </div>
+          <div class="col-md-3 mb-3 social-iconsAlinha">
+            <p><b>Siga-nos em nossas redes sociais!</b></p>
+            <div class="icons-container">
+              <a href="https://www.youtube.com/@projetomaosnamassa8265">
+                <img
+                  src="assets/favicon/youtube.svg"
+                  alt="YouTube"
+                  width="30"
+                />
+              </a>
+              <a href="https://www.instagram.com/projeto_maosnamassa/">
+                <img
+                  src="assets/favicon/instagram-alt.svg"
+                  alt="Instagram"
+                  width="30"
+                />
+              </a>
+              <a href="mailto:maosnamassaong@gmail.com">
+                <img src="assets/favicon/gmail.svg" alt="Gmail" width="30" />
+              </a>
             </div>
+          </div>
         </div>
+      </div>
     </footer>
     <script src="/front/script/frontend.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
-        var headerBg = document.getElementById('bg');
-        var titulo = document.querySelector('.apresentacao__titulo');
-        var slogan = document.querySelector('#slogan__titulo');
+      var headerBg = document.getElementById("bg");
+      var titulo = document.querySelector(".apresentacao__titulo");
+      var slogan = document.querySelector("#slogan__titulo");
 
-        // Define as media queries
-        const mediaQueryLarge = window.matchMedia('(min-width: 768px)');
-        const mediaQuerySmall = window.matchMedia('(max-width: 768px)');
+      // Define as media queries
+      const mediaQueryLarge = window.matchMedia("(min-width: 768px)");
+      const mediaQuerySmall = window.matchMedia("(max-width: 768px)");
 
-        function applyScrollEffect() {
-            var scrollOffset = window.pageYOffset;
+      function applyScrollEffect() {
+        var scrollOffset = window.pageYOffset;
 
-            if (mediaQueryLarge.matches) {
-                // Para telas grandes
-                headerBg.style.opacity = 1 - scrollOffset / 1250;
-                headerBg.style.top = scrollOffset / 15 + 'px';
-                headerBg.style.backgroundPositionY = -scrollOffset / 20 + 'px';
+        if (mediaQueryLarge.matches) {
+          // Para telas grandes
+          headerBg.style.opacity = 1 - scrollOffset / 1250;
+          headerBg.style.top = scrollOffset / 15 + "px";
+          headerBg.style.backgroundPositionY = -scrollOffset / 20 + "px";
 
-                var maxScrollOffset = 420;
-                var adjustedOffset = Math.min(scrollOffset, maxScrollOffset);
-                titulo.style.marginTop = 120 + adjustedOffset / 1 + 'px';
-                slogan.style.marginTop = 15 + adjustedOffset / 8 + 'px';
+          var maxScrollOffset = 420;
+          var adjustedOffset = Math.min(scrollOffset, maxScrollOffset);
+          titulo.style.marginTop = 120 + adjustedOffset / 1 + "px";
+          slogan.style.marginTop = 15 + adjustedOffset / 8 + "px";
 
-                var opacityValue = 1 - adjustedOffset / maxScrollOffset;
-                titulo.style.opacity = opacityValue;
-                slogan.style.opacity = opacityValue;
+          var opacityValue = 1 - adjustedOffset / maxScrollOffset;
+          titulo.style.opacity = opacityValue;
+          slogan.style.opacity = opacityValue;
+        } else if (mediaQuerySmall.matches) {
+          // Para telas menores
+          headerBg.style.opacity = 1 - scrollOffset / 800; // Opacidade muda mais rápido
+          headerBg.style.top = scrollOffset / 20 + "px";
+          headerBg.style.backgroundPositionY = -scrollOffset / 30 + "px";
 
-            } else if (mediaQuerySmall.matches) {
-                // Para telas menores
-                headerBg.style.opacity = 1 - scrollOffset / 800; // Opacidade muda mais rápido
-                headerBg.style.top = scrollOffset / 20 + 'px';
-                headerBg.style.backgroundPositionY = -scrollOffset / 30 + 'px';
+          var maxScrollOffset = 150; // Limite reduzido para telas pequenas
+          var adjustedOffset = Math.min(scrollOffset, maxScrollOffset);
+          titulo.style.marginTop = 100 + adjustedOffset / 1 + "px"; // Movimento mais suave
+          slogan.style.marginTop = 10 + adjustedOffset / 5 + "px";
 
-                var maxScrollOffset = 150; // Limite reduzido para telas pequenas
-                var adjustedOffset = Math.min(scrollOffset, maxScrollOffset);
-                titulo.style.marginTop = 100 + adjustedOffset / 1 + 'px'; // Movimento mais suave
-                slogan.style.marginTop = 10 + adjustedOffset / 5 + 'px';
-
-                var opacityValue = 1 - adjustedOffset / maxScrollOffset;
-                titulo.style.opacity = opacityValue;
-                slogan.style.opacity = opacityValue;
-            }
-
-            // Continua chamando a função para a próxima animação
-            requestAnimationFrame(applyScrollEffect);
+          var opacityValue = 1 - adjustedOffset / maxScrollOffset;
+          titulo.style.opacity = opacityValue;
+          slogan.style.opacity = opacityValue;
         }
 
-        // Inicia a animação
+        // Continua chamando a função para a próxima animação
         requestAnimationFrame(applyScrollEffect);
+      }
+
+      // Inicia a animação
+      requestAnimationFrame(applyScrollEffect);
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="https://unpkg.com/split-type"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
 
     <script>
-        gsap.registerPlugin(ScrollTrigger)
+      gsap.registerPlugin(ScrollTrigger);
 
-        const splitTypes = document.querySelectorAll('.revel-type')
+      const splitTypes = document.querySelectorAll(".revel-type");
 
-        splitTypes.forEach((char, i) => {
+      splitTypes.forEach((char, i) => {
+        const text = new SplitType(char, { types: "chars" });
 
-            const text = new SplitType(char, { types: 'chars' })
-
-            gsap.from(text.chars, {
-                scrollTrigger: {
-                    trigger: char,
-                    start: 'top 95%',
-                    end: 'top 10%',
-                    scrub: true,
-                    markers: false
-                },
-                scaleY: 0,
-                y: -20,
-                transformOrigin: 'top',
-                stagger: 0.1
-            })
-
-        })
+        gsap.from(text.chars, {
+          scrollTrigger: {
+            trigger: char,
+            start: "top 95%",
+            end: "top 10%",
+            scrub: true,
+            markers: false,
+          },
+          scaleY: 0,
+          y: -20,
+          transformOrigin: "top",
+          stagger: 0.1,
+        });
+      });
     </script>
-
-
-
-
-</body>
-
+  </body>
 </html>
