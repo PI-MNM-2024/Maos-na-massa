@@ -445,8 +445,8 @@ button:hover {
 
 
 #impacto {
-    background-color: #f1d8a6;
-    opacity: 0.7;
+    background-color: #eaeaea;
+    /* opacity: 0.7; */
     padding: 0 clamp(2rem, 8vw, 20rem);
     display: grid;
     place-content: center;
@@ -464,22 +464,36 @@ button:hover {
     /* Quebra automaticamente o texto longo */
     overflow-wrap: break-word;
     hyphens: auto;
-    /* Hifeniza palavras longas para melhor ajuste */
+    color: #ff5d27;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
 }
 
 #impacto .tituloImpacto {
     font-size: 62px;
     margin-bottom: 20px;
-    padding-top: 368px;
+    padding-top: 250px;
 }
 
-.linha1,
+#imagemOBR{
+    opacity: 0;
+}
+
+#imagemPA{
+    opacity: 0;
+}
+
+#imagemMI{
+    opacity: 0;
+}
+
+/* .linha1,
 .linha2,
 .linha4,
 .linha5,
 .valorGrafico {
     font-size: 20px;
-}
+} */
 
 .linha1,
 .linha2{
@@ -528,7 +542,7 @@ button:hover {
     gap: 4rem;
     justify-content: center;
     text-align: center;
-    margin-bottom: 28px;
+    margin-bottom: 42px;
 }
 
 .texto{
@@ -540,13 +554,18 @@ button:hover {
 .divisoria {
     border: 0;
     height: 2px;
-    background: linear-gradient(to right, #fccf75, #fcb21e);
+    background: linear-gradient(to right, #fccf75, #ea6436);
     margin: 20px 0;
     width: 100vw; /* Faz com que ocupe toda a largura da janela de visualização */
     position: relative; /* Para evitar interferência de containers com largura limitada */
     left: 50%; /* Centraliza a divisória corretamente */
     transform: translateX(-50%); /* Ajusta para que ela ocupe toda a tela */
     opacity: 0.8;
+}
+
+#numero {
+    font-size: 62px;
+    padding-top: 150px;
 }
 
 /* Media Queries para Layout Responsivo */
@@ -562,7 +581,7 @@ button:hover {
         grid-template-columns: repeat(3, auto);
         justify-content: center;
         gap: 18rem;
-        margin-bottom: 28px;
+        margin-bottom: 68px;
     }
 }
 
@@ -594,7 +613,7 @@ button:hover {
 
 
     #impacto .tituloImpacto {
-        font-size: 32px;
+        font-size: 55px;
         /* Reduz o tamanho do título em telas pequenas */
     }
 
@@ -618,10 +637,15 @@ button:hover {
         font-size: 48px; /* Reduz o tamanho do número em telas pequenas */
     }
 
+    .numero-bloco p {
+        white-space: nowrap;
+        font-size: 30px;
+    }
+
     .linha3,
     .linha6 {
         grid-template-columns: 1fr;
-        margin-bottom: 28px;
+        margin-bottom: 115px;
         /* Empilha tudo em uma coluna */
     }
 
@@ -634,14 +658,9 @@ button:hover {
 
 #numeroA {
     font-size: 62px;
-    padding-top: 150px;
+    padding-top: 85px;
 }
 
-
-#numero {
-    font-size: 62px;
-    padding-top: 150px;
-}
 
 #boxContainer{
     display: flex;
@@ -700,7 +719,7 @@ circle#circleProgress3 {
     align-items: center;
     width: 29vw;
     height: 0vw;
-    top: -65px;;
+    ;
 }
 
 #boxContainerV2{
@@ -709,7 +728,7 @@ circle#circleProgress3 {
     align-items: center;
     width: 29vw;
     height: 0vw;
-    top: -65px;;
+    ;
 }
 
 #boxContainerV3{
@@ -718,23 +737,59 @@ circle#circleProgress3 {
     align-items: center;
     width: 29vw;
     height: 0vw;
-    top: -65px;
+
 }
 
 .box {
     position: relative;
-    width: 163px;
-    height: 158px;
+    width: 256px;
+    height: 256px;
     top: 5%;
     left: 42%;
     border-radius: 5px;
-    
+}
+
+.box1 {
+    position: relative;
+    width: 256px;
+    height: 256px;
+    top: 5%;
+    left: 42%;
+    border-radius: 5px;
+    background-image: url("/public/assets/images/imagem_2024-11-11_164853891-removebg-preview.png");
+    background-position: center;
+    border-radius: 50%;
+}
+
+.box2 {
+    position: relative;
+    width: 256px;
+    height: 256px;
+    top: 5%;
+    left: 42%;
+    border-radius: 5px;
+    background-image: url("/public/assets/images/imagem_2024-11-11_173441953-removebg-preview.png");
+    background-position: center;
+    border-radius: 50%;
+}
+
+.box3 {
+    position: relative;
+    width: 256px;
+    height: 256px;
+    top: 5%;
+    left: 42%;
+    border-radius: 5px;
+    background-image: url("/public/assets/images/imagem_2024-11-11_172551680-removebg-preview.png");
+    background-position: center;
+    border-radius: 50%;
 }
 
 .box-circle svg {
-    width: 150px;
-    height: 150px;
+    width: 265px;
+    height: 265px;
     position: relative;
+   
 }
 
 circle {
@@ -742,9 +797,9 @@ circle {
     height: 150px;
     fill: none;
     stroke: black;
-    stroke-width: 8;
-    stroke-dasharray: 440;
-    stroke-dashoffset: 440;
+    stroke-width: 10;
+    stroke-dasharray: 774;
+    stroke-dashoffset: 774;
 
 }
 
@@ -754,20 +809,46 @@ circle:nth-child(1) {
 }
 
 circle:nth-child(2) {
-    stroke-dashoffset: 440;
+    stroke-dashoffset: 774;
     stroke: green;
     transition: stroke-dashoffset 0.3s ease;
 }
 
 .valorGrafico {
     position: relative;
-    top: -84px;
-    left: 0;
-    width: 98%;
-    height: 101%;
+    top: -116px;
+    left: -2px;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 32px;
+    white-space: nowrap;
+}
+
+.linha5 p{
+    font-size: 32px;
+    white-space: nowrap;
+}
+
+.linha6 p{
+    font-size: 25px;
+}
+
+.valorGraficoL6{
+    position: relative;
+    top: -102px;
+    left: -2px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.numero-bloco p{
+    white-space: nowrap;
 }
 
 strong {
