@@ -851,6 +851,42 @@ circle:nth-child(2) {
     white-space: nowrap;
 }
 
+#cards{
+    background-color: #D7C5A2;
+    padding: 40px 20px;
+}
+
+#tituloPcard{
+    text-align: center;
+    font-size: 42px;
+    padding-bottom: 20px;
+}
+
+#tituloCard{
+
+}
+
+#tituloCarroselI{
+    text-align: center;
+    font-size: 42px;
+    padding-bottom: 20px;
+}
+
+.img-container{
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.card{
+    border-radius: 25px !important; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#carrosselHistorias{
+    background-color: #D7C5A2;
+    
+}
+
 strong {
     color: #FF8C00;
 }
@@ -873,9 +909,9 @@ strong {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 70%;
+    max-width: 100%;
     margin: 0 auto;
-    padding-left: 30%;
+    padding-left: 3%;
 }
 
 .tijolo_icon {
@@ -914,7 +950,7 @@ strong {
     font-style: normal;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;/
+    /* gap: 20px;/ */
 }
 
 .mais__conteudo p {
@@ -928,7 +964,7 @@ strong {
 
 #fundo {
     background-color: #E4D5B6;
-    height: 700px;
+    padding: 40px 0;
 }
 
 .rodape {
@@ -1158,7 +1194,7 @@ strong {
     height: 300px;
     object-fit: cover;
     width: 100%;
-    border: 2px solid red;
+    
 }
 
 .news-article {
