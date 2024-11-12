@@ -380,7 +380,7 @@ button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("/front/src/assets/images/fotoequipe.jpg");
+    background: url("/public/assets/images/fotoequipe.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1601,24 +1601,24 @@ strong {
     }
 }
 
-.item1 { animation-delay: calc(100s / 18 * (18 - 1) * -1); background-image: url(/front/src/assets/images/natural-one.png); mix-blend-mode: multiply;}
-.item2 { animation-delay: calc(100s / 18 * (18 - 2) * -1); background-image: url(/front/src/assets/images/alta-logo.png); mix-blend-mode: multiply;}
-.item3 { animation-delay: calc(100s / 18 * (18 - 3) * -1); background-image: url(/front/src/assets/images/bolsa-de-imoveis.png); mix-blend-mode: multiply;}
-.item4 { animation-delay: calc(100s / 18 * (18 - 4) * -1); background-image: url(/front/src/assets/images/eB-Capital.png); mix-blend-mode: multiply;}
-.item5 { animation-delay: calc(100s / 18 * (18 - 5) * -1); background-image: url(/front/src/assets/images/ev-citi.jpg); mix-blend-mode: multiply;}
-.item6 { animation-delay: calc(100s / 18 * (18 - 6) * -1); background-image: url(/front/src/assets/images/Genial.png); mix-blend-mode: multiply;}
-.item7 { animation-delay: calc(100s / 18 * (18 - 7) * -1); background-image: url(/front/src/assets/images/HUG_StFrancis.jpg); mix-blend-mode: multiply;}
-.item8 { animation-delay: calc(100s / 18 * (18 - 8) * -1); background-image: url(/front/src/assets/images/ib-logo.jpg); mix-blend-mode: multiply;}
-.item9 { animation-delay: calc(100s / 18 * (18 - 9) * -1); background-image: url(/front/src/assets/images/LOGO\ GOL.JPG); mix-blend-mode: multiply;}
-.item10 { animation-delay: calc(100s / 18 * (18 - 10) * -1); background-image: url(/front/src/assets/images/Logo_REUD.jpg); mix-blend-mode: multiply;}
-.item11 { animation-delay: calc(100s / 18 * (18 - 11) * -1); background-image: url(/front/src/assets/images/logo-sodexo-2048.png); mix-blend-mode: multiply;}
-.item12 { animation-delay: calc(100s / 18 * (18 - 12) * -1); background-image: url(/front/src/assets/images/MARINA.JPG); mix-blend-mode: multiply;}
-.item13 { animation-delay: calc(100s / 18 * (18 - 13) * -1); background-image: url(/front/src/assets/images/one-goal.png); mix-blend-mode: multiply;}
-.item14 { animation-delay: calc(100s / 18 * (18 - 14) * -1); background-image: url(/front/src/assets/images/orizon.jpg); mix-blend-mode: multiply;}
-.item15 { animation-delay: calc(100s / 18 * (18 - 15) * -1); background-image: url(/front/src/assets/images/Patria.jpg); mix-blend-mode: multiply;}
-.item16 { animation-delay: calc(100s / 18 * (18 - 16) * -1); background-image: url(/front/src/assets/images/Techcorp.jpg); mix-blend-mode: multiply;}
-.item17 { animation-delay: calc(100s / 18 * (18 - 17) * -1); background-image: url(/front/src/assets/images/track-and-field.png); mix-blend-mode: multiply;}
-.item18 { animation-delay: calc(100s / 18 * (18 - 18) * -1); background-image: url(/front/src/assets/images/viacao-gato-preto.png); mix-blend-mode: multiply;}
+.item1 { animation-delay: calc(100s / 18 * (18 - 1) * -1); background-image: url(/public/assets/images/natural-one.png); mix-blend-mode: multiply;}
+.item2 { animation-delay: calc(100s / 18 * (18 - 2) * -1); background-image: url(/public/assets/images/alta-logo.png); mix-blend-mode: multiply;}
+.item3 { animation-delay: calc(100s / 18 * (18 - 3) * -1); background-image: url(/public/assets/images/bolsa-de-imoveis.png); mix-blend-mode: multiply;}
+.item4 { animation-delay: calc(100s / 18 * (18 - 4) * -1); background-image: url(/public/assets/images/eB-Capital.png); mix-blend-mode: multiply;}
+.item5 { animation-delay: calc(100s / 18 * (18 - 5) * -1); background-image: url(/public/assets/images/ev-citi.jpg); mix-blend-mode: multiply;}
+.item6 { animation-delay: calc(100s / 18 * (18 - 6) * -1); background-image: url(/public/assets/images/Genial.png); mix-blend-mode: multiply;}
+.item7 { animation-delay: calc(100s / 18 * (18 - 7) * -1); background-image: url(/public/assets/images/HUG_StFrancis.jpg); mix-blend-mode: multiply;}
+.item8 { animation-delay: calc(100s / 18 * (18 - 8) * -1); background-image: url(/public/assets/images/ib-logo.jpg); mix-blend-mode: multiply;}
+.item9 { animation-delay: calc(100s / 18 * (18 - 9) * -1); background-image: url(/public/assets/images/LOGO\ GOL.JPG); mix-blend-mode: multiply;}
+.item10 { animation-delay: calc(100s / 18 * (18 - 10) * -1); background-image: url(/public/assets/images/Logo_REUD.jpg); mix-blend-mode: multiply;}
+.item11 { animation-delay: calc(100s / 18 * (18 - 11) * -1); background-image: url(/public/assets/images/logo-sodexo-2048.png); mix-blend-mode: multiply;}
+.item12 { animation-delay: calc(100s / 18 * (18 - 12) * -1); background-image: url(/public/assets/images/MARINA.JPG); mix-blend-mode: multiply;}
+.item13 { animation-delay: calc(100s / 18 * (18 - 13) * -1); background-image: url(/public/assets/images/one-goal.png); mix-blend-mode: multiply;}
+.item14 { animation-delay: calc(100s / 18 * (18 - 14) * -1); background-image: url(/public/assets/images/orizon.jpg); mix-blend-mode: multiply;}
+.item15 { animation-delay: calc(100s / 18 * (18 - 15) * -1); background-image: url(/public/assets/images/Patria.jpg); mix-blend-mode: multiply;}
+.item16 { animation-delay: calc(100s / 18 * (18 - 16) * -1); background-image: url(/public/assets/images/Techcorp.jpg); mix-blend-mode: multiply;}
+.item17 { animation-delay: calc(100s / 18 * (18 - 17) * -1); background-image: url(/public/assets/images/track-and-field.png); mix-blend-mode: multiply;}
+.item18 { animation-delay: calc(100s / 18 * (18 - 18) * -1); background-image: url(/public/assets/images/viacao-gato-preto.png); mix-blend-mode: multiply;}
 
 .item {
     background-size: contain;
@@ -1775,7 +1775,7 @@ h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("/front/src/assets/images/equipefoto2.jpg");
+    background: url("/public/assets/images/equipefoto2.jpg");
     background-size: cover; /* Garante que a imagem cubra todo o espaço */
     background-position: center;
     z-index: 0;
