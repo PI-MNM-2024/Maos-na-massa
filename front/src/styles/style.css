@@ -1601,203 +1601,24 @@ strong {
     }
 }
 
-.item1 {
-    animation-delay: calc(100s / 33 * (33 - 1) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item2 {
-    animation-delay: calc(100s / 33 * (33 - 2) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item3 {
-    animation-delay: calc(100s / 33 * (33 - 3) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item4 {
-    animation-delay: calc(100s / 33 * (33 - 4) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item5 {
-    animation-delay: calc(100s / 33 * (33 - 5) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item6 {
-    animation-delay: calc(100s / 33 * (33 - 6) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item7 {
-    animation-delay: calc(100s / 33 * (33 - 7) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item8 {
-    animation-delay: calc(100s / 33 * (33 - 8) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item9 {
-    animation-delay: calc(100s / 33 * (33 - 9) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item10 {
-    animation-delay: calc(100s / 33 * (33 - 10) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item11 {
-    animation-delay: calc(100s / 33 * (33 - 11) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item12 {
-    animation-delay: calc(100s / 33 * (33 - 12) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item13 {
-    animation-delay: calc(100s / 33 * (33 - 13) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item14 {
-    animation-delay: calc(100s / 33 * (33 - 14) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item15 {
-    animation-delay: calc(100s / 33 * (33 - 15) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item16 {
-    animation-delay: calc(100s / 33 * (33 - 16) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item17 {
-    animation-delay: calc(100s / 33 * (33 - 17) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item18 {
-    animation-delay: calc(100s / 33 * (33 - 18) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item19 {
-    animation-delay: calc(100s / 33 * (33 - 19) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item20 {
-    animation-delay: calc(100s / 33 * (33 - 20) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item21 {
-    animation-delay: calc(100s / 33 * (33 - 21) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item22 {
-    animation-delay: calc(100s / 33 * (33 - 22) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item23 {
-    animation-delay: calc(100s / 33 * (33 - 23) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item24 {
-    animation-delay: calc(100s / 33 * (33 - 24) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item25 {
-    animation-delay: calc(100s / 33 * (33 - 25) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item26 {
-    animation-delay: calc(100s / 33 * (33 - 26) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item27 {
-    animation-delay: calc(100s / 33 * (33 - 27) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item28 {
-    animation-delay: calc(100s / 33 * (33 - 28) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item29 {
-    animation-delay: calc(100s / 33 * (33 - 29) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item30 {
-    animation-delay: calc(100s / 33 * (33 - 30) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item31 {
-    animation-delay: calc(100s / 33 * (33 - 31) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item32 {
-    animation-delay: calc(100s / 33 * (33 - 32) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
-
-.item33 {
-    animation-delay: calc(100s / 33 * (33 - 33) * -1);
-    background-image: url(/front/src/assets/images/natural-one.png);
-    mix-blend-mode: multiply;
-}
+.item1 { animation-delay: calc(100s / 18 * (18 - 1) * -1); background-image: url(/front/src/assets/images/natural-one.png); mix-blend-mode: multiply;}
+.item2 { animation-delay: calc(100s / 18 * (18 - 2) * -1); background-image: url(/front/src/assets/images/alta-logo.png); mix-blend-mode: multiply;}
+.item3 { animation-delay: calc(100s / 18 * (18 - 3) * -1); background-image: url(/front/src/assets/images/bolsa-de-imoveis.png); mix-blend-mode: multiply;}
+.item4 { animation-delay: calc(100s / 18 * (18 - 4) * -1); background-image: url(/front/src/assets/images/eB-Capital.png); mix-blend-mode: multiply;}
+.item5 { animation-delay: calc(100s / 18 * (18 - 5) * -1); background-image: url(/front/src/assets/images/ev-citi.jpg); mix-blend-mode: multiply;}
+.item6 { animation-delay: calc(100s / 18 * (18 - 6) * -1); background-image: url(/front/src/assets/images/Genial.png); mix-blend-mode: multiply;}
+.item7 { animation-delay: calc(100s / 18 * (18 - 7) * -1); background-image: url(/front/src/assets/images/HUG_StFrancis.jpg); mix-blend-mode: multiply;}
+.item8 { animation-delay: calc(100s / 18 * (18 - 8) * -1); background-image: url(/front/src/assets/images/ib-logo.jpg); mix-blend-mode: multiply;}
+.item9 { animation-delay: calc(100s / 18 * (18 - 9) * -1); background-image: url(/front/src/assets/images/LOGO\ GOL.JPG); mix-blend-mode: multiply;}
+.item10 { animation-delay: calc(100s / 18 * (18 - 10) * -1); background-image: url(/front/src/assets/images/Logo_REUD.jpg); mix-blend-mode: multiply;}
+.item11 { animation-delay: calc(100s / 18 * (18 - 11) * -1); background-image: url(/front/src/assets/images/logo-sodexo-2048.png); mix-blend-mode: multiply;}
+.item12 { animation-delay: calc(100s / 18 * (18 - 12) * -1); background-image: url(/front/src/assets/images/MARINA.JPG); mix-blend-mode: multiply;}
+.item13 { animation-delay: calc(100s / 18 * (18 - 13) * -1); background-image: url(/front/src/assets/images/one-goal.png); mix-blend-mode: multiply;}
+.item14 { animation-delay: calc(100s / 18 * (18 - 14) * -1); background-image: url(/front/src/assets/images/orizon.jpg); mix-blend-mode: multiply;}
+.item15 { animation-delay: calc(100s / 18 * (18 - 15) * -1); background-image: url(/front/src/assets/images/Patria.jpg); mix-blend-mode: multiply;}
+.item16 { animation-delay: calc(100s / 18 * (18 - 16) * -1); background-image: url(/front/src/assets/images/Techcorp.jpg); mix-blend-mode: multiply;}
+.item17 { animation-delay: calc(100s / 18 * (18 - 17) * -1); background-image: url(/front/src/assets/images/track-and-field.png); mix-blend-mode: multiply;}
+.item18 { animation-delay: calc(100s / 18 * (18 - 18) * -1); background-image: url(/front/src/assets/images/viacao-gato-preto.png); mix-blend-mode: multiply;}
 
 .item {
     background-size: contain;
@@ -1936,4 +1757,42 @@ h6 {
     justify-content: center;
     text-align: center;
     /* Garante que o texto fique centralizado */
+}
+
+.apresentacao_somos {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* A seção ocupa a altura total da janela */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Garante que o background preencha a seção corretamente */
+}
+
+#bg_somos {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("/front/src/assets/images/equipefoto2.jpg");
+    background-size: cover; /* Garante que a imagem cubra todo o espaço */
+    background-position: center;
+    z-index: 0;
+}
+
+.conteudo {
+    position: relative;
+    z-index: 1;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.titulo_somos{
+    color: #D67400;
+    font-family: 'Roboto', sans-serif;
+}
+.texto_somos{
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 70%;
 }
