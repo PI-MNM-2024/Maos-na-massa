@@ -39,13 +39,7 @@ Sejam bem-vindo ao repositório do projeto Mãos na Massa! Este projeto é desen
 
     npm install --legacy-peer-deps
 
-### 4.  **Configure o MongoDB:**
-
-#### Certifique-se de ter o MongoDB instalado e em execução em sua máquina. Para iniciar o MongoDB, use o comando:
-
-    mongod
-
-### 5.  **Inicie o servidor:**
+### 4.  **Inicie o servidor:**
 
 #### Inicie o projeto com o comando:
 
