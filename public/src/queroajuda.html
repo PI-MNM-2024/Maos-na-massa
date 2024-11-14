@@ -24,50 +24,37 @@
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/index.html"><img src="/public/assets/favicon/favicon.ico"
-              alt="Foto da logo do mãos na massa"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNav"
-            aria-controls="myNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="myNav">
-            <div class="navbar-nav ms-auto">
-              <a class="nav-link active me-2 corTexto p-3" aria-current="page" href="quemsomos.html">Quem Somos</a>
-              <a class="nav-link active me-2 p-3" aria-current="page" href="realizacoes.html">Realizações</a>
-              <a class="nav-link active me-2 p-3" aria-current="page" href="queroajuda.html">Quero Ajuda</a>
-              <a class="nav-link active me-2 p-3" aria-current="page" href="noticias.html">Notícias</a>
-              <a class="nav-link active me-2 p-3" aria-current="page" href="faq.html">FAQ</a>
-              <a class="nav-link active me-2 p-3" aria-current="page" href="contato.html">Contato</a>
-              <a class="nav-link active me-2 ajude_agora p-3" href="areadedoadores.html">Ajude Agora</a>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle login"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  data-bs-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <img
-                    class="login_foto"
-                    src="/public/assets/favicon/perfil-removebg-preview.png"
-                    alt="login"
-                  />
-                </a>
-                <div
-                  class="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <a class="dropdown-item" href="login.html">Login</a>
-                  <a class="dropdown-item data" href="signup.html"
-                    >Cadastrar</a
-                  >
+            <a class="navbar-brand" href="/index.html"><img src="/public/assets/favicon/favicon.ico"
+                    alt="Foto da logo do mãos na massa"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNav"
+                aria-controls="myNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="myNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active me-2 corTexto p-3" aria-current="page" href="quemsomos.html">Quem
+                        Somos</a>
+                    <a class="nav-link active me-2 p-3" aria-current="page" href="realizacoes.html">Realizações</a>
+                    <a class="nav-link active me-2 p-3" aria-current="page" href="queroajuda.html">Quero Ajuda</a>
+                    <a class="nav-link active me-2 p-3" aria-current="page" href="noticias.html">Notícias</a>
+                    <a class="nav-link active me-2 p-3" aria-current="page" href="faq.html">FAQ</a>
+                    <a class="nav-link active me-2 p-3" aria-current="page" href="contato.html">Contato</a>
+                    <a class="nav-link active me-2 ajude_agora p-3" href="areadedoadores.html">Ajude Agora</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle login" href="#" id="navbarDropdownMenuLink"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="login_foto" src="/public/assets/favicon/perfil-removebg-preview.png"
+                                alt="login" />
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="login.html">Login</a>
+                            <a class="dropdown-item data" href="signup.html">Cadastrar</a>
+                        </div>
+                    </li>
                 </div>
-              </li>
             </div>
-          </div>
         </div>
-      </nav>
+    </nav>
     <main class="main_ajuda">
 
         <!-- Ícone de acessibilidade -->
@@ -84,20 +71,80 @@
         <div class="container" id="queroAjuda">
             <div class="lado-esquerdo">
                 <div>
-                    <img src="/public/assets/images/foto-carlos-alberto.jpeg" alt=""></img>
                     <h1>Ajuda pessoal</h1>
-                    <h4>Pré-requisitos para ser ajudado:</h4>
-                    <p>- Ter um terreno próprio</p>
-                    <p>- Ter uma renda familiar</p>
-                    <p>- Local seguro para nossos voluntários (não trabalhamos em comunidades)</p>
-                    <p>- Localização em um raio de até 1 hora da Avenida Paulista.</p>
+                    <h4 class="pb-5">Pré-requisitos para ser ajudado:</h4>
+                    <div id="carouselHistoria" class="carousel slide" data-bs-ride="carousel">
+                        <ol class="carousel-indicators pb-1">
+                            <li data-bs-target="#carouselHistoria" data-bs-slide-to="0" class="active"></li>
+                            <li data-bs-target="#carouselHistoria" data-bs-slide-to="1"></li>
+                            <li data-bs-target="#carouselHistoria" data-bs-slide-to="2"></li>
+                            <li data-bs-target="#carouselHistoria" data-bs-slide-to="3" class="active"></li>
+                            <li data-bs-target="#carouselHistoria" data-bs-slide-to="4"></li>
+                            
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+
+                                <img src="/public/assets/images/terreno.png"
+                                    class="d-block w-100 img-fluid" alt="Imagem 1">
+
+                                <div class="carousel-caption d-none d-md-block">
+
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                           
+                                <img src="/public/assets/images/seguranca.png" class="d-block w-100 img-fluid"
+                                    alt="Imagem 2">
+
+                                <div class="carousel-caption d-none d-md-block">
+
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                            
+                                <img src="/public/assets/images/renda.png" class="d-block w-100 img-fluid"
+                                    alt="Imagem 3">
+
+                                <div class="carousel-caption d-none d-md-block">
+
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                            
+                                <img src="/public/assets/images/PAULISTA.png" class="d-block w-100 img-fluid"
+                                    alt="Imagem 3">
+
+                                <div class="carousel-caption d-none d-md-block">
+
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                            
+                                <img src="/public/assets/images/112A46 - cópia 3.png" class="d-block w-100 img-fluid"
+                                    alt="Imagem 3">
+
+                                <div class="carousel-caption d-none d-md-block">
+
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselHistoria" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselHistoria" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only"></span>
+                        </a>
+                    </div>
                     <a class='saiba__mais' href="form-pessoa.html">Quero ajuda!</a>
                 </div>
             </div>
             <div class="linha-divisoria"></div>
             <div class="lado-direito">
                 <div>
-                    <img src="/public/assets/images/foto-quadra.jpeg" alt="">
                     <h1>Ajuda Institucional</h1>
                     <h4>Pré-requisitos para ser ajudado:</h4>
                     <p>- Ter um CNPJ ativo</p>
@@ -121,7 +168,7 @@
                     <a href="">Segurança</a>
                     <a href="politica.html">Política de Privacidade</a>
                 </div>
-    
+
                 <div class="col-md-3 mb-3 footer-section">
                     <p><b>Serviços ao Cliente</b></p>
                     <a href="contato.html">Fale Conosco</a>
@@ -129,7 +176,7 @@
                     <a href="areadedoadores.html">Trabalhe conosco</a>
                     <a href="noticias.html">Notícias</a>
                 </div>
-    
+
                 <div class="col-md-3 mb-3 footer-section">
                     <p><b>Fale Conosco</b></p>
                     <p>📱 +55 (11) 973285665</p>
@@ -138,7 +185,7 @@
                     </p>
                     <p>De segunda a sexta, das 07:00 às 22:00</p>
                 </div>
-    
+
                 <div class="col-md-3 mb-3 social-iconsAlinha">
                     <p><b>Siga-nos em nossas redes sociais!</b></p>
                     <div class="icons-container">
