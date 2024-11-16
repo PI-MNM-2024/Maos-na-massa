@@ -14,11 +14,28 @@ app.use(express.json());
 app.use(cors());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
+require("dotenv").config();
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
+
 async function conectarAoMongoDB() {
-  await mongoose.connect(
-    "mongodb+srv://GabrielFernandes:gabriel@pimaosnamassa.jfekz.mongodb.net/?retryWrites=true&w=majority&appName=PImaosnamassa"
-  );
+  try {
+    await mongoose.connect(
+      "mongodb+srv://GabrielFernandes:gabriel@pimaosnamassa.jfekz.mongodb.net/?retryWrites=true&w=majority&appName=PImaosnamassa",
+      { useNewUrlParser: true, useUnifiedTopology: true }
+    );
+    console.log("Conectado ao MongoDB com sucesso!");
+  } catch (error) {
+    console.error("Erro ao conectar ao MongoDB:", error);
+    process.exit(1);
+  }
 }
+
+conectarAoMongoDB();
 
 const pages = mongoose.Schema({
   title: { type: String, required: true },
@@ -166,47 +183,56 @@ app.post("/formulario", async (req, res) => {
   }
 });
 
+const Joi = require("joi");
+
+const signupSchema = Joi.object({
+  login: Joi.string().min(3).max(30).required(),
+  password: Joi.string().min(6).required(),
+});
+
 app.post("/signup", async (req, res) => {
+  const { error } = signupSchema.validate(req.body);
+  if (error) {
+    return res.status(400).json({ message: error.details[0].message });
+  }
+
   try {
-    const login = req.body.login;
-    const password = req.body.password;
-    const criptografada = await bcrypt.hash(password, 10);
-    const usuario = new Usuario({
-      login: login,
-      password: criptografada,
-    });
+    const { login, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const usuario = new Usuario({ login, password: hashedPassword });
     const respMongo = await usuario.save();
-    console.log(respMongo);
-    res.status(201).end;
+    res.status(201).json({ message: "Usuário cadastrado com sucesso!" });
   } catch (error) {
-    console.log(error);
-    res.status(409).end;
+    console.error(error);
+    res.status(500).json({ message: "Erro ao cadastrar o usuário", error });
   }
 });
 
 app.post("/login", async (req, res) => {
-  // login/senha que o usuario enviou
-  const login = req.body.login;
-  const password = req.body.password;
-  // tentamos encontrar no mongo db
-  const u = await Usuario.findOne({ login: req.body.login });
-  if (!u) {
-    // senão foi encontrado, encerra por aqui com código 401
-    return res.status(401).json({ mensagem: "login inválido" });
+  try {
+    const { login, password } = req.body;
+
+    const usuario = await Usuario.findOne({ login });
+    if (!usuario) {
+      return res.status(401).json({ message: "Credenciais inválidas!" });
+    }
+
+    const senhaValida = await bcrypt.compare(password, usuario.password);
+    if (!senhaValida) {
+      return res.status(401).json({ message: "Credenciais inválidas!" });
+    }
+
+    const token = jws.sign(
+      { login: usuario.login },
+      "chave-secreta-super-segura",
+      { expiresIn: "1h" }
+    );
+
+    res.status(200).json({ message: "Login bem-sucedido!", token });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Erro ao fazer login", error });
   }
-  // se foi encontrado, comparamos a senha, após descriptografá-la
-  const senhaValida = await bcrypt.compare(password, u.password);
-  if (!senhaValida) {
-    return res.status(401).json({ mensagem: "senha inválida" });
-  }
-  // aqui vamos gerar o token e devolver para o cliente
-  const token = jws.sign(
-    { login: login },
-    // depois vamos mudar para uma chave secreta de verdade
-    "chave-secreta",
-    { expiresIn: "1h" }
-  );
-  res.status(200).json({ token: token });
 });
 
 const storage = multer.diskStorage({
@@ -223,26 +249,28 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 app.post("/pages", upload.array("images"), async (req, res) => {
-  const { title, content } = req.body;
-  const imagesUrls = req.files.map((file) => `uploads/${file.filename}`);
-
-  const newPage = new pagina({
-    title,
-    content,
-    imagesUrls,
-    slug: title.toLowerCase().replace(/\s+/g, "-"),
-  });
-
   try {
-    respMongo = await newPage.save();
+    const { title, content } = req.body;
 
-    console.log(newPage);
+    if (!title || !content || req.files.length === 0) {
+      return res.status(400).json({ message: "Dados incompletos!" });
+    }
+
+    const imagesUrls = req.files.map((file) => `uploads/${file.filename}`);
+    const newPage = new pagina({
+      title,
+      content,
+      imagesUrls,
+      slug: title.toLowerCase().replace(/\s+/g, "-"),
+    });
+
+    const respMongo = await newPage.save();
     res
       .status(201)
-      .json({ message: "Formulário enviado com sucesso!", data: respMongo });
+      .json({ message: "Página criada com sucesso!", data: respMongo });
   } catch (error) {
-    console.error("Erro ao salvar a página:", error); // Adicione este log
-    res.status(500).json({ message: "Erro ao enviar o formulário", error });
+    console.error("Erro ao salvar a página:", error);
+    res.status(500).json({ message: "Erro ao criar a página", error });
   }
 });
 
