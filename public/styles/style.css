@@ -1168,6 +1168,7 @@ strong {
     margin: 10px auto;
     background-color: #E5A000;
     margin-top: 10px;
+    border-radius: 3%;
 }
 
 .pergunta-container img {
