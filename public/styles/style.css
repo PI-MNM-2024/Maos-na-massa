@@ -350,6 +350,7 @@ button:hover {
 }
 
 
+
 .apresentacao {
     position: relative;
     /* margin-top: 20px */
@@ -1237,9 +1238,10 @@ strong {
 .como_surgiu,
 .valores {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     align-items: center;
-    text-align: right;
+    text-align: center;
+    justify-content: center;
     padding-right: 3%;
     padding-left: 10px;
     padding-bottom: 3%;
@@ -1248,8 +1250,9 @@ strong {
 .quem_atua {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
-    text-align: left;
+    text-align: center;
     padding-left: 3%;
 }
 
@@ -1259,9 +1262,7 @@ strong {
     width: 200px;
 }
 
-.quem_atua img {
-    margin-left: auto;
-}
+
 
 .valores img {
     max-width: 100%;
@@ -1269,12 +1270,7 @@ strong {
     width: 200px;
 }
 
-.como_surgiu,
-.quem_atua,
-.valores p {
-    margin-right: 10px;
-    font-size: 17px;
-}
+
 
 .como_surgiu b {
     display: flex;
@@ -1891,45 +1887,23 @@ h6 {
     text-align: center;
 }
 
-.apresentacao_somos {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
 
-#bg_somos {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("/public/assets/images/equipefoto2.jpg");
-    background-size: cover;
-    background-position: center;
-    z-index: 0;
-}
 
-.conteudo {
-    position: relative;
-    z-index: 1;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
+
+
+
 
 .titulo_somos {
     color: #D67400;
     font-family: 'Roboto', sans-serif;
+    padding-top: 3%;
 }
 
 .texto_somos {
     font-family: 'Roboto', sans-serif;
-    padding-bottom: 70%;
+    padding-bottom: 3%;
 }
+
 
 .carousel-inner img {
     border-radius: 15%;
