@@ -4,10 +4,7 @@
     box-sizing: border-box;
 }
 
-/* html, body {
-    height: 100%;
-    margin: 0;
-} */
+
 
 
 body {
@@ -48,10 +45,6 @@ main.corpo__pagina-realizacoes {
     font-style: normal;
 }
 
-/* .rodape {
-    padding: 20px;
-    background-color: #f9f9f9;
-} */
 
 .final {
     display: flex;
@@ -83,12 +76,9 @@ form textarea {
 
 #formulario {
     max-width: 600px;
-    /* Define uma largura máxima para centralizar o formulário */
     margin: 0 auto;
-    /* Centraliza o formulário horizontalmente */
     padding: 20px;
     box-sizing: border-box;
-    /* background-color: #f9f9f9;  */
     border-radius: 8px;
 }
 
@@ -111,7 +101,6 @@ form textarea {
     padding: 10px;
     margin: 5px 0;
     border-radius: 0px;
-    /* border: 1px solid #ccc; */
     box-sizing: border-box;
 }
 
@@ -119,23 +108,18 @@ form textarea {
     display: inline-block;
     width: auto;
     margin-right: 8px;
-    /* Espaço entre o rádio e o label */
     vertical-align: middle;
     margin-top: 8px;
 }
 
 #formulario input[type="radio"]+label {
     display: inline;
-    /* Mantém o label na mesma linha que o rádio */
     font-weight: normal;
-    /* Para tornar o texto menos pesado ao lado do rádio */
     margin-right: 15px;
-    /* Espaçamento entre as opções */
 }
 
 #formulario textarea {
     resize: vertical;
-    /* Permite apenas redimensionamento vertical */
 }
 
 @media (max-width: 600px) {
@@ -238,7 +222,6 @@ form button:hover {
     background-color: #FF8C00;
 }
 
-.corpo__pagina-principal {}
 
 
 .conteudo__contato {
@@ -391,17 +374,13 @@ button:hover {
 @media (max-width: 768px) {
     .apresentacao #bg {
         background-size: cover;
-        /* Prioriza o preenchimento da tela */
         background-position: top center;
-        /* Garante o foco no grupo */
     }
 }
 
-/* Abrir ainda mais em telas muito pequenas */
 @media (max-width: 576px) {
     .apresentacao #bg {
         background-size: 185%;
-        /* Continua preenchendo sem bordas */
         background-position: top;
     }
 
@@ -423,22 +402,18 @@ button:hover {
     font-weight: 900;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     z-index: 1;
-    /* Textos ficam na frente da imagem */
 }
 
 .apresentacao__titulo {
     font-size: 3rem;
     margin-top: 60px;
-    /* Valor inicial */
     transition: margin-top 0.1s ease-out;
-    /* Suaviza o movimento */
 }
 
 #slogan__titulo {
     font-size: 1.2rem;
     color: white;
     margin-top: 10px;
-    /* Pequeno espaçamento entre o título e o slogan */
     transition: margin-top 0.1s ease-out;
 }
 
@@ -446,27 +421,22 @@ button:hover {
 
 #impacto {
     background-color: #eaeaea;
-    /* opacity: 0.7; */
     padding: 0 clamp(2rem, 8vw, 20rem);
     display: grid;
     place-content: center;
     gap: 1rem;
-    /* height: 378vh; */
     text-align: center;
     overflow-x: hidden;
     overflow-y: hidden;
-    /* Esconde qualquer conteúdo que cause rolagem horizontal */
 }
 
 #impacto p {
-    /* font-size: 18px; Tamanho base do texto */
     word-wrap: break-word;
-    /* Quebra automaticamente o texto longo */
     overflow-wrap: break-word;
     hyphens: auto;
     color: #ff5d27;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    
+
 }
 
 #impacto .tituloImpacto {
@@ -475,50 +445,40 @@ button:hover {
     padding-top: 250px;
 }
 
-#imagemOBR{
+#imagemOBR {
     opacity: 0;
 }
 
-#imagemPA{
+#imagemPA {
     opacity: 0;
 }
 
-#imagemMI{
+#imagemMI {
     opacity: 0;
 }
 
-/* .linha1,
-.linha2,
-.linha4,
-.linha5,
-.valorGrafico {
-    font-size: 20px;
-} */
 
 .linha1,
-.linha2{
-    /* Alinha todas essas linhas */
+.linha2 {
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Para garantir o alinhamento no centro */
 }
 
 
-/* Alinha o conteúdo da linha 3 (os números) */
 .linha3 {
     display: flex;
     justify-content: center;
-    gap: 40px; /* Espaçamento maior entre os blocos de número e texto */
+    gap: 40px;
     text-align: center;
 }
 
 .numero-bloco {
     display: flex;
-    flex-direction: column; /* Faz com que o número e o texto fiquem um embaixo do outro */
+    flex-direction: column;
     align-items: center;
-    gap: 10px; /* Ajuste o espaçamento entre o número e o texto */
+    gap: 10px;
 }
 
 .linha3,
@@ -545,7 +505,7 @@ button:hover {
     margin-bottom: 42px;
 }
 
-.texto{
+.texto {
     padding-bottom: 10px;
     text-align: center;
     white-space: nowrap;
@@ -556,10 +516,10 @@ button:hover {
     height: 2px;
     background: linear-gradient(to right, #fccf75, #ea6436);
     margin: 20px 0;
-    width: 100vw; /* Faz com que ocupe toda a largura da janela de visualização */
-    position: relative; /* Para evitar interferência de containers com largura limitada */
-    left: 50%; /* Centraliza a divisória corretamente */
-    transform: translateX(-50%); /* Ajusta para que ela ocupe toda a tela */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     opacity: 0.8;
 }
 
@@ -568,7 +528,6 @@ button:hover {
     padding-top: 150px;
 }
 
-/* Media Queries para Layout Responsivo */
 @media (min-width: 600px) {
     .linha3 {
         grid-template-columns: repeat(2, auto);
@@ -596,45 +555,41 @@ button:hover {
 
 }
 
-/* Media Query para Telas Menores */
 @media (max-width: 600px) {
-    #impacto .linha1{
-        font-size: 48px;
-        /* Reduz o tamanho do texto em telas pequenas */
-    }
-
-    #impacto .linha2{
+    #impacto .linha1 {
         font-size: 48px;
     }
 
-    #impacto .linha3{
+    #impacto .linha2 {
+        font-size: 48px;
+    }
+
+    #impacto .linha3 {
         font-size: 48px;
     }
 
 
     #impacto .tituloImpacto {
         font-size: 55px;
-        /* Reduz o tamanho do título em telas pequenas */
     }
 
 
     .linha3,
     .linha6 {
         grid-template-columns: 1fr;
-        /* Empilha tudo em uma coluna */
     }
 
     .linha3 {
-        flex-direction: column; /* Empilha os blocos em telas menores */
-        gap: 20px; /* Ajuste o espaçamento entre os blocos */
+        flex-direction: column;
+        gap: 20px;
     }
 
     .numero-bloco {
-        gap: 8px; /* Menos espaçamento entre número e texto */
+        gap: 8px;
     }
 
     #numero {
-        font-size: 48px; /* Reduz o tamanho do número em telas pequenas */
+        font-size: 48px;
     }
 
     .numero-bloco p {
@@ -646,7 +601,6 @@ button:hover {
     .linha6 {
         grid-template-columns: 1fr;
         margin-bottom: 115px;
-        /* Empilha tudo em uma coluna */
     }
 
 }
@@ -662,14 +616,14 @@ button:hover {
 }
 
 
-#boxContainer{
+#boxContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 0vw;
 }
 
-#boxContainer1{
+#boxContainer1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -678,10 +632,10 @@ button:hover {
 }
 
 circle#circleProgress1 {
-    stroke: yellow!important;
+    stroke: yellow !important;
 }
 
-#boxContainer2{
+#boxContainer2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -693,7 +647,7 @@ circle#circleProgress2 {
     stroke: orange !important;
 }
 
-#boxContainer3{
+#boxContainer3 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -705,7 +659,7 @@ circle#circleProgress3 {
     stroke: blue !important;
 }
 
-#boxContainerV{
+#boxContainerV {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -713,16 +667,7 @@ circle#circleProgress3 {
     height: 0vw;
 }
 
-#boxContainerV1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 29vw;
-    height: 0vw;
-    ;
-}
-
-#boxContainerV2{
+#boxContainerV1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -731,7 +676,16 @@ circle#circleProgress3 {
     ;
 }
 
-#boxContainerV3{
+#boxContainerV2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 29vw;
+    height: 0vw;
+    ;
+}
+
+#boxContainerV3 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -789,7 +743,7 @@ circle#circleProgress3 {
     width: 265px;
     height: 265px;
     position: relative;
-   
+
 }
 
 circle {
@@ -827,16 +781,16 @@ circle:nth-child(2) {
     white-space: nowrap;
 }
 
-.linha5 p{
+.linha5 p {
     font-size: 32px;
     white-space: nowrap;
 }
 
-.linha6 p{
+.linha6 p {
     font-size: 25px;
 }
 
-.valorGraficoL6{
+.valorGraficoL6 {
     position: relative;
     top: -102px;
     left: -2px;
@@ -847,44 +801,42 @@ circle:nth-child(2) {
     align-items: center;
 }
 
-.numero-bloco p{
+.numero-bloco p {
     white-space: nowrap;
 }
 
-#cards{
+#cards {
     background-color: #D7C5A2;
     padding: 40px 20px;
 }
 
-#tituloPcard{
+#tituloPcard {
     text-align: center;
     font-size: 42px;
     padding-bottom: 20px;
 }
 
-#tituloCard{
+#tituloCard {}
 
-}
-
-#tituloCarroselI{
+#tituloCarroselI {
     text-align: center;
     font-size: 42px;
     padding-bottom: 20px;
 }
 
-.img-container{
+.img-container {
     border-radius: 25px;
     overflow: hidden;
 }
 
-.card{
-    border-radius: 25px !important; 
+.card {
+    border-radius: 25px !important;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#carrosselHistorias{
+#carrosselHistorias {
     background-color: #D7C5A2;
-    
+
 }
 
 strong {
@@ -950,7 +902,6 @@ strong {
     font-style: normal;
     display: flex;
     flex-wrap: wrap;
-    /* gap: 20px;/ */
 }
 
 .mais__conteudo p {
@@ -979,9 +930,7 @@ strong {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Centraliza o conteúdo de cada coluna */
     text-align: center;
-    /* Centraliza o texto */
 }
 
 .footer-section p,
@@ -999,11 +948,9 @@ strong {
     display: flex;
     gap: 10px;
     justify-content: center;
-    /* Centraliza os ícones */
     margin-top: 10px;
 }
 
-/* Ajustes de responsividade */
 @media (max-width: 768px) {
     .footer-section {
         font-size: 0.85em;
@@ -1013,36 +960,28 @@ strong {
 
 .social-iconsAlinha {
     text-align: center;
-    /* Centraliza o texto acima dos ícones */
 }
 
 .social-iconsAlinha .icons-container {
     display: flex;
     justify-content: center;
-    /* Centraliza os ícones */
     gap: 10px;
-    /* Espaçamento entre os ícones */
     margin-top: 10px;
 }
 
-/* Ajustes de responsividade */
 @media (max-width: 576px) {
 
-    /* Para telas pequenas */
     .social-iconsAlinha p {
         font-size: 0.9em;
-        /* Diminui o tamanho da fonte para telas pequenas */
     }
 
     .social-iconsAlinha .icons-container {
         gap: 5px;
-        /* Reduz o espaço entre ícones em telas pequenas */
     }
 }
 
 @media (max-width: 768px) {
 
-    /* Para telas médias */
     .social-iconsAlinha {
         text-align: center;
     }
@@ -1050,18 +989,13 @@ strong {
 
 .email-info {
     display: inline-flex;
-    /* Garante que o ícone e o texto fiquem na mesma linha */
     align-items: center;
-    /* Alinha verticalmente o ícone e o texto */
     gap: 5px;
-    /* Espaçamento entre o ícone e o texto */
     color: #333;
 }
 
-/* Estilo adicional opcional */
 .email-info span {
     white-space: nowrap;
-    /* Impede que o texto de email quebre em telas menores */
 }
 
 .rodape a {
@@ -1195,7 +1129,7 @@ strong {
     height: 300px;
     object-fit: cover;
     width: 100%;
-    
+
 }
 
 .news-article {
@@ -1203,9 +1137,7 @@ strong {
 }
 
 .row {
-    /* display: flex; */
     flex-wrap: wrap;
-    /* margin-bottom: 30px; */
 }
 
 .botao-canto {
@@ -1223,7 +1155,6 @@ strong {
 
 @media (max-width: 992px) {
 
-    /* Tablet */
     .card-img-top {
         height: 160px;
     }
@@ -1247,6 +1178,8 @@ strong {
 
 .navbar-nav .nav-link {
     color: white !important;
+    transition: all 0.3s ease;
+
 }
 
 .login {
@@ -1463,6 +1396,12 @@ strong {
     }
 }
 
+.nav-link:hover {
+    font-size: 1.1rem;
+    color: #D67400;
+    font-weight: bold;
+}
+
 .conteudo_todo img {
     width: 30%;
     height: 30%;
@@ -1551,8 +1490,6 @@ strong {
 
 
 .container {
-    /* display: flex; */
-    /* height: 100vh;  */
     position: relative;
 }
 
@@ -1719,24 +1656,113 @@ strong {
     }
 }
 
-.item1 { animation-delay: calc(100s / 18 * (18 - 1) * -1); background-image: url(/public/assets/images/natural-one.png); mix-blend-mode: multiply;}
-.item2 { animation-delay: calc(100s / 18 * (18 - 2) * -1); background-image: url(/public/assets/images/alta-logo.png); mix-blend-mode: multiply;}
-.item3 { animation-delay: calc(100s / 18 * (18 - 3) * -1); background-image: url(/public/assets/images/bolsa-de-imoveis.png); mix-blend-mode: multiply;}
-.item4 { animation-delay: calc(100s / 18 * (18 - 4) * -1); background-image: url(/public/assets/images/eB-Capital.png); mix-blend-mode: multiply;}
-.item5 { animation-delay: calc(100s / 18 * (18 - 5) * -1); background-image: url(/public/assets/images/ev-citi.jpg); mix-blend-mode: multiply;}
-.item6 { animation-delay: calc(100s / 18 * (18 - 6) * -1); background-image: url(/public/assets/images/Genial.png); mix-blend-mode: multiply;}
-.item7 { animation-delay: calc(100s / 18 * (18 - 7) * -1); background-image: url(/public/assets/images/HUG_StFrancis.jpg); mix-blend-mode: multiply;}
-.item8 { animation-delay: calc(100s / 18 * (18 - 8) * -1); background-image: url(/public/assets/images/ib-logo.jpg); mix-blend-mode: multiply;}
-.item9 { animation-delay: calc(100s / 18 * (18 - 9) * -1); background-image: url(/public/assets/images/LOGO\ GOL.JPG); mix-blend-mode: multiply;}
-.item10 { animation-delay: calc(100s / 18 * (18 - 10) * -1); background-image: url(/public/assets/images/Logo_REUD.jpg); mix-blend-mode: multiply;}
-.item11 { animation-delay: calc(100s / 18 * (18 - 11) * -1); background-image: url(/public/assets/images/logo-sodexo-2048.png); mix-blend-mode: multiply;}
-.item12 { animation-delay: calc(100s / 18 * (18 - 12) * -1); background-image: url(/public/assets/images/MARINA.JPG); mix-blend-mode: multiply;}
-.item13 { animation-delay: calc(100s / 18 * (18 - 13) * -1); background-image: url(/public/assets/images/one-goal.png); mix-blend-mode: multiply;}
-.item14 { animation-delay: calc(100s / 18 * (18 - 14) * -1); background-image: url(/public/assets/images/orizon.jpg); mix-blend-mode: multiply;}
-.item15 { animation-delay: calc(100s / 18 * (18 - 15) * -1); background-image: url(/public/assets/images/Patria.jpg); mix-blend-mode: multiply;}
-.item16 { animation-delay: calc(100s / 18 * (18 - 16) * -1); background-image: url(/public/assets/images/Techcorp.jpg); mix-blend-mode: multiply;}
-.item17 { animation-delay: calc(100s / 18 * (18 - 17) * -1); background-image: url(/public/assets/images/track-and-field.png); mix-blend-mode: multiply;}
-.item18 { animation-delay: calc(100s / 18 * (18 - 18) * -1); background-image: url(/public/assets/images/viacao-gato-preto.png); mix-blend-mode: multiply;}
+.item1 {
+    animation-delay: calc(100s / 18 * (18 - 1) * -1);
+    background-image: url(/public/assets/images/natural-one.png);
+    mix-blend-mode: multiply;
+}
+
+.item2 {
+    animation-delay: calc(100s / 18 * (18 - 2) * -1);
+    background-image: url(/public/assets/images/alta-logo.png);
+    mix-blend-mode: multiply;
+}
+
+.item3 {
+    animation-delay: calc(100s / 18 * (18 - 3) * -1);
+    background-image: url(/public/assets/images/bolsa-de-imoveis.png);
+    mix-blend-mode: multiply;
+}
+
+.item4 {
+    animation-delay: calc(100s / 18 * (18 - 4) * -1);
+    background-image: url(/public/assets/images/eB-Capital.png);
+    mix-blend-mode: multiply;
+}
+
+.item5 {
+    animation-delay: calc(100s / 18 * (18 - 5) * -1);
+    background-image: url(/public/assets/images/ev-citi.jpg);
+    mix-blend-mode: multiply;
+}
+
+.item6 {
+    animation-delay: calc(100s / 18 * (18 - 6) * -1);
+    background-image: url(/public/assets/images/Genial.png);
+    mix-blend-mode: multiply;
+}
+
+.item7 {
+    animation-delay: calc(100s / 18 * (18 - 7) * -1);
+    background-image: url(/public/assets/images/HUG_StFrancis.jpg);
+    mix-blend-mode: multiply;
+}
+
+.item8 {
+    animation-delay: calc(100s / 18 * (18 - 8) * -1);
+    background-image: url(/public/assets/images/ib-logo.jpg);
+    mix-blend-mode: multiply;
+}
+
+.item9 {
+    animation-delay: calc(100s / 18 * (18 - 9) * -1);
+    background-image: url(/public/assets/images/LOGO\ GOL.JPG);
+    mix-blend-mode: multiply;
+}
+
+.item10 {
+    animation-delay: calc(100s / 18 * (18 - 10) * -1);
+    background-image: url(/public/assets/images/Logo_REUD.jpg);
+    mix-blend-mode: multiply;
+}
+
+.item11 {
+    animation-delay: calc(100s / 18 * (18 - 11) * -1);
+    background-image: url(/public/assets/images/logo-sodexo-2048.png);
+    mix-blend-mode: multiply;
+}
+
+.item12 {
+    animation-delay: calc(100s / 18 * (18 - 12) * -1);
+    background-image: url(/public/assets/images/MARINA.JPG);
+    mix-blend-mode: multiply;
+}
+
+.item13 {
+    animation-delay: calc(100s / 18 * (18 - 13) * -1);
+    background-image: url(/public/assets/images/one-goal.png);
+    mix-blend-mode: multiply;
+}
+
+.item14 {
+    animation-delay: calc(100s / 18 * (18 - 14) * -1);
+    background-image: url(/public/assets/images/orizon.jpg);
+    mix-blend-mode: multiply;
+}
+
+.item15 {
+    animation-delay: calc(100s / 18 * (18 - 15) * -1);
+    background-image: url(/public/assets/images/Patria.jpg);
+    mix-blend-mode: multiply;
+}
+
+.item16 {
+    animation-delay: calc(100s / 18 * (18 - 16) * -1);
+    background-image: url(/public/assets/images/Techcorp.jpg);
+    mix-blend-mode: multiply;
+}
+
+.item17 {
+    animation-delay: calc(100s / 18 * (18 - 17) * -1);
+    background-image: url(/public/assets/images/track-and-field.png);
+    mix-blend-mode: multiply;
+}
+
+.item18 {
+    animation-delay: calc(100s / 18 * (18 - 18) * -1);
+    background-image: url(/public/assets/images/viacao-gato-preto.png);
+    mix-blend-mode: multiply;
+}
 
 .item {
     background-size: contain;
@@ -1775,21 +1801,16 @@ h2.titulo_politica {
 .rodape_politica {
     background-color: #D7C5A2;
     text-align: center;
-    /* Centraliza o texto no rodapé */
     padding: 10px;
-    /* Adiciona espaço ao redor do texto */
 }
 
 .politica_corpo {
     flex: 1;
-    /* Isso faz com que o main ocupe o espaço restante */
 }
 
 section#introduction p {
     line-height: 1.3;
-    /* Ajuste esse valor para aumentar ou diminuir o espaçamento */
     margin-bottom: 10px;
-    /* Espaçamento entre os parágrafos */
 }
 
 .cabecalho_politica {
@@ -1817,10 +1838,8 @@ h6 {
 .objetivos,
 .certificacoes {
     flex: 1;
-    /* Assegura que ambas as divs ocupem o mesmo espaço */
     padding: 10px;
     border: 1px solid;
-    /* Opcional, apenas para visualização */
 }
 
 .oque_projeto {
@@ -1829,7 +1848,6 @@ h6 {
 
 .oque_projeto p {
     font-size: 18px;
-    /* Ajuste o valor conforme desejado */
 }
 
 .corpo_evento {
@@ -1862,11 +1880,8 @@ h6 {
     background-color: #E5A000;
     height: 300px;
     max-width: 80%;
-    /* Define a largura máxima da div */
     margin: 0 auto;
-    /* Centraliza horizontalmente */
     padding: 20px;
-    /* Opcional: adiciona um pouco de espaço interno */
 }
 
 .quadrado_evento p {
@@ -1874,17 +1889,16 @@ h6 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* Garante que o texto fique centralizado */
 }
 
 .apresentacao_somos {
     position: relative;
     width: 100%;
-    height: 100vh; /* A seção ocupa a altura total da janela */
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Garante que o background preencha a seção corretamente */
+    overflow: hidden;
 }
 
 #bg_somos {
@@ -1894,7 +1908,7 @@ h6 {
     width: 100%;
     height: 100%;
     background: url("/public/assets/images/equipefoto2.jpg");
-    background-size: cover; /* Garante que a imagem cubra todo o espaço */
+    background-size: cover;
     background-position: center;
     z-index: 0;
 }
@@ -1906,11 +1920,13 @@ h6 {
     padding: 20px;
     text-align: center;
 }
-.titulo_somos{
+
+.titulo_somos {
     color: #D67400;
     font-family: 'Roboto', sans-serif;
 }
-.texto_somos{
+
+.texto_somos {
     font-family: 'Roboto', sans-serif;
     padding-bottom: 70%;
 }
