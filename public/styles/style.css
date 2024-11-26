@@ -1918,3 +1918,11 @@ h6 {
     color: #23A7B8;
   }
 
+  .text_div {
+    border: 1px solid #ddd; /* Borda leve */
+    border-radius: 8px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    margin-bottom: 20px; /* Espaçamento entre as caixas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    background-color: #f9f9f9; /* Fundo suave */
+}
