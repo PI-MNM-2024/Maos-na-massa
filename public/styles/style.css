@@ -819,6 +819,20 @@ circle:nth-child(2) {
 
 #tituloCard {}
 
+.row.row-cols-1 .col {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.row.row-cols-1 .col:hover {
+    transform: scale(1.2); 
+    z-index: 1; 
+}
+
+.row.row-cols-1 .col:not(:hover) {
+    transform: scale(0.9); 
+    opacity: 0.7; 
+}
+
 #tituloCarroselI {
     text-align: center;
     font-size: 42px;
@@ -1084,40 +1098,80 @@ strong {
 
 .corpo__pagina-faq {
     flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
     background-color: #E4D5B6;
+    margin-bottom: 50px;
 }
 
 .perguntas {
     margin-top: 40px;
 }
 
-.pergunta-container {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 80%;
-    margin: 10px auto;
-    background-color: #E5A000;
-    margin-top: 10px;
-    border-radius: 3%;
-}
+.dropdown-custom {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #d7c5a2;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #f5c518; 
+  }
+  
+  .dropdown-button {
+    position: relative;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #f5c518;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    min-width: 300px;
+    color: black;
+  }
+  
+  .dropdown-button:hover {
+    background-color: #ebb417; 
+  }
+  
+  
+  .dropdown-content {
+    display: none; 
+    transition: all 0.3s ease; 
+  }
+  
+ 
+  .dropdown-custom.active .dropdown-content {
+    max-height: 200px; 
+    padding: 15px;
+    display: block;
+  }
 
-.pergunta-container img {
-    margin-right: 20px;
-    max-width: 200px;
-}
-
-.pergunta-container h2 {
+  
+.custom-bg {
+    background-color:#d7c5a2;
+    border: 2px solid #ffc042;
+    border-radius: 8px;
+  }
+  
+  
+  .custom-bg p {
     margin: 0;
-}
+    color: #333; 
+    font-size: 16px;
+    line-height: 1.5;
+  }
 
-.pergunta-container .resposta-container {
-    margin: 0;
-}
+  .arrow-icon {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+    margin-left: auto;
+  }
+  
+  
+  .dropdown-custom.active .arrow-icon {
+    transform: rotate(180deg); 
+  }
 
 .card-body {
     flex-grow: 1;
