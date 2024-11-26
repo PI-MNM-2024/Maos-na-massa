@@ -1169,7 +1169,7 @@ strong {
   }
   
   
-  .dropdown-custom.active .arrow-icon {
+  .dropdown-custom .dropdown-button.active .arrow-icongit {
     transform: rotate(180deg); 
   }
 
