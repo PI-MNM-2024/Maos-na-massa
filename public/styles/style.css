@@ -1968,7 +1968,9 @@ h6 {
     left: 0;
     width: 100%;
     height: 200px; 
+    overflow: hidden;
     color: #23A7B8;
+    z-index: -1;
   }
 
   .text_div {
@@ -2109,8 +2111,75 @@ video {
 }
 
 .video-container video {
-    border: 2px solid black;    /* Adiciona a borda preta */
-    border-radius: 8px;         /* Adiciona bordas arredondadas */
-    width: 300px;               /* Define uma largura padrão para os vídeos */
-    height: auto;               /* Mantém a proporção do vídeo */
+    border: 2px solid black;    
+    border-radius: 8px;         
+    width: 300px;               
+    height: auto;               
+}
+
+.hero-section { 
+    color: black;
+    font-size: 36px; 
+    text-align: center; 
+    padding: 100px 0; 
+    position: relative; 
+} 
+
+.hero-section h1, .hero-section p { 
+    position: relative; 
+    z-index: 1; 
+} 
+
+.corpo_evento { 
+    padding-top: 56px; 
+} 
+
+.section-title { 
+    font-size: 2em; 
+    margin-bottom: 20px; 
+    border-bottom: 2px solid #004d40; 
+    padding-bottom: 10px; 
+} 
+
+.subsection-title { 
+    font-size: 1.5em; 
+    margin-bottom: 10px; 
+} 
+
+.foto_evento { 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 20px; 
+} 
+
+.card { 
+    border: none; 
+} 
+
+.card-body { 
+    background-color: #23A7B8;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px; 
+} 
+
+.card-text { 
+    font-size: 1em; 
+} 
+
+.card-title { 
+    font-size: 1.2em; 
+    margin-bottom: 10px; 
+}
+
+.carousel { 
+    max-width: 600px; 
+    margin-left: auto; 
+    margin-right: auto; 
+} 
+
+.carousel .carousel-item img { 
+    height: 400px; 
+    object-fit: cover; 
+    border-radius: 10px; 
 }
