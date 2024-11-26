@@ -2094,3 +2094,23 @@ i{
         margin-bottom: 20px;  /* Adiciona espaço entre as caixas */
     }
 }
+
+video {
+    border-radius: 2%;
+    height: 350px;
+    width: 350px;
+}
+.video-container {
+    display: flex;            
+    gap: 20px;                  
+    justify-content: space-around;    
+    margin-top: 20px;           
+    margin-bottom: 20px;
+}
+
+.video-container video {
+    border: 2px solid black;    /* Adiciona a borda preta */
+    border-radius: 8px;         /* Adiciona bordas arredondadas */
+    width: 300px;               /* Define uma largura padrão para os vídeos */
+    height: auto;               /* Mantém a proporção do vídeo */
+}
