@@ -1570,7 +1570,7 @@ strong {
 .linha-divisoria {
     background-color: #333; /* Cor visível */
     width: 1px; /* Linha vertical */
-    height: 300px; /* Altura total da coluna */
+    height: 650px; /* Altura total da coluna */
     margin: auto 1rem; /* Espaçamento entre as colunas */
     z-index: 10;
 }
