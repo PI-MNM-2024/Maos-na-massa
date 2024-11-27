@@ -1534,7 +1534,7 @@ strong {
 }
 
 .main_ajuda {
-    height: 800px;
+    /* height: 800px; */
     background-color: #E4D5B6;
 }
 
@@ -1568,9 +1568,32 @@ strong {
 
 
 .linha-divisoria {
-    width: 1px;
-    background-color: #333;
-    height: 96%;
+    background-color: #333; /* Cor visível */
+    width: 1px; /* Linha vertical */
+    height: 300px; /* Altura total da coluna */
+    margin: auto 1rem; /* Espaçamento entre as colunas */
+    z-index: 10;
+}
+
+/* Para telas menores, a linha fica horizontal */
+@media (max-width: 768px) {
+    .linha-divisoria {
+        width: 100%; /* Linha horizontal */
+        height: 1px; /* Espessura da linha */
+        margin: 1rem auto; /* Centraliza horizontalmente */
+    }
+}
+
+
+
+#carouselHistoria, #carouselEmpresa {
+    max-width: 400px; 
+    position: relative;
+    width: 100%;
+}
+
+.queroajuda-gap{
+    gap: 5.5rem
 }
 
 .container h1 {
