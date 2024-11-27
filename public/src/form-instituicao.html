@@ -104,13 +104,13 @@
 
         <!-- Pergunta 1 -->
         
-        <label for="nome">1.Nome:</label>
-        <input type="text" name="nome" id="nome" required>
+        <label for="nome">1.Nome da Instituição:</label>
+        <input type="text" name="nomeInstituicao" id="nomeInstituicao" required>
 
         <!-- Pergunta 2 -->
 
-        <label for="idade">2.Idade:</label>
-        <input type="number" name="idade" id="idade" required>
+        <label for="idade">2.CNPJ:</label>
+        <input type="text" name="CNPJ" id="CNPJ" required>
 
         <!-- Pergunta 3 -->
 
@@ -119,7 +119,7 @@
 
         <!-- Pergunta 4 -->
 
-        <label for="telefone">4.Telefone:</label>
+        <label for="telefone">4.Telefone de Contato:</label>
         <input type="tel" name="telefone" id="telefone" required>        
         
         <!-- Pergunta 5 -->
@@ -129,27 +129,30 @@
 
         <!-- Pergunta 6 -->
         
-        <p>6.Qual é a sua condição atual da moradia:</p>
-        <input type="radio" id="casapropia" name="tipodemoradia" value="Casa própia">
-        <label for="casapropia">Casa própria</label>
+        <p>6.Tipo da instituição?:</p>
+        <input type="radio" id="ONG" name="tipodeInstituicao" value="ONG">
+        <label for="ONG">ONG</label>
         
-        <input type="radio" id="alugada" name="tipodemoradia" value="Alugada">
-        <label for="alugada">Alugada</label>
+        <input type="radio" id="Escola" name="tipodeInstituicao" value="Escola">
+        <label for="Escola">Escola</label>
 
-        <input type="radio" id="moradiacedida" name="tipodemoradia" value="Moradia cedida">
-        <label for="moradiacedida">Moradia cedida</label>
-
-        <input type="radio" id="OutroMoradia" name="tipodemoradia" value="Outro">
-        <label for="OutroMoradia">Outro: </label><input type="text" id="OutroMoradiaInput" name="tipodemoradia" />
+        <input type="radio" id="OutroMoradia" name="tipodeInstituicao" value="Outro">
+        <label for="OutroMoradia">Outro: </label><input type="text" id="OutroMoradiaInput" name="OutroMoradia" />
 
         <!-- Pergunta 7 -->
 
-        <label for="pessoasResidencia">7.Quantas pessoas moram na sua residência:</label>
-        <input type="number" name="pessoasResidencia" id="pessoasResidencia" required>
+        <label for="descInstituicao">7.Descrição da instituição (Descreva brevemente a missão e atividades da instituição):</label>
+        <textarea name="descInstituicao" id="descInstituicao" rows="4" cols="50"></textarea><br>
 
-        <!-- Pergunta 8 -->
+        <!-- pergunta 8 -->
 
-        <p>8.Você ou alguém na sua residência possui alguma deficiência?</p>
+        <p>8.Quantas pessoas a instituição/fundação atende?</p>
+        
+        <input type="number" name="nPessoasAtendidas" id="nPessoasAtendidas" required>
+
+        <!-- Pergunta 9 -->
+
+        <p>9.A instituição atende pessoas com deficiência?</p>
 
         <input type="radio" id="simDeficiencia" name="simOUnaoDeficiencia" value="Sim">
         <label for="simDeficiencia">Sim</label><br>
@@ -157,9 +160,9 @@
         <input type="radio" id="naoDeficiencia" name="simOUnaoDeficiencia" value="Não">
         <label for="naoDeficiencia">Não</label><br>
 
-        <!-- Pergunta 9 -->
+        <!-- Pergunta 10 -->
 
-        <p>9.Se sim, qual é o tipo de deficiência?</p>
+        <p>10.Se sim, qual é o tipo de deficiência?</p>
 
         <input type="radio" id="deficienciaFisica" name="tipodeficiencia" value="Deficiência física(cadeirante, mobilidade reduzida)">
         <label for="deficienciaFisica">Deficiência física(cadeirante, mobilidade reduzida)</label><br>
@@ -181,7 +184,7 @@
 
         <!-- Pergunta 10 -->
 
-        <p>10.Qual é a sua principal necessidade em relação à acessibilidade na sua residência?</p>
+        <p>11.Qual é a principal necessidade em relação à acessibilidade nos espaços da instituição?</p>
 
         <input type="radio" id="rampaDeAcesso" name="necessidadeAcessibilidade" value="Rampas de acesso">
         <label for="rampaDeAcesso">Rampas de acesso</label><br>
@@ -201,28 +204,28 @@
         <input type="radio" id="OutroNecessidade" name="necessidadeAcessibilidade" value="Outro">
         <label for="OutroNecessidade">Outro: </label><input type="text" id="OutroNecessidadeInput" name="necessidadeAcessibilidade"/><br>
 
-        <!-- peergunta 11 -->
+        <!-- peergunta 12 -->
 
-        <p>11.Você já tentou realizar adaptações na sua residência?</p>
+        <p>12.A instituição já tentou realizar adaptações nos espaços?</p>
 
         <input type="radio" id="simSucesso" name="tentouAdaptacoes" value="Sim, com sucesso">
         <label for="simSucesso">Sim, com sucesso</label><br>
 
-        <input type="radio" id="simDificulade" name="tentouAdaptacoes" value="Sim, mas enfrentei dificuldades">
-        <label for="simDificulade">Sim, mas enfrentei dificuldades</label><br>
+        <input type="radio" id="simDificulade" name="tentouAdaptacoes" value="Sim, mas enfrentou dificuldades">
+        <label for="simDificulade">Sim, mas enfrentou dificuldades</label><br>
 
-        <input type="radio" id="naoTentei" name="tentouAdaptacoes" value="Não, nunca tentei">
-        <label for="naoTentei">Não, nunca tentei</label><br>
+        <input type="radio" id="naoTentei" name="tentouAdaptacoes" value="Não, nunca tentou">
+        <label for="naoTentei">Não, nunca tentou</label><br>
 
-        <!-- Pergunta 12 -->
+        <!-- Pergunta 13 -->
 
-        <p>12.Se sim, quais foram as principais dificuldades enfrentadas?</p>
+        <p>13.Se sim, quais foram as principais dificuldades enfrentadas?</p>
 
         <input type="radio" id="faltaRecurso" name="dificuldadesEnfrentadas" value="Falta de recursos financeiros">
         <label for="faltaRecurso">Falta de recursos financeiros</label><br>
         
-        <input type="radio" id="faltaConhecimento" name="dificuldadesEnfrentadas" value="Falta de conhecimento sobre como adaptar a casa">
-        <label for="faltaConhecimento">Falta de conhecimento sobre como adaptar a casa</label><br>
+        <input type="radio" id="faltaConhecimento" name="dificuldadesEnfrentadas" value="Falta de conhecimento sobre como adaptar os espaços">
+        <label for="faltaConhecimento">Falta de conhecimento sobre como adaptar os espaços</label><br>
 
         
         <input type="radio" id="faltaProfissionais" name="dificuldadesEnfrentadas" value="Dificuldade em encontrar profissionais qualificados">
@@ -232,9 +235,9 @@
         <input type="radio" id="OutroDificuldade" name="dificuldadesEnfrentadas" value="Outro">
         <label for="OutroDificuldade">Outro: </label><input type="text" id="inputOutroDificuldade" name="dificuldadesEnfrentadas"/><br>
 
-        <!-- Pergunta 13 -->
+        <!-- Pergunta 14 -->
 
-        <p>13.Como você avalia a segurança e acessibilidade da sua residência atual?</p>
+        <p>14.Como você avalia a segurança e acessibilidade dos espaços da instituição atualmente?</p>
 
         <input type="radio" id="muitoSeguro" name="segurançaCasa" value="Muito segura e acessível">
         <label for="muitoSeguro">Muito segura e acessível</label><br>
@@ -248,9 +251,9 @@
         <input type="radio" id="nadaSeguro" name="segurançaCasa" value="Nada segura, oferece muitos riscos">
         <label for="nadaSeguro">Nada segura, oferece muitos riscos</label><br>
 
-        <!-- pergunta 14 -->
+        <!-- pergunta 15 -->
 
-        <p>14.Como você acredita que uma reforma ou adaptação na sua casa pode melhorar sua qualidade de vida?</p>
+        <p>15.Como você acredita que uma reforma ou adaptação nos espaços da instituição pode melhorar a qualidade de vida dos atendidos?</p>
 
         <input type="radio" id="melhoraSignificativo" name="impactoReforma" value="Melhoraria significativamente minha autonomia e segurança">
         <label for="melhoraSignificativo">Melhoraria significativamente minha autonomia e segurança</label><br>
@@ -264,19 +267,19 @@
         <input type="radio" id="melhoraNada" name="impactoReforma" value="Não faria diferença significativa">
         <label for="melhoraNada">Não faria diferença significativa</label><br>
 
-        <!-- Pergunta 15 -->
+        <!-- Pergunta 16 -->
 
-        <label for="mensagemP15">15.Por favor, descreva as principais dificuldades que você enfrenta no dia a dia devido à falta de acessibilidade na sua moradia.</label><br>
-        <textarea name="mensagemP15" id="mensagemP15" rows="4" cols="50"></textarea><br>
-
-        <!-- pergunta 16 -->
-
-        <label for="mensagemP16">16.De que forma você acredita que a ONG Mãos na Massa pode ajudar a melhorar sua qualidade de vida e a de sua família?</label><br>
+        <label for="mensagemP16">16.Por favor, descreva as principais dificuldades que a instituição enfrenta no dia a dia devido à falta de acessibilidade.</label><br>
         <textarea name="mensagemP16" id="mensagemP16" rows="4" cols="50"></textarea><br>
 
         <!-- pergunta 17 -->
 
-        <p>17.Você gostaria de receber mais informações sobre nossos projetos e eventos?</p>
+        <label for="mensagemP16">17.De que forma você acredita que a ONG Mãos na Massa pode ajudar a melhorar a qualidade de vida dos atendidos pela sua instituição?</label><br>
+        <textarea name="mensagemP17" id="mensagemP17" rows="4" cols="50"></textarea><br>
+
+        <!-- pergunta 18 -->
+
+        <p>18.Você gostaria de receber mais informações sobre nossos projetos e eventos?</p>
 
         <input type="radio" id="simEmail" name="maisInformacoes" value="Sim, por e-mail">
         <label for="simEmail">Sim, por e-mail</label><br>
@@ -287,9 +290,9 @@
         <input type="radio" id="nãoObrigado" name="maisInformacoes" value="Não, obrigado(a)">
         <label for="nãoObrigado">Não, obrigado(a)</label><br>
 
-        <!-- pergunta 18 -->
+        <!-- pergunta 19 -->
 
-        <p>18.Como você ficou sabendo da ONG Mãos na Massa?</p>
+        <p>19.Como você ficou sabendo da ONG Mãos na Massa?</p>
 
         
         <input type="radio" id="redesSociais" name="ondeConheceuONG" value="Redes sociais">
@@ -304,7 +307,7 @@
         <input type="radio" id="eventosComunitario" name="ondeConheceuONG" value="Eventos comunitários">
         <label for="eventosComunitario">Eventos comunitários</label><br>
 
-        <button class="botao_enviar" onclick="enviarFormularioBeneficiario()" type="submit">Enviar</button>
+        <button class="botao_enviar" onclick="enviarFormularioInstituicao()" type="submit">Enviar</button>
 
     </form>
     
@@ -354,7 +357,7 @@
     </footer>
 
     <script src="/public/src/frontend/script/frontend.js"></script>
-   
+    
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     

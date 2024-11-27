@@ -86,6 +86,31 @@ const formularioBeneficiario = mongoose.model(
   formularioBeneficiarioSchema
 );
 
+const formularioInstituicaoSchema = mongoose.Schema({
+  nomeInstituicao: { type: String, required: true },
+  CNPJ: { type: String, required: true },
+  endereco: { type: String, required: true },
+  telefone: { type: String, required: true },
+  email: { type: String, required: true },
+  tipoInstituicao: { type: String, required: true },
+  descInstituicao: { type: String, required: true },
+  pessoasInstituicaoAtende: { type: String, required: true },
+  atendePessoaComDeficienciaNaInstitucao: { type: String, required: true },
+  tipoDeDeficiencia: { type: String, required: false },
+  necessidadeAcessibilidade: { type: String, required: true },
+  jaTentouAdaptacoes: { type: String, required: true },
+  dificuldadesEnfrentadas: { type: String, required: false },
+  segurancaEAcessibilidadeInstituicao: { type: String, required: true },
+  impactoReforma: { type: String, required: true },
+  pa1: { type: String, required: true },
+  pa2: { type: String, required: true },
+  atualizacaoProjetos: { type: String, required: true },
+  conheceAONGComo: { type: String, required: true },
+});
+
+const formularioInstituicao = mongoose.model("Formulario-instituicao", formularioInstituicaoSchema);
+
+
 usuarioSchema.plugin(uniqueValidator);
 const Usuario = mongoose.model("Usuario", usuarioSchema);
 
@@ -156,6 +181,65 @@ app.post("/formularioBeneficiario", async (req, res) => {
     res.status(500).json({ message: "Erro ao enviar o formulário", error });
   }
 });
+
+app.post("formularioIntituicao", async (req, res) => {
+  try {
+    const {
+      nomeInstituicao,
+      CNPJ,
+      endereco,
+      telefone,
+      email,
+      tipoInstituicao,
+      descInstituicao,
+      pessoasInstituicaoAtende,
+      atendePessoaComDeficienciaNaInstitucao,
+      tipoDeDeficiencia,
+      necessidadeAcessibilidade,
+      jaTentouAdaptacoes,
+      dificuldadesEnfrentadas,
+      segurancaEAcessibilidadeInstituicao,
+      impactoReforma,
+      pa1,
+      pa2,
+      atualizacaoProjetos,
+      conheceAONGComo
+    } = req.body;
+
+    const novoformulario = new formularioInstituicao({
+      nomeInstituicao,
+      CNPJ,
+      endereco,
+      telefone,
+      email,
+      tipoInstituicao,
+      descInstituicao,
+      pessoasInstituicaoAtende,
+      atendePessoaComDeficienciaNaInstitucao,
+      tipoDeDeficiencia,
+      necessidadeAcessibilidade,
+      jaTentouAdaptacoes,
+      dificuldadesEnfrentadas,
+      segurancaEAcessibilidadeInstituicao,
+      impactoReforma,
+      pa1: pa1,
+      pa2: pa2,
+      atualizacaoProjetos,
+      conheceAONGComo
+    })
+    
+    // Salvando o novo formulário no banco de dados
+    const respMongo = await novoFormulario.save();
+
+    console.log(respMongo);
+    res
+      .status(201)
+      .json({ message: "Formulário enviado com sucesso!", data: respMongo });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Erro ao enviar o formulário", error });
+  }
+})
 
 app.post("/formulario", async (req, res) => {
   try {

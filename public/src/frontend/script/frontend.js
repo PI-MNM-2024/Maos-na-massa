@@ -62,9 +62,18 @@ document.addEventListener('DOMContentLoaded', function () {
     { name: 'dificuldadesEnfrentadas', inputId: 'OutroDificuldade' }
   ];
 
+  const perguntasOutroEmpresa = [
+    { name: 'tipodeInstituicao', inputId: 'OutroMoradia' },
+    { name: 'tipodeficiencia', inputId: 'OutroDeficiencia' },
+    { name: 'necessidadeAcessibilidade', inputId: 'OutroNecessidade' },
+    { name: 'dificuldadesEnfrentadas', inputId: 'OutroDificuldade' },
+  ]
+
+
   // Função para alternar a visibilidade do campo "Outro"
   function toggleOutroInput(name, inputId) {
     const outroRadio = document.querySelector(`input[name="${name}"][value="Outro"]`);
+    console.log(outroRadio)
     const outroInput = outroRadio.nextElementSibling.nextElementSibling; // Seleciona o campo de texto após o rótulo "Outro: "
 
     if (!outroInput) {
@@ -78,19 +87,37 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Adiciona o event listener para cada pergunta que tem opção "Outro"
-  perguntasOutro.forEach(pergunta => {
-    const radios = document.querySelectorAll(`input[name="${pergunta.name}"]`);
+  if (window.location.pathname === "/public/src/form-pessoa.html") {
+    perguntasOutro.forEach(pergunta => {
+      const radios = document.querySelectorAll(`input[name="${pergunta.name}"]`);
 
-    radios.forEach(radio => {
-      radio.addEventListener('change', function () {
-        toggleOutroInput(pergunta.name, pergunta.inputId);
+      radios.forEach(radio => {
+        radio.addEventListener('change', function () {
+          toggleOutroInput(pergunta.name, pergunta.inputId);
+        });
       });
+
+      // Inicializa o estado correto para cada grupo de botões
+      toggleOutroInput(pergunta.name, pergunta.inputId);
     });
 
-    // Inicializa o estado correto para cada grupo de botões
-    toggleOutroInput(pergunta.name, pergunta.inputId);
-  });
+  }
+
+  if (window.location.pathname === "/public/src/form-instituicao.html") {
+
+    perguntasOutroEmpresa.forEach(pergunta => {
+      const radios = document.querySelectorAll(`input[name="${pergunta.name}"]`);
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', function () {
+          toggleOutroInput(pergunta.name, pergunta.inputId);
+        });
+      });
+
+      // Inicializa o estado correto para cada grupo de botões
+      toggleOutroInput(pergunta.name, pergunta.inputId);
+    });
+  }
 
   // Define as respostas da pergunta 9
   const perguntas9respostas = [
@@ -116,7 +143,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const p11Sim = document.querySelector('input[name="tentouAdaptacoes"][value="Sim, com sucesso"]');
   const p11Sim2 = document.querySelector('input[name="tentouAdaptacoes"][value="Sim, mas enfrentei dificuldades"]');
 
+  const p11Sim3 = document.querySelector('input[name="tentouAdaptacoes"][value="Sim, mas enfrentou dificuldades"]');
+
   const p11Nao = document.querySelector('input[name="tentouAdaptacoes"][value="Não, nunca tentei"]');
+
+  const p11Nao2 = document.querySelector('input[name="tentouAdaptacoes"][value="Não, nunca tentou"]');
 
   // Seleciona todos os botões de rádio da pergunta 9 com base nos IDs
   const radios9 = perguntas9respostas.map(item => document.getElementById(item.inputId));
@@ -129,43 +160,72 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
 
-  function limparCampos(radio,idOutro){
+  function limparCampos(radio, idOutro) {
     radio.forEach(radio => radio.checked = false);
     const textOutro = document.querySelector(`input[id="${idOutro}"]`);
-  
-  if (textOutro) { // Verifica se o elemento foi encontrado
-    textOutro.value = "";
-  } else {
-    console.warn(`Elemento com id "${idOutro}" não foi encontrado.`);
+
+    if (textOutro) { // Verifica se o elemento foi encontrado
+      textOutro.value = "";
+    } else {
+      console.warn(`Elemento com id "${idOutro}" não foi encontrado.`);
+    }
   }
-}
+  if (window.location.pathname === "/public/src/form-pessoa.html") {
+    //verrifica a pergunta 8
+    p8Sim.addEventListener('change', function () {
+      desabilitarProxPergunta(radios9, false);
 
-  //verrifica a pergunta 8
-  p8Sim.addEventListener('change', function () {
-    desabilitarProxPergunta(radios9, false);
-    
-  });
+    });
 
-  p8Nao.addEventListener('change', function () {
-    desabilitarProxPergunta(radios9, true);
-    limparCampos(radios9,'OutroDeficienciaInput');
-  });
+    p8Nao.addEventListener('change', function () {
+      desabilitarProxPergunta(radios9, true);
+      limparCampos(radios9, 'OutroDeficienciaInput');
+    });
 
-  // verifica a pergunta 11
-  p11Sim.addEventListener('change', function () {
-    desabilitarProxPergunta(radios12, false);
-  });
+    // verifica a pergunta 11
+    p11Sim.addEventListener('change', function () {
+      desabilitarProxPergunta(radios12, false);
+    });
 
-  p11Sim2.addEventListener('change', function () {
-    desabilitarProxPergunta(radios12, false);
-  });
+    p11Sim2.addEventListener('change', function () {
+      desabilitarProxPergunta(radios12, false);
+    });
 
-  p11Nao.addEventListener('change', function () {
-    desabilitarProxPergunta(radios12, true);
-    limparCampos(radios12,'inputOutroDificuldade');
-  });
+    p11Nao.addEventListener('change', function () {
+      desabilitarProxPergunta(radios12, true);
+      limparCampos(radios12, 'inputOutroDificuldade');
+    });
+  }
+
+  if (window.location.pathname === "/public/src/form-instituicao.html") {
+    //verrifica a pergunta 9
+    p8Sim.addEventListener('change', function () {
+      desabilitarProxPergunta(radios9, false);
+
+    });
+
+    p8Nao.addEventListener('change', function () {
+      desabilitarProxPergunta(radios9, true);
+      limparCampos(radios9, 'OutroDeficienciaInput');
+    });
+
+    // verifica a pergunta 11
+    p11Sim.addEventListener('change', function () {
+      desabilitarProxPergunta(radios12, false);
+    });
+
+    p11Sim3.addEventListener('change', function () {
+      desabilitarProxPergunta(radios12, false);
+    });
+
+    p11Nao2.addEventListener('change', function () {
+      desabilitarProxPergunta(radios12, true);
+      limparCampos(radios12, 'inputOutroDificuldade');
+    });
+  }
 
 })
+
 
 async function enviarFormularioBeneficiario() {
   //  Inputs
@@ -241,7 +301,7 @@ async function enviarFormularioBeneficiario() {
     nome, idade, endereco, telefone, email,
     tipodemoradia, pessoasResidencia, simOUnaoDeficiencia,
     necessidadeAcessibilidade, tentouAdaptacoes, segurançaCasa, impactoReforma,
-    mensagemP15, mensagemP16, ondeConheceuONG
+    mensagemP15, mensagemP16, maisInformacoes, ondeConheceuONG
   ];
 
   const allRequiredFilled = requiredFields.every(field => field);
@@ -303,6 +363,160 @@ async function enviarFormularioBeneficiario() {
       tentouAdaptacoesInput.forEach(radio => radio.checked = false);
       dificuldadesEnfrentadasInput.forEach(radio => radio.checked = false);
       segurançaCasaInput.forEach(radio => radio.checked = false);
+      impactoReformaInput.forEach(radio => radio.checked = false);
+
+
+      maisInformacoesInput.forEach(radio => radio.checked = false);
+      ondeConheceuONGInput.forEach(radio => radio.checked = false);
+
+    } else {
+      throw new Error(`Erro ao enviar o formulário: ${response.statusText}`);
+    }
+
+  } catch (error) {
+    console.error('Erro ao enviar o formulário:', error);
+  }
+}
+
+async function enviarFormularioInstituicao() {
+  let nomeinstituicaoInput = document.querySelector('#nomeInstituicao')
+  let CNPJInput = document.querySelector('#CNPJ')
+  let enderecoInput = document.querySelector('#endereco')
+  let telefoneInput = document.querySelector('#telefone')
+  let emailInput = document.querySelector('#email')
+
+  let tipodemoradiaInput = document.getElementsByName('tipodeInstituicao')
+  let descInstituicaoInput = document.querySelector('#descInstituicao')
+  let pessoasAtendidasInput = document.querySelector('#nPessoasAtendidas')
+  let simOUnaoDeficienciaInput = document.getElementsByName('simOUnaoDeficiencia')
+  let tipodeficienciaInput = document.getElementsByName('tipodeficiencia')
+  let necessidadeAcessibilidadeInput = document.getElementsByName('necessidadeAcessibilidade')
+  let tentouAdaptacoesInput = document.getElementsByName('tentouAdaptacoes')
+  let dificuldadesEnfrentadasInput = document.getElementsByName('dificuldadesEnfrentadas')
+  let segurançaInstituicaoInput = document.getElementsByName('segurançaCasa')
+  let impactoReformaInput = document.getElementsByName('impactoReforma')
+
+  let mensagemDInput = document.querySelector('#mensagemP16')
+  let mensagemAInput = document.querySelector('#mensagemP17')
+
+  let maisInformacoesInput = document.getElementsByName('maisInformacoes')
+  let ondeConheceuONGInput = document.getElementsByName('ondeConheceuONG')
+
+  //Valores 
+
+  const nomeInstituicao = nomeinstituicaoInput.value;
+  const CNPJ = CNPJInput.value;
+  const endereco = enderecoInput.value;
+  const telefone = telefoneInput.value;
+  const email = emailInput.value;
+
+  let tipoInstituicao = Array.from(tipodemoradiaInput).find(radio => radio.checked)?.value;
+  let descInstituicao = descInstituicaoInput.value; 
+  let pessoasInstituicaoAtende = pessoasAtendidasInput.value;
+  let atendePessoaComDeficienciaNaInstitucao = Array.from(simOUnaoDeficienciaInput).find(radio => radio.checked)?.value;
+  let tipoDeDeficiencia = Array.from(tipodeficienciaInput).find(radio => radio.checked)?.value;
+  let necessidadeAcessibilidade = Array.from(necessidadeAcessibilidadeInput).find(radio => radio.checked)?.value;
+  let jaTentouAdaptacoes = Array.from(tentouAdaptacoesInput).find(radio => radio.checked)?.value;
+  let dificuldadesEnfrentadas = Array.from(dificuldadesEnfrentadasInput).find(radio => radio.checked)?.value;
+  let segurancaEAcessibilidadeInstituicao = Array.from(segurançaInstituicaoInput).find(radio => radio.checked)?.value;
+  let impactoReforma = Array.from(impactoReformaInput).find(radio => radio.checked)?.value;
+
+  let mensagemP15 = mensagemDInput.value;
+  let mensagemP16 = mensagemAInput.value;
+
+  let atualizacaoProjetos = Array.from(maisInformacoesInput).find(radio => radio.checked)?.value;
+  let conheceAONGComo = Array.from(ondeConheceuONGInput).find(radio => radio.checked)?.value;
+
+  const perguntasOutro = [
+    { name: 'tipodeInstituicao', inputId: 'OutroMoradia' },
+    { name: 'tipodeficiencia', inputId: 'OutroDeficiencia' },
+    { name: 'necessidadeAcessibilidade', inputId: 'OutroNecessidade' },
+    { name: 'dificuldadesEnfrentadas', inputId: 'OutroDificuldade' },
+  ];
+
+  // Função para capturar valores e formatar "Outro"
+  function obterValorComOutro(pergunta) {
+    const radioGroup = document.getElementsByName(pergunta.name);
+    let valor = Array.from(radioGroup).find(radio => radio.checked)?.value;
+
+    // Se a opção "Outro" for escolhida, captura o valor do input correspondente
+    if (valor === "Outro") {
+      const outroInput = document.querySelector(`#${pergunta.inputId}`).value;
+      // Verifica se o input não está vazio antes de formatar
+      valor = outroInput ? `outro: ${outroInput}` : `outro: [sem informação]`; // Se não houver valor, define um valor padrão
+    }
+
+    return valor; // Retorna o valor (ou formatado se for "Outro")
+  }
+
+  const requiredFields = [
+    nomeInstituicao, CNPJ, endereco, telefone, email,
+    tipoInstituicao, descInstituicao, pessoasInstituicaoAtende, atendePessoaComDeficienciaNaInstitucao,
+    necessidadeAcessibilidade, jatentouAdaptacoes, segurancaEAcessibilidadeInstituicao, impactoReforma,
+    mensagemP15, mensagemP16, atualizacaoProjetos, conheceAONGComo
+  ];
+
+  const allRequiredFilled = requiredFields.every(field => field);
+
+  if (!allRequiredFilled) {
+    console.error('Por favor, preencha todos os campos obrigatórios.');
+    return;
+  }
+
+  // Monta o objeto com os dados do formulário
+  const formularioData = {
+    nomeInstituicao,
+    CNPJ,
+    endereco,
+    telefone,
+    email,
+    tipoInstituicao: obterValorComOutro({ name: 'tipodeInstituicao', inputId: 'OutroMoradiaInput' }),
+    descInstituicao,
+    pessoasInstituicaoAtende,
+    atendePessoaComDeficienciaNaInstitucao,
+    tipoDeDeficiencia: obterValorComOutro({ name: 'tipodeficiencia', inputId: 'OutroDeficienciaInput' }),
+    necessidadeAcessibilidade: obterValorComOutro({ name: 'necessidadeAcessibilidade', inputId: 'OutroNecessidadeInput' }),
+    jaTentouAdaptacoes,
+    dificuldadesEnfrentadas: obterValorComOutro({ name: 'dificuldadesEnfrentadas', inputId: 'inputOutroDificuldade' }),
+    segurancaEAcessibilidadeInstituicao,
+    impactoReforma,
+    pa1: mensagemP15,
+    pa2: mensagemP16,
+    atualizacaoProjetos,
+    conheceAONGComo
+  };
+
+  // Envia os dados para o servidor usando Axios
+  try {
+    const formularioEndPoint = '/formularioIntituicao'
+
+    const URLcompleta = `${protocolo}${baseURL}${formularioEndPoint}`
+
+
+    const response = await axios.post(URLcompleta, formularioData);
+
+    if (response.status === 200) {
+      console.log('Formulário enviado com sucesso:', response.data);
+
+
+      nomeInstituicaoInput.value = '';
+      CNPJInput.value = '';
+      enderecoInput.value = '';
+      telefoneInput.value = '';
+      emailInput.value = '';
+      descInstituicao.value = ''; 
+      pessoasInstituicaoAtende.value = '';
+      mensagemDInput.value = '';
+      mensagemAInput.value = '';
+
+
+      tipodemoradiaInput.forEach(radio => radio.checked = false);
+      simOUnaoDeficienciaInput.forEach(radio => radio.checked = false);
+      tipodeficienciaInput.forEach(radio => radio.checked = false);
+      necessidadeAcessibilidadeInput.forEach(radio => radio.checked = false);
+      tentouAdaptacoesInput.forEach(radio => radio.checked = false);
+      dificuldadesEnfrentadasInput.forEach(radio => radio.checked = false);
+      segurançaInstituicaoInput.forEach(radio => radio.checked = false);
       impactoReformaInput.forEach(radio => radio.checked = false);
 
 
