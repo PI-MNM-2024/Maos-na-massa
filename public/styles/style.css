@@ -1552,7 +1552,7 @@ strong {
 }
 
 .main_ajuda {
-    /* height: 800px; */
+    min-height: calc(85vh - 100px);
     background-color: #E4D5B6;
 }
 
@@ -1592,18 +1592,19 @@ strong {
     margin: auto 1rem; /* Espaçamento entre as colunas */
 }
 
-@media (max-width: 1200px) {
+/* Linha horizontal para tablets grandes e laptops pequenos (1024px ou menos) */
+@media (max-width: 1024px) {
     .linha-divisoria {
-        height: 650px; /* Garante que a altura da linha seja mantida até 1200px */
+        width: 100%; /* Torna a linha horizontal */
+        height: 1px; /* Define a espessura da linha */
+        margin: 1rem auto; /* Centraliza a linha horizontalmente */
     }
 }
 
-/* Para telas menores, a linha fica horizontal */
-@media (max-width: 768px) {
+/* Mantém o estilo vertical em telas intermediárias (entre 1024px e 1200px) */
+@media (max-width: 1200px) and (min-width: 1025px) {
     .linha-divisoria {
-        width: 100%; /* Linha horizontal */
-        height: 1px; /* Espessura da linha */
-        margin: 1rem auto; /* Centraliza horizontalmente */
+        height: 650px; /* Linha continua vertical */
     }
 }
 
@@ -1616,8 +1617,22 @@ strong {
 }
 
 .queroajuda-gap{
-    gap: 5.5rem
+    gap: 5.5rem;
+    overflow-x: hidden;
 }
+
+.custom-flex {
+    flex-wrap: nowrap; /* Itens em linha por padrão */
+    flex-direction: row; /* Alinhamento horizontal */
+  }
+  
+  /* Estilo personalizado para telas menores */
+  @media (max-width: 1024px) {
+    .custom-flex {
+      flex-wrap: wrap; /* Permite que os itens se empilhem */
+      flex-direction: column; /* Alinha verticalmente */
+    }
+  }
 
 .container h1 {
     font-size: 30px;
