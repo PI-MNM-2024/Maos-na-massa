@@ -16,6 +16,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
+    
+    <!-- Importação Cookie -->
+    <style>.cookieConsentContainer{z-index:999;width:350px;min-height:20px;box-sizing:border-box;padding:30px 30px 30px 30px;background:#232323;overflow:hidden;position:fixed;bottom:30px;right:30px;display:none}.cookieConsentContainer .cookieTitle a{font-family:OpenSans,arial,sans-serif;color:#fff;font-size:22px;line-height:20px;display:block}.cookieConsentContainer .cookieDesc p{margin:0;padding:0;font-family:OpenSans,arial,sans-serif;color:#fff;font-size:13px;line-height:20px;display:block;margin-top:10px}.cookieConsentContainer .cookieDesc a{font-family:OpenSans,arial,sans-serif;color:#fff;text-decoration:underline}.cookieConsentContainer .cookieButton a{display:inline-block;font-family:OpenSans,arial,sans-serif;color:#fff;font-size:14px;font-weight:700;margin-top:14px;background:#000;box-sizing:border-box;padding:15px 24px;text-align:center;transition:background .3s}.cookieConsentContainer .cookieButton a:hover{cursor:pointer;background:#3e9b67}@media (max-width:980px){.cookieConsentContainer{bottom:0!important;left:0!important;width:100%!important}}</style>
 
     <title>Projeto Mãos na Massa</title>
 </head>
@@ -376,17 +379,16 @@
             <div class="row">
                 <div class="col-md-3 mb-3 footer-section">
                     <p><b>Informações</b></p>
-                    <a href="quemsomos.html">Quem Somos</a>
-                    <a href="">Segurança</a>
-                    <a href="politica.html">Política de Privacidade</a>
+                    <a href="public/src/quemsomos.html">Quem Somos</a>
+                    <a href="public/src/politica.html">Política de Privacidade</a>
+                    <a href="public/src/realizacoes.html">Realizações</a>
                 </div>
 
                 <div class="col-md-3 mb-3 footer-section">
                     <p><b>Serviços ao Cliente</b></p>
-                    <a href="contato.html">Fale Conosco</a>
-                    <a href="eventos.html">Eventos</a>
-                    <a href="areadedoadores.html">Trabalhe conosco</a>
-                    <a href="noticias.html">Notícias</a>
+                    <a href="public/src/contato.html">Fale Conosco</a>
+                    <a href="public/src/areadedoadores.html">Trabalhe conosco</a>
+                    <a href="public/src/noticias.html">Notícias</a>
                 </div>
 
                 <div class="col-md-3 mb-3 footer-section">
@@ -396,6 +398,7 @@
                         ✉️ <span>maosnamassaong@gmail.com</span>
                     </p>
                     <p>De segunda a sexta, das 07:00 às 22:00</p>
+                    <p>&copy; Mãos na massa. Direitos reservados</p>
                 </div>
 
                 <div class="col-md-3 mb-3 social-iconsAlinha">
@@ -423,8 +426,6 @@
         var headerBg = document.getElementById('bg');
         var titulo = document.querySelector('.apresentacao__titulo');
         var slogan = document.querySelector('#slogan__titulo');
-
-        // Define as media queries
         const mediaQueryLarge = window.matchMedia('(min-width: 768px)');
         const mediaQuerySmall = window.matchMedia('(max-width: 768px)');
 
@@ -432,7 +433,6 @@
             var scrollOffset = window.pageYOffset;
 
             if (mediaQueryLarge.matches) {
-                // Para telas grandes
                 headerBg.style.opacity = 1 - scrollOffset / 1250;
                 headerBg.style.top = scrollOffset / 15 + 'px';
                 headerBg.style.backgroundPositionY = -scrollOffset / 20 + 'px';
@@ -447,26 +447,22 @@
                 slogan.style.opacity = opacityValue;
 
             } else if (mediaQuerySmall.matches) {
-                // Para telas menores
-                headerBg.style.opacity = 1 - scrollOffset / 800; // Opacidade muda mais rápido
+                headerBg.style.opacity = 1 - scrollOffset / 800; 
                 headerBg.style.top = scrollOffset / 20 + 'px';
                 headerBg.style.backgroundPositionY = -scrollOffset / 30 + 'px';
 
-                var maxScrollOffset = 150; // Limite reduzido para telas pequenas
+                var maxScrollOffset = 150; 
                 var adjustedOffset = Math.min(scrollOffset, maxScrollOffset);
-                titulo.style.marginTop = 100 + adjustedOffset / 1 + 'px'; // Movimento mais suave
+                titulo.style.marginTop = 100 + adjustedOffset / 1 + 'px'; 
                 slogan.style.marginTop = 10 + adjustedOffset / 5 + 'px';
 
                 var opacityValue = 1 - adjustedOffset / maxScrollOffset;
                 titulo.style.opacity = opacityValue;
                 slogan.style.opacity = opacityValue;
             }
-
-            // Continua chamando a função para a próxima animação
             requestAnimationFrame(applyScrollEffect);
         }
 
-        // Inicia a animação
         requestAnimationFrame(applyScrollEffect);
 
         var imagemOBR = document.querySelector('#imagemOBR');
@@ -493,14 +489,11 @@
 
     <script>
         gsap.registerPlugin(ScrollTrigger)
-
         const splitTypes = document.querySelectorAll('.revel-type')
         const splitTypesHorizontal = document.querySelectorAll('.revel-type-horizontal')
 
         splitTypes.forEach((char, i) => {
-
             const text = new SplitType(char, { types: 'chars' })
-
             gsap.from(text.chars, {
                 scrollTrigger: {
                     trigger: char,
@@ -514,15 +507,10 @@
                 transformOrigin: 'top',
                 stagger: 0.1
             })
-
-
-
         })
 
         splitTypesHorizontal.forEach((char, i) => {
-
             const text = new SplitType(char, { types: 'chars' })
-
             gsap.from(text.chars, {
                 scrollTrigger: {
                     trigger: char,
@@ -536,30 +524,22 @@
                 transformOrigin: 'left',
                 stagger: 0.1
             });
-
-
-
         })
 
-        // Inicializa a animação para cada círculo
         const animateCircle = (circleId) => {
             const circle = document.querySelector(circleId);
-
             const dashOffsetStart = 774;
             const dashOffsetEnd = 0;
-
             gsap.to(circle, {
                 strokeDashoffset: dashOffsetEnd,
                 scrollTrigger: {
-                    trigger: circle.closest('.box'), // Usa o elemento pai para ativar a animação
+                    trigger: circle.closest('.box'), 
                     start: "top bottom",
                     end: "bottom top",
                     scrub: true
                 }
             });
         };
-
-        // Chama a função para cada círculo de progresso
         animateCircle("#circleProgress")
         animateCircle("#circleProgress1");
         animateCircle("#circleProgress2");
@@ -567,42 +547,34 @@
 
         const animateNumber = (selector, endValue) => {
             const element = document.querySelector(selector);
-
-            // Valor inicial da animação
             const animationValue = { value: 0 };
-
             const animation = gsap.to(animationValue, {
                 value: endValue,
-                duration: 2, // Duração da animação em segundos
-                ease: "power2.out", // Suavização
-                paused: true, // Pausa inicialmente
+                duration: 2, 
+                ease: "power2.out", 
+                paused: true, 
                 onUpdate: () => {
-                    // Atualiza o número no elemento
                     element.textContent = Math.floor(animationValue.value);
                 },
             });
 
-            // Configura o ScrollTrigger
             ScrollTrigger.create({
                 trigger: element,
-                start: "top 90%", // Quando o elemento está 80% visível
+                start: "top 90%", 
                 onEnter: () => {
-                    animation.restart(); // Reinicia a animação ao entrar no viewport
+                    animation.restart(); 
                 },
                 onLeaveBack: () => {
-                    animation.pause(); // Pausa a animação ao sair para cima
-                    animationValue.value = 0; // Reseta o valor inicial
-                    element.textContent = "0"; // Reseta o texto no elemento
+                    animation.pause(); 
+                    animationValue.value = 0; 
+                    element.textContent = "0"; 
                 },
             });
         };
-
-        // Chama a função para animar o número
         animateNumber("#numeroA", 18);
-
-        
     </script>
 
+<script>var purecookieTitle="Cookies.",purecookieDesc="By using this website, you automatically accept that we use cookies.",purecookieLink='<a href="https://www.cssscript.com/privacy-policy/" target="_blank">What for?</a>',purecookieButton="Understood";function pureFadeIn(e,o){var i=document.getElementById(e);i.style.opacity=0,i.style.display=o||"block",function e(){var o=parseFloat(i.style.opacity);(o+=.02)>1||(i.style.opacity=o,requestAnimationFrame(e))}()}function pureFadeOut(e){var o=document.getElementById(e);o.style.opacity=1,function e(){(o.style.opacity-=.02)<0?o.style.display="none":requestAnimationFrame(e)}()}function setCookie(e,o,i){var t="";if(i){var n=new Date;n.setTime(n.getTime()+24*i*60*60*1e3),t="; expires="+n.toUTCString()}document.cookie=e+"="+(o||"")+t+"; path=/"}function getCookie(e){for(var o=e+"=",i=document.cookie.split(";"),t=0;t<i.length;t++){for(var n=i[t];" "==n.charAt(0);)n=n.substring(1,n.length);if(0==n.indexOf(o))return n.substring(o.length,n.length)}return null}function eraseCookie(e){document.cookie=e+"=; Max-Age=-99999999;"}function cookieConsent(){getCookie("purecookieDismiss")||(document.body.innerHTML+='<div class="cookieConsentContainer" id="cookieConsentContainer"><div class="cookieTitle"><a>'+purecookieTitle+'</a></div><div class="cookieDesc"><p>'+purecookieDesc+" "+purecookieLink+'</p></div><div class="cookieButton"><a onClick="purecookieDismiss();">'+purecookieButton+"</a></div></div>",pureFadeIn("cookieConsentContainer"))}function purecookieDismiss(){setCookie("purecookieDismiss","1",7),pureFadeOut("cookieConsentContainer")}window.onload=function(){cookieConsent()};</script>
 
 
 
