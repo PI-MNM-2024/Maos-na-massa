@@ -88,6 +88,7 @@ const formularioBeneficiario = mongoose.model(
 
 const formularioInstituicaoSchema = mongoose.Schema({
   nomeInstituicao: { type: String, required: true },
+  responsavelLegal: { type: String, required: true }, 
   CNPJ: { type: String, required: true },
   endereco: { type: String, required: true },
   telefone: { type: String, required: true },
@@ -186,6 +187,7 @@ app.post("formularioIntituicao", async (req, res) => {
   try {
     const {
       nomeInstituicao,
+      responsavelLegal,
       CNPJ,
       endereco,
       telefone,
@@ -208,6 +210,7 @@ app.post("formularioIntituicao", async (req, res) => {
 
     const novoformulario = new formularioInstituicao({
       nomeInstituicao,
+      responsavelLegal,
       CNPJ,
       endereco,
       telefone,

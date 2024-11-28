@@ -380,6 +380,7 @@ async function enviarFormularioBeneficiario() {
 
 async function enviarFormularioInstituicao() {
   let nomeinstituicaoInput = document.querySelector('#nomeInstituicao')
+  let responsavelInput = document.querySelector('#responsavelLegal')
   let CNPJInput = document.querySelector('#CNPJ')
   let enderecoInput = document.querySelector('#endereco')
   let telefoneInput = document.querySelector('#telefone')
@@ -405,6 +406,7 @@ async function enviarFormularioInstituicao() {
   //Valores 
 
   const nomeInstituicao = nomeinstituicaoInput.value;
+  const responsavelLegal = responsavelInput.value
   const CNPJ = CNPJInput.value;
   const endereco = enderecoInput.value;
   const telefone = telefoneInput.value;
@@ -450,7 +452,7 @@ async function enviarFormularioInstituicao() {
   }
 
   const requiredFields = [
-    nomeInstituicao, CNPJ, endereco, telefone, email,
+    nomeInstituicao, responsavelLegal, CNPJ, endereco, telefone, email,
     tipoInstituicao, descInstituicao, pessoasInstituicaoAtende, atendePessoaComDeficienciaNaInstitucao,
     necessidadeAcessibilidade, jatentouAdaptacoes, segurancaEAcessibilidadeInstituicao, impactoReforma,
     mensagemP15, mensagemP16, atualizacaoProjetos, conheceAONGComo
@@ -466,6 +468,7 @@ async function enviarFormularioInstituicao() {
   // Monta o objeto com os dados do formulário
   const formularioData = {
     nomeInstituicao,
+    responsavelLegal,
     CNPJ,
     endereco,
     telefone,

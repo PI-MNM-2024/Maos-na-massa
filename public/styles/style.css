@@ -1572,7 +1572,12 @@ strong {
     width: 1px; /* Linha vertical */
     height: 650px; /* Altura total da coluna */
     margin: auto 1rem; /* Espaçamento entre as colunas */
-    z-index: 10;
+}
+
+@media (max-width: 1200px) {
+    .linha-divisoria {
+        height: 650px; /* Garante que a altura da linha seja mantida até 1200px */
+    }
 }
 
 /* Para telas menores, a linha fica horizontal */

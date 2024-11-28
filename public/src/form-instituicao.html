@@ -107,29 +107,34 @@
         <label for="nome">1.Nome da Instituição:</label>
         <input type="text" name="nomeInstituicao" id="nomeInstituicao" required>
 
-        <!-- Pergunta 2 -->
+         <!-- Pergunta 2 -->
 
-        <label for="idade">2.CNPJ:</label>
-        <input type="text" name="CNPJ" id="CNPJ" required>
+         <label for="responsavel">2.Responsável Legal:</label>
+         <input type="text" name="responsavelLegal" id="responsavelLegal" required>
 
         <!-- Pergunta 3 -->
 
-        <label for="endereco">3.Endereco:</label>
-        <input type="text" name="endereco" id="endereco" required>
+        <label for="idade">3.CNPJ:</label>
+        <input type="text" name="CNPJ" id="CNPJ" required>
 
         <!-- Pergunta 4 -->
 
-        <label for="telefone">4.Telefone de Contato:</label>
-        <input type="tel" name="telefone" id="telefone" required>        
-        
+        <label for="endereco">4.Endereco:</label>
+        <input type="text" name="endereco" id="endereco" required>
+
         <!-- Pergunta 5 -->
 
-        <label for="email">5.Email:</label>
+        <label for="telefone">5.Telefone de Contato:</label>
+        <input type="tel" name="telefone" id="telefone" required>        
+        
+        <!-- Pergunta 6 -->
+
+        <label for="email">6.Email:</label>
         <input type="email" name="email" id="email" required>
 
-        <!-- Pergunta 6 -->
+        <!-- Pergunta 7 -->
         
-        <p>6.Tipo da instituição?:</p>
+        <p>7.Tipo da instituição?:</p>
         <input type="radio" id="ONG" name="tipodeInstituicao" value="ONG">
         <label for="ONG">ONG</label>
         
@@ -139,20 +144,20 @@
         <input type="radio" id="OutroMoradia" name="tipodeInstituicao" value="Outro">
         <label for="OutroMoradia">Outro: </label><input type="text" id="OutroMoradiaInput" name="OutroMoradia" />
 
-        <!-- Pergunta 7 -->
+        <!-- Pergunta 8 -->
 
-        <label for="descInstituicao">7.Descrição da instituição (Descreva brevemente a missão e atividades da instituição):</label>
+        <label for="descInstituicao">8.Descrição da instituição (Descreva brevemente a missão e atividades da instituição):</label>
         <textarea name="descInstituicao" id="descInstituicao" rows="4" cols="50"></textarea><br>
 
-        <!-- pergunta 8 -->
+        <!-- pergunta 9 -->
 
-        <p>8.Quantas pessoas a instituição/fundação atende?</p>
+        <p>9.Quantas pessoas a instituição/fundação atende?</p>
         
         <input type="number" name="nPessoasAtendidas" id="nPessoasAtendidas" required>
 
-        <!-- Pergunta 9 -->
+        <!-- Pergunta 10 -->
 
-        <p>9.A instituição atende pessoas com deficiência?</p>
+        <p>10.A instituição atende pessoas com deficiência?</p>
 
         <input type="radio" id="simDeficiencia" name="simOUnaoDeficiencia" value="Sim">
         <label for="simDeficiencia">Sim</label><br>
@@ -160,9 +165,9 @@
         <input type="radio" id="naoDeficiencia" name="simOUnaoDeficiencia" value="Não">
         <label for="naoDeficiencia">Não</label><br>
 
-        <!-- Pergunta 10 -->
+        <!-- Pergunta 11 -->
 
-        <p>10.Se sim, qual é o tipo de deficiência?</p>
+        <p>11.Se sim, qual é o tipo de deficiência?</p>
 
         <input type="radio" id="deficienciaFisica" name="tipodeficiencia" value="Deficiência física(cadeirante, mobilidade reduzida)">
         <label for="deficienciaFisica">Deficiência física(cadeirante, mobilidade reduzida)</label><br>
@@ -182,9 +187,9 @@
         <input type="radio" id="prefiroNResponder" name="tipodeficiencia" value="Prefiro não responder">
         <label for="prefiroNResponder">Prefiro não responder</label><br>
 
-        <!-- Pergunta 10 -->
+        <!-- Pergunta 12 -->
 
-        <p>11.Qual é a principal necessidade em relação à acessibilidade nos espaços da instituição?</p>
+        <p>12.Qual é a principal necessidade em relação à acessibilidade nos espaços da instituição?</p>
 
         <input type="radio" id="rampaDeAcesso" name="necessidadeAcessibilidade" value="Rampas de acesso">
         <label for="rampaDeAcesso">Rampas de acesso</label><br>
@@ -204,9 +209,9 @@
         <input type="radio" id="OutroNecessidade" name="necessidadeAcessibilidade" value="Outro">
         <label for="OutroNecessidade">Outro: </label><input type="text" id="OutroNecessidadeInput" name="necessidadeAcessibilidade"/><br>
 
-        <!-- peergunta 12 -->
+        <!-- peergunta 13 -->
 
-        <p>12.A instituição já tentou realizar adaptações nos espaços?</p>
+        <p>13.A instituição já tentou realizar adaptações nos espaços?</p>
 
         <input type="radio" id="simSucesso" name="tentouAdaptacoes" value="Sim, com sucesso">
         <label for="simSucesso">Sim, com sucesso</label><br>
@@ -217,9 +222,9 @@
         <input type="radio" id="naoTentei" name="tentouAdaptacoes" value="Não, nunca tentou">
         <label for="naoTentei">Não, nunca tentou</label><br>
 
-        <!-- Pergunta 13 -->
+        <!-- Pergunta 14 -->
 
-        <p>13.Se sim, quais foram as principais dificuldades enfrentadas?</p>
+        <p>14.Se sim, quais foram as principais dificuldades enfrentadas?</p>
 
         <input type="radio" id="faltaRecurso" name="dificuldadesEnfrentadas" value="Falta de recursos financeiros">
         <label for="faltaRecurso">Falta de recursos financeiros</label><br>
@@ -235,9 +240,9 @@
         <input type="radio" id="OutroDificuldade" name="dificuldadesEnfrentadas" value="Outro">
         <label for="OutroDificuldade">Outro: </label><input type="text" id="inputOutroDificuldade" name="dificuldadesEnfrentadas"/><br>
 
-        <!-- Pergunta 14 -->
+        <!-- Pergunta 15 -->
 
-        <p>14.Como você avalia a segurança e acessibilidade dos espaços da instituição atualmente?</p>
+        <p>15.Como você avalia a segurança e acessibilidade dos espaços da instituição atualmente?</p>
 
         <input type="radio" id="muitoSeguro" name="segurançaCasa" value="Muito segura e acessível">
         <label for="muitoSeguro">Muito segura e acessível</label><br>
@@ -251,9 +256,9 @@
         <input type="radio" id="nadaSeguro" name="segurançaCasa" value="Nada segura, oferece muitos riscos">
         <label for="nadaSeguro">Nada segura, oferece muitos riscos</label><br>
 
-        <!-- pergunta 15 -->
+        <!-- pergunta 16 -->
 
-        <p>15.Como você acredita que uma reforma ou adaptação nos espaços da instituição pode melhorar a qualidade de vida dos atendidos?</p>
+        <p>16.Como você acredita que uma reforma ou adaptação nos espaços da instituição pode melhorar a qualidade de vida dos atendidos?</p>
 
         <input type="radio" id="melhoraSignificativo" name="impactoReforma" value="Melhoraria significativamente minha autonomia e segurança">
         <label for="melhoraSignificativo">Melhoraria significativamente minha autonomia e segurança</label><br>
@@ -267,19 +272,19 @@
         <input type="radio" id="melhoraNada" name="impactoReforma" value="Não faria diferença significativa">
         <label for="melhoraNada">Não faria diferença significativa</label><br>
 
-        <!-- Pergunta 16 -->
+        <!-- Pergunta 17 -->
 
-        <label for="mensagemP16">16.Por favor, descreva as principais dificuldades que a instituição enfrenta no dia a dia devido à falta de acessibilidade.</label><br>
+        <label for="mensagemP16">17.Por favor, descreva as principais dificuldades que a instituição enfrenta no dia a dia devido à falta de acessibilidade.</label><br>
         <textarea name="mensagemP16" id="mensagemP16" rows="4" cols="50"></textarea><br>
-
-        <!-- pergunta 17 -->
-
-        <label for="mensagemP16">17.De que forma você acredita que a ONG Mãos na Massa pode ajudar a melhorar a qualidade de vida dos atendidos pela sua instituição?</label><br>
-        <textarea name="mensagemP17" id="mensagemP17" rows="4" cols="50"></textarea><br>
 
         <!-- pergunta 18 -->
 
-        <p>18.Você gostaria de receber mais informações sobre nossos projetos e eventos?</p>
+        <label for="mensagemP16">18.De que forma você acredita que a ONG Mãos na Massa pode ajudar a melhorar a qualidade de vida dos atendidos pela sua instituição?</label><br>
+        <textarea name="mensagemP17" id="mensagemP17" rows="4" cols="50"></textarea><br>
+
+        <!-- pergunta 19 -->
+
+        <p>19.Você gostaria de receber mais informações sobre nossos projetos e eventos?</p>
 
         <input type="radio" id="simEmail" name="maisInformacoes" value="Sim, por e-mail">
         <label for="simEmail">Sim, por e-mail</label><br>
@@ -290,9 +295,9 @@
         <input type="radio" id="nãoObrigado" name="maisInformacoes" value="Não, obrigado(a)">
         <label for="nãoObrigado">Não, obrigado(a)</label><br>
 
-        <!-- pergunta 19 -->
+        <!-- pergunta 20 -->
 
-        <p>19.Como você ficou sabendo da ONG Mãos na Massa?</p>
+        <p>20.Como você ficou sabendo da ONG Mãos na Massa?</p>
 
         
         <input type="radio" id="redesSociais" name="ondeConheceuONG" value="Redes sociais">
