@@ -1446,6 +1446,18 @@ strong {
     }
 }
 
+@media (max-width: 1026px) and (min-width: 992px) {
+    /* Seleciona todos os links nav com as classes active, me-2 e p-3 */
+    .nav-link.active {
+       margin-right: -0.5rem !important;  /* Ajusta a margem direita */
+       margin-left: 0.5rem;               /* Ajusta a margem esquerda */
+    }
+
+    .nav-item.dropdown{
+        margin-left: 1rem;
+    }
+ }
+
 .nav-link:hover {
     font-size: 1.1rem;
     color: #D67400;
