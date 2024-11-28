@@ -1446,7 +1446,7 @@ strong {
     }
 }
 
-@media (max-width: 1026px) and (min-width: 992px) {
+@media (max-width: 1065px) and (min-width: 992px) {
     /* Seleciona todos os links nav com as classes active, me-2 e p-3 */
     .nav-link.active {
        margin-right: -0.5rem !important;  /* Ajusta a margem direita */
