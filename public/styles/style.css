@@ -2011,15 +2011,17 @@ h6 {
 }
 
 .container_somos{
-    margin: 0 0 0 200px;
-    width: 70%;
+    margin: 0 auto;;
+    max-width: 70%;
     height: 450px;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    flex-wrap: wrap;
 }
+
+
 .container_somos img{
-    width: 10%;
+    width: 29%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
@@ -2027,7 +2029,7 @@ h6 {
     transition: all ease-in-out 0.5s;
 }
 .container_somos img:hover{
-    width: 30%
+    width: 39%
 }
 
 .box {
@@ -2136,6 +2138,7 @@ video {
     justify-content: space-around;    
     margin-top: 20px;           
     margin-bottom: 20px;
+    overflow-x: hidden;
 }
 
 .video-container video {
@@ -2143,6 +2146,33 @@ video {
     border-radius: 8px;         
     width: 300px;               
     height: auto;               
+}
+
+/* Centralizar as colunas quando em dispositivos pequenos */
+.col-12 {
+    display: flex;
+    justify-content: center; /* Alinha o conteúdo da coluna no centro */
+    align-items: center;     /* Garante o alinhamento vertical */
+}
+
+/* Responsividade: Quando a tela é pequena, os vídeos devem empilhar */
+@media (max-width: 768px) {
+    .col-12 {
+        width: 100%;  /* Garante que as colunas ocupem toda a largura da tela em dispositivos pequenos */
+        display: flex;
+        justify-content: center; /* Alinha as colunas ao centro */
+    }
+}
+@media (max-width: 1023px) and (min-width: 768px) {
+    .g-3{
+        gap: 121px;
+    }
+}
+
+@media (max-width: 1188px) and (min-width: 1024px){
+    .g-3{
+        gap: 149px;
+    }
 }
 
 .hero-section { 
