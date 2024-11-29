@@ -308,7 +308,6 @@ button:hover {
 
 .fotos {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
     flex-direction: column;
@@ -1508,7 +1507,6 @@ strong {
     align-items: center;
     padding-top: 3%;
     font-family: 'Roboto', sans-serif;
-    font-weight: 900;
 }
 
 .div_mapa {
@@ -2033,7 +2031,7 @@ h6 {
 
 
 .container_somos img{
-    width: 29%;
+    width: 25%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
@@ -2041,7 +2039,7 @@ h6 {
     transition: all ease-in-out 0.5s;
 }
 .container_somos img:hover{
-    width: 39%
+    width: 50%
 }
 
 .box {
@@ -2253,3 +2251,66 @@ video {
     object-fit: cover; 
     border-radius: 10px; 
 }
+
+.fotos {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-around; 
+    align-items: flex-start; 
+    gap: 20px; 
+    padding-top: 20px;
+  }
+  
+  .foto-container {
+    text-align: center; 
+    flex: 1; 
+    max-width: 200px; 
+  }
+  
+  .julita, .vila_abrigo {
+    width: 100%; 
+    height: auto; 
+  }
+  
+  .titulo, .titulo_outro {
+    margin-top: 10px; 
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+  }
+  .titulo_realiza{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar-toggler {
+    border: 1px solid transparent; /* (Opcional) Se quiser uma borda no botão */
+    border-radius: 8px; /* Arredonda os cantos do botão em si */
+    padding: 5px; /* Ajusta o espaçamento interno */
+  }
+  
+  .navbar-toggler-icon {
+    background-image: none; /* Remove a imagem padrão */
+    width: 30px; /* Largura da barra */
+    height: 3px; /* Altura da barra */
+    background-color: #ff6600; /* Cor das barras */
+    border-radius: 2px; /* Arredonda as pontas das barras */
+    position: relative;
+  }
+  
+  .navbar-toggler-icon::before,
+  .navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #ff6600; /* Cor das barras */
+    border-radius: 2px; /* Arredonda as pontas */
+  }
+  
+  .navbar-toggler-icon::before {
+  }
+  
+  .navbar-toggler-icon::after {
+    top: 8px; 
+  }
