@@ -562,7 +562,7 @@ button:hover {
 
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
     #impacto .linha1 {
         font-size: 48px;
     }
@@ -608,6 +608,7 @@ button:hover {
     .linha6 {
         grid-template-columns: 1fr;
         margin-bottom: 115px;
+        gap: 4rem; 
     }
 
 }
