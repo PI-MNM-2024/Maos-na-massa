@@ -128,18 +128,19 @@
     </nav>
   </header>
   <body>
-    <main class="corpo__pagina-area-de-doadores">
+    <main class="corpo__pagina-area-de-doadores container py-5">
+
       <script>
         (function (d) {
           var s = d.createElement("script");
           s.setAttribute("data-account", "DLmQUCAOoW");
           s.setAttribute("src", "https://cdn.userway.org/widget.js");
           (d.body || d.head).appendChild(s);
-
+    
           s.onload = function () {
             const observer = new MutationObserver(() => {
-              const userwayWidget = document.getElementByClass(
-                "userway_buttons_wrapper"
+              const userwayWidget = document.querySelector(
+                ".userway_buttons_wrapper"
               );
               if (userwayWidget) {
                 userwayWidget.style.position = "fixed";
@@ -149,8 +150,7 @@
                 userwayWidget.style.zIndex = "1000";
               }
             });
-
-            // Iniciar observação no body
+    
             observer.observe(document.body, {
               childList: true,
               subtree: true,
@@ -158,7 +158,7 @@
           };
         })(document);
       </script>
-
+    
       <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>
@@ -169,46 +169,47 @@
       <script>
         new window.VLibras.Widget("https://vlibras.gov.br/app");
       </script>
-
-      <section class="area_de_doadores p-5">
+    
+      <section class="area_de_doadores p-5 text-center">
         <h1 class="titulo__area-de-doadores animate__animated animate__fadeIn">
           ÁREA DE DOADORES
         </h1>
-
+    
         <aside
-          class="frase__area-de-doadores animate__animated animate__fadeIn"
+          class="frase__area-de-doadores lead animate__animated animate__fadeIn"
         >
           Escolha a melhor forma de contribuir e faça parte da nossa causa!
         </aside>
-
+    
         <div
-          class="ajuda_pix animate__animated animate__fadeIn animate__delay-1.5s"
+          class="ajuda_pix animate__animated animate__fadeIn animate__delay-1.5s row my-5"
         >
-          <div class="container-chave-pix">
+          <div class="container-chave-pix col-md-6 col-12 text-center mb-4">
             <p class="text_donator animate__animated animate__fadeInUp">
               Nossa chave <br />PIX: 32.951.999
             </p>
           </div>
-
-          <div class="container-qrcode animate__animated animate__zoomIn">
-            <img src="/public/assets/images/qrcode.png" alt="Foto do QR code" />
+    
+          <div class="container-qrcode col-md-6 col-12 animate__animated animate__zoomIn mb-4">
+            <img src="/public/assets/images/qrcode.png" alt="Foto do QR code" class="img-fluid mx-auto d-block" />
           </div>
-
+    
           <div
-            class="container-informacoes-conta animate__animated animate__fadeInUp"
+            class="container-informacoes-conta col-md-6 col-12 animate__animated animate__fadeInUp mb-4"
           >
-            <p class="text_donator">
+            <p class="text_donator mt-3">
               Mercado Pago <br />Conta Corrente: 4119089960-5 <br />
               Agência: 0001 <br />
               CNPJ: 41.282.105/0001-68
             </p>
           </div>
         </div>
-
-        <div class="ajuda_pix">
-          <div class="text_div animate__animated animate__fadeInUp">
-            <h2>Venha ser um voluntário!</h2>
-            <p style="text-align: center">
+    
+        <div class="ajuda_pix row g-4">
+          <!-- Primeiro Bloco -->
+          <div class="text_div col-md-6 col-12 d-flex flex-column align-items-center justify-content-between text-center animate__animated animate__fadeInUp">
+            <h2 class="mb-3">Venha ser um voluntário!</h2>
+            <p class="text-center">
               O voluntário Mãos na Massa atua em nossas ações de reforma que
               acontecem aos sábados. Se inscreva para participar de nossas
               obras. Há dentro do grupo a divisão de algumas equipes: a equipe
@@ -216,14 +217,15 @@
               realiza reuniões mensais para planejamento, programação e
               elaboração de ideias de material.
             </p>
-            <a class="botao_ajuda animate__animated animate__bounceIn" href=""
-              >Quero me inscrever</a
-            >
+            <a class="botao_ajuda animate__animated animate__bounceIn mt-3 align-self-center" href="">
+              Quero me inscrever
+            </a>
           </div>
-
-          <div class="text_div animate__animated animate__fadeInUp">
-            <h2>Doador de Materiais</h2>
-            <p style="text-align: center">
+        
+          <!-- Segundo Bloco -->
+          <div class="text_div col-md-6 col-12 d-flex flex-column align-items-center justify-content-between text-center animate__animated animate__fadeInUp">
+            <h2 class="mb-3">Doador de Materiais</h2>
+            <p class="text-center">
               O Voluntário doador de materiais pode nos ajudar. Um doador de
               materiais de construção pode transformar vidas ao fornecer
               recursos essenciais para a construção e reforma de espaços
@@ -231,15 +233,14 @@
               telhas, é possível criar ambientes seguros e adequados para
               atividades educacionais, culturais e de saúde.
             </p>
-            <a
-              class="botao_ajuda mt-4 animate__animated animate__bounceIn"
-              href=""
-              >Quero doar</a
-            >
+            <a class="botao_ajuda mt-3 animate__animated animate__bounceIn align-self-center" href="">
+              Quero doar
+            </a>
           </div>
-        </div>
+        </div>        
       </section>
     </main>
+    
 
     <footer class="rodape py-4">
       <div class="container pt-5">
