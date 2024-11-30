@@ -945,8 +945,7 @@ strong {
     color: #333;
     width: 100%;
     font-size: 0.9em;
-    border-top: 2px solid black; /* Define uma borda na parte superior */
-    padding-top: 20px; /* Espaço interno no footer, opcional */
+    border-top: 1px solid black; 
 }
 
 .footer-section {
