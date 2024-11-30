@@ -298,11 +298,18 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #E4D5B6;
-
+    background-image: url('../assets/images/fundooficial.png'); /* Alterada a URL */
+    background-size: cover; 
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    background-position: center; 
 }
 
 
+@media (max-width: 768px) {
+    .corpo__pagina-realizacoes {
+        background-size: contain; /* Ajusta para "contain" em telas menores */
+    }
+}
 
 
 
@@ -938,6 +945,8 @@ strong {
     color: #333;
     width: 100%;
     font-size: 0.9em;
+    border-top: 2px solid black; /* Define uma borda na parte superior */
+    padding-top: 20px; /* Espaço interno no footer, opcional */
 }
 
 .footer-section {
@@ -2313,4 +2322,60 @@ video {
   
   .navbar-toggler-icon::after {
     top: 8px; 
+  }
+
+  .parcerias_corpo{
+    flex: 1; /* Faz o conteúdo principal ocupar o espaço restante */
+
+  }
+
+  /* Animação de fade-in */
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Classe para ativar animação quando a seção aparecer */
+  .fade-in-section {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.3s; /* Ajuste o atraso da animação */
+  }
+  
+  /* Animação para imagem */
+  .fade-in-image {
+    opacity: 0;
+    animation: fadeIn 1.2s ease-out forwards;
+  }
+  
+  /* Animação para os containers de texto */
+  .fade-in-text {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+  }
+
+
+  /* Animação de Fade-in e deslizamento para o título */
+@keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px); /* Começa deslocado para a direita */
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0); /* Termina no seu lugar original */
+    }
+  }
+  
+  /* Aplicando a animação ao título */
+  .projetos .titulo_realiza {
+    animation: fadeInRight 1s ease-out forwards; /* Aplica animação de entrada */
+    opacity: 0; /* Garante que o título começa invisível */
+    transform: translateX(50px); /* Começa deslocado para a direita */
   }
