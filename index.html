@@ -19,7 +19,7 @@
 
     <title>Projeto Mãos na Massa</title>
 </head>
-</head>
+
 
 <body class="bg-secondary">
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -59,6 +59,35 @@
     <main class="corpo__pagina-principal">
 
         <!-- Ícone de acessibilidade -->
+        
+            <script>
+                (function(d){
+                  var s = d.createElement("script");
+                  s.setAttribute("data-account", "DLmQUCAOoW");
+                  s.setAttribute("src", "https://cdn.userway.org/widget.js");
+                  (d.body || d.head).appendChild(s);
+                  
+                  s.onload = function() {
+                const observer = new MutationObserver(() => {
+                    const userwayWidget = document.getElementByClass("userway_buttons_wrapper");
+                    if (userwayWidget) {
+                        userwayWidget.style.position = "fixed";
+                        userwayWidget.style.top = "50%";
+                        userwayWidget.style.left = "50%";
+                        userwayWidget.style.transform = "translate(-50%, -50%)";
+                        userwayWidget.style.zIndex = "1000";
+                    }
+                });
+
+                // Iniciar observação no body
+                observer.observe(document.body, {
+                    childList: true,
+                    subtree: true
+                });
+            };
+        })(document);
+            </script>
+
         <div vw class="enabled">
             <div vw-access-button class="active"></div>
             <div vw-plugin-wrapper>
@@ -341,26 +370,6 @@
             </div>
 
         </section>
-        <div class="carrossel">
-            <div class="item item1"><a href=""></a></div>
-            <div class="item item2"><a href=""></a></div>
-            <div class="item item3"><a href=""></a></div>
-            <div class="item item4"><a href=""></a></div>
-            <div class="item item5"><a href=""></a></div>
-            <div class="item item6"><a href=""></a></div>
-            <div class="item item7"><a href=""></a></div>
-            <div class="item item8"><a href=""></a></div>
-            <div class="item item9"><a href=""></a></div>
-            <div class="item item10"><a href=""></a></div>
-            <div class="item item11"><a href=""></a></div>
-            <div class="item item12"><a href=""></a></div>
-            <div class="item item13"><a href=""></a></div>
-            <div class="item item14"><a href=""></a></div>
-            <div class="item item15"><a href=""></a></div>
-            <div class="item item16"><a href=""></a></div>
-            <div class="item item17"><a href=""></a></div>
-            <div class="item item18"><a href=""></a></div>
-        </div>
     </main>
     <footer class="rodape py-4">
         <div class="container pt-5">

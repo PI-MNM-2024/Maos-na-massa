@@ -62,6 +62,33 @@
 
   <main class="corpo__pagina-faq">
     <!-- Ícone de acessibilidade -->
+    <script>
+      (function(d){
+        var s = d.createElement("script");
+        s.setAttribute("data-account", "DLmQUCAOoW");
+        s.setAttribute("src", "https://cdn.userway.org/widget.js");
+        (d.body || d.head).appendChild(s);
+        
+        s.onload = function() {
+      const observer = new MutationObserver(() => {
+          const userwayWidget = document.getElementByClass("userway_buttons_wrapper");
+          if (userwayWidget) {
+              userwayWidget.style.position = "fixed";
+              userwayWidget.style.top = "50%";
+              userwayWidget.style.left = "50%";
+              userwayWidget.style.transform = "translate(-50%, -50%)";
+              userwayWidget.style.zIndex = "1000";
+          }
+      });
+
+      // Iniciar observação no body
+      observer.observe(document.body, {
+          childList: true,
+          subtree: true
+      });
+  };
+})(document);
+  </script>
     <div vw class="enabled">
       <div vw-access-button class="active"></div>
       <div vw-plugin-wrapper>

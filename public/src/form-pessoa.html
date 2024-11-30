@@ -1,362 +1,761 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/styles/style.css">
-    <link rel="shortcut icon" href="/public/assets/favicon/MAOMASSA.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/styles/style.css" />
+    <link
+      rel="shortcut icon"
+      href="/public/assets/favicon/MAOMASSA.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet">
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet">
+      rel="stylesheet"
+    />
     <title>Formulario</title>
-</head>
-<body class="corpo__pagina-formulario">
+  </head>
+  <body class="corpo__pagina-formulario">
     <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/index.html"><img src="/public/assets/favicon/MAOMASSA.png"
-                    alt="Foto da logo do mãos na massa"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNav"
-                aria-controls="myNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="myNav">
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-link active me-2 corTexto p-3" aria-current="page"
-                        href="quemsomos.html">Quem
-                        Somos</a>
-                    <a class="nav-link active me-2 p-3" aria-current="page"
-                        href="realizacoes.html">Realizações</a>
-                    <a class="nav-link active me-2 p-3" aria-current="page"
-                        href="parcerias.html">Parceiros</a>
-                    <a class="nav-link active me-2 p-3" aria-current="page" href="queroajuda.html">Quero
-                        Ajuda</a>
-                    <a class="nav-link active me-2 p-3" aria-current="page"
-                        href="noticias.html">Notícias</a>
-                    <a class="nav-link active me-2 p-3" aria-current="page" href="faq.html">FAQ</a>
-                    <a class="nav-link active me-2 p-3" aria-current="page" href="contato.html">Contato</a>
-                    <a class="nav-link active me-2 ajude_agora p-3" href="areadedoadores.html">Ajude
-                        Agora</a>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle login" href="#" id="navbarDropdownMenuLink"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="login_foto" src="/public/assets/favicon/perfil-removebg-preview.png"
-                                alt="login" />
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="login.html">Login</a>
-                            <a class="dropdown-item data" href="signup.html">Cadastrar</a>
-                        </div>
-                    </li>
-                </div>
-            </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/index.html"
+          ><img
+            src="/public/assets/favicon/MAOMASSA.png"
+            alt="Foto da logo do mãos na massa"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#myNav"
+          aria-controls="myNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="myNav">
+          <div class="navbar-nav ms-auto">
+            <a
+              class="nav-link active me-2 corTexto p-3"
+              aria-current="page"
+              href="quemsomos.html"
+              >Quem Somos</a
+            >
+            <a
+              class="nav-link active me-2 p-3"
+              aria-current="page"
+              href="realizacoes.html"
+              >Realizações</a
+            >
+            <a
+              class="nav-link active me-2 p-3"
+              aria-current="page"
+              href="parcerias.html"
+              >Parceiros</a
+            >
+            <a
+              class="nav-link active me-2 p-3"
+              aria-current="page"
+              href="queroajuda.html"
+              >Quero Ajuda</a
+            >
+            <a
+              class="nav-link active me-2 p-3"
+              aria-current="page"
+              href="noticias.html"
+              >Notícias</a
+            >
+            <a
+              class="nav-link active me-2 p-3"
+              aria-current="page"
+              href="faq.html"
+              >FAQ</a
+            >
+            <a
+              class="nav-link active me-2 p-3"
+              aria-current="page"
+              href="contato.html"
+              >Contato</a
+            >
+            <a
+              class="nav-link active me-2 ajude_agora p-3"
+              href="areadedoadores.html"
+              >Ajude Agora</a
+            >
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle login"
+                href="#"
+                id="navbarDropdownMenuLink"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <img
+                  class="login_foto"
+                  src="/public/assets/favicon/perfil-removebg-preview.png"
+                  alt="login"
+                />
+              </a>
+              <div
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <a class="dropdown-item" href="login.html">Login</a>
+                <a class="dropdown-item data" href="signup.html">Cadastrar</a>
+              </div>
+            </li>
+          </div>
         </div>
+      </div>
     </nav>
-    
-    <div class="modal fade" id="modalCadastro" aria-labelledby="modalCadastro" aria-hidden="true">
-        <div class="modal-dialog modal-sm modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5">
-                        Cadastro de usuário
-                    </h1>
-                </div>
-                <div class="modal-body">
-                    <div class="d-none alert alert-dismissible fade alert-modal-cadastro" role="alert">
 
-                    </div>
-                    <form class="form-modal" >
-                        <div class="form-group mb-3">
-                            <label for="usuarioCadastroInput" class="col-form-label">Email</label>
-                            <input type="text" id="usuarioCadastroInput" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="passwordCadastroInput" class="col-form-label">Senha</label>
-                            <input type="password" id="passwordCadastroInput" class="form-control">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        Cancelar
-                    </button>
-                    <button onclick="cadastrarUsuario()" type="button" class="btn btn-primary">
-                        Cadastrar
-                    </button>
-                </div>
-            </div>
+    <div
+      class="modal fade"
+      id="modalCadastro"
+      aria-labelledby="modalCadastro"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Cadastro de usuário</h1>
+          </div>
+          <div class="modal-body">
+            <div
+              class="d-none alert alert-dismissible fade alert-modal-cadastro"
+              role="alert"
+            ></div>
+            <form class="form-modal">
+              <div class="form-group mb-3">
+                <label for="usuarioCadastroInput" class="col-form-label"
+                  >Email</label
+                >
+                <input
+                  type="text"
+                  id="usuarioCadastroInput"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="passwordCadastroInput" class="col-form-label"
+                  >Senha</label
+                >
+                <input
+                  type="password"
+                  id="passwordCadastroInput"
+                  class="form-control"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button
+              onclick="cadastrarUsuario()"
+              type="button"
+              class="btn btn-primary"
+            >
+              Cadastrar
+            </button>
+          </div>
         </div>
+      </div>
     </div>
-    
-    <section>
-        <h1>Preencha o formulário abaixo caso você cumpre com os requisitos: </h1>
+
+    <script>
+      (function (d) {
+        var s = d.createElement("script");
+        s.setAttribute("data-account", "DLmQUCAOoW");
+        s.setAttribute("src", "https://cdn.userway.org/widget.js");
+        (d.body || d.head).appendChild(s);
+
+        s.onload = function () {
+          const observer = new MutationObserver(() => {
+            const userwayWidget = document.getElementByClass(
+              "userway_buttons_wrapper"
+            );
+            if (userwayWidget) {
+              userwayWidget.style.position = "fixed";
+              userwayWidget.style.top = "50%";
+              userwayWidget.style.left = "50%";
+              userwayWidget.style.transform = "translate(-50%, -50%)";
+              userwayWidget.style.zIndex = "1000";
+            }
+          });
+
+          // Iniciar observação no body
+          observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+          });
+        };
+      })(document);
+    </script>
+
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
+
+    <section class="text-center p-5">
+      <h1>Preencha o formulário abaixo caso você cumpre com os requisitos:</h1>
     </section>
 
-    <form id="formulario" onload="toggleOutroInput()">
-
-        <!-- Pergunta 1 -->
-        
-        <label for="nome">1.Nome:</label>
-        <input type="text" name="nome" id="nome" required>
-
-        <!-- Pergunta 2 -->
-
-        <label for="idade">2.Idade:</label>
-        <input type="number" name="idade" id="idade" required>
-
-        <!-- Pergunta 3 -->
-
-        <label for="endereco">3.Endereco:</label>
-        <input type="text" name="endereco" id="endereco" required>
-
-        <!-- Pergunta 4 -->
-
-        <label for="telefone">4.Telefone:</label>
-        <input type="tel" name="telefone" id="telefone" required>        
-        
-        <!-- Pergunta 5 -->
-
-        <label for="email">5.Email:</label>
-        <input type="email" name="email" id="email" required>
-
-        <!-- Pergunta 6 -->
-        
-        <p>6.Qual é a sua condição atual da moradia:</p>
-        <input type="radio" id="casapropia" name="tipodemoradia" value="Casa própia">
-        <label for="casapropia">Casa própria</label>
-        
-        <input type="radio" id="alugada" name="tipodemoradia" value="Alugada">
-        <label for="alugada">Alugada</label>
-
-        <input type="radio" id="moradiacedida" name="tipodemoradia" value="Moradia cedida">
-        <label for="moradiacedida">Moradia cedida</label>
-
-        <input type="radio" id="OutroMoradia" name="tipodemoradia" value="Outro">
-        <label for="OutroMoradia">Outro: </label><input type="text" id="OutroMoradiaInput" name="tipodemoradia" />
-
-        <!-- Pergunta 7 -->
-
-        <label for="pessoasResidencia">7.Quantas pessoas moram na sua residência:</label>
-        <input type="number" name="pessoasResidencia" id="pessoasResidencia" required>
-
-        <!-- Pergunta 8 -->
-
-        <p>8.Você ou alguém na sua residência possui alguma deficiência?</p>
-
-        <input type="radio" id="simDeficiencia" name="simOUnaoDeficiencia" value="Sim">
-        <label for="simDeficiencia">Sim</label><br>
-
-        <input type="radio" id="naoDeficiencia" name="simOUnaoDeficiencia" value="Não">
-        <label for="naoDeficiencia">Não</label><br>
-
-        <!-- Pergunta 9 -->
-
-        <p>9.Se sim, qual é o tipo de deficiência?</p>
-
-        <input type="radio" id="deficienciaFisica" name="tipodeficiencia" value="Deficiência física(cadeirante, mobilidade reduzida)">
-        <label for="deficienciaFisica">Deficiência física(cadeirante, mobilidade reduzida)</label><br>
-
-        <input type="radio" id="deficienciaVisual" name="tipodeficiencia" value="Deficiência visual">
-        <label for="deficienciaVisual">Deficiência visual</label><br>
-
-        <input type="radio" id="deficienciaAuditiva" name="tipodeficiencia" value="Deficiência auditiva">
-        <label for="deficienciaAuditiva">Deficiência auditiva</label><br>
-
-        <input type="radio" id="deficienciaIM" name="tipodeficiencia" value="Deficiência intelectual ou mental">
-        <label for="deficienciaIM">Deficiência intelectual ou mental</label><br>
-
-        <input type="radio" id="OutroDeficiencia" name="tipodeficiencia" value="Outro">
-        <label for="OutroDeficiencia">Outro: </label><input type="text" id="OutroDeficienciaInput" name="tipodeficiencia"/><br>
-
-        <input type="radio" id="prefiroNResponder" name="tipodeficiencia" value="Prefiro não responder">
-        <label for="prefiroNResponder">Prefiro não responder</label><br>
-
-        <!-- Pergunta 10 -->
-
-        <p>10.Qual é a sua principal necessidade em relação à acessibilidade na sua residência?</p>
-
-        <input type="radio" id="rampaDeAcesso" name="necessidadeAcessibilidade" value="Rampas de acesso">
-        <label for="rampaDeAcesso">Rampas de acesso</label><br>
-
-        <input type="radio" id="banheiroAdaptado" name="necessidadeAcessibilidade" value="Banheiro adaptado">
-        <label for="banheiroAdaptado">Banheiro adaptado</label><br>
-
-        <input type="radio" id="portasEcorredores" name="necessidadeAcessibilidade" value="Portas e corredores mais largos">
-        <label for="portasEcorredores">Portas e corredores mais largos</label><br>
-
-        <input type="radio" id="barrasEcorrimao" name="necessidadeAcessibilidade" value="Barras de apoio e corrimãos">
-        <label for="barrasEcorrimao">Barras de apoio e corrimãos</label><br>
-
-        <input type="radio" id="pisos" name="necessidadeAcessibilidade" value="Adaptação de pisos">
-        <label for="pisos">Adaptação de pisos</label><br>
-
-        <input type="radio" id="OutroNecessidade" name="necessidadeAcessibilidade" value="Outro">
-        <label for="OutroNecessidade">Outro: </label><input type="text" id="OutroNecessidadeInput" name="necessidadeAcessibilidade"/><br>
-
-        <!-- peergunta 11 -->
-
-        <p>11.Você já tentou realizar adaptações na sua residência?</p>
-
-        <input type="radio" id="simSucesso" name="tentouAdaptacoes" value="Sim, com sucesso">
-        <label for="simSucesso">Sim, com sucesso</label><br>
-
-        <input type="radio" id="simDificulade" name="tentouAdaptacoes" value="Sim, mas enfrentei dificuldades">
-        <label for="simDificulade">Sim, mas enfrentei dificuldades</label><br>
-
-        <input type="radio" id="naoTentei" name="tentouAdaptacoes" value="Não, nunca tentei">
-        <label for="naoTentei">Não, nunca tentei</label><br>
-
-        <!-- Pergunta 12 -->
-
-        <p>12.Se sim, quais foram as principais dificuldades enfrentadas?</p>
-
-        <input type="radio" id="faltaRecurso" name="dificuldadesEnfrentadas" value="Falta de recursos financeiros">
-        <label for="faltaRecurso">Falta de recursos financeiros</label><br>
-        
-        <input type="radio" id="faltaConhecimento" name="dificuldadesEnfrentadas" value="Falta de conhecimento sobre como adaptar a casa">
-        <label for="faltaConhecimento">Falta de conhecimento sobre como adaptar a casa</label><br>
-
-        
-        <input type="radio" id="faltaProfissionais" name="dificuldadesEnfrentadas" value="Dificuldade em encontrar profissionais qualificados">
-        <label for="faltaProfissionais">Dificuldade em encontrar profissionais qualificados</label><br>
-
-        
-        <input type="radio" id="OutroDificuldade" name="dificuldadesEnfrentadas" value="Outro">
-        <label for="OutroDificuldade">Outro: </label><input type="text" id="inputOutroDificuldade" name="dificuldadesEnfrentadas"/><br>
-
-        <!-- Pergunta 13 -->
-
-        <p>13.Como você avalia a segurança e acessibilidade da sua residência atual?</p>
-
-        <input type="radio" id="muitoSeguro" name="segurançaCasa" value="Muito segura e acessível">
-        <label for="muitoSeguro">Muito segura e acessível</label><br>
-
-        <input type="radio" id="moderadoSeguro" name="segurançaCasa" value="Moderadamente segura, mas precisa de melhorias">
-        <label for="moderadoSeguro">Moderadamente segura, mas precisa de melhorias</label><br>
-
-        <input type="radio" id="poucoSeguro" name="segurançaCasa" value="Pouco segura, apresenta dificuldades">
-        <label for="poucoSeguro">Pouco segura, apresenta dificuldades</label><br>
-
-        <input type="radio" id="nadaSeguro" name="segurançaCasa" value="Nada segura, oferece muitos riscos">
-        <label for="nadaSeguro">Nada segura, oferece muitos riscos</label><br>
-
-        <!-- pergunta 14 -->
-
-        <p>14.Como você acredita que uma reforma ou adaptação na sua casa pode melhorar sua qualidade de vida?</p>
-
-        <input type="radio" id="melhoraSignificativo" name="impactoReforma" value="Melhoraria significativamente minha autonomia e segurança">
-        <label for="melhoraSignificativo">Melhoraria significativamente minha autonomia e segurança</label><br>
-
-        <input type="radio" id="melhoraModerado" name="impactoReforma" value="Melhoraria moderadamente minha condição de vida">
-        <label for="melhoraModerado">Melhoraria moderadamente minha condição de vida</label><br>
-
-        <input type="radio" id="melhoraPouco" name="impactoReforma" value="Teria pouco impacto, mas seria positivo">
-        <label for="melhoraPouco">Teria pouco impacto, mas seria positivo</label><br>
-
-        <input type="radio" id="melhoraNada" name="impactoReforma" value="Não faria diferença significativa">
-        <label for="melhoraNada">Não faria diferença significativa</label><br>
-
-        <!-- Pergunta 15 -->
-
-        <label for="mensagemP15">15.Por favor, descreva as principais dificuldades que você enfrenta no dia a dia devido à falta de acessibilidade na sua moradia.</label><br>
-        <textarea name="mensagemP15" id="mensagemP15" rows="4" cols="50"></textarea><br>
-
-        <!-- pergunta 16 -->
-
-        <label for="mensagemP16">16.De que forma você acredita que a ONG Mãos na Massa pode ajudar a melhorar sua qualidade de vida e a de sua família?</label><br>
-        <textarea name="mensagemP16" id="mensagemP16" rows="4" cols="50"></textarea><br>
-
-        <!-- pergunta 17 -->
-
-        <p>17.Você gostaria de receber mais informações sobre nossos projetos e eventos?</p>
-
-        <input type="radio" id="simEmail" name="maisInformacoes" value="Sim, por e-mail">
-        <label for="simEmail">Sim, por e-mail</label><br>
-
-        <input type="radio" id="simTelefone" name="maisInformacoes" value="Sim, por telefone">
-        <label for="simTelefone">Sim, por telefone</label><br>
-
-        <input type="radio" id="nãoObrigado" name="maisInformacoes" value="Não, obrigado(a)">
-        <label for="nãoObrigado">Não, obrigado(a)</label><br>
-
-        <!-- pergunta 18 -->
-
-        <p>18.Como você ficou sabendo da ONG Mãos na Massa?</p>
-
-        
-        <input type="radio" id="redesSociais" name="ondeConheceuONG" value="Redes sociais">
-        <label for="redesSociais">Redes sociais</label><br>
-
-        <input type="radio" id="amigoFamiliar" name="ondeConheceuONG" value=" Indicação de amigos ou familiares">
-        <label for="amigoFamiliar"> Indicação de amigos ou familiares</label><br>
-
-        <input type="radio" id="midia" name="ondeConheceuONG" value="Mídia (TV, rádio, jornal)">
-        <label for="midia">Mídia (TV, rádio, jornal)</label><br>
-
-        <input type="radio" id="eventosComunitario" name="ondeConheceuONG" value="Eventos comunitários">
-        <label for="eventosComunitario">Eventos comunitários</label><br>
-
-        <button class="botao_enviar" onclick="enviarFormularioBeneficiario()" type="submit">Enviar</button>
-
+    <form id="formulario" onload="toggleOutroInput()" class="mb-3">
+      <!-- Pergunta 1 -->
+
+      <label for="nome">1.Nome:</label>
+      <input type="text" name="nome" id="nome" required />
+
+      <!-- Pergunta 2 -->
+
+      <label for="idade">2.Idade:</label>
+      <input type="number" name="idade" id="idade" required />
+
+      <!-- Pergunta 3 -->
+
+      <label for="endereco">3.Endereco:</label>
+      <input type="text" name="endereco" id="endereco" required />
+
+      <!-- Pergunta 4 -->
+
+      <label for="telefone">4.Telefone:</label>
+      <input type="tel" name="telefone" id="telefone" required />
+
+      <!-- Pergunta 5 -->
+
+      <label for="email">5.Email:</label>
+      <input type="email" name="email" id="email" required />
+
+      <!-- Pergunta 6 -->
+
+      <p>6.Qual é a sua condição atual da moradia:</p>
+      <input
+        type="radio"
+        id="casapropia"
+        name="tipodemoradia"
+        value="Casa própia"
+      />
+      <label for="casapropia">Casa própria</label>
+
+      <input type="radio" id="alugada" name="tipodemoradia" value="Alugada" />
+      <label for="alugada">Alugada</label>
+
+      <input
+        type="radio"
+        id="moradiacedida"
+        name="tipodemoradia"
+        value="Moradia cedida"
+      />
+      <label for="moradiacedida">Moradia cedida</label>
+
+      <input
+        type="radio"
+        id="OutroMoradia"
+        name="tipodemoradia"
+        value="Outro"
+      />
+      <label for="OutroMoradia">Outro: </label
+      ><input type="text" id="OutroMoradiaInput" name="tipodemoradia" />
+
+      <!-- Pergunta 7 -->
+
+      <label for="pessoasResidencia"
+        >7.Quantas pessoas moram na sua residência:</label
+      >
+      <input
+        type="number"
+        name="pessoasResidencia"
+        id="pessoasResidencia"
+        required
+      />
+
+      <!-- Pergunta 8 -->
+
+      <p>8.Você ou alguém na sua residência possui alguma deficiência?</p>
+
+      <input
+        type="radio"
+        id="simDeficiencia"
+        name="simOUnaoDeficiencia"
+        value="Sim"
+      />
+      <label for="simDeficiencia">Sim</label><br />
+
+      <input
+        type="radio"
+        id="naoDeficiencia"
+        name="simOUnaoDeficiencia"
+        value="Não"
+      />
+      <label for="naoDeficiencia">Não</label><br />
+
+      <!-- Pergunta 9 -->
+
+      <p>9.Se sim, qual é o tipo de deficiência?</p>
+
+      <input
+        type="radio"
+        id="deficienciaFisica"
+        name="tipodeficiencia"
+        value="Deficiência física(cadeirante, mobilidade reduzida)"
+      />
+      <label for="deficienciaFisica"
+        >Deficiência física(cadeirante, mobilidade reduzida)</label
+      ><br />
+
+      <input
+        type="radio"
+        id="deficienciaVisual"
+        name="tipodeficiencia"
+        value="Deficiência visual"
+      />
+      <label for="deficienciaVisual">Deficiência visual</label><br />
+
+      <input
+        type="radio"
+        id="deficienciaAuditiva"
+        name="tipodeficiencia"
+        value="Deficiência auditiva"
+      />
+      <label for="deficienciaAuditiva">Deficiência auditiva</label><br />
+
+      <input
+        type="radio"
+        id="deficienciaIM"
+        name="tipodeficiencia"
+        value="Deficiência intelectual ou mental"
+      />
+      <label for="deficienciaIM">Deficiência intelectual ou mental</label><br />
+
+      <input
+        type="radio"
+        id="OutroDeficiencia"
+        name="tipodeficiencia"
+        value="Outro"
+      />
+      <label for="OutroDeficiencia">Outro: </label
+      ><input
+        type="text"
+        id="OutroDeficienciaInput"
+        name="tipodeficiencia"
+      /><br />
+
+      <input
+        type="radio"
+        id="prefiroNResponder"
+        name="tipodeficiencia"
+        value="Prefiro não responder"
+      />
+      <label for="prefiroNResponder">Prefiro não responder</label><br />
+
+      <!-- Pergunta 10 -->
+
+      <p>
+        10.Qual é a sua principal necessidade em relação à acessibilidade na sua
+        residência?
+      </p>
+
+      <input
+        type="radio"
+        id="rampaDeAcesso"
+        name="necessidadeAcessibilidade"
+        value="Rampas de acesso"
+      />
+      <label for="rampaDeAcesso">Rampas de acesso</label><br />
+
+      <input
+        type="radio"
+        id="banheiroAdaptado"
+        name="necessidadeAcessibilidade"
+        value="Banheiro adaptado"
+      />
+      <label for="banheiroAdaptado">Banheiro adaptado</label><br />
+
+      <input
+        type="radio"
+        id="portasEcorredores"
+        name="necessidadeAcessibilidade"
+        value="Portas e corredores mais largos"
+      />
+      <label for="portasEcorredores">Portas e corredores mais largos</label
+      ><br />
+
+      <input
+        type="radio"
+        id="barrasEcorrimao"
+        name="necessidadeAcessibilidade"
+        value="Barras de apoio e corrimãos"
+      />
+      <label for="barrasEcorrimao">Barras de apoio e corrimãos</label><br />
+
+      <input
+        type="radio"
+        id="pisos"
+        name="necessidadeAcessibilidade"
+        value="Adaptação de pisos"
+      />
+      <label for="pisos">Adaptação de pisos</label><br />
+
+      <input
+        type="radio"
+        id="OutroNecessidade"
+        name="necessidadeAcessibilidade"
+        value="Outro"
+      />
+      <label for="OutroNecessidade">Outro: </label
+      ><input
+        type="text"
+        id="OutroNecessidadeInput"
+        name="necessidadeAcessibilidade"
+      /><br />
+
+      <!-- peergunta 11 -->
+
+      <p>11.Você já tentou realizar adaptações na sua residência?</p>
+
+      <input
+        type="radio"
+        id="simSucesso"
+        name="tentouAdaptacoes"
+        value="Sim, com sucesso"
+      />
+      <label for="simSucesso">Sim, com sucesso</label><br />
+
+      <input
+        type="radio"
+        id="simDificulade"
+        name="tentouAdaptacoes"
+        value="Sim, mas enfrentei dificuldades"
+      />
+      <label for="simDificulade">Sim, mas enfrentei dificuldades</label><br />
+
+      <input
+        type="radio"
+        id="naoTentei"
+        name="tentouAdaptacoes"
+        value="Não, nunca tentei"
+      />
+      <label for="naoTentei">Não, nunca tentei</label><br />
+
+      <!-- Pergunta 12 -->
+
+      <p>12.Se sim, quais foram as principais dificuldades enfrentadas?</p>
+
+      <input
+        type="radio"
+        id="faltaRecurso"
+        name="dificuldadesEnfrentadas"
+        value="Falta de recursos financeiros"
+      />
+      <label for="faltaRecurso">Falta de recursos financeiros</label><br />
+
+      <input
+        type="radio"
+        id="faltaConhecimento"
+        name="dificuldadesEnfrentadas"
+        value="Falta de conhecimento sobre como adaptar a casa"
+      />
+      <label for="faltaConhecimento"
+        >Falta de conhecimento sobre como adaptar a casa</label
+      ><br />
+
+      <input
+        type="radio"
+        id="faltaProfissionais"
+        name="dificuldadesEnfrentadas"
+        value="Dificuldade em encontrar profissionais qualificados"
+      />
+      <label for="faltaProfissionais"
+        >Dificuldade em encontrar profissionais qualificados</label
+      ><br />
+
+      <input
+        type="radio"
+        id="OutroDificuldade"
+        name="dificuldadesEnfrentadas"
+        value="Outro"
+      />
+      <label for="OutroDificuldade">Outro: </label
+      ><input
+        type="text"
+        id="inputOutroDificuldade"
+        name="dificuldadesEnfrentadas"
+      /><br />
+
+      <!-- Pergunta 13 -->
+
+      <p>
+        13.Como você avalia a segurança e acessibilidade da sua residência
+        atual?
+      </p>
+
+      <input
+        type="radio"
+        id="muitoSeguro"
+        name="segurançaCasa"
+        value="Muito segura e acessível"
+      />
+      <label for="muitoSeguro">Muito segura e acessível</label><br />
+
+      <input
+        type="radio"
+        id="moderadoSeguro"
+        name="segurançaCasa"
+        value="Moderadamente segura, mas precisa de melhorias"
+      />
+      <label for="moderadoSeguro"
+        >Moderadamente segura, mas precisa de melhorias</label
+      ><br />
+
+      <input
+        type="radio"
+        id="poucoSeguro"
+        name="segurançaCasa"
+        value="Pouco segura, apresenta dificuldades"
+      />
+      <label for="poucoSeguro">Pouco segura, apresenta dificuldades</label
+      ><br />
+
+      <input
+        type="radio"
+        id="nadaSeguro"
+        name="segurançaCasa"
+        value="Nada segura, oferece muitos riscos"
+      />
+      <label for="nadaSeguro">Nada segura, oferece muitos riscos</label><br />
+
+      <!-- pergunta 14 -->
+
+      <p>
+        14.Como você acredita que uma reforma ou adaptação na sua casa pode
+        melhorar sua qualidade de vida?
+      </p>
+
+      <input
+        type="radio"
+        id="melhoraSignificativo"
+        name="impactoReforma"
+        value="Melhoraria significativamente minha autonomia e segurança"
+      />
+      <label for="melhoraSignificativo"
+        >Melhoraria significativamente minha autonomia e segurança</label
+      ><br />
+
+      <input
+        type="radio"
+        id="melhoraModerado"
+        name="impactoReforma"
+        value="Melhoraria moderadamente minha condição de vida"
+      />
+      <label for="melhoraModerado"
+        >Melhoraria moderadamente minha condição de vida</label
+      ><br />
+
+      <input
+        type="radio"
+        id="melhoraPouco"
+        name="impactoReforma"
+        value="Teria pouco impacto, mas seria positivo"
+      />
+      <label for="melhoraPouco">Teria pouco impacto, mas seria positivo</label
+      ><br />
+
+      <input
+        type="radio"
+        id="melhoraNada"
+        name="impactoReforma"
+        value="Não faria diferença significativa"
+      />
+      <label for="melhoraNada">Não faria diferença significativa</label><br />
+
+      <!-- Pergunta 15 -->
+
+      <label for="mensagemP15"
+        >15.Por favor, descreva as principais dificuldades que você enfrenta no
+        dia a dia devido à falta de acessibilidade na sua moradia.</label
+      ><br />
+      <textarea
+        name="mensagemP15"
+        id="mensagemP15"
+        rows="4"
+        cols="50"
+      ></textarea
+      ><br />
+
+      <!-- pergunta 16 -->
+
+      <label for="mensagemP16"
+        >16.De que forma você acredita que a ONG Mãos na Massa pode ajudar a
+        melhorar sua qualidade de vida e a de sua família?</label
+      ><br />
+      <textarea
+        name="mensagemP16"
+        id="mensagemP16"
+        rows="4"
+        cols="50"
+      ></textarea
+      ><br />
+
+      <!-- pergunta 17 -->
+
+      <p>
+        17.Você gostaria de receber mais informações sobre nossos projetos e
+        eventos?
+      </p>
+
+      <input
+        type="radio"
+        id="simEmail"
+        name="maisInformacoes"
+        value="Sim, por e-mail"
+      />
+      <label for="simEmail">Sim, por e-mail</label><br />
+
+      <input
+        type="radio"
+        id="simTelefone"
+        name="maisInformacoes"
+        value="Sim, por telefone"
+      />
+      <label for="simTelefone">Sim, por telefone</label><br />
+
+      <input
+        type="radio"
+        id="nãoObrigado"
+        name="maisInformacoes"
+        value="Não, obrigado(a)"
+      />
+      <label for="nãoObrigado">Não, obrigado(a)</label><br />
+
+      <!-- pergunta 18 -->
+
+      <p>18.Como você ficou sabendo da ONG Mãos na Massa?</p>
+
+      <input
+        type="radio"
+        id="redesSociais"
+        name="ondeConheceuONG"
+        value="Redes sociais"
+      />
+      <label for="redesSociais">Redes sociais</label><br />
+
+      <input
+        type="radio"
+        id="amigoFamiliar"
+        name="ondeConheceuONG"
+        value=" Indicação de amigos ou familiares"
+      />
+      <label for="amigoFamiliar"> Indicação de amigos ou familiares</label
+      ><br />
+
+      <input
+        type="radio"
+        id="midia"
+        name="ondeConheceuONG"
+        value="Mídia (TV, rádio, jornal)"
+      />
+      <label for="midia">Mídia (TV, rádio, jornal)</label><br />
+
+      <input
+        type="radio"
+        id="eventosComunitario"
+        name="ondeConheceuONG"
+        value="Eventos comunitários"
+      />
+      <label for="eventosComunitario">Eventos comunitários</label><br />
+
+      <button
+        class="botao_enviar"
+        onclick="enviarFormularioBeneficiario()"
+        type="submit"
+      >
+        Enviar
+      </button>
     </form>
-    
+
     <footer class="rodape py-4">
-        <div class="container pt-5">
-            <div class="row">
-                <div class="col-md-3 mb-3 footer-section">
-                    <p><b>Informações</b></p>
-                    <a href="quemsomos.html">Quem Somos</a>
-                    <a href="">Segurança</a>
-                    <a href="politica.html">Política de Privacidade</a>
-                </div>
-    
-                <div class="col-md-3 mb-3 footer-section">
-                    <p><b>Serviços ao Cliente</b></p>
-                    <a href="contato.html">Fale Conosco</a>
-                    <a href="eventos.html">Eventos</a>
-                    <a href="areadedoadores.html">Trabalhe conosco</a>
-                    <a href="noticias.html">Notícias</a>
-                </div>
-    
-                <div class="col-md-3 mb-3 footer-section">
-                    <p><b>Fale Conosco</b></p>
-                    <p>📱 +55 (11) 973285665</p>
-                    <p class="email-info">
-                        ✉️ <span>maosnamassaong@gmail.com</span>
-                    </p>
-                    <p>De segunda a sexta, das 07:00 às 22:00</p>
-                </div>
-    
-                <div class="col-md-3 mb-3 social-iconsAlinha">
-                    <p><b>Siga-nos em nossas redes sociais!</b></p>
-                    <div class="icons-container">
-                        <a href="https://www.youtube.com/@projetomaosnamassa8265">
-                            <img src="assets/favicon/youtube.svg" alt="YouTube" width="30">
-                        </a>
-                        <a href="https://www.instagram.com/projeto_maosnamassa/">
-                            <img src="assets/favicon/instagram-alt.svg" alt="Instagram" width="30">
-                        </a>
-                        <a href="mailto:maosnamassaong@gmail.com">
-                            <img src="assets/favicon/gmail.svg" alt="Gmail" width="30">
-                        </a>
-                    </div>
-                </div>
+      <div class="container pt-5">
+        <div class="row">
+          <div class="col-md-3 mb-3 footer-section">
+            <p><b>Informações</b></p>
+            <a href="quemsomos.html">Quem Somos</a>
+            <a href="">Segurança</a>
+            <a href="politica.html">Política de Privacidade</a>
+          </div>
+
+          <div class="col-md-3 mb-3 footer-section">
+            <p><b>Serviços ao Cliente</b></p>
+            <a href="contato.html">Fale Conosco</a>
+            <a href="eventos.html">Eventos</a>
+            <a href="areadedoadores.html">Trabalhe conosco</a>
+            <a href="noticias.html">Notícias</a>
+          </div>
+
+          <div class="col-md-3 mb-3 footer-section">
+            <p><b>Fale Conosco</b></p>
+            <p>📱 +55 (11) 973285665</p>
+            <p class="email-info">✉️ <span>maosnamassaong@gmail.com</span></p>
+            <p>De segunda a sexta, das 07:00 às 22:00</p>
+          </div>
+
+          <div class="col-md-3 mb-3 social-iconsAlinha">
+            <p><b>Siga-nos em nossas redes sociais!</b></p>
+            <div class="icons-container">
+              <a href="https://www.youtube.com/@projetomaosnamassa8265">
+                <img
+                  src="assets/favicon/youtube.svg"
+                  alt="YouTube"
+                  width="30"
+                />
+              </a>
+              <a href="https://www.instagram.com/projeto_maosnamassa/">
+                <img
+                  src="assets/favicon/instagram-alt.svg"
+                  alt="Instagram"
+                  width="30"
+                />
+              </a>
+              <a href="mailto:maosnamassaong@gmail.com">
+                <img src="assets/favicon/gmail.svg" alt="Gmail" width="30" />
+              </a>
             </div>
+          </div>
         </div>
+      </div>
     </footer>
 
     <script src="/public/src/frontend/script/frontend.js"></script>
-   
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-</body>
+  </body>
 </html>
