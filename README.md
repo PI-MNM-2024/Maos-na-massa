@@ -11,13 +11,13 @@ Sejam bem-vindo ao repositório do projeto Mãos na Massa! Este projeto é desen
 | HTML                                                                                                       | CSS                                                                                                        | JavaScript                                                                                                   | Bootstrap                                                                                                    |  Node JS                                                                                                     | MongoDB                                                                                                      | Figma                                                                                                     |
 
 ## 👨💻 Participantes
-| Alunos            | R.A.       | Github             |
-| ----------------- | ---------- | ------------------ |
-| Rafael Ruthes     | 24.00003-5 | @rruthes           |
-| Gabriel Lopes     | 24.00593-2 | @gabrilopes12      |
-| Breno Gandolfo    | 24.01496-6 | @brenoaugustoog    |
-| Gabriel Fernandes | 24.01414-0 | @gabrielfop        |
-| Carolina Lansoni  | 24.00430-8 | @lvbcarol          |
+| Alunos            | R.A.       | Github             | Funções                                |         
+| ----------------- | ---------- | ------------------ |----------------------------------------|
+| Rafael Ruthes     | 24.00003-5 | @rruthes           | Desenvolvedor Back-End & Prototipagem  |
+| Gabriel Lopes     | 24.00593-2 | @gabrilopes12      | Desenvolvedor Front-End                |
+| Breno Gandolfo    | 24.01496-6 | @brenoaugustoog    | Desenvolvedor Front-End & Documentação |
+| Gabriel Fernandes | 24.01414-0 | @gabrielfop        | Desenvolvedor Full-Stack               | 
+| Carolina Lansoni  | 24.00430-8 | @lvbcarol          | Documentação & Designer                |
 
 ## 🚀 Como Utilizar
 
