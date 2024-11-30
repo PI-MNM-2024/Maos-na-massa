@@ -1652,7 +1652,7 @@ strong {
 }
 
 .corpo__pagina-area-de-doadores {
-    height: 1000px;
+    min-height: calc(100vh - 100px); /* Ajuste 100px com base na altura do header e footer */
     background-color: #E4D5B6;
 }
 
@@ -2751,3 +2751,10 @@ video {
     justify-content: center; 
     align-items: center; 
   }
+
+.doadores_footer{
+
+        z-index: 1; /* Garante que o footer esteja abaixo de outros elementos */
+        position: relative;
+      
+}
