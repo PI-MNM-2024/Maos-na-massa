@@ -2781,7 +2781,18 @@ video {
 
 .doadores_footer{
 
-        z-index: 1; /* Garante que o footer esteja abaixo de outros elementos */
+        z-index: 1; 
         position: relative;
       
 }
+
+.navbar-nav a.nav-link.active {
+    color: #3CA4A4 !important; 
+    font-weight: bold; 
+    text-decoration: none; 
+}
+
+.navbar-nav a.nav-link img {
+    pointer-events: none; 
+}
+
