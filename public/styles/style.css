@@ -2771,3 +2771,22 @@ video {
         position: relative;
       
 }
+
+/* Estilo hover para os links, exceto "Ajude Agora" e "Login/Cadastro" */
+.navbar-nav a.nav-link:hover,
+.navbar-nav a.nav-link:focus {
+    color: #3CA4A4 !important; /* Cor ao passar o mouse */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+/* Estilo para o link ativo */
+.navbar-nav a.nav-link.active {
+    color: #3CA4A4 !important; /* Apenas o link ativo terá esta cor */
+    font-weight: bold; /* Destaca o link ativo */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+/* Exclui imagens dentro dos links */
+.navbar-nav a.nav-link img {
+    pointer-events: none; /* Desativa interação com imagens */
+}
