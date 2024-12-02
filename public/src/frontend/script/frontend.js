@@ -561,6 +561,31 @@ async function cadastrarUsuario() {
   }
 }
 
+const fazerLogin = async () => {
+  let usuarioLoginInput = document.querySelector('#usuarioLoginInput')
+  let passwordLoginInput = document.querySelector('#passwordLoginInput')
+  let usuarioLogin = usuarioLoginInput.value
+  let passwordLogin = passwordLoginInput.value
+  if (usuarioLogin && passwordLogin) {
+      try {
+          const loginEndpoint = '/login'
+          const URLCompleta = `${protocolo}${baseURL}${loginEndpoint}`
+          const response = await axios.post(URLCompleta, { login: usuarioLogin, password: passwordLogin })
+          // console.log(response.data)
+          localStorage.setItem('token',response.data)
+          usuarioLoginInput.value = ""
+          passwordLoginInput.value = ""
+      }
+      catch(error){
+          
+      }
+  }
+  else {
+      
+  }
+
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   await loadPages(); // Carrega as páginas do servidor ao iniciar
 });

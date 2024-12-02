@@ -14,33 +14,15 @@ app.use(express.json());
 app.use(cors());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-require("dotenv").config();
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
 
-async function conectarAoMongoDB() {
-  try {
-    await mongoose.connect(
-      "mongodb+srv://GabrielFernandes:gabriel@pimaosnamassa.jfekz.mongodb.net/?retryWrites=true&w=majority&appName=PImaosnamassa",
-      { useNewUrlParser: true, useUnifiedTopology: true }
-    );
-    console.log("Conectado ao MongoDB com sucesso!");
-  } catch (error) {
-    console.error("Erro ao conectar ao MongoDB:", error);
-    process.exit(1);
-  }
+async function conectarAoMongoDB(){
+  await mongoose.connect('mongodb+srv://GabrielFernandes:gabriel@pimaosnamassa.jfekz.mongodb.net/?retryWrites=true&w=majority&appName=PImaosnamassa')
 }
-
-conectarAoMongoDB();
 
 const pages = mongoose.Schema({
   title: { type: String, required: true },
   content: { type: String, required: true },
-  imagesUrls: { type: [String], required: true },
+  imagesUrls: { type: String, required: true },
   slug: { type: String, required: true },
 });
 
@@ -59,6 +41,9 @@ const usuarioSchema = mongoose.Schema({
   login: { type: String, required: true, unique: true },
   password: { type: String, required: true },
 });
+
+usuarioSchema.plugin(uniqueValidator);
+const Usuario = mongoose.model("Usuario", usuarioSchema);
 
 const formularioBeneficiarioSchema = mongoose.Schema({
   nome: { type: String, required: true },
@@ -111,9 +96,6 @@ const formularioInstituicaoSchema = mongoose.Schema({
 
 const formularioInstituicao = mongoose.model("Formulario-instituicao", formularioInstituicaoSchema);
 
-
-usuarioSchema.plugin(uniqueValidator);
-const Usuario = mongoose.model("Usuario", usuarioSchema);
 
 app.listen(3000, () => {
   try {
@@ -270,28 +252,35 @@ app.post("/formulario", async (req, res) => {
   }
 });
 
-const Joi = require("joi");
 
-const signupSchema = Joi.object({
-  login: Joi.string().min(3).max(30).required(),
-  password: Joi.string().min(6).required(),
-});
 
-app.post("/signup", async (req, res) => {
-  const { error } = signupSchema.validate(req.body);
-  if (error) {
-    return res.status(400).json({ message: error.details[0].message });
-  }
 
+
+app.post('/signup', async (req, res) => {
   try {
-    const { login, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const usuario = new Usuario({ login, password: hashedPassword });
-    const respMongo = await usuario.save();
-    res.status(201).json({ message: "Usuário cadastrado com sucesso!" });
+     const login = req.body.login;
+     const password = req.body.password;
+
+     
+     const criptografada = await bcrypt.hash(password, 10);
+
+   
+     const usuario = new Usuario({
+        login: login,
+        password: criptografada
+     });
+
+     
+     const respMongo = await usuario.save();
+     console.log("Usuário criado:", respMongo);
+
+     
+     res.status(201).json({ message: "Usuário cadastrado com sucesso", user: respMongo });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Erro ao cadastrar o usuário", error });
+     console.error("Erro ao criar usuário:", error);
+
+     
+     res.status(409).json({ message: "Erro ao cadastrar usuário", error: error.message });
   }
 });
 
