@@ -2767,18 +2767,10 @@ video {
 
 .doadores_footer{
 
-        z-index: 1; /* Garante que o footer esteja abaixo de outros elementos */
+        z-index: 1; 
         position: relative;
       
 }
-
-
-.navbar-nav a.nav-link:hover,
-.navbar-nav a.nav-link:focus {
-    color: #3CA4A4 !important; /* Cor ao passar o mouse */
-    text-decoration: none; /* Remove sublinhado */
-}
-
 
 .navbar-nav a.nav-link.active {
     color: #3CA4A4 !important; 
