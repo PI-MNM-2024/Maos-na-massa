@@ -1465,7 +1465,7 @@ strong {
 
 @media (max-width: 1065px) and (min-width: 992px) {
     /* Seleciona todos os links nav com as classes active, me-2 e p-3 */
-    .nav-link.active {
+    .nav-link.nav-link.me-2.p-3 {
        margin-right: -0.5rem !important;  /* Ajusta a margem direita */
        margin-left: 0.5rem;               /* Ajusta a margem esquerda */
     }
