@@ -19,30 +19,31 @@ function ocultarModal(seletor, timeout) {
   }, timeout)
 }
 
-async function enviarFormulario() {
+async function enviarFormulario(event) {
+  event.preventDefault();
   const formularioEndPoint = '/formulario'
 
   const URLcompleta = `${protocolo}${baseURL}${formularioEndPoint}`
 
   let nomeInput = document.querySelector('#nome')
   let emailInput = document.querySelector('#email')
-  let telefoneInput = document.querySelector('#telefone')
+  let assuntoInput = document.querySelector('#assunto')
   let mensagemInput = document.querySelector('#mensagem')
 
   let nome = nomeInput.value
   let email = emailInput.value
-  let telefone = telefoneInput.value
+  let assunto = assuntoInput.value
   let mensagem = mensagemInput.value
 
 
-  if (nome && email && telefone && mensagem) {
+  if (nome && email && assunto && mensagem) {
 
     nomeInput.value = ""
     emailInput.value = ""
-    telefoneInput.value = ""
+    assuntoInput.value = ""
     mensagemInput.value = ""
 
-    const formulario = (await axios.post(URLcompleta, { nome, email, telefone, mensagem })).data
+    const formulario = (await axios.post(URLcompleta, { nome, email, assunto, mensagem })).data
 
     console.log("Foi bonitão")
   }
@@ -379,6 +380,7 @@ async function enviarFormularioBeneficiario() {
 }
 
 async function enviarFormularioInstituicao() {
+
   let nomeinstituicaoInput = document.querySelector('#nomeInstituicao')
   let responsavelInput = document.querySelector('#responsavelLegal')
   let CNPJInput = document.querySelector('#CNPJ')
@@ -454,7 +456,7 @@ async function enviarFormularioInstituicao() {
   const requiredFields = [
     nomeInstituicao, responsavelLegal, CNPJ, endereco, telefone, email,
     tipoInstituicao, descInstituicao, pessoasInstituicaoAtende, atendePessoaComDeficienciaNaInstitucao,
-    necessidadeAcessibilidade, jatentouAdaptacoes, segurancaEAcessibilidadeInstituicao, impactoReforma,
+    necessidadeAcessibilidade, jaTentouAdaptacoes, segurancaEAcessibilidadeInstituicao, impactoReforma,
     mensagemP15, mensagemP16, atualizacaoProjetos, conheceAONGComo
   ];
 

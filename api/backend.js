@@ -31,7 +31,7 @@ const pagina = mongoose.model("Paginas", pages);
 const formularioSchema = mongoose.Schema({
   nome: { type: String, required: true, unique: false },
   email: { type: String, required: true, unique: false },
-  telefone: { type: String, required: true, unique: false },
+  assunto: { type: String, required: true, unique: false },
   mensagem: { type: String, required: true, unique: false },
 });
 
@@ -165,7 +165,7 @@ app.post("/formularioBeneficiario", async (req, res) => {
   }
 });
 
-app.post("formularioIntituicao", async (req, res) => {
+app.post("/formularioIntituicao", async (req, res) => {
   try {
     const {
       nomeInstituicao,
@@ -214,7 +214,7 @@ app.post("formularioIntituicao", async (req, res) => {
     })
     
     // Salvando o novo formulário no banco de dados
-    const respMongo = await novoFormulario.save();
+    const respMongo = await novoformulario.save();
 
     console.log(respMongo);
     res
@@ -230,13 +230,13 @@ app.post("/formulario", async (req, res) => {
   try {
     const nome = req.body.nome;
     const email = req.body.email;
-    const telefone = req.body.telefone;
+    const assunto = req.body.assunto;
     const mensagem = req.body.mensagem;
 
     const novoformulario = new Formulario({
       nome: nome,
       email: email,
-      telefone: telefone,
+      assunto: assunto,
       mensagem: mensagem,
     });
 
