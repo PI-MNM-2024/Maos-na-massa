@@ -415,7 +415,7 @@ async function enviarFormularioInstituicao() {
   const email = emailInput.value;
 
   let tipoInstituicao = Array.from(tipodemoradiaInput).find(radio => radio.checked)?.value;
-  let descInstituicao = descInstituicaoInput.value; 
+  let descInstituicao = descInstituicaoInput.value;
   let pessoasInstituicaoAtende = pessoasAtendidasInput.value;
   let atendePessoaComDeficienciaNaInstitucao = Array.from(simOUnaoDeficienciaInput).find(radio => radio.checked)?.value;
   let tipoDeDeficiencia = Array.from(tipodeficienciaInput).find(radio => radio.checked)?.value;
@@ -509,7 +509,7 @@ async function enviarFormularioInstituicao() {
       enderecoInput.value = '';
       telefoneInput.value = '';
       emailInput.value = '';
-      descInstituicao.value = ''; 
+      descInstituicao.value = '';
       pessoasInstituicaoAtende.value = '';
       mensagemDInput.value = '';
       mensagemAInput.value = '';
@@ -569,21 +569,21 @@ const fazerLogin = async () => {
   let usuarioLogin = usuarioLoginInput.value
   let passwordLogin = passwordLoginInput.value
   if (usuarioLogin && passwordLogin) {
-      try {
-          const loginEndpoint = '/login'
-          const URLCompleta = `${protocolo}${baseURL}${loginEndpoint}`
-          const response = await axios.post(URLCompleta, { login: usuarioLogin, password: passwordLogin })
-          // console.log(response.data)
-          localStorage.setItem('token',response.data)
-          usuarioLoginInput.value = ""
-          passwordLoginInput.value = ""
-      }
-      catch(error){
-          
-      }
+    try {
+      const loginEndpoint = '/login'
+      const URLCompleta = `${protocolo}${baseURL}${loginEndpoint}`
+      const response = await axios.post(URLCompleta, { login: usuarioLogin, password: passwordLogin })
+      // console.log(response.data)
+      localStorage.setItem('token', response.data)
+      usuarioLoginInput.value = ""
+      passwordLoginInput.value = ""
+    }
+    catch (error) {
+
+    }
   }
   else {
-      
+
   }
 
 }
@@ -598,49 +598,335 @@ async function loadPages() {
     if (response.ok) {
       const pages = await response.json(); // Converte a resposta para JSON
       const pageList = document.getElementById("pageList");
-      pages.forEach(page => {
-        pageList.innerHTML += `<li><a href="${protocolo}${baseURL}/pages/${page.slug}">${page.title}</a></li>`; // protocolo e base url momentanios(talvez) mas por enquanto funcionado
+      // Limpa a lista para evitar duplicação
+      pageList.innerHTML = "";
+
+      // Adiciona as páginas à lista
+      pages.forEach((page) => {
+        pageList.innerHTML += `
+    <li>
+      <a href="http://localhost:3000/pages/${page.slug}" target="_blank">${page.title}</a>
+      <button class="btn btn-sm btn-warning" onclick="loadPageData('${page.slug}')">Editar</button>
+      <button class="btn btn-sm btn-danger" onclick="deletePage('${page.slug}')">Deletar</button>
+    </li>`;
       });
     } else {
-      console.log('Erro ao carregar as páginas');
+      console.error("Erro ao carregar as páginas");
     }
   } catch (error) {
-    console.error('Erro ao buscar páginas:', error);
+    console.error("Erro ao buscar páginas:", error);
   }
 }
 
-document.getElementById('pageForm').addEventListener('submit', async (event) => {
+function saveLog(message) {
+  const currentLogs = JSON.parse(localStorage.getItem("errorLogs")) || [];
+  currentLogs.push({
+    message,
+    timestamp: new Date().toISOString(),
+  });
+  localStorage.setItem("errorLogs", JSON.stringify(currentLogs));
+}
 
-  event.preventDefault()
+async function criarPagina() {
+  const title = document.getElementById("title").value;
+  const date = document.getElementById("date").value;
+  const place = document.getElementById("place").value;
+  const eventDetails = document.getElementById("eventDetails").value;
+  const objetivos = document.getElementById("objetivos").value;
+  const atividadesDescription = document.getElementById("atividadesDescription").value;
+  const images = document.getElementById("images").files;
 
-  const title = document.getElementById('title').value
-  const content = document.getElementById('content').value
-  const images = document.getElementById('images').files
+  const depoimentos = [];
+  document
+    .querySelectorAll("#testimonialFields .testimonial-field")
+    .forEach((testimonialGroup) => {
+      const texto = testimonialGroup.querySelector("textarea").value;
+      const autor = testimonialGroup.querySelector("input").value;
+      depoimentos.push({ texto, autor });
+    });
 
-  const formData = new FormData()
-  formData.append('title', title)
-  formData.append('content', content)
+  const formData = new FormData();
+  formData.append("title", title);
+  formData.append("date", date);
+  formData.append("place", place);
+  formData.append("eventDetails", eventDetails);
+  formData.append("objetivos", objetivos);
+  formData.append("atividadesDescription", atividadesDescription);
+  formData.append("depoimentos", JSON.stringify(depoimentos));
 
+  // Adiciona as imagens ao FormData
   for (let i = 0; i < images.length; i++) {
-    formData.append('images', images[i])
+    formData.append("images", images[i]);
   }
 
-  const response = await fetch('http://localhost:3000/pages', {
-    method: 'POST',
-    body: formData
-  })
+  try {
+    const response = await fetch("http://localhost:3000/pages", {
+      method: "POST",
+      body: formData,
+    });
 
-  if (response.ok) {
-    const result = await response.json();
-
-    const newPage = { title: result.data.title, slug: result.data.slug };
-
-    document.getElementById('pageList').innerHTML += `<li><a href="http://localhost:3000/pages/${result.data.slug}">${result.data.title}</a></li>`;
-
-    document.getElementById('pageForm').reset();
+    const data = await response.json();
+    console.log("Resposta do servidor:", data);
+  } catch (error) {
+    console.error("Erro na requisição:", error);
   }
-  else {
-    console.log("não foi")
+}
+
+
+function addTestimonialField() {
+  const testimonialFields = document.getElementById("testimonialFields");
+  const index = testimonialFields.children.length;
+
+  const testimonialGroup = document.createElement("div");
+  testimonialGroup.classList.add("testimonial-field");
+  testimonialGroup.innerHTML = `
+    <div class="mb-3">
+      <label>Texto do Depoimento:</label>
+      <textarea name="depoimentos[${index}][texto]" class="form-control" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label>Autor:</label>
+      <input type="text" name="depoimentos[${index}][autor]" class="form-control" required />
+    </div>
+    <button type="button" class="btn btn-danger btn-sm" onclick="removeTestimonialField(this)">Remover</button>
+  `;
+
+  testimonialFields.appendChild(testimonialGroup);
+}
+
+function removeTestimonialField(button) {
+  const testimonialField = button.closest(".testimonial-field");
+  testimonialField.remove();
+}
+
+
+// Função para adicionar novos depoimentos no modal
+function addTestimonialFieldModal() {
+  const testimonialFields = document.getElementById("testimonialFieldsModal");
+  const index = testimonialFields.children.length;
+
+  const testimonialGroup = document.createElement("div");
+  testimonialGroup.classList.add("testimonial-field-modal");
+  testimonialGroup.innerHTML = `
+    <div class="mb-3">
+      <label>Texto do Depoimento:</label>
+      <textarea name="depoimentos[${index}][texto]" class="form-control" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label>Autor:</label>
+      <input type="text" name="depoimentos[${index}][autor]" class="form-control" required />
+    </div>
+    <button type="button" class="btn btn-danger btn-sm" onclick="removeTestimonialFieldModal(this)">Remover</button>
+  `;
+
+  testimonialFields.appendChild(testimonialGroup);
+}
+
+// Função para remover depoimentos no modal
+function removeTestimonialFieldModal(button) {
+  const testimonialField = button.closest(".testimonial-field-modal");
+  testimonialField.remove();
+}
+
+
+
+function extractPageDataFromHTML(htmlContent) {
+  // Cria um documento DOM a partir da string HTML
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlContent, "text/html");
+
+  // Pega apenas os dados necessários de forma simples
+  const title = doc.querySelector("h1")?.textContent?.trim() || ""; // Título da página
+  const tituloEvent = doc.querySelector("section.titulo_evento p")?.textContent?.trim() || "";
+  const [date, place] = tituloEvent.split(" e ").map((str) => str.trim());  // Data e Local extraídos do parágrafo
+  const eventDetails = doc.querySelector("section.py-5 p")?.textContent?.trim() || "";  // Detalhes do evento (primeiro <p> dentro da seção)
+  const objetivos = doc.querySelectorAll("section.py-5 .subsection-title + p")[0]?.textContent?.trim() || "";  // Objetivos (primeiro <p> depois do subtítulo Objetivos)
+  const atividadesDescription = doc.querySelectorAll("section.py-5 .subsection-title + p")[1]?.textContent?.trim() || "";  // Atividades (segundo <p> depois do subtítulo Atividades)
+
+  // Extração de depoimentos
+  const depoimentos = [];
+  const depoimentoElements = doc.querySelectorAll(".card-body-realizacoes");  // Seletor para as divs de depoimentos
+  depoimentoElements.forEach((depoimentoElement) => {
+    const texto = depoimentoElement.querySelector(".card-text")?.textContent?.trim() || "";  // Texto do depoimento
+    const autor = depoimentoElement.querySelector(".card-title")?.textContent?.trim() || "";  // Autor do depoimento
+    if (texto && autor) {
+      depoimentos.push({ texto, autor });
+    }
+  });
+
+  // Extração das imagens
+  const imagesUrls = [];
+  const imageElements = doc.querySelectorAll(".carousel-item img");  // Seletor para as imagens dentro do carrossel
+  imageElements.forEach((imgElement) => {
+    let imgSrc = imgElement.src || imgElement.getAttribute('data-src');  // Obtém o src ou data-src da imagem
+    if (imgSrc) {
+      // Corrige a URL para usar o servidor correto (localhost:3000)
+      if (imgSrc.startsWith('http://127.0.0.1:5500')) {
+        // Se a URL começar com o endereço do Live Server, substitui para o correto
+        imgSrc = imgSrc.replace('http://127.0.0.1:5500', 'http://localhost:3000');
+      }
+      // Certifica-se de que a URL da imagem seja válida e adiciona ao array
+      if (imgSrc.startsWith('http://localhost:3000/')) {
+        imagesUrls.push(imgSrc.replace('http://localhost:3000/', ''));  // Remove a parte "http://localhost:3000" para armazenar só o caminho relativo
+      }
+    }
+  });
+
+  // Retorna o objeto com os dados extraídos
+  return {
+    title,
+    date,
+    place,
+    eventDetails,
+    objetivos,
+    atividadesDescription,
+    depoimentos,
+    imagesUrls
+  };
+}
+
+// Função para carregar os dados da página
+async function loadPageData(slug) {
+  try {
+    const response = await fetch(`http://localhost:3000/pages/${slug}`);
+    if (!response.ok) {
+      throw new Error(`Erro ao carregar a página: ${response.status}`);
+    }
+
+    const htmlContent = await response.text();
+    const pageData = extractPageDataFromHTML(htmlContent);
+
+    // Adicionar log para verificar a estrutura dos dados recebidos
+    console.log(pageData);
+
+    // Preencher os campos do formulário com os dados carregados
+    document.getElementById("titleModal").value = pageData.title;
+    document.getElementById("dateModal").value = pageData.date;
+    document.getElementById("placeModal").value = pageData.place;
+    document.getElementById("eventDetailsModal").value = pageData.eventDetails;
+    document.getElementById("objetivosModal").value = pageData.objetivos;
+    document.getElementById("atividadesDescriptionModal").value = pageData.atividadesDescription;
+
+    // Adicionar os depoimentos
+    const testimonialFields = document.getElementById("testimonialFieldsModal");
+    testimonialFields.innerHTML = ''; // Limpa os depoimentos anteriores
+
+    pageData.depoimentos.forEach((depoimento, index) => {
+      const testimonialGroup = document.createElement("div");
+      testimonialGroup.classList.add("testimonial-field");
+      testimonialGroup.innerHTML = `
+        <label>Texto do Depoimento:</label>
+        <textarea name="depoimentos[${index}][texto]" required>${depoimento.texto}</textarea>
+        <label>Autor:</label>
+        <input type="text" name="depoimentos[${index}][autor]" required value="${depoimento.autor}" />
+        <button type="button" onclick="removeTestimonialField(this)">Remover</button>
+      `;
+      testimonialFields.appendChild(testimonialGroup);
+    });
+
+    // Mostrar imagens existentes
+    const imageContainer = document.getElementById("imagePreview");
+    imageContainer.innerHTML = ""; // Limpar o conteúdo anterior
+
+    pageData.imagesUrls.forEach((url) => {
+      const img = document.createElement("img");
+
+      // Certifique-se de usar o caminho correto para as imagens
+      img.src = `http://localhost:3000/${url}`; // Caminho correto com o prefixo 'uploads'
+
+      img.alt = "Imagem da Página";
+      img.classList.add("image-preview");
+      img.style.maxWidth = '100px';  // Definindo o tamanho máximo da imagem
+      img.style.margin = '5px';      // Definindo o espaçamento entre as imagens
+
+      imageContainer.appendChild(img);
+    });
+
+
+    const updateButton = document.getElementById("updateButton");
+    updateButton.onclick = () => updatePage(slug);
+
+    // Abrir o modal após carregar os dados
+    $('#editPageModal').modal('show'); // Usando jQuery para abrir o modal
+
+  } catch (error) {
+    console.error("Erro ao carregar a página:", error);
+  }
+}
+
+async function updatePage(slug) {
+  const title = document.getElementById("titleModal").value;
+  const date = document.getElementById("dateModal").value;
+  const place = document.getElementById("placeModal").value;
+  const eventDetails = document.getElementById("eventDetailsModal").value;
+  const objetivos = document.getElementById("objetivosModal").value;
+  const atividadesDescription = document.getElementById("atividadesDescriptionModal").value;
+
+  // Captura os depoimentos existentes (já carregados)
+  const existingTestimonials = [];
+  document.querySelectorAll("#testimonialFieldsModal .testimonial-field").forEach((testimonialGroup) => {
+    const texto = testimonialGroup.querySelector("textarea").value;
+    const autor = testimonialGroup.querySelector("input").value;
+    existingTestimonials.push({ texto, autor });
+  });
+
+  // Captura os depoimentos novos (adicionados dinamicamente)
+  const newTestimonials = [];
+  document.querySelectorAll("#testimonialFieldsModal .testimonial-field-modal").forEach((testimonialGroup) => {
+    const texto = testimonialGroup.querySelector("textarea").value;
+    const autor = testimonialGroup.querySelector("input").value;
+    newTestimonials.push({ texto, autor });
+  });
+
+  // Combina os depoimentos existentes e novos
+  const allTestimonials = [...existingTestimonials, ...newTestimonials];
+
+  // Cria o FormData para enviar os dados
+  const formData = new FormData();
+
+  // Adiciona os campos de texto ao FormData
+  formData.append("title", title);
+  formData.append("date", date);
+  formData.append("place", place);
+  formData.append("eventDetails", eventDetails);
+  formData.append("objetivos", objetivos);
+  formData.append("atividadesDescription", atividadesDescription);
+
+  // Adiciona todos os depoimentos (existentes + novos) no FormData
+  allTestimonials.forEach((depoimento, index) => {
+    formData.append(`depoimentos[${index}][texto]`, depoimento.texto);
+    formData.append(`depoimentos[${index}][autor]`, depoimento.autor);
+  });
+
+  // Coleta as imagens existentes (já carregadas no backend)
+  const existingImages = Array.from(document.querySelectorAll("#imagePreview img")).map((img) => {
+    return img.src.replace("http://localhost:3000/", ""); // Remove o domínio da URL, deixando o caminho relativo
+  });
+
+  // Adiciona as imagens existentes ao FormData
+  existingImages.forEach((img) => formData.append("existingImages[]", img));
+
+  // Coleta as novas imagens enviadas pelo usuário
+  const imageFiles = document.getElementById("imagesModal").files;
+  for (let i = 0; i < imageFiles.length; i++) {
+    formData.append("images", imageFiles[i]); // Adiciona cada imagem nova ao FormData
   }
 
-})
+  // Envia o FormData para o backend
+  try {
+    const response = await fetch(`http://localhost:3000/pages/${slug}`, {
+      method: "PUT",
+      body: formData,
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      console.log("Página atualizada com sucesso:", result);
+    } else {
+      const error = await response.json();
+      console.error("Erro ao atualizar a página:", error);
+    }
+  } catch (error) {
+    console.error("Erro ao enviar a atualização da página:", error);
+  }
+}
