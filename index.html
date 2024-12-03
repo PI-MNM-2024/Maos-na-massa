@@ -251,8 +251,8 @@
                     <div class="col">
                         <div class="card h-100">
                             <div class="img-container">
-                                <img src="public/assets/images/voluntariosofot.jpeg"
-                                    class="card-img-top" alt="Imagem do Card">
+                                <img src="public/assets/images/voluntariosofot.jpeg" class="card-img-top"
+                                    alt="Imagem do Card">
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title text-center" id="tituloCard">Seja Voluntário</h5>
@@ -271,7 +271,8 @@
                     <div class="col">
                         <div class="card h-100">
                             <div class="img-container">
-                                <img src="public/assets/images/fotoindexequipe.jpeg" class="card-img-top" alt="Imagem do Card">
+                                <img src="public/assets/images/fotoindexequipe.jpeg" class="card-img-top"
+                                    alt="Imagem do Card">
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title text-center" id="tituloCard">Conheça Nossos Projetos</h5>
@@ -431,6 +432,24 @@
             </div>
         </div>
     </footer>
+    <script>
+        window.addEventListener('mouseover', initLandbot, { once: true });
+        window.addEventListener('touchstart', initLandbot, { once: true });
+        var myLandbot;
+        function initLandbot() {
+          if (!myLandbot) {
+            var s = document.createElement('script');s.type = 'text/javascript';s.async = true;
+            s.addEventListener('load', function() {
+              var myLandbot = new Landbot.Livechat({
+                configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-2706445-PVQRY8M981L3SR7Q/index.json',
+              });
+            });
+            s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.js';
+            var x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+          }
+        }
+        </script>
     <script src="/public/src/frontend/script/frontend.js"></script>
     <script src="/public/src/backend/backend.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
