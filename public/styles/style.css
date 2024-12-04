@@ -643,7 +643,7 @@ button:hover {
 }
 
 circle#circleProgress1 {
-    stroke: yellow !important;
+    stroke: #EA6436 !important;
 }
 
 #boxContainer2 {
@@ -655,7 +655,7 @@ circle#circleProgress1 {
 }
 
 circle#circleProgress2 {
-    stroke: orange !important;
+    stroke: #EA6436 !important;
 }
 
 #boxContainer3 {
@@ -667,7 +667,7 @@ circle#circleProgress2 {
 }
 
 circle#circleProgress3 {
-    stroke: blue !important;
+    stroke: #EA6436 !important;
 }
 
 #boxContainerV {
@@ -763,8 +763,8 @@ circle {
     fill: none;
     stroke: black;
     stroke-width: 10;
-    stroke-dasharray: 774;
-    stroke-dashoffset: 774;
+    stroke-dasharray: 915;
+    stroke-dashoffset: 915;
 
 }
 
@@ -774,8 +774,8 @@ circle:nth-child(1) {
 }
 
 circle:nth-child(2) {
-    stroke-dashoffset: 774;
-    stroke: green;
+    stroke-dashoffset: 915;
+    stroke: #EA6436;
     transition: stroke-dashoffset 0.3s ease;
 }
 
