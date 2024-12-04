@@ -14,6 +14,7 @@ body {
     font-family: 'Roboto', sans-serif;
     padding-top: 54.5px;
     background-color: #E4D5B6 !important;
+    overflow-x: hidden;
 }
 
 
@@ -1652,7 +1653,6 @@ strong {
 
 .queroajuda-gap{
     gap: 5.5rem;
-    overflow-x: hidden;
 }
 
 .custom-flex {
