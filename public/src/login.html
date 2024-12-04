@@ -156,17 +156,18 @@
         />
         <h1 class="h3 mb-3 fw-normal">Faça login</h1>
         <div class="form-floating">
-          <input type="email" class="form-control" placeholder="E-mail" />
+          <input type="email" class="form-control" placeholder="E-mail" id="email" />
           <label for="E-mail">E-mail</label>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" placeholder="Senha" />
+          <input type="password" class="form-control" placeholder="Senha" id="senha"/>
           <label for="Senha">Senha</label>
         </div>
         <button
           class="btn btn-primary w-100 py-2"
-          onclick="location.href='/src/index.html'"
+          onclick="fazerLogin()"
           style="background-color: #23a7b8; border-color: #23a7b8"
+          id="botaoLogin"
         >
           Entrar
         </button>
@@ -181,9 +182,10 @@
         </svg>
       </div>
     </main>
-    <script src="/src/frontend/script/frontend.js"></script>
+    <script src="/public/src/frontend/script/frontend.js"></script>
     <script src="/src/backend/backend.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script> document.getElementById("botaoLogin").addEventListener("click", function(event) { event.preventDefault();}); </script>
   </body>
 </html>

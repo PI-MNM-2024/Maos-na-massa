@@ -20,6 +20,7 @@ async function conectarAoMongoDB() {
 }
 
 const pages = mongoose.Schema({
+  imageDisplayUrl: { type: String, required: true},
   title: { type: String, required: true },
   date: { type: String, required: true },
   place: { type: String, required: true },
@@ -48,8 +49,11 @@ const formularioSchema = mongoose.Schema({
 const Formulario = mongoose.model("Formulario", formularioSchema);
 
 const usuarioSchema = mongoose.Schema({
-  login: { type: String, required: true, unique: true },
+  nome: { type: String, required: true },
+  sobrenome: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  isAdmin: { type: Boolean, default: false },
 });
 
 usuarioSchema.plugin(uniqueValidator);
@@ -268,18 +272,22 @@ app.post("/formulario", async (req, res) => {
 
 app.post('/signup', async (req, res) => {
   try {
-    const login = req.body.login;
+    const nome = req.body.nome
+    const sobrenome = req.body.sobrenome;
+    const email = req.body.email;
     const password = req.body.password;
 
 
     const criptografada = await bcrypt.hash(password, 10);
 
-
+   
     const usuario = new Usuario({
-      login: login,
+      nome: nome, 
+      sobrenome: sobrenome,
+      email: email,
       password: criptografada
     });
-
+  
 
     const respMongo = await usuario.save();
     console.log("Usuário criado:", respMongo);
@@ -296,9 +304,9 @@ app.post('/signup', async (req, res) => {
 
 app.post("/login", async (req, res) => {
   try {
-    const { login, password } = req.body;
-
-    const usuario = await Usuario.findOne({ login });
+    const { email, password } = req.body;
+    
+    const usuario = await Usuario.findOne({ email });
     if (!usuario) {
       return res.status(401).json({ message: "Credenciais inválidas!" });
     }
@@ -308,8 +316,9 @@ app.post("/login", async (req, res) => {
       return res.status(401).json({ message: "Credenciais inválidas!" });
     }
 
+    // Incluindo o isAdmin no payload do token
     const token = jws.sign(
-      { login: usuario.login },
+      { login: usuario.login, isAdmin: usuario.isAdmin }, // Incluindo isAdmin no token
       "chave-secreta-super-segura",
       { expiresIn: "1h" }
     );
@@ -319,6 +328,34 @@ app.post("/login", async (req, res) => {
     console.error(error);
     res.status(500).json({ message: "Erro ao fazer login", error });
   }
+});
+
+
+
+// Middleware para autenticação
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1]; // Extrai o token
+
+  if (!token) {
+    return res.status(403).json({ message: "Acesso negado. Token não fornecido." });
+  }
+
+  jws.verify(token, "chave-secreta-super-segura", (err, user) => {
+    if (err) {
+      return res.status(403).json({ message: "Token inválido ou expirado." });
+    }
+    req.user = user; // Decodificação do token é armazenada em req.user
+    next();
+  });
+}
+
+// Rota para verificar se é admin
+app.get("/verify-admin", authenticateToken, (req, res) => {
+  if (req.user && req.user.isAdmin) {
+    return res.status(200).json({ isAdmin: true });
+  }
+  return res.status(403).json({ isAdmin: false });
 });
 
 const storage = multer.diskStorage({
@@ -334,20 +371,22 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.post("/pages", upload.array("images[]"), async (req, res) => {
+app.post("/pages", upload.fields([{ name: "images[]" }, { name: "imagesCapa", maxCount: 1 },]), async (req, res) => {
   try {
     console.log("Requisição recebida:", req.body); // Log da requisição
     console.log("Arquivos recebidos:", req.files); // Log dos arquivos
 
-    const { title, date, place, eventDetails, objetivos, atividadesDescription, depoimentos } = req.body;
+    const { title, date, place, eventDetails, objetivos, atividadesDescription, depoimentos, } = req.body;
 
     if (!title || !date || !place || !eventDetails || !objetivos || !atividadesDescription || req.files.length === 0) {
       return res.status(400).json({ message: "Dados incompletos!" });
     }
 
-    const imagesUrls = req.files.map((file) => `uploads/${file.filename}`);
+    const imagesUrls = req.files["images[]"].map((file) => `uploads/${file.filename}`);
+    const imageDisplayUrl = req.files["imagesCapa"] && req.files["imagesCapa"][0] ? `http://localhost:3000/uploads/${req.files["imagesCapa"][0].filename}` : "";
     const parsedDepoimentos = depoimentos ? JSON.parse(depoimentos) : [];
     const newPage = new pagina({
+      imageDisplayUrl,
       title,
       date,
       place,
@@ -424,7 +463,7 @@ app.get("/pages/:slug", async (req, res) => {
       )
       .join("");
 
-    // HTML estático da página com Bootstrap
+    
     res.send(`
       <!DOCTYPE html>
       <html lang="pt-BR">
@@ -715,10 +754,10 @@ app.get("/pages/:slug", async (req, res) => {
 
 // Rota para editar a página
 
-app.put("/pages/:slug", upload.array("images"), async (req, res) => {
+app.put("/pages/:slug", upload.array("images[]"), async (req, res) => {
   const { slug } = req.params;
 
-  // Desestruturando os dados do corpo da requisição
+  
   const {
     title,
     date,
@@ -735,10 +774,10 @@ app.put("/pages/:slug", upload.array("images"), async (req, res) => {
     // Combina imagens existentes e novas
     const updatedImages = [
       ...(existingImages ? (Array.isArray(existingImages) ? existingImages : [existingImages]) : []), // Imagens existentes
-      ...req.files.map((file) => `uploads/${file.filename}`), // Novas imagens enviadas
+      ...req.files.map((file) => `uploads/${file.filename}`), 
     ];
 
-    // Atualiza o documento com os dados e imagens combinadas
+   
     const updateData = {
       title,
       date,
@@ -772,7 +811,7 @@ app.delete("/pages/:slug", async (req, res) => {
   const { slug } = req.params;
 
   try {
-    // Tenta encontrar e remover a página com o slug correspondente
+    
     const deletedPage = await pagina.findOneAndDelete({ slug });
 
     if (!deletedPage) {
@@ -785,3 +824,4 @@ app.delete("/pages/:slug", async (req, res) => {
     res.status(500).json({ message: "Erro ao excluir página", error });
   }
 });
+

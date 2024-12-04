@@ -450,7 +450,7 @@ async function enviarFormularioInstituicao() {
       valor = outroInput ? `outro: ${outroInput}` : `outro: [sem informação]`; // Se não houver valor, define um valor padrão
     }
 
-    return valor; // Retorna o valor (ou formatado se for "Outro")
+    return valor; 
   }
 
   const requiredFields = [
@@ -467,7 +467,7 @@ async function enviarFormularioInstituicao() {
     return;
   }
 
-  // Monta o objeto com os dados do formulário
+
   const formularioData = {
     nomeInstituicao,
     responsavelLegal,
@@ -491,7 +491,7 @@ async function enviarFormularioInstituicao() {
     conheceAONGComo
   };
 
-  // Envia os dados para o servidor usando Axios
+  
   try {
     const formularioEndPoint = '/formularioIntituicao'
 
@@ -504,7 +504,7 @@ async function enviarFormularioInstituicao() {
       console.log('Formulário enviado com sucesso:', response.data);
 
 
-      nomeInstituicaoInput.value = '';
+      nomeinstituicaoInput.value = '';
       CNPJInput.value = '';
       enderecoInput.value = '';
       telefoneInput.value = '';
@@ -539,77 +539,158 @@ async function enviarFormularioInstituicao() {
 
 
 async function cadastrarUsuario() {
-  let usuarioCadastroInput = document.querySelector('#usuarioCadastroInput')
-  let passwordCadastroInput = document.querySelector('#passwordCadastroInput')
-  let usuarioCadastro = usuarioCadastroInput.value
-  let passwordCadastro = passwordCadastroInput.value
-  if (usuarioCadastro && passwordCadastro) {
+  let nomeInput = document.querySelector('#nome')
+  let sobrenomeInput = document.querySelector('#sobrenome')
+  let emailInput = document.querySelector('#email')
+  let passwordInput = document.querySelector('#senha')
+  
+  let nome = nomeInput.value
+  let sobrenome = sobrenomeInput.value
+  let email = emailInput.value
+  let password = passwordInput.value
+  
+  if (nome && sobrenome && email && password) {
     try {
       const cadastroEndpoint = '/signup'
       const URLCompleta = `${protocolo}${baseURL}${cadastroEndpoint}`
-      await axios.post(URLCompleta, { login: usuarioCadastro, password: passwordCadastro })
-      usuarioCadastroInput.value = ""
-      passwordCadastroInput.value = ""
-      exibirAlerta('.alert-modal-cadastro', "Usuário cadastrado com sucesso!", ['show', 'alert-success'], ['d-none', 'alert-danger'], 2000)
-      ocultarModal('#modalLogin', 2000)
+      await axios.post(URLCompleta, { nome: nome, sobrenome: sobrenome, email: email, password: password })
+
+
+      window.location.href = "/public/src/login.html"
+      
     }
     catch (error) {
-      exibirAlerta('.alert-modal-cadastro', "Erro ao cadastrar usuário", ['show', 'alert-danger'], ['d-none', 'alert-success'], 2000)
-      ocultarModal('#modalLogin', 2000)
+      alert("Erro ao realizar o cadastro");
     }
   }
   else {
-    exibirAlerta('.alert-modal-cadastro', 'Preencha todos os campos', ['show', 'alert-danger'], ['d-none', 'alert-success'], 2000)
+    alert("Preencha todos os dados");
   }
 }
 
 const fazerLogin = async () => {
-  let usuarioLoginInput = document.querySelector('#usuarioLoginInput')
-  let passwordLoginInput = document.querySelector('#passwordLoginInput')
-  let usuarioLogin = usuarioLoginInput.value
-  let passwordLogin = passwordLoginInput.value
-  if (usuarioLogin && passwordLogin) {
+  let emailInput= document.querySelector('#email')
+  let senhaInput = document.querySelector('#senha')
+  
+  let email = emailInput.value
+  let senha = senhaInput.value
+
+  if (email && senha) {
     try {
       const loginEndpoint = '/login'
       const URLCompleta = `${protocolo}${baseURL}${loginEndpoint}`
-      const response = await axios.post(URLCompleta, { login: usuarioLogin, password: passwordLogin })
-      // console.log(response.data)
-      localStorage.setItem('token', response.data)
-      usuarioLoginInput.value = ""
-      passwordLoginInput.value = ""
+      const response = await axios.post(URLCompleta, { email: email, password: senha })
+      
+      const token = response.data.token; 
+      localStorage.setItem('token', token);
+      
+  
+
+      window.location.href = "/index.html"
     }
     catch (error) {
-
+      
     }
   }
   else {
-
+    alert("Preencha todos os campos");
   }
 
 }
 
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", async () => {
-  await loadPages(); // Carrega as páginas do servidor ao iniciar
+  if (window.location.pathname === "/public/src/eventos.html") {
+    await loadPages(); 
+  }
 });
+
 
 async function loadPages() {
   try {
-    const response = await fetch('http://localhost:3000/pages'); // Requisição para obter páginas
+    const response = await fetch("http://localhost:3000/pages"); 
     if (response.ok) {
-      const pages = await response.json(); // Converte a resposta para JSON
-      const pageList = document.getElementById("pageList");
-      // Limpa a lista para evitar duplicação
-      pageList.innerHTML = "";
+      const pages = await response.json(); 
 
-      // Adiciona as páginas à lista
+      // Decodificar o token para verificar se o usuário é admin
+      const token = localStorage.getItem('token');
+      let isAdmin = false;
+      if (token) {
+        const payload = JSON.parse(atob(token.split('.')[1])); 
+        isAdmin = payload.isAdmin; 
+      }
+
+      const container = document.querySelector(".container");
+      let currentRow = container.querySelector(".row:last-child");
+      if (!currentRow) {
+        currentRow = document.createElement("div");
+        currentRow.classList.add("row");
+        container.appendChild(currentRow);
+      }
+
+      let columnCount = currentRow.children.length;
+
       pages.forEach((page) => {
-        pageList.innerHTML += `
-    <li>
-      <a href="http://localhost:3000/pages/${page.slug}" target="_blank">${page.title}</a>
-      <button class="btn btn-sm btn-warning" onclick="loadPageData('${page.slug}')">Editar</button>
-      <button class="btn btn-sm btn-danger" onclick="deletarPagina('${page.slug}')">Deletar</button>
-    </li>`;
+        // Botões de editar e deletar, visíveis apenas para admin
+        const adminButtons = isAdmin
+          ? `
+            <button class="btn btn-sm btn-warning" onclick="loadPageData('${page.slug}')">Editar</button>
+            <button class="btn btn-sm btn-danger" onclick="deletarPagina('${page.slug}')">Deletar</button>
+          `
+          : '';
+
+        const columnHTML = `
+          <div class="col-12 col-sm-8 col-md-6 col-lg-3 mb-4">
+            <div class="foto-container">
+              <a href="http://localhost:3000/pages/${page.slug}" target="_blank">
+                <img src="${page.imageDisplayUrl}" alt="${page.title}" class="img-fluid" />
+                <div class="titulo">${page.title}</div>
+              </a>
+              ${adminButtons} <!-- Botões inseridos aqui -->
+            </div>
+          </div>
+        `;
+
+        if (columnCount >= 4) {
+          const newRow = document.createElement("div");
+          newRow.classList.add("row");
+          container.appendChild(newRow);
+          currentRow = newRow;
+          columnCount = 0;
+        }
+
+        currentRow.insertAdjacentHTML("beforeend", columnHTML);
+        columnCount++;
       });
+
+      // Exibir o botão de "Adicionar Evento" apenas para admins
+      if (isAdmin) {
+        const addEventHTML = `
+          <div class="col-12 col-sm-8 col-md-6 col-lg-3 mb-4">
+            <div class="foto-container">
+              <a onclick=$('#novoEventoModalLabel').modal('show');>
+                <img src="https://t4.ftcdn.net/jpg/01/26/10/59/360_F_126105961_6vHCTRX2cPOnQTBvx9OSAwRUapYTEmYA.jpg" alt="Adicionar evento" class="img-fluid" />
+                <div class="titulo">Adicionar Evento</div>
+              </a>
+            </div>
+          </div>
+        `;
+        
+        // Verifica se a última linha está cheia antes de adicionar o botão
+        if (columnCount >= 4) {
+          const newRow = document.createElement("div");
+          newRow.classList.add("row");
+          container.appendChild(newRow);
+          newRow.insertAdjacentHTML("beforeend", addEventHTML);
+        } else {
+          currentRow.insertAdjacentHTML("beforeend", addEventHTML);
+        }
+      }
+
     } else {
       console.error("Erro ao carregar as páginas");
     }
@@ -627,6 +708,94 @@ function saveLog(message) {
   localStorage.setItem("errorLogs", JSON.stringify(currentLogs));
 }
 
+const selectedImages = []; 
+
+function handleFileSelect(event) {
+  console.log("Função handleFileSelect chamada!");
+  const imageContainer = document.getElementById("imagePreview2");
+  const files = Array.from(event.target.files); 
+  if (files.length === 0) {
+    imageContainer.innerHTML = "<p>Nenhuma imagem selecionada.</p>";
+    return;
+  }
+
+  files.forEach((file) => {
+    
+    if (!selectedImages.some((img) => img.name === file.name)) {
+      selectedImages.push(file);
+    } else {
+      console.warn(`O arquivo "${file.name}" já foi adicionado.`);
+      return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+      alert(`${file.name} não é uma imagem válida.`);
+      return;
+    }
+
+    
+    const imgWrapper = document.createElement("div");
+    const img = document.createElement("img");
+    const removeBtn = document.createElement("button");
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      img.src = e.target.result;
+      img.alt = file.name;
+    };
+    reader.readAsDataURL(file);
+
+    img.style.maxWidth = "100px";
+    img.style.margin = "5px";
+
+    removeBtn.textContent = "Remover";
+    removeBtn.onclick = () => {
+      
+      const index = selectedImages.findIndex((img) => img.name === file.name);
+      if (index > -1) {
+        selectedImages.splice(index, 1);
+      }
+
+      
+      imageContainer.removeChild(imgWrapper);
+
+     
+      if (imageContainer.children.length === 0) {
+        document.getElementById("images").value = ""; 
+        imageContainer.innerHTML = "<p>Nenhuma imagem selecionada.</p>";
+      }
+    };
+
+    imgWrapper.appendChild(img);
+    imgWrapper.appendChild(removeBtn);
+    imageContainer.appendChild(imgWrapper);
+  });
+}
+
+
+const inputFile = document.getElementById("images");
+if (inputFile) {
+  console.log("Input de arquivos encontrado, chamando handleFileSelect diretamente para teste...");
+  inputFile.addEventListener("change", handleFileSelect);
+} else {
+  console.error("Input de arquivos NÃO encontrado! Verifique o ID no HTML.");
+}
+
+
+
+
+document.getElementById("images").addEventListener("change", (event) => {
+  const files = Array.from(event.target.files); 
+
+  
+  files.forEach((file) => {
+    if (!selectedImages.some((img) => img.name === file.name)) {
+      selectedImages.push(file);
+    }
+  });
+
+});
+
 async function criarPagina() {
   const title = document.getElementById("title").value;
   const date = document.getElementById("date").value;
@@ -635,6 +804,9 @@ async function criarPagina() {
   const objetivos = document.getElementById("objetivos").value;
   const atividadesDescription = document.getElementById("atividadesDescription").value;
   const images = document.getElementById("images").files;
+  const imageCapa = document.getElementById("imagesCapa").files[0];
+
+  console.log(imageCapa)
 
   const depoimentos = [];
   document
@@ -653,12 +825,15 @@ async function criarPagina() {
   formData.append("objetivos", objetivos);
   formData.append("atividadesDescription", atividadesDescription);
   formData.append("depoimentos", JSON.stringify(depoimentos));
+ 
+  
+  formData.append("imagesCapa", imageCapa);
+
 
   // Adiciona as imagens ao FormData
-  for (let i = 0; i < images.length; i++) {
-    saveLog(images[i]);
-    formData.append("images[]", images[i]);
-  }
+  selectedImages.forEach((image) => {
+    formData.append("images[]", image);
+  });
 
   try {
     const response = await fetch("http://localhost:3000/pages", {
@@ -736,7 +911,7 @@ function extractPageDataFromHTML(htmlContent) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(htmlContent, "text/html");
 
-  // Pega apenas os dados necessários de forma simples
+  
   const title = doc.querySelector("h1")?.textContent?.trim() || ""; // Título da página
   const tituloEvent = doc.querySelector("section.titulo_evento p")?.textContent?.trim() || "";
   const [date, place] = tituloEvent.split(" e ").map((str) => str.trim());  // Data e Local extraídos do parágrafo
@@ -746,10 +921,10 @@ function extractPageDataFromHTML(htmlContent) {
 
   // Extração de depoimentos
   const depoimentos = [];
-  const depoimentoElements = doc.querySelectorAll(".card-body-realizacoes");  // Seletor para as divs de depoimentos
+  const depoimentoElements = doc.querySelectorAll(".card-body-realizacoes");  
   depoimentoElements.forEach((depoimentoElement) => {
-    const texto = depoimentoElement.querySelector(".card-text")?.textContent?.trim() || "";  // Texto do depoimento
-    const autor = depoimentoElement.querySelector(".card-title")?.textContent?.trim() || "";  // Autor do depoimento
+    const texto = depoimentoElement.querySelector(".card-text")?.textContent?.trim() || "";  
+    const autor = depoimentoElement.querySelector(".card-title")?.textContent?.trim() || "";  
     if (texto && autor) {
       depoimentos.push({ texto, autor });
     }
@@ -757,23 +932,23 @@ function extractPageDataFromHTML(htmlContent) {
 
   // Extração das imagens
   const imagesUrls = [];
-  const imageElements = doc.querySelectorAll(".carousel-item img");  // Seletor para as imagens dentro do carrossel
+  const imageElements = doc.querySelectorAll(".carousel-item img");  
   imageElements.forEach((imgElement) => {
-    let imgSrc = imgElement.src || imgElement.getAttribute('data-src');  // Obtém o src ou data-src da imagem
+    let imgSrc = imgElement.src || imgElement.getAttribute('data-src');  
     if (imgSrc) {
-      // Corrige a URL para usar o servidor correto (localhost:3000)
+     
       if (imgSrc.startsWith('http://127.0.0.1:5500')) {
-        // Se a URL começar com o endereço do Live Server, substitui para o correto
+        
         imgSrc = imgSrc.replace('http://127.0.0.1:5500', 'http://localhost:3000');
       }
-      // Certifica-se de que a URL da imagem seja válida e adiciona ao array
+      
       if (imgSrc.startsWith('http://localhost:3000/')) {
-        imagesUrls.push(imgSrc.replace('http://localhost:3000/', ''));  // Remove a parte "http://localhost:3000" para armazenar só o caminho relativo
+        imagesUrls.push(imgSrc.replace('http://localhost:3000/', ''));  
       }
     }
   });
 
-  // Retorna o objeto com os dados extraídos
+  
   return {
     title,
     date,
@@ -797,10 +972,10 @@ async function loadPageData(slug) {
     const htmlContent = await response.text();
     const pageData = extractPageDataFromHTML(htmlContent);
 
-    // Adicionar log para verificar a estrutura dos dados recebidos
+   
     console.log(pageData);
 
-    // Preencher os campos do formulário com os dados carregados
+
     document.getElementById("titleModal").value = pageData.title;
     document.getElementById("dateModal").value = pageData.date;
     document.getElementById("placeModal").value = pageData.place;
@@ -808,9 +983,9 @@ async function loadPageData(slug) {
     document.getElementById("objetivosModal").value = pageData.objetivos;
     document.getElementById("atividadesDescriptionModal").value = pageData.atividadesDescription;
 
-    // Adicionar os depoimentos
+    
     const testimonialFields = document.getElementById("testimonialFieldsModal");
-    testimonialFields.innerHTML = ''; // Limpa os depoimentos anteriores
+    testimonialFields.innerHTML = ''; 
 
     pageData.depoimentos.forEach((depoimento, index) => {
       const testimonialGroup = document.createElement("div");
@@ -825,20 +1000,20 @@ async function loadPageData(slug) {
       testimonialFields.appendChild(testimonialGroup);
     });
 
-    // Mostrar imagens existentes
+   
     const imageContainer = document.getElementById("imagePreview");
-    imageContainer.innerHTML = ""; // Limpar o conteúdo anterior
+    imageContainer.innerHTML = ""; 
 
     pageData.imagesUrls.forEach((url) => {
       const img = document.createElement("img");
 
-      // Certifique-se de usar o caminho correto para as imagens
-      img.src = `http://localhost:3000/${url}`; // Caminho correto com o prefixo 'uploads'
+      
+      img.src = `http://localhost:3000/${url}`; 
 
       img.alt = "Imagem da Página";
       img.classList.add("image-preview");
-      img.style.maxWidth = '100px';  // Definindo o tamanho máximo da imagem
-      img.style.margin = '5px';      // Definindo o espaçamento entre as imagens
+      img.style.maxWidth = '100px';  
+      img.style.margin = '5px';      
 
       imageContainer.appendChild(img);
     });
@@ -847,123 +1022,23 @@ async function loadPageData(slug) {
     const updateButton = document.getElementById("updateButton");
     updateButton.onclick = () => updatePage(slug);
 
-    // Abrir o modal após carregar os dados
-    $('#editPageModal').modal('show'); // Usando jQuery para abrir o modal
+    
+    $('#editPageModal').modal('show');
 
   } catch (error) {
     console.error("Erro ao carregar a página:", error);
   }
 }
 
-async function updatePage(slug) {
-  const title = document.getElementById("titleModal").value;
-  const date = document.getElementById("dateModal").value;
-  const place = document.getElementById("placeModal").value;
-  const eventDetails = document.getElementById("eventDetailsModal").value;
-  const objetivos = document.getElementById("objetivosModal").value;
-  const atividadesDescription = document.getElementById("atividadesDescriptionModal").value;
+const selectedImagesModal = []; 
 
-  // Captura os depoimentos existentes (já carregados)
-  const existingTestimonials = [];
-  document.querySelectorAll("#testimonialFieldsModal .testimonial-field").forEach((testimonialGroup) => {
-    const texto = testimonialGroup.querySelector("textarea").value;
-    const autor = testimonialGroup.querySelector("input").value;
-    existingTestimonials.push({ texto, autor });
-  });
-
-  // Captura os depoimentos novos (adicionados dinamicamente)
-  const newTestimonials = [];
-  document.querySelectorAll("#testimonialFieldsModal .testimonial-field-modal").forEach((testimonialGroup) => {
-    const texto = testimonialGroup.querySelector("textarea").value;
-    const autor = testimonialGroup.querySelector("input").value;
-    newTestimonials.push({ texto, autor });
-  });
-
-  // Combina os depoimentos existentes e novos
-  const allTestimonials = [...existingTestimonials, ...newTestimonials];
-
-  // Cria o FormData para enviar os dados
-  const formData = new FormData();
-
-  // Adiciona os campos de texto ao FormData
-  formData.append("title", title);
-  formData.append("date", date);
-  formData.append("place", place);
-  formData.append("eventDetails", eventDetails);
-  formData.append("objetivos", objetivos);
-  formData.append("atividadesDescription", atividadesDescription);
-
-  // Adiciona todos os depoimentos (existentes + novos) no FormData
-  allTestimonials.forEach((depoimento, index) => {
-    formData.append(`depoimentos[${index}][texto]`, depoimento.texto);
-    formData.append(`depoimentos[${index}][autor]`, depoimento.autor);
-  });
-
-  // Coleta as imagens existentes (já carregadas no backend)
-  const existingImages = Array.from(document.querySelectorAll("#imagePreview img")).map((img) => {
-    return img.src.replace("http://localhost:3000/", ""); // Remove o domínio da URL, deixando o caminho relativo
-  });
-
-  // Adiciona as imagens existentes ao FormData
-  existingImages.forEach((img) => formData.append("existingImages[]", img));
-
-  // Coleta as novas imagens enviadas pelo usuário
-  const imageFiles = document.getElementById("imagesModal").files;
-  for (let i = 0; i < imageFiles.length; i++) {
-    formData.append("images", imageFiles[i]); // Adiciona cada imagem nova ao FormData
-  }
-
-  // Envia o FormData para o backend
-  try {
-    const response = await fetch(`http://localhost:3000/pages/${slug}`, {
-      method: "PUT",
-      body: formData,
-    });
-
-    if (response.ok) {
-      const result = await response.json();
-      console.log("Página atualizada com sucesso:", result);
-    } else {
-      const error = await response.json();
-      console.error("Erro ao atualizar a página:", error);
-    }
-  } catch (error) {
-    console.error("Erro ao enviar a atualização da página:", error);
-  }
-}
-
-async function deletarPagina(slug) {
-  const confirmar = confirm("Tem certeza de que deseja excluir esta página?");
-  if (!confirmar) return;
-
-  try {
-    const response = await fetch(`http://localhost:3000/pages/${slug}`, {
-      method: "DELETE",
-    });
-
-    if (!response.ok) {
-      throw new Error("Erro ao excluir a página");
-    }
-
-    const data = await response.json();
-    console.log(data.message);
-    alert("Página excluída com sucesso!");
-
-    // Atualizar a lista de páginas (ou recarregar a página)
-    loadPages();
-  } catch (error) {
-    console.error("Erro:", error);
-    alert("Ocorreu um erro ao tentar excluir a página.");
-  }
-}
-
-function handleFileSelect(event) {
+function handleFileSelectModal(event) {
   console.log("Função handleFileSelect chamada!");
-  const imageContainer = document.getElementById("imagePreview2");
+  const imageContainer = document.getElementById("imagePreviewNovos");
   const files = event.target.files;
 
 
-  
+
 
   if (files.length === 0) {
     imageContainer.innerHTML = "<p>Nenhuma imagem selecionada.</p>";
@@ -992,7 +1067,20 @@ function handleFileSelect(event) {
 
     removeBtn.textContent = "Remover";
     removeBtn.onclick = () => {
+     
+      const index = selectedImagesModal.findIndex((img) => img.name === file.name);
+      if (index > -1) {
+        selectedImagesModal.splice(index, 1);
+      }
+
+    
       imageContainer.removeChild(imgWrapper);
+
+      
+      if (imageContainer.children.length === 0) {
+        document.getElementById("imagesModal").value = "";
+        imageContainer.innerHTML = "<p>Nenhuma imagem selecionada.</p>";
+      }
     };
 
     imgWrapper.appendChild(img);
@@ -1001,11 +1089,128 @@ function handleFileSelect(event) {
   });
 }
 
-// Executa diretamente (teste)
-const inputFile = document.getElementById("images");
-if (inputFile) {
-  console.log("Input de arquivos encontrado, chamando handleFileSelect diretamente para teste...");
-  inputFile.addEventListener("change", handleFileSelect);
+
+const inputFileModal = document.getElementById("imagesModal");
+if (inputFileModal) {
+  console.log("Input de arquivos modal encontrado, chamando handleFileSelect diretamente para teste...");
+  inputFileModal.addEventListener("change", handleFileSelectModal);
 } else {
   console.error("Input de arquivos NÃO encontrado! Verifique o ID no HTML.");
 }
+
+
+document.getElementById("imagesModal").addEventListener("change", (event) => {
+  const files = Array.from(event.target.files); 
+
+  // Adiciona cada novo arquivo ao array, garantindo que não duplique
+  files.forEach((file) => {
+    if (!selectedImagesModal.some((img) => img.name === file.name)) {
+      selectedImagesModal.push(file);
+    }
+  });
+
+});
+
+
+async function updatePage(slug) {
+  const title = document.getElementById("titleModal").value;
+  const date = document.getElementById("dateModal").value;
+  const place = document.getElementById("placeModal").value;
+  const eventDetails = document.getElementById("eventDetailsModal").value;
+  const objetivos = document.getElementById("objetivosModal").value;
+  const atividadesDescription = document.getElementById("atividadesDescriptionModal").value;
+
+  // Captura os depoimentos existentes (já carregados)
+  const existingTestimonials = [];
+  document.querySelectorAll("#testimonialFieldsModal .testimonial-field").forEach((testimonialGroup) => {
+    const texto = testimonialGroup.querySelector("textarea").value;
+    const autor = testimonialGroup.querySelector("input").value;
+    existingTestimonials.push({ texto, autor });
+  });
+
+  // Captura os depoimentos novos (adicionados dinamicamente)
+  const newTestimonials = [];
+  document.querySelectorAll("#testimonialFieldsModal .testimonial-field-modal").forEach((testimonialGroup) => {
+    const texto = testimonialGroup.querySelector("textarea").value;
+    const autor = testimonialGroup.querySelector("input").value;
+    newTestimonials.push({ texto, autor });
+  });
+
+ 
+  const allTestimonials = [...existingTestimonials, ...newTestimonials];
+
+  
+  const formData = new FormData();
+
+  // Adiciona os campos de texto ao FormData
+  formData.append("title", title);
+  formData.append("date", date);
+  formData.append("place", place);
+  formData.append("eventDetails", eventDetails);
+  formData.append("objetivos", objetivos);
+  formData.append("atividadesDescription", atividadesDescription);
+
+  // Adiciona todos os depoimentos (existentes + novos) no FormData
+  allTestimonials.forEach((depoimento, index) => {
+    formData.append(`depoimentos[${index}][texto]`, depoimento.texto);
+    formData.append(`depoimentos[${index}][autor]`, depoimento.autor);
+  });
+
+  // Coleta as imagens existentes (já carregadas no backend)
+  const existingImages = Array.from(document.querySelectorAll("#imagePreview img")).map((img) => {
+    return img.src.replace("http://localhost:3000/", ""); // Remove o domínio da URL, deixando o caminho relativo
+  });
+
+  // Adiciona as imagens existentes ao FormData
+  existingImages.forEach((img) => formData.append("existingImages[]", img));
+
+  // Coleta as novas imagens enviadas pelo usuário
+  selectedImagesModal.forEach((image) => {
+    formData.append("images[]", image);
+  });
+
+  
+  try {
+    const response = await fetch(`http://localhost:3000/pages/${slug}`, {
+      method: "PUT",
+      body: formData,
+    });
+
+    if (response.ok) {
+      location.reload();
+      const result = await response.json();
+      console.log("Página atualizada com sucesso:", result);
+    } else {
+      const error = await response.json();
+      console.error("Erro ao atualizar a página:", error);
+    }
+  } catch (error) {
+    console.error("Erro ao enviar a atualização da página:", error);
+  }
+}
+
+async function deletarPagina(slug) {
+  const confirmar = confirm("Tem certeza de que deseja excluir esta página?");
+  if (!confirmar) return;
+
+  try {
+    const response = await fetch(`http://localhost:3000/pages/${slug}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error("Erro ao excluir a página");
+    }
+
+    const data = await response.json();
+    console.log(data.message);
+    alert("Página excluída com sucesso!");
+
+    
+    location.reload();
+  } catch (error) {
+    console.error("Erro:", error);
+    alert("Ocorreu um erro ao tentar excluir a página.");
+  }
+}
+
