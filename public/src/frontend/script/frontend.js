@@ -607,7 +607,7 @@ async function loadPages() {
     <li>
       <a href="http://localhost:3000/pages/${page.slug}" target="_blank">${page.title}</a>
       <button class="btn btn-sm btn-warning" onclick="loadPageData('${page.slug}')">Editar</button>
-      <button class="btn btn-sm btn-danger" onclick="deletePage('${page.slug}')">Deletar</button>
+      <button class="btn btn-sm btn-danger" onclick="deletarPagina('${page.slug}')">Deletar</button>
     </li>`;
       });
     } else {
@@ -656,7 +656,8 @@ async function criarPagina() {
 
   // Adiciona as imagens ao FormData
   for (let i = 0; i < images.length; i++) {
-    formData.append("images", images[i]);
+    saveLog(images[i]);
+    formData.append("images[]", images[i]);
   }
 
   try {
@@ -929,4 +930,82 @@ async function updatePage(slug) {
   } catch (error) {
     console.error("Erro ao enviar a atualização da página:", error);
   }
+}
+
+async function deletarPagina(slug) {
+  const confirmar = confirm("Tem certeza de que deseja excluir esta página?");
+  if (!confirmar) return;
+
+  try {
+    const response = await fetch(`http://localhost:3000/pages/${slug}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error("Erro ao excluir a página");
+    }
+
+    const data = await response.json();
+    console.log(data.message);
+    alert("Página excluída com sucesso!");
+
+    // Atualizar a lista de páginas (ou recarregar a página)
+    loadPages();
+  } catch (error) {
+    console.error("Erro:", error);
+    alert("Ocorreu um erro ao tentar excluir a página.");
+  }
+}
+
+function handleFileSelect(event) {
+  console.log("Função handleFileSelect chamada!");
+  const imageContainer = document.getElementById("imagePreview2");
+  const files = event.target.files;
+
+
+  
+
+  if (files.length === 0) {
+    imageContainer.innerHTML = "<p>Nenhuma imagem selecionada.</p>";
+    return;
+  }
+
+  Array.from(files).forEach((file) => {
+    if (!file.type.startsWith("image/")) {
+      alert(`${file.name} não é uma imagem válida.`);
+      return;
+    }
+
+    const imgWrapper = document.createElement("div");
+    const img = document.createElement("img");
+    const removeBtn = document.createElement("button");
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      img.src = e.target.result;
+      img.alt = file.name;
+    };
+    reader.readAsDataURL(file);
+
+    img.style.maxWidth = "100px";
+    img.style.margin = "5px";
+
+    removeBtn.textContent = "Remover";
+    removeBtn.onclick = () => {
+      imageContainer.removeChild(imgWrapper);
+    };
+
+    imgWrapper.appendChild(img);
+    imgWrapper.appendChild(removeBtn);
+    imageContainer.appendChild(imgWrapper);
+  });
+}
+
+// Executa diretamente (teste)
+const inputFile = document.getElementById("images");
+if (inputFile) {
+  console.log("Input de arquivos encontrado, chamando handleFileSelect diretamente para teste...");
+  inputFile.addEventListener("change", handleFileSelect);
+} else {
+  console.error("Input de arquivos NÃO encontrado! Verifique o ID no HTML.");
 }

@@ -26,7 +26,7 @@ const pages = mongoose.Schema({
   eventDetails: { type: String, required: true },
   objetivos: { type: String, required: true },
   atividadesDescription: { type: String, required: true },
-  imagesUrls: [{ type: String, required: true}],
+  imagesUrls: [{ type: String, required: true }],
   depoimentos: [
     {
       texto: { type: String, required: true },
@@ -334,14 +334,14 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.post("/pages", upload.array("images"), async (req, res) => {
+app.post("/pages", upload.array("images[]"), async (req, res) => {
   try {
     console.log("Requisição recebida:", req.body); // Log da requisição
     console.log("Arquivos recebidos:", req.files); // Log dos arquivos
 
-    const { title, date, place,eventDetails,objetivos,atividadesDescription,depoimentos} = req.body;
+    const { title, date, place, eventDetails, objetivos, atividadesDescription, depoimentos } = req.body;
 
-    if (!title || !date || !place|| !eventDetails || !objetivos ||!atividadesDescription||req.files.length === 0) {
+    if (!title || !date || !place || !eventDetails || !objetivos || !atividadesDescription || req.files.length === 0) {
       return res.status(400).json({ message: "Dados incompletos!" });
     }
 
@@ -428,13 +428,169 @@ app.get("/pages/:slug", async (req, res) => {
     res.send(`
       <!DOCTYPE html>
       <html lang="pt-BR">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="http://127.0.0.1:5500/public/styles/style.css" />
+        <link
+          rel="shortcut icon"
+          href="http://127.0.0.1:5500/public/assets/favicon/MAOMASSA.png"
+          type="image/x-icon"
+        />
+
+        <!-- Bootstrap CSS -->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+          crossorigin="anonymous"
+        />
+
+        <!-- Fontes do Google -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet"
+        />
         <title>Projeto ${page.title}</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+        
       </head>
       <body>
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="http://127.0.0.1:5500/index.html"
+            ><img
+              src="http://127.0.0.1:5500/public/assets/favicon/MAOMASSA.png"
+              alt="Foto da logo do mãos na massa"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#myNav"
+            aria-controls="myNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="myNav">
+            <div class="navbar-nav ms-auto">
+              <a
+                class="nav-link me-2 corTexto p-3"
+                aria-current="page"
+                href="http://127.0.0.1:5500/public/src/quemsomos.html"
+                >Quem Somos</a
+              >
+              <a
+                class="nav-link active me-2 p-3"
+                aria-current="page"
+                href="http://127.0.0.1:5500/public/src/realizacoes.html"
+                >Realizações</a
+              >
+              <a
+                class="nav-link me-2 p-3"
+                aria-current="page"
+                href="http://127.0.0.1:5500/public/src/parcerias.html"
+                >Parceiros</a
+              >
+              <a
+                class="nav-link me-2 p-3"
+                aria-current="page"
+                href="http://127.0.0.1:5500/public/src/queroajuda.html"
+                >Quero Ajuda</a
+              >
+              <a
+                class="nav-link me-2 p-3"
+                aria-current="page"
+                href="http://127.0.0.1:5500/public/src/noticias.html"
+                >Notícias</a
+              >
+              <a
+                class="nav-link me-2 p-3"
+                aria-current="page"
+                href="http://127.0.0.1:5500/public/src/faq.html"
+                >FAQ</a
+              >
+              <a
+                class="nav-link me-2 p-3"
+                aria-current="page"
+                href="http://127.0.0.1:5500/public/src/contato.html"
+                >Contato</a
+              >
+              <a
+                class="nav-link me-2 ajude_agora p-3"
+                href="http://127.0.0.1:5500/public/src/areadedoadores.html"
+                >Ajude Agora</a
+              >
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle login"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <img
+                    class="login_foto"
+                    src="http://127.0.0.1:5500/public/assets/favicon/perfil-removebg-preview.png"
+                    alt="login"
+                  />
+                </a>
+                <div
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <a class="dropdown-item" href="login.html">Login</a>
+                  <a class="dropdown-item data" href="http://127.0.0.1:5500/public/src/signup.html">Cadastrar</a>
+                </div>
+              </li>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <main class="corpo_evento">
+      <script>
+        (function (d) {
+          var s = d.createElement("script");
+          s.setAttribute("data-account", "DLmQUCAOoW");
+          s.setAttribute("src", "https://cdn.userway.org/widget.js");
+          (d.body || d.head).appendChild(s);
+
+          s.onload = function () {
+            const observer = new MutationObserver(() => {
+              const userwayWidget = document.getElementByClass(
+                "userway_buttons_wrapper"
+              );
+              if (userwayWidget) {
+                userwayWidget.style.position = "fixed";
+                userwayWidget.style.top = "50%";
+                userwayWidget.style.left = "50%";
+                userwayWidget.style.transform = "translate(-50%, -50%)";
+                userwayWidget.style.zIndex = "1000";
+              }
+            });
+
+            // Iniciar observação no body
+            observer.observe(document.body, {
+              childList: true,
+              subtree: true,
+            });
+          };
+        })(document);
+      </script>
+      <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+          <div class="vw-plugin-top-wrapper"></div>
+        </div>
+      </div>
+      <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+      <script>
+        new window.VLibras.Widget("https://vlibras.gov.br/app");
+      </script>
+
         <!-- Hero Section -->
         <section class="hero-section titulo_evento">
           <div class="container">
@@ -494,7 +650,61 @@ app.get("/pages/:slug", async (req, res) => {
             </div>
           </div>
         </section>
-        </html>
+         <footer class="rodape py-4">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-3 mb-3 footer-section">
+                    <p><b>Informações</b></p>
+                    <a href="quemsomos.html">Quem Somos</a>
+                    <a href="politica.html">Política de Privacidade</a>
+                    <a href="realizacoes.html">Realizações</a>
+                </div>
+  
+                <div class="col-md-3 mb-3 footer-section">
+                    <p><b>Serviços ao Cliente</b></p>
+                    <a href="contato.html">Fale Conosco</a>
+                    <a href="areadedoadores.html">Trabalhe conosco</a>
+                    <a href="noticias.html">Notícias</a>
+                </div>
+  
+                <div class="col-md-3 mb-3 footer-section">
+                    <p><b>Fale Conosco</b></p>
+                    <p>📱 +55 (11) 973285665</p>
+                    <p class="email-info">
+                        ✉️ <span>maosnamassaong@gmail.com</span>
+                    </p>
+                    <p>De segunda a sexta, das 07:00 às 22:00</p>
+                    <p>&copy; Mãos na massa. Direitos reservados</p>
+                </div>
+  
+                <div class="col-md-3 mb-3 social-iconsAlinha">
+                    <p><b>Siga-nos em nossas redes sociais!</b></p>
+                    <div class="icons-container">
+                        <a href="https://www.youtube.com/@projetomaosnamassa8265" target="_blank">
+                            <img src="http://127.0.0.1:5500/public/assets/favicon/youtube.svg" alt="YouTube" width="30">
+                        </a>
+                        <a href="https://www.instagram.com/projeto_maosnamassa/" target="_blank">
+                            <img src="http://127.0.0.1:5500/public/assets/favicon/instagram-alt.svg" alt="Instagram" width="30">
+                        </a>
+                        <a href="mailto:maosnamassaong@gmail.com" target="_blank">
+                            <img src="http://127.0.0.1:5500/public/assets/favicon/gmail.svg" alt="Gmail" width="30">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Zenh87qX5JnK2JlH2Kyybwwa6YIK29sJgD60l1uLl4yzDYUNdyiQy5t5alST8wz7"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/public/src/frontend/script/frontend.js""></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
         `);
   } catch (error) {
     console.error("Erro ao buscar a página:", error);
@@ -554,5 +764,24 @@ app.put("/pages/:slug", upload.array("images"), async (req, res) => {
   } catch (error) {
     console.error("Erro ao atualizar página:", error);
     res.status(500).json({ message: "Erro ao atualizar página", error });
+  }
+});
+
+// Rota DELETE para excluir uma página
+app.delete("/pages/:slug", async (req, res) => {
+  const { slug } = req.params;
+
+  try {
+    // Tenta encontrar e remover a página com o slug correspondente
+    const deletedPage = await pagina.findOneAndDelete({ slug });
+
+    if (!deletedPage) {
+      return res.status(404).json({ message: "Página não encontrada" });
+    }
+
+    res.status(200).json({ message: "Página excluída com sucesso!" });
+  } catch (error) {
+    console.error("Erro ao excluir página:", error);
+    res.status(500).json({ message: "Erro ao excluir página", error });
   }
 });
