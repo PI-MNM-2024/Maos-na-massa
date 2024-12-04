@@ -2364,6 +2364,11 @@ h6 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     background-color: #f9f9f9; 
 }
+@media (max-width: 768px) {
+    .enfeite {
+      height: 80px; /* Ajusta a altura para telas menores */
+    }
+  }
 
 .container_somos{
     margin: 0 auto;;
