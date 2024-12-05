@@ -365,7 +365,7 @@
                         </div>
                         <div class="carousel-item">
                             <a href="/public/src/quemsomos.html">
-                                <img src="public/assets/images/WhatsApp Image 2023-02-11 at 15.31.45 (3).jpeg"  
+                                <img src="public/assets/images/WhatsApp Image 2023-02-11 at 15.31.45 (3).jpeg"
                                     class="d-block w-100 img-fluid imagemIndexCarrosel" alt="Imagem 3">
                             </a>
                             <div class="carousel-caption d-none d-md-block">
@@ -437,19 +437,19 @@
         window.addEventListener('touchstart', initLandbot, { once: true });
         var myLandbot;
         function initLandbot() {
-          if (!myLandbot) {
-            var s = document.createElement('script');s.type = 'text/javascript';s.async = true;
-            s.addEventListener('load', function() {
-              var myLandbot = new Landbot.Livechat({
-                configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-2706445-PVQRY8M981L3SR7Q/index.json',
-              });
-            });
-            s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.js';
-            var x = document.getElementsByTagName('script')[0];
-            x.parentNode.insertBefore(s, x);
-          }
+            if (!myLandbot) {
+                var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+                s.addEventListener('load', function () {
+                    var myLandbot = new Landbot.Livechat({
+                        configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-2706445-PVQRY8M981L3SR7Q/index.json',
+                    });
+                });
+                s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.js';
+                var x = document.getElementsByTagName('script')[0];
+                x.parentNode.insertBefore(s, x);
+            }
         }
-        </script>
+    </script>
     <script src="/public/src/frontend/script/frontend.js"></script>
     <script src="/public/src/backend/backend.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -529,15 +529,15 @@
             gsap.from(text.chars, {
                 scrollTrigger: {
                     trigger: char,
-                    start: 'top 98%',
-                    end: 'top 10%',
-                    scrub: true,
+                    start: 'top 90%',
+                    end: 'top 50%', // Janela de ativação menor
+                    scrub: 0.3,
                     markers: false
                 },
                 scaleY: 0,
                 y: -20,
                 transformOrigin: 'top',
-                stagger: 0.1
+                stagger: 0.05
             })
         })
 
@@ -548,13 +548,13 @@
                     trigger: char,
                     start: 'top 90%',
                     end: 'top 25%',
-                    scrub: true,
+                    scrub: 0.3,
                     markers: false
                 },
                 scaleX: 0,
                 x: -20,
                 transformOrigin: 'left',
-                stagger: 0.1
+                stagger: 0.03 // Menor atraso entre os caracteres
             });
         })
 
