@@ -358,6 +358,13 @@ app.get("/verify-admin", authenticateToken, (req, res) => {
   return res.status(403).json({ isAdmin: false });
 });
 
+function verifyAdmin(req, res, next) {
+  if (req.user && req.user.isAdmin) {
+    return next(); // libera a rota
+  }
+  return res.status(403).json({ message: "Acesso negado. Admins apenas." });
+}
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads/");
@@ -371,19 +378,29 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.post("/pages", upload.fields([{ name: "images[]" }, { name: "imagesCapa", maxCount: 1 },]), async (req, res) => {
+app.post("/pages", authenticateToken, verifyAdmin, upload.fields([{ name: "images[]" }, { name: "imagesCapa", maxCount: 1 },]), async (req, res) => {
   try {
     console.log("Requisição recebida:", req.body); // Log da requisição
     console.log("Arquivos recebidos:", req.files); // Log dos arquivos
 
     const { title, date, place, eventDetails, objetivos, atividadesDescription, depoimentos, } = req.body;
 
-    if (!title || !date || !place || !eventDetails || !objetivos || !atividadesDescription || req.files.length === 0) {
+    const imagesUrls = req.files["images[]"].map((file) => `uploads/${file.filename}`);
+    const imageDisplayUrl = req.files["imagesCapa"] && req.files["imagesCapa"][0] ? `http://localhost:3000/uploads/${req.files["imagesCapa"][0].filename}` : "";
+
+    if (
+      !title?.trim() ||
+      !date?.trim() ||
+      !place?.trim() ||
+      !eventDetails?.trim() ||
+      !objetivos?.trim() ||
+      !atividadesDescription?.trim() ||
+      !imagesUrls.length ||
+      !imageDisplayUrl
+    ) {
       return res.status(400).json({ message: "Dados incompletos!" });
     }
 
-    const imagesUrls = req.files["images[]"].map((file) => `uploads/${file.filename}`);
-    const imageDisplayUrl = req.files["imagesCapa"] && req.files["imagesCapa"][0] ? `http://localhost:3000/uploads/${req.files["imagesCapa"][0].filename}` : "";
     const parsedDepoimentos = depoimentos ? JSON.parse(depoimentos) : [];
     const newPage = new pagina({
       imageDisplayUrl,
@@ -754,7 +771,7 @@ app.get("/pages/:slug", async (req, res) => {
 
 // Rota para editar a página
 
-app.put("/pages/:slug", upload.array("images[]"), async (req, res) => {
+app.put("/pages/:slug",authenticateToken, verifyAdmin, upload.array("images[]"), async (req, res) => {
   const { slug } = req.params;
 
   
@@ -807,7 +824,7 @@ app.put("/pages/:slug", upload.array("images[]"), async (req, res) => {
 });
 
 // Rota DELETE para excluir uma página
-app.delete("/pages/:slug", async (req, res) => {
+app.delete("/pages/:slug",authenticateToken, verifyAdmin, async (req, res) => {
   const { slug } = req.params;
 
   try {

@@ -796,6 +796,8 @@ document.getElementById("images").addEventListener("change", (event) => {
 
 });
 
+const token = localStorage.getItem("token");
+
 async function criarPagina() {
   const title = document.getElementById("title").value;
   const date = document.getElementById("date").value;
@@ -816,6 +818,21 @@ async function criarPagina() {
       const autor = testimonialGroup.querySelector("input").value;
       depoimentos.push({ texto, autor });
     });
+
+    if (
+      !title ||
+      !date ||
+      !place ||
+      !eventDetails ||
+      !objetivos ||
+      !atividadesDescription ||
+      images.length === 0 ||
+      !imageCapa ||
+      depoimentos.length === 0 
+    ) {
+      alert("Por favor, preencha todos os campos obrigatórios e envie ao menos uma imagem a imagem de capa e um depoimento.");
+      return;
+    }
 
   const formData = new FormData();
   formData.append("title", title);
@@ -838,6 +855,9 @@ async function criarPagina() {
   try {
     const response = await fetch("http://localhost:3000/pages", {
       method: "POST",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
       body: formData,
     });
 
@@ -1138,7 +1158,20 @@ async function updatePage(slug) {
 
  
   const allTestimonials = [...existingTestimonials, ...newTestimonials];
-
+  
+  if (
+    !title ||
+    !date ||
+    !place ||
+    !eventDetails ||
+    !objetivos ||
+    !atividadesDescription ||
+    allTestimonials.length === 0
+  
+  ) {
+    alert("Por favor, preencha todos os campos obrigatórios e envie ao menos uma imagem e a imagem de capa.");
+    return;
+  }
   
   const formData = new FormData();
 
@@ -1173,6 +1206,9 @@ async function updatePage(slug) {
   try {
     const response = await fetch(`http://localhost:3000/pages/${slug}`, {
       method: "PUT",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
       body: formData,
     });
 
@@ -1196,6 +1232,9 @@ async function deletarPagina(slug) {
   try {
     const response = await fetch(`http://localhost:3000/pages/${slug}`, {
       method: "DELETE",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      }
     });
 
     if (!response.ok) {
