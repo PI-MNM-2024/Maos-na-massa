@@ -14,9 +14,13 @@ app.use(express.json());
 app.use(cors());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
+const protocolo = process.env.API_PROTOCOL
+const baseURL = process.env.API_URL
+const frontURL = process.env.FRONT_URL
+
 
 async function conectarAoMongoDB() {
-  await mongoose.connect('mongodb+srv://GabrielFernandes:gabriel@pimaosnamassa.jfekz.mongodb.net/?retryWrites=true&w=majority&appName=PImaosnamassa')
+  await mongoose.connect(process.env.BD_CONECTION)
 }
 
 const pages = mongoose.Schema({
@@ -319,7 +323,7 @@ app.post("/login", async (req, res) => {
     // Incluindo o isAdmin no payload do token
     const token = jws.sign(
       { login: usuario.login, isAdmin: usuario.isAdmin }, // Incluindo isAdmin no token
-      "chave-secreta-super-segura",
+      process.env.SECRET_KEY,
       { expiresIn: "1h" }
     );
 
@@ -341,7 +345,7 @@ function authenticateToken(req, res, next) {
     return res.status(403).json({ message: "Acesso negado. Token não fornecido." });
   }
 
-  jws.verify(token, "chave-secreta-super-segura", (err, user) => {
+  jws.verify(token, process.env.SECRET_KEY, (err, user) => {
     if (err) {
       return res.status(403).json({ message: "Token inválido ou expirado." });
     }
@@ -386,7 +390,7 @@ app.post("/pages", authenticateToken, verifyAdmin, upload.fields([{ name: "image
     const { title, date, place, eventDetails, objetivos, atividadesDescription, depoimentos, } = req.body;
 
     const imagesUrls = req.files["images[]"].map((file) => `uploads/${file.filename}`);
-    const imageDisplayUrl = req.files["imagesCapa"] && req.files["imagesCapa"][0] ? `http://localhost:3000/uploads/${req.files["imagesCapa"][0].filename}` : "";
+    const imageDisplayUrl = req.files["imagesCapa"] && req.files["imagesCapa"][0] ? `${protocolo+baseURL}/uploads/${req.files["imagesCapa"][0].filename}` : "";
 
     if (
       !title?.trim() ||
@@ -486,10 +490,10 @@ app.get("/pages/:slug", async (req, res) => {
       <html lang="pt-BR">
           <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="http://127.0.0.1:5500/public/styles/style.css" />
+        <link rel="stylesheet" href="${frontURL}/public/styles/style.css" />
         <link
           rel="shortcut icon"
-          href="http://127.0.0.1:5500/public/assets/favicon/MAOMASSA.png"
+          href="${frontURL}/public/assets/favicon/MAOMASSA.png"
           type="image/x-icon"
         />
 
@@ -514,9 +518,9 @@ app.get("/pages/:slug", async (req, res) => {
       <body>
       <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="http://127.0.0.1:5500/index.html"
+          <a class="navbar-brand" href="${frontURL}/index.html"
             ><img
-              src="http://127.0.0.1:5500/public/assets/favicon/MAOMASSA.png"
+              src="${frontURL}/public/assets/favicon/MAOMASSA.png"
               alt="Foto da logo do mãos na massa"
           /></a>
           <button
@@ -535,48 +539,48 @@ app.get("/pages/:slug", async (req, res) => {
               <a
                 class="nav-link me-2 corTexto p-3"
                 aria-current="page"
-                href="http://127.0.0.1:5500/public/src/quemsomos.html"
+                href="${frontURL}/public/src/quemsomos.html"
                 >Quem Somos</a
               >
               <a
                 class="nav-link active me-2 p-3"
                 aria-current="page"
-                href="http://127.0.0.1:5500/public/src/realizacoes.html"
+                href="${frontURL}/public/src/realizacoes.html"
                 >Realizações</a
               >
               <a
                 class="nav-link me-2 p-3"
                 aria-current="page"
-                href="http://127.0.0.1:5500/public/src/parcerias.html"
+                href="${frontURL}/public/src/parcerias.html"
                 >Parceiros</a
               >
               <a
                 class="nav-link me-2 p-3"
                 aria-current="page"
-                href="http://127.0.0.1:5500/public/src/queroajuda.html"
+                href="${frontURL}/public/src/queroajuda.html"
                 >Quero Ajuda</a
               >
               <a
                 class="nav-link me-2 p-3"
                 aria-current="page"
-                href="http://127.0.0.1:5500/public/src/noticias.html"
+                href="${frontURL}/public/src/noticias.html"
                 >Notícias</a
               >
               <a
                 class="nav-link me-2 p-3"
                 aria-current="page"
-                href="http://127.0.0.1:5500/public/src/faq.html"
+                href="${frontURL}/public/src/faq.html"
                 >FAQ</a
               >
               <a
                 class="nav-link me-2 p-3"
                 aria-current="page"
-                href="http://127.0.0.1:5500/public/src/contato.html"
+                href="${frontURL}/public/src/contato.html"
                 >Contato</a
               >
               <a
                 class="nav-link me-2 ajude_agora p-3"
-                href="http://127.0.0.1:5500/public/src/areadedoadores.html"
+                href="${frontURL}/public/src/areadedoadores.html"
                 >Ajude Agora</a
               >
               <li class="nav-item dropdown">
@@ -590,7 +594,7 @@ app.get("/pages/:slug", async (req, res) => {
                 >
                   <img
                     class="login_foto"
-                    src="http://127.0.0.1:5500/public/assets/favicon/perfil-removebg-preview.png"
+                    src="${frontURL}/public/assets/favicon/perfil-removebg-preview.png"
                     alt="login"
                   />
                 </a>
@@ -599,7 +603,7 @@ app.get("/pages/:slug", async (req, res) => {
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <a class="dropdown-item" href="login.html">Login</a>
-                  <a class="dropdown-item data" href="http://127.0.0.1:5500/public/src/signup.html">Cadastrar</a>
+                  <a class="dropdown-item data" href="${frontURL}/public/src/signup.html">Cadastrar</a>
                 </div>
               </li>
             </div>
@@ -737,13 +741,13 @@ app.get("/pages/:slug", async (req, res) => {
                     <p><b>Siga-nos em nossas redes sociais!</b></p>
                     <div class="icons-container">
                         <a href="https://www.youtube.com/@projetomaosnamassa8265" target="_blank">
-                            <img src="http://127.0.0.1:5500/public/assets/favicon/youtube.svg" alt="YouTube" width="30">
+                            <img src="${frontURL}/public/assets/favicon/youtube.svg" alt="YouTube" width="30">
                         </a>
                         <a href="https://www.instagram.com/projeto_maosnamassa/" target="_blank">
-                            <img src="http://127.0.0.1:5500/public/assets/favicon/instagram-alt.svg" alt="Instagram" width="30">
+                            <img src="${frontURL}/public/assets/favicon/instagram-alt.svg" alt="Instagram" width="30">
                         </a>
                         <a href="mailto:maosnamassaong@gmail.com" target="_blank">
-                            <img src="http://127.0.0.1:5500/public/assets/favicon/gmail.svg" alt="Gmail" width="30">
+                            <img src="${frontURL}/public/assets/favicon/gmail.svg" alt="Gmail" width="30">
                         </a>
                     </div>
                 </div>

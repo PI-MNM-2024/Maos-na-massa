@@ -1,5 +1,6 @@
-const protocolo = 'http://'
-const baseURL = 'localhost:3000'
+const protocolo = process.env.API_PROTOCOL
+const baseURL = process.env.API_URL
+const frontURL = process.env.FRONT_URL
 
 function exibirAlerta(seletor, innerHTML, classesToAdd, classesToRemove, timeout) {
   let alert = document.querySelector(seletor)
@@ -612,7 +613,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function loadPages() {
   try {
-    const response = await fetch("http://localhost:3000/pages"); 
+    const response = await fetch(protocolo+baseURL+"/pages"); 
     if (response.ok) {
       const pages = await response.json(); 
 
@@ -646,7 +647,7 @@ async function loadPages() {
         const columnHTML = `
           <div class="col-12 col-sm-8 col-md-6 col-lg-3 mb-4">
             <div class="foto-container">
-              <a href="http://localhost:3000/pages/${page.slug}" target="_blank">
+              <a href="${protocolo+baseURL}/pages/${page.slug}" target="_blank">
                 <img src="${page.imageDisplayUrl}" alt="${page.title}" class="img-fluid" />
                 <div class="titulo">${page.title}</div>
               </a>
@@ -853,7 +854,7 @@ async function criarPagina() {
   });
 
   try {
-    const response = await fetch("http://localhost:3000/pages", {
+    const response = await fetch(protocolo+baseURL+"/pages", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${token}`,
@@ -957,13 +958,13 @@ function extractPageDataFromHTML(htmlContent) {
     let imgSrc = imgElement.src || imgElement.getAttribute('data-src');  
     if (imgSrc) {
      
-      if (imgSrc.startsWith('http://127.0.0.1:5500')) {
+      if (imgSrc.startsWith(frontURL)) {
         
-        imgSrc = imgSrc.replace('http://127.0.0.1:5500', 'http://localhost:3000');
+        imgSrc = imgSrc.replace(frontURL, protocolo+baseURL);
       }
       
-      if (imgSrc.startsWith('http://localhost:3000/')) {
-        imagesUrls.push(imgSrc.replace('http://localhost:3000/', ''));  
+      if (imgSrc.startsWith(protocolo+baseURL+'/')) {
+        imagesUrls.push(imgSrc.replace(protocolo+baseURL+'/', ''));  
       }
     }
   });
@@ -984,7 +985,7 @@ function extractPageDataFromHTML(htmlContent) {
 // Função para carregar os dados da página
 async function loadPageData(slug) {
   try {
-    const response = await fetch(`http://localhost:3000/pages/${slug}`);
+    const response = await fetch(protocolo+baseURL+`/pages/${slug}`);
     if (!response.ok) {
       throw new Error(`Erro ao carregar a página: ${response.status}`);
     }
@@ -1028,7 +1029,7 @@ async function loadPageData(slug) {
       const img = document.createElement("img");
 
       
-      img.src = `http://localhost:3000/${url}`; 
+      img.src = protocolo+baseURL+`/${url}`; 
 
       img.alt = "Imagem da Página";
       img.classList.add("image-preview");
@@ -1191,7 +1192,7 @@ async function updatePage(slug) {
 
   // Coleta as imagens existentes (já carregadas no backend)
   const existingImages = Array.from(document.querySelectorAll("#imagePreview img")).map((img) => {
-    return img.src.replace("http://localhost:3000/", ""); // Remove o domínio da URL, deixando o caminho relativo
+    return img.src.replace(protocolo+baseURL+'/', ""); // Remove o domínio da URL, deixando o caminho relativo
   });
 
   // Adiciona as imagens existentes ao FormData
@@ -1204,7 +1205,7 @@ async function updatePage(slug) {
 
   
   try {
-    const response = await fetch(`http://localhost:3000/pages/${slug}`, {
+    const response = await fetch(protocolo+baseURL+`/pages/${slug}`, {
       method: "PUT",
       headers: {
         "Authorization": `Bearer ${token}`,
@@ -1230,7 +1231,7 @@ async function deletarPagina(slug) {
   if (!confirmar) return;
 
   try {
-    const response = await fetch(`http://localhost:3000/pages/${slug}`, {
+    const response = await fetch(protocolo+baseURL+`/pages/${slug}`, {
       method: "DELETE",
       headers: {
         "Authorization": `Bearer ${token}`,
